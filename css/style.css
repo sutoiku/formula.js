@@ -1,0 +1,84 @@
+header {
+  margin-top: 80px;
+}
+
+code {
+  font-family: 'Droid Sans Mono', Monaco, Menlo, Consolas, 'Courier New', monospace;
+}
+
+footer {
+  margin-top: 40px;
+}
+
+pre {
+  font-family: 'Droid Sans Mono', Monaco, Menlo, Consolas, 'Courier New', monospace;
+}
+
+.table-middle td {
+  vertical-align: middle !important;
+}
+
+.cell-content {
+  font-family: 'Droid Sans Mono', Monaco, Menlo, Consolas, 'Courier New', monospace;
+  text-align: right !important;
+}
+
+.cell-header {
+  text-align: right !important;
+}
+
+.cell-icon {
+  padding-right: 1.2em !important;
+  text-align: right !important;
+}
+
+.download-note {
+  padding-left: 1em;
+}
+
+.equation-row {
+  height: 72px !important;
+}
+
+.formula-input {
+  font-family: 'Droid Sans Mono', Monaco, Menlo, Consolas, 'Courier New', monospace;
+  font-size: 1.25em !important;
+  height: 1.75em !important;
+  width: 100%;
+}
+
+.formula-result {
+  font-family: 'Droid Sans Mono', Monaco, Menlo, Consolas, 'Courier New', monospace;
+  font-size: 1.25em;
+  margin-top: -1px;
+}
+
+.google-iframe {
+  margin-bottom: 1em;
+}
+
+.header {
+  margin-top: 80px !important;
+}
+
+.lead {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+.link-plain {
+  color: #333;
+}
+
+.logo {
+  height: 2.5em !important;
+}
+
+.table-section {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none;
+}

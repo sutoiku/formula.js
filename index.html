@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+  <meta charset="utf-8" />
+  <meta name="fragment" content="!" />
+  <title>Formula.js</title>
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono" />
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Inconsolata" />
+  <script type="text/javascript" src="lib/angular.min.js"></script>
+  <script type="text/javascript" src="lib/jstat.min.js"></script>
+  <script type="text/javascript" src="lib/lodash.min.js"></script>
+  <script type="text/javascript" src="lib/moment.min.js"></script>
+  <script type="text/javascript" src="lib/numeral.min.js"></script>
+  <script type="text/javascript" src="lib/numeric.min.js"></script>
+  <script type="text/javascript" src="lib/underscore.string.min.js"></script>
+  <script type="text/javascript" src="lib/formula.js"></script>
+  <script type="text/javascript" src="libraries.js"></script>
+  <script type="text/javascript" src="demos.js"></script>
+  <script type="text/javascript" src="tests.js"></script>
+  <script type="text/javascript" src="unsupported.js"></script>
+  <script type="text/javascript" src="controller.js"></script>
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="index.html">Formula.js</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="">
+              <a href="tests.html">Tests</a>
+            </li>
+            <li class="">
+              <a href="http://stoic.com/">STOIC</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <header>
+    <div class="container">
+      <h1 style="font-size: 6em; margin-bottom: 30px; margin-left: -4px;">Formula.js</h1>
+      <p class="lead">JavaScript implementation of most formula functions supported by <a href="http://office.microsoft.com/en-us/excel-help/excel-functions-by-category-HA102752955.aspx">Microsoft Excel 2013</a> and <a href="https://support.google.com/drive/bin/static.py?hl=en&topic=25273&page=table.cs">Google Spreadsheets</a></p>
+      <p><a href="lib/formula.js"><button class="btn btn-large btn-primary" type="button">Download formula.js</button></a><span class="download-note">NOTE: some <a href="#Dependencies">external libraries</a> required</span></p>
+    </div>
+  </header>
+  <div ng-controller="TestCases">
+    <div class="container">
+      <div class="row">
+        <div class="span6">
+          <h2>Formula</h2>
+          <input type="text" ng-model="myFormula" class="formula-input"/>
+        </div>
+        <div class="span6">
+          <h2>Result</h2>
+          <pre class="formula-result">{{ $eval(myFormula.substring(1)) }}</pre>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12">
+          <h2>Overview</h2>
+          <table class="table table-hover" width="100%">
+            <tbody>
+              <tr><td><strong>Status</strong></td><td>Under development (first release scheduled for February, 2013)</td></tr>
+              <tr><td><strong>Purpose</strong></td><td>Provide a JavaScript implementation of most formula functions supported by <a href="http://office.microsoft.com/en-us/excel-help/excel-functions-by-category-HA102752955.aspx">Microsoft Excel 2013</a> and <a href="https://support.google.com/drive/bin/static.py?hl=en&topic=25273&page=table.cs">Google Spreadsheets</a></td></tr>
+              <tr><td><strong>Origin</strong></td><td><a href="http://stoic.com/features/expression-engine">Expression Engine</a> developed for the <a href="http://stoic.com/">STOIC</a> platform</td></tr>
+              <tr><td><strong>Coverage</strong></td><td>A handful of <a href="#Unsupported">unsupported functions</a> are left deliberatly out of scope, and a few others are in need of a suitable implementation</td></tr>
+              <tr><td><strong>Dependencies</strong></td><td><a href="http://jstat.org/">jStat</a>, <a href="http://lodash.com/">Lo-Dash</a>, <a href="http://momentjs.com/">Moment.js</a>, <a href="http://numeraljs.com/">Numeral.js</a>, <a href="http://numericjs.com/">Numeric JavaScript</a>, <a href="http://epeli.github.com/underscore.string/">Undercore.string</a> (<a href="http://requirejs.org/">RequireJS</a> package under development)</td></tr>
+              <tr><td><strong>Deployment</strong></td><td>Client-side and server-side (<a href="https://npmjs.org/">NPM</a> package under development)</td></tr>
+              <tr><td><strong>Author</strong></td><td><a href="http://sutoiku.com/">Ismael Chang Ghalimi</a> for <a href="http://stoic.com/">STOIC</a>, with help from a few <a href="#Credits">contributors</a></td></tr>
+              <tr><td><strong>License</strong></td><td><a href="#License">MIT License</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12">
+          <a name="Types"></a>
+          <h2>Function types</h2>
+          <table class="table table-hover">
+            <thead>
+              <th width="50%">Type</th><th width="25%">Status</th><th width="25%">Reference</th>
+            </thead>
+            <tbody>
+              <tr><td>Compatibility functions</td><td>Planned</td><td><a href="http://office.microsoft.com/en-us/excel-help/excel-functions-by-category-HA102752955.aspx#_Toc309306706">Excel</a></td></tr>
+              <tr><td>Database functions</td><td>Planned</td><td><a href="http://office.microsoft.com/en-us/excel-help/excel-functions-by-category-HA102752955.aspx#_Toc309306708">Excel</a></td></tr>
+              <tr><td><a href="#date">Date and time functions</a></td><td>Implemented</td><td><a href="http://office.microsoft.com/en-us/excel-help/excel-functions-by-category-HA102752955.aspx#_Toc309306709">Excel</a></td></tr>
+              <tr><td><a href="#engineering">Engineering functions</a></td><td>Implemented</td><td><a href="http://office.microsoft.com/en-us/excel-help/excel-functions-by-category-HA102752955.aspx#_Toc309306710">Excel</a></td></tr>
+              <tr><td><a href="#financial">Financial functions</a></td><td>Started</td><td><a href="http://office.microsoft.com/en-us/excel-help/excel-functions-by-category-HA102752955.aspx#_Toc309306711">Excel</a></td></tr>
+              <tr><td>Information functions</td><td>Planned</td><td><a href="http://office.microsoft.com/en-us/excel-help/excel-functions-by-category-HA102752955.aspx#_Toc309306712">Excel</a></td></tr>
+              <tr><td><a href="#logical">Logical functions</a></td><td>Implemented</td><td><a href="http://office.microsoft.com/en-us/excel-help/excel-functions-by-category-HA102752955.aspx#_Toc309306713">Excel</a></td></tr>
+              <tr><td>Lookup and reference functions</td><td>Planned</td><td><a href="http://office.microsoft.com/en-us/excel-help/excel-functions-by-category-HA102752955.aspx#_Toc309306714">Excel</a></td></tr>
+              <tr><td><a href="#math">Math and trigonometry functions</a></td><td>Implemented</td><td><a href="http://office.microsoft.com/en-us/excel-help/excel-functions-by-category-HA102752955.aspx#_Toc309306715">Excel</a></td></tr>
+              <tr><td><a href="#statistical">Statistical functions</a></td><td>Implemented</td><td><a href="http://office.microsoft.com/en-us/excel-help/excel-functions-by-category-HA102752955.aspx#_Toc309306716">Excel</a></td></tr>
+              <tr><td><a href="#text">Text functions</a></td><td>Implemented</td><td><a href="http://office.microsoft.com/en-us/excel-help/excel-functions-by-category-HA102752955.aspx#_Toc309306717">Excel</a></td></tr>
+              <tr><td>User defined functions</td><td>Planned</td><td><a href="http://office.microsoft.com/en-us/excel-help/excel-functions-by-category-HA102752955.aspx#_Toc309306718">Excel</a></td></tr>
+              <tr><td>Web functions</td><td>Planned</td><td><a href="http://office.microsoft.com/en-us/excel-help/excel-functions-by-category-HA102752955.aspx#_Toc309306719">Excel</a></td></tr>
+              </tr>
+            </tbody>
+          </table>        
+        </div>
+      </div>
+      <div ng-repeat="type in demos" class="row">
+        <div class="span12">
+          <a name="{{ type.type }}"></a>
+          <h2>{{ PROPER(type.type) }}</h2>
+          <table class="table table-hover" width="100%">
+            <thead>
+              <th width="10%">Function</th>
+              <th width="40%">Test</th>
+              <th class="cell-header" width="40%">Result</th>
+              <th class="cell-header" width="10%">Pass</th>
+            </thead>
+            <tbody>
+              <tr ng-repeat="test in type.tests">
+                <td nowrap="true"><code><a name="{{ test.function }}" href="function.html?name={{ test.function }}">{{ test.function }}</a></code></td>
+                <td nowrap="true"><code>{{ test.call }}</code></td>
+                <td nowrap="true" class="cell-content">{{ $eval(test.call) }}</td>
+                <td nowrap="true" class="cell-icon"><i class="{{ TEST($eval(test.call), test.result, test.bypass) }} icon-large"></i></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12">
+          <a name="Notes"></a>
+          <h2>Notes</h2>
+          <table class="table table-hover">
+            <tbody>
+              <tr><td>Functions follow Microsoft Excel's type classification (<em>vs</em> Google).</td></tr>
+              <tr><td>Parameter names have been harmonized and simplified (they only affect documentation).</td></tr>
+              <tr><td>Periods in function names have been removed (CEILINGPRECISE <em>vs</em> CEILING.PRECISE).</td></tr>
+              <tr><td>Whenever matching functions in Microsoft Excel and Google Spreadsheets disagree, Microsoft Excel has precedence (larger user base).</td></tr>
+              <tr><td>Microsoft Excel's <a href="http://office.microsoft.com/en-us/excel-help/excel-functions-by-category-HA102752955.aspx#_Toc309306707">Cube functions</a> are not supported.</td></tr>
+            </tbody>
+          </table>        
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12">
+          <a name="Unsupported"></a>
+          <h2>Unsupported functions</h2>
+          <table class="table table-hover">
+            <thead>
+              <th>Function</th><th>Platform</th><th>Reason</th><th>Planned</th>
+            </thead>
+            <tbody>
+              <tr ng-repeat="function in unsupported">
+                <td nowrap="true">
+                  <code><a href="{{ function.url }}">{{ function.name }}</a></code>
+                </td>
+                <td nowrap="true">{{ function.platform }}</td>
+                <td nowrap="true">{{ function.reason }}</td>
+                <td nowrap="true">{{ PLANNED(function.planned) }}</td>
+              </tr>
+            </tbody>
+          </table>        
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12">
+          <a name="Dependencies"></a>
+          <h2>Required libraries</h2>
+          <table class="table table-hover">
+            <thead>
+              <th>Library</th><th>Purpose</th>
+            </thead>
+            <tbody>
+              <tr ng-repeat="library in libraries">
+                <td nowrap="true">
+                  <a href="{{ library.url }}">{{ library.name }}</a>
+                </td>
+                <td nowrap="true">{{ library.purpose }}</td>
+              </tr>
+            </tbody>
+          </table>        
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12">
+          <a name="Credits"></a>
+          <h2>Credits</h2>
+          <p>Formula.js is developed and maintained by <a href="http://sutoiku.com/">Ismael Chang Ghalimi</a>, with support from <a href="http://stoic.com/">STOIC</a> and help from the following contributors:</p>
+          <p><a href="http://stackoverflow.com/users/411022/ilmari-karonen">Ilmari Karonen</a>, <a href="http://www.ma.hw.ac.uk/~loisel/">Sébastien Loisel</a>, <a href="https://github.com/trevnorris">Trevor Norris</a>, <a href="http://stackoverflow.com/users/466514/roonaan">Roönaän</a>, <a href="http://stiebitzhofer.com/">Hannes Stiebitzhofer</a>.</p>     
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12">
+          <a name="License"></a>
+          <h2>License</h2>
+          <p class="lead">The MIT License (MIT)</p>
+          <p>Copyright © 2012 <a href="http://stoic.com/">Sutoiku, Inc.</a></p>
+          <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+          <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+          <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>    
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer>
+    <div class="container">
+      <p><small>Copyright © 2012 Sutoiku, Inc. | Excel is a registered trademark of Microsoft Corporation | Google Spreadsheets is a trademark of Google, Inc.</small></p>
+      <br/>
+    </div>
+  </footer>
+  <script type="text/javascript">
+    var _gauges = _gauges || [];
+    (function() {
+      var t   = document.createElement('script');
+      t.type  = 'text/javascript';
+      t.async = true;
+      t.id    = 'gauges-tracker';
+      t.setAttribute('data-site-id', '506315c7f5a1f5784b0000c6');
+      t.src = '//secure.gaug.es/track.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(t, s);
+    })();
+  </script>
+</body>
+</html>
