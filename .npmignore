@@ -2,3 +2,7 @@ public
 .idea
 tmp
 *.tgz
+html-report
+lib-cov
+cobertura-coverage.xml
+test/generated
