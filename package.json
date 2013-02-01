@@ -9,11 +9,13 @@
     "main": "lib/formula.js",
     "dependencies": {
         "underscore": "*",
+        "underscore.string": "*",
         "moment": "*",
         "lodash": "*",
         "numeral": "*",
         "numeric": "*",
-        "jStat": "*"
+        "jStat": "*",
+        "sugar": "*"
     },
     "devDependencies": {
         "mocha": "*",

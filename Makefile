@@ -3,6 +3,7 @@ MOCHA_OPTS = --timeout 6000 --recursive
 REPORTER = spec
 S3_STOIC=s3cmd -c ~/.s3cmd/.stoic
 S3_NPM_REPO=s3://npm-repo
+GENERATED_TEST_FILES=test/generated/*.js
 TEST_FILES = test
 TEST_FILE?=you_must_specify_the_test_file
 
@@ -10,14 +11,12 @@ TEST_FILE?=you_must_specify_the_test_file
 lint:
 	$(BIN)/jshint lib/* test/* --config jshint-config.json
 
-test: lint generate-formula-tests
+test: lint generate-tests
 	$(BIN)/mocha $(MOCHA_OPTS) --reporter $(REPORTER) $(TEST_FILES)
 
-generate-formula-tests:
+generate-tests:
+	rm $(GENERATED_TEST_FILES) || true
 	@node util/generate-mocha-test-cases.js
-
-test-one: lint generate-formula-tests
-	$(BIN)/mocha $(MOCHA_OPTS) --reporter $(REPORTER) $(TEST_FILE)
 
 test-reports: lib-cov
 	[ -d "reports" ] && rm -rf reports/* || true
@@ -38,7 +37,7 @@ lib-cov:
 	[ -d "lib-cov" ] && rm -rf lib-cov || true
 	$(BIN)/istanbul instrument --output lib-cov --no-compact --variable global.__coverage__ lib
 
-test-cov: lib-cov
+test-cov: lib-cov generate-tests
 	@IMPORTERJS_COV=1 $(MAKE) test "REPORTER=mocha-istanbul" ISTANBUL_REPORTERS=text-summary,html,cobertura
 	@echo
 	@echo open html-report/index.html file in your browser
