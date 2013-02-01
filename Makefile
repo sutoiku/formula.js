@@ -10,15 +10,14 @@ TEST_FILE?=you_must_specify_the_test_file
 lint:
 	$(BIN)/jshint lib/* test/* --config jshint-config.json
 
-test: lint
+test: lint generate-formula-tests
 	$(BIN)/mocha $(MOCHA_OPTS) --reporter $(REPORTER) $(TEST_FILES)
 
+generate-formula-tests:
+	@node util/generate-mocha-test-cases.js
 
-test-one: lint
+test-one: lint generate-formula-tests
 	$(BIN)/mocha $(MOCHA_OPTS) --reporter $(REPORTER) $(TEST_FILE)
-
-test-ci:
-	$(MAKE) -k test MOCHA_OPTS="$(MOCHA_OPTS) --watch --growl" REPORTER="min"
 
 test-reports: lib-cov
 	[ -d "reports" ] && rm -rf reports/* || true

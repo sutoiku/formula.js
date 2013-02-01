@@ -14,6 +14,8 @@ tmp
 results
 .idea
 
+test/generated/*.js
+
 node_modules
 cobertura-coverage.xml
 html-report
