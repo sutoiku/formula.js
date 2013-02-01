@@ -574,8 +574,8 @@
         {"call": "HEX2DEC('2a')", "result": 42},
         {"call": "HEX2DEC('8000000000')", "result": -549755813888},
         {"call": "HEX2DEC('ffffffffff')", "result": -1},
-        {"call": "HEX2DEC(0)", "result": '0'},
-        {"call": "HEX2DEC(1)", "result": '1'},
+        {"call": "HEX2DEC(0)", "result": 0},
+        {"call": "HEX2DEC(1)", "result": 1},
         {"call": "HEX2DEC('7fffffffff')", "result": 549755813887}
       ]},
       {"function": "HEX2OCT", "tests": [
