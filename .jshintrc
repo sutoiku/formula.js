@@ -13,7 +13,7 @@
   "laxcomma": true,
   "newcap": true,
   "node": true,
-  "noempty": true,
+  "noempty": false,
   "nonew": true,
   "predef":
   [
