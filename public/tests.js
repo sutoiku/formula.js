@@ -302,12 +302,12 @@
         {"call": "CUMPRINC('0.1/12', '30*12', 100000, 13, 24, 2)", "result": "#NUM!"}
       ]},
       {"function": "DATE", "tests": [
-        {"call": "DATE(2012, 1, 1)", "result": 1325336400000},
-        {"call": "DATE(2012, 2, 29)", "result": 1330434000000},
-        {"call": "DATE(2012, 3, 30)", "result": 1333026000000},
-        {"call": "DATE(2012, 12, 31)", "result": 1356872400000}
+        {"call": "DATE(2012, 1, 1).getTime()", "result": 1325336400000},
+        {"call": "DATE(2012, 2, 29).getTime()", "result": 1330434000000},
+        {"call": "DATE(2012, 3, 30).getTime()", "result": 1333026000000},
+        {"call": "DATE(2012, 12, 31).getTime()", "result": 1356872400000}
       ]},
-      {"function": "DB", "tests": [
+      {"function": "ATE(B", "tests": [
         {"call": "DB(1000000, 100000, 6, 1)", "result": 319000},
         {"call": "DB(1000000, 100000, 6, 2)", "result": 217239},
         {"call": "DB(1000000, 100000, 6, 3)", "result": 147939.759},

@@ -9,7 +9,7 @@ TEST_FILE?=you_must_specify_the_test_file
 
 
 lint:
-	$(BIN)/jshint test/*
+	$(BIN)/jshint lib/*.js test/**/*.js
 
 test: lint generate-tests
 	$(BIN)/mocha $(MOCHA_OPTS) --reporter $(REPORTER) $(TEST_FILES)
@@ -36,7 +36,7 @@ lib-cov:
 	[ -d "lib-cov" ] && rm -rf lib-cov || true
 	$(BIN)/istanbul instrument --output lib-cov --no-compact --variable global.__coverage__ lib
 
-test-cov: lib-cov generate-tests
+test-cov: lib-cov
 	@IMPORTERJS_COV=1 $(MAKE) test "REPORTER=mocha-istanbul" ISTANBUL_REPORTERS=text-summary,html,cobertura
 	@echo
 	@echo open html-report/index.html file in your browser

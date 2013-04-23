@@ -20,3 +20,4 @@ node_modules
 cobertura-coverage.xml
 html-report
 npm-debug.log
+reports
