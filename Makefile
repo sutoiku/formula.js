@@ -9,7 +9,7 @@ TEST_FILE?=you_must_specify_the_test_file
 
 
 lint:
-	$(BIN)/jshint lib/*.js test/**/*.js
+	$(BIN)/jshint lib/ test/
 
 test: lint generate-tests
 	$(BIN)/mocha $(MOCHA_OPTS) --reporter $(REPORTER) $(TEST_FILES)
