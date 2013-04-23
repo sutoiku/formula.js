@@ -15,7 +15,6 @@ test: lint generate-tests
 	$(BIN)/mocha $(MOCHA_OPTS) --reporter $(REPORTER) $(TEST_FILES)
 
 generate-tests:
-	rm $(GENERATED_TEST_FILES) || true
 	@node util/generate-mocha-test-cases.js
 
 test-reports: lib-cov
