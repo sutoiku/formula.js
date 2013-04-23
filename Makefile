@@ -9,13 +9,13 @@ TEST_FILE?=you_must_specify_the_test_file
 
 
 lint:
-	$(BIN)/jshint lib/* test/*
+	$(BIN)/jshint test/*
 
 test: lint generate-tests
 	$(BIN)/mocha $(MOCHA_OPTS) --reporter $(REPORTER) $(TEST_FILES)
 
 generate-tests:
-	[ -f $(GENERATED_TEST_FILES) ] && rm $(GENERATED_TEST_FILES) || true
+	rm $(GENERATED_TEST_FILES) || true
 	@node util/generate-mocha-test-cases.js
 
 test-reports: lib-cov
