@@ -2,7 +2,7 @@
     "author": "Ismael Ghalimi <ismael@stoic.com>",
     "name": "formulajs",
     "description": "JavaScript implementation of most Microsoft Excel formula functions",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "repository": {
         "url": "git@github.com:sutoiku/formulajs.git"
     },
@@ -14,8 +14,7 @@
         "lodash": "*",
         "numeral": "*",
         "numeric": "*",
-        "jStat": "*",
-        "sugar": "*"
+        "jStat": "*"
     },
     "devDependencies": {
         "mocha": "*",
@@ -23,6 +22,7 @@
         "rewire":"*",
         "jshint": "*",
         "istanbul": "*",
+        "sugar": "*",
         "mocha-istanbul": "git://github.com/hmalphettes/mocha-istanbul.git"
     },
     "optionalDependencies": {
