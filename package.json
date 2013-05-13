@@ -10,11 +10,11 @@
   "dependencies": {
     "underscore": "*",
     "underscore.string": "*",
-    "moment": "*",
-    "lodash": "*",
-    "numeral": "*",
-    "numeric": "*",
-    "jStat": "*",
+    "moment": "2.0.0",
+    "lodash": "1.2.1",
+    "numeral": "1.4.8",
+    "numeric": "1.2.6",
+    "jStat": "0.0.2",
     "financial": "0.0.1"
   },
   "devDependencies": {
