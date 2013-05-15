@@ -6,3 +6,5 @@
 * Added support for the financial package (https://github.com/mfreilich/financial.js)
 * Did some refactoring to better support running in browser and nodejs
 * Upgraded to moment v2.0.0
+* Added support for requirejs
+* Added support for function

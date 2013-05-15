@@ -14,6 +14,9 @@ lint:
 test: lint generate-tests
 	$(BIN)/mocha $(MOCHA_OPTS) --reporter $(REPORTER) $(TEST_FILES)
 
+test-ci: lint generate-tests
+	$(BIN)/mocha $(MOCHA_OPTS) --watch --growl --reporter $(REPORTER) $(TEST_FILES)
+
 generate-tests:
 	@node util/generate-mocha-test-cases.js
 
