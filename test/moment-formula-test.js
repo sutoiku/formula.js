@@ -46,15 +46,15 @@ describe("test formula integration with momentjs", function() {
     });
 
     describe("test MOMENTSUB", function() {
-        it("should correctly evaluate when i subtract 1 day to 20-12-1963", function() {
+        it("should correctly evaluate when i subtract 1 day from 20-12-1963", function() {
             Formulae.MOMENTSUB(new Date(1963, 11, 20), 1, 'days').should.eql(moment([1963, 11, 19]).toDate());
         });
 
-        it("should correctly evaluate when i subtract 1 week to 20-12-1963", function() {
+        it("should correctly evaluate when i subtract 1 week from 20-12-1963", function() {
             Formulae.MOMENTSUB(new Date(1963, 11, 20), 1, 'weeks').should.eql(moment([1963, 11, 13]).toDate());
         });
 
-        it("should correctly evaluate when i subtract 1 month to 20-12-1963", function() {
+        it("should correctly evaluate when i subtract 1 month from 20-12-1963", function() {
             Formulae.MOMENTSUB(new Date(1963, 11, 20), 1, 'month').should.eql(moment([1963, 10, 20]).toDate());
         });
     });
