@@ -1,3 +1,8 @@
+0.0.4
+-----
+
+* Placed a work around for some functions in lodash that do not work well with the expression parser
+
 0.0.3
 -----
 
