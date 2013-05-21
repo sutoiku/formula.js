@@ -2,6 +2,7 @@
 -----
 
 * Placed a work around for some functions in lodash that do not work well with the expression parser
+* Switched across from using underscore to lodash
 
 0.0.3
 -----
