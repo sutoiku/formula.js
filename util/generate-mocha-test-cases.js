@@ -2,8 +2,8 @@
  * @author       Jim Alateras
  */
 var fs = require('fs');
-var sugar = require('sugar');
 var util = require('util');
+var _ = require('lodash');
 var testCases = require('../public/tests.js').FORMULA_TESTS;
 var stream = fs.createWriteStream(__dirname + "/../test/generated/formula-tests.js");
 generateRequire(stream);
@@ -31,7 +31,7 @@ function generateTestCase(stream, testCase) {
     stream.write(util.format('\tit("should correctly calculate %s", function() {\n', testCase.call));
 
     var result = testCase.result;
-    if (Object.isString(result)) {
+    if (_.isString(result)) {
         stream.write(util.format('\t\tFormulae.%s.should.equal("%s");\n', testCase.call, testCase.result));
     } else {
         stream.write(util.format('\t\tFormulae.%s.should.equal(%s);\n', testCase.call, testCase.result));

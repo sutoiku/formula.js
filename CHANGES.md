@@ -1,3 +1,9 @@
+0.0.5
+-----
+
+* Replaced sugar with lodash
+
+
 0.0.4
 -----
 
