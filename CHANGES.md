@@ -1,3 +1,9 @@
+0.0.6
+-----
+
+* Fixed the way jStat uses formula's arguments
+* Dates returned as string instead of JavaScript Date object
+
 0.0.5
 -----
 
