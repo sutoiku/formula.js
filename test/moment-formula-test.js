@@ -13,11 +13,11 @@ var Formulae = require(libpath + "/formula");
 describe("test formula integration with momentjs", function() {
     describe("test MOMENT", function() {
         it("should correctly evaluate the array [1963, 11, 20] as a valid date", function() {
-            Formulae.MOMENT([1963, 11, 20]).should.eql(moment([1963, 11, 20]).toDate());
+            Formulae.MOMENT([1963, 11, 20]).should.eql(moment([1963, 11, 20]).format());
         });
 
         it("should correctly evaluate 20-12-1963 when i use the format DD-MM-YYYY", function() {
-            Formulae.MOMENT('1963-12-20', 'YYYY-MM-DD').should.eql(moment([1963, 11, 20]).toDate());
+            Formulae.MOMENT('1963-12-20', 'YYYY-MM-DD').should.eql(moment([1963, 11, 20]).format('YYYY-MM-DD'));
         });
     });
 
