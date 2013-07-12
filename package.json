@@ -8,7 +8,7 @@
   },
   "main": "lib/formula.js",
   "dependencies": {
-    "underscore": "*",
+    "lodash": "*",
     "underscore.string": "*",
     "moment": "2.0.0",
     "lodash": "1.2.1",
