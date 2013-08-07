@@ -31,6 +31,7 @@ local-install:
 	@npm install
 
 package: clean
+	rm -rf *.tgz || true
 	@npm pack
 
 check: local-install test-reports test-cov
