@@ -1,3 +1,9 @@
+0.0.7
+-----
+
+* Moved the lodash functions to expression parser
+* Moved the callback registration functions to expression parser module
+
 0.0.6
 -----
 
