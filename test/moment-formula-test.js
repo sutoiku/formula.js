@@ -36,21 +36,21 @@ describe("test formula integration with momentjs", function () {
   });
 
   describe("test MOMENTDIFF", function () {
-    it("should correctly evaluate return 7 days for the different between 20-12-1963 and 27-12-1963", function () {
+    it("should correctly evaluate return 7 days for the difference between 20-12-1963 and 27-12-1963", function () {
       Formulae.MOMENTDIFF(new Date(1963, 11, 20), new Date(1963, 11, 27), 'days').should.equal(7);
     });
 
-    it("should correctly evaluate return 1 week for the different between 20-12-1963 and 27-12-1963", function () {
+    it("should correctly evaluate return 1 week for the difference between 20-12-1963 and 27-12-1963", function () {
       Formulae.MOMENTDIFF(new Date(1963, 11, 20), new Date(1963, 11, 27), 'weeks').should.equal(1);
     });
   });
 
   describe("test MOMENTSUB", function () {
-    it("should correctly evaluate when i subtract 1 day to 20-12-1963", function () {
+    it("should correctly evaluate when i subtract 1 day from 20-12-1963", function () {
       Formulae.MOMENTSUB(new Date(1963, 11, 20), 1, 'days').toDate().should.eql(moment([1963, 11, 19]).toDate());
     });
 
-    it("should correctly evaluate when i subtract 1 week to 20-12-1963", function () {
+    it("should correctly evaluate when i subtract 1 week from 20-12-1963", function () {
       Formulae.MOMENTSUB(new Date(1963, 11, 20), 1, 'weeks').toDate().should.eql(moment([1963, 11, 13]).toDate());
     });
 
@@ -60,7 +60,7 @@ describe("test formula integration with momentjs", function () {
   });
 
   describe("test MOMENTUTC", function () {
-    it("should correctly evaluate evaluate 20", function () {
+    it("should correctly evaluate UTC from [1963, 11, 20]", function () {
       Formulae.MOMENTUTC([1963, 11, 20]).should.eql("1963-12-20T00:00:00+00:00");
     });
   });
@@ -134,17 +134,17 @@ describe("test formula integration with momentjs", function () {
   });
 
   describe("test MOMENTISBEFORE", function () {
-    it("should return true when determining whether 1-20-1963 is before 20-20-1963", function () {
+    it("should return true when determining whether 1-12-1963 is before 20-12-1963", function () {
       Formulae.MOMENTISBEFORE([1963, 11, 1], [1963, 11, 20]).should.eql(true);
     });
 
-    it("should return false when determining whether 21-20-1963 is before 20-20-1963", function () {
+    it("should return false when determining whether 21-12-1963 is before 20-12-1963", function () {
       Formulae.MOMENTISBEFORE([1963, 11, 21], [1963, 11, 20]).should.eql(false);
     });
   });
 
   describe("test MOMENTISAFTER", function () {
-    it("should return false when determining whether 1-20-1963 is after 20-20-1963", function () {
+    it("should return false when determining whether 1-12-1963 is after 20-12-1963", function () {
       Formulae.MOMENTISAFTER([1963, 11, 1], [1963, 11, 20]).should.eql(false);
     });
 
