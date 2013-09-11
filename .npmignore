@@ -6,3 +6,5 @@ html-report
 lib-cov
 cobertura-coverage.xml
 test/generated
+coverage
+reports

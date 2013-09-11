@@ -13,7 +13,7 @@
     "lodash": "1.2.1",
     "numeral": "1.4.8",
     "numeric": "1.2.6",
-    "jStat": "0.0.2",
+    "jStat": "1.0.0",
     "financial": "0.0.1"
   },
   "devDependencies": {
@@ -21,8 +21,7 @@
     "should": "*",
     "rewire": "*",
     "jshint": "*",
-    "istanbul": "*",
-    "mocha-istanbul": "git://github.com/hmalphettes/mocha-istanbul.git"
+    "istanbul": "*"
   },
   "optionalDependencies": {},
   "engines": {

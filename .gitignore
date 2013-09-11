@@ -21,3 +21,4 @@ cobertura-coverage.xml
 html-report
 npm-debug.log
 reports
+coverage
