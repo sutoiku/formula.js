@@ -1,0 +1,33 @@
+{
+  "name": "formulajs",
+  "version": "0.0.7",
+  "authors": [
+    "Ismael Ghalimi <ismael@stoic.com>"
+  ],
+  "description": "JavaScript implementation of most Microsoft Excel formula functions",
+  "main": "lib/formula.js",
+  "license": "Apache 2.0",
+  "homepage": "http://stoic.com/formula/",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "underscore.string": "*",
+    "moment": "2.0.0",
+    "lodash": "1.2.1",
+    "numeral": "1.4.8",
+    "numericjs": "1.2.6",
+    "rm-jstat": "1.0.0"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*",
+    "rewire": "*",
+    "jshint": "*",
+    "istanbul": "*"
+  }
+}
