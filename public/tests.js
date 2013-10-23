@@ -1090,7 +1090,13 @@
         {"call": "YEARFRAC('Hello World!', '07/01/2014')", "result": "#VALUE!"},
         {"call": "YEARFRAC('01/01/2011', 'Hello World!')", "result": "#VALUE!"},
         {"call": "YEARFRAC('01/01/2011', '07/01/2014', 5)", "result": "#NUM!"}
-      ]}
+      ]},
+      {"function": "HTML2TEXT", "tests": [
+        {"call": "HTML2TEXT()", "result": ''},
+        {"call": "HTML2TEXT('')", "result": ''},
+        {"call": "HTML2TEXT('<i>Hello</i>')", "result": 'Hello'},
+        {"call": "HTML2TEXT(['<i>Hello</i>', '<b>Jim</b>'])", "result": 'Hello\\nJim'}
+      ]},
     ];
 
     scope.FORMULA_TESTS = FORMULA_TESTS;

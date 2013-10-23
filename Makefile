@@ -1,6 +1,7 @@
 BIN = ./node_modules/.bin
 MOCHA = mocha
 MOCHA_OPTS = --timeout 6000 --recursive
+NODE=node
 REPORTER = spec
 S3_STOIC=s3cmd -c ~/.s3cmd/.stoic
 S3_NPM_REPO=s3://npm-repo
@@ -31,6 +32,9 @@ test-reports: clean
 package: clean
 	rm -rf *.tgz || true
 	@npm pack
+
+generate-tests:
+	$(NODE) ./util/generate-mocha-test-cases.js
 
 clean:
 	[ -d "coverage" ] && rm -rf coverage || true
