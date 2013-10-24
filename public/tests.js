@@ -1097,6 +1097,14 @@
         {"call": "HTML2TEXT('<i>Hello</i>')", "result": 'Hello'},
         {"call": "HTML2TEXT(['<i>Hello</i>', '<b>Jim</b>'])", "result": 'Hello\\nJim'}
       ]},
+      {"function": "HUMANIZE", "tests": [
+        {"call": "HUMANIZE('')", "result": ''},
+        {"call": "HUMANIZE(new Date(2012, 11, 20, 7, 7, 7))", "result": 'Thursday, December 20th 2012, 7:07:07'},
+        {"call": "HUMANIZE(new Date(2012, 11, 20, 7, 7))", "result": 'Thursday, December 20th 2012, 7:07:00'},
+        {"call": "HUMANIZE(new Date(2012, 11, 20))", "result": 'Thursday, December 20th 2012'},
+        {"call": "HUMANIZE('A RANDOM STRING')", "result": 'A RANDOM STRING'},
+        {"call": "HUMANIZE(1 + 2)", "result": 3}
+      ]}
     ];
 
     scope.FORMULA_TESTS = FORMULA_TESTS;

@@ -12,7 +12,7 @@ TEST_FILE?=you_must_specify_the_test_file
 lint:
 	$(BIN)/jshint lib/* test/*
 
-test: lint
+test: generate-tests lint
 	$(MOCHA) $(MOCHA_OPTS) --reporter $(REPORTER) $(TEST_FILES)
 
 test-one: lint
