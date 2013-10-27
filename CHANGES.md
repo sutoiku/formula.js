@@ -3,6 +3,7 @@
 
 * Added HTML2TEXT and associated test cases
 * Added HUMANIZE and associated test cases (#59192844)
+* Added JSON2TEXT and associated test cases (#59604642)
 
 0.0.7
 -----

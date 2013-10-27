@@ -1097,6 +1097,12 @@
         {"call": "HTML2TEXT('<i>Hello</i>')", "result": 'Hello'},
         {"call": "HTML2TEXT(['<i>Hello</i>', '<b>Jim</b>'])", "result": 'Hello\\nJim'}
       ]},
+      {"function": "JSON2TEXT", "tests": [
+        {"call": "JSON2TEXT()", "result": ''},
+        {"call": "JSON2TEXT('')", "result": ''},
+        {"call": "JSON2TEXT({a: 1, b: 2})", "result": '{\\"a\\":1,\\"b\\":2}'},
+        {"call": "JSON2TEXT({a: 'hello', b: 'goodbye'})", "result": '{\\"a\\":\\"hello\\",\\"b\\":\\"goodbye\\"}'}
+      ]},
       {"function": "HUMANIZE", "tests": [
         {"call": "HUMANIZE('')", "result": ''},
         {"call": "HUMANIZE(new Date(2012, 11, 20, 7, 7, 7))", "result": 'Thursday, December 20th 2012, 7:07:07'},
