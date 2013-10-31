@@ -1,3 +1,8 @@
+0.0.9
+-----
+
+* Fixed issue with CONCATENATE function (#59947518)
+
 0.0.8
 -----
 
