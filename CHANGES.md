@@ -1,3 +1,10 @@
+0.0.10
+------
+
+* Add pull request to fix DATEVALUE and add some test cases
+* Add the begining support for bower package management
+* Removed dependency on financial.js as this is now in the expression parser
+
 0.0.9
 -----
 

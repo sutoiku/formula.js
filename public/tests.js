@@ -1111,6 +1111,12 @@
         {"call": "HUMANIZE(new Date(2012, 11, 20))", "result": 'Thursday, December 20th 2012'},
         {"call": "HUMANIZE('A RANDOM STRING')", "result": 'A RANDOM STRING'},
         {"call": "HUMANIZE(1 + 2)", "result": 3}
+      ]},
+      {"function": "DATEVALUE", "tests": [
+        {"call": "DATEVALUE('8/22/2008')", "result": 39682},
+        {"call": "DATEVALUE('20-DEC-1963')", "result": 23365},
+        {"call": "DATEVALUE('2012/03/01')", "result": 40969},
+        {"call": "DATEVALUE('5-JUL-2014')", "result": 41825},
       ]}
     ];
 
