@@ -31,7 +31,9 @@ function generateTestCase(stream, testCase) {
   stream.write(util.format('\tit("should correctly calculate %s", function() {\n', testCase.call));
 
   var result = testCase.result;
-  if (_.isString(result)) {
+  if (result === undefined) {
+    stream.write(util.format('\t\tshould.not.exist(Formulae.%s);\n', testCase.call));
+  } else if (_.isString(result)) {
     stream.write(util.format('\t\tFormulae.%s.should.equal("%s");\n', testCase.call, testCase.result));
   } else {
     stream.write(util.format('\t\tFormulae.%s.should.equal(%s);\n', testCase.call, testCase.result));

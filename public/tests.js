@@ -1123,6 +1123,14 @@
         {"call": "ROUND(127.120005, 3)", "result": 127.120},
         {"call": "ROUND(127.120005, 0)", "result": 127},
         {"call": "ROUND(127.160005, 1)", "result": 127.2},
+      ]},
+      {"function": "LOWER", "tests": [
+        {"call": "LOWER('abcd')", "result": 'abcd'},
+        {"call": "LOWER('ABcd')", "result": 'abcd'},
+        {"call": "LOWER('ABCD')", "result": 'abcd'},
+        {"call": "LOWER('')", "result": ''},
+        {"call": "LOWER()", "result": undefined},
+        {"call": "LOWER(undefined)", "result": undefined},
       ]}
     ];
 

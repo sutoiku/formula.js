@@ -1,3 +1,8 @@
+0.0.11
+------
+
+* Add some defensive coding around the LOWER function and add associated test cases
+
 0.0.10
 ------
 
