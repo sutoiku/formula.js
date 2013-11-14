@@ -1131,6 +1131,13 @@
         {"call": "LOWER('')", "result": ''},
         {"call": "LOWER()", "result": undefined},
         {"call": "LOWER(undefined)", "result": undefined},
+      ]},
+      {"function": "SUBSTITUTE", "tests": [
+        {"call": "SUBSTITUTE('Jim Alateras', 'im', 'ames')", "result": 'James Alateras'},
+        {"call": "SUBSTITUTE('Jim Alateras', '', 'ames')", "result": 'Jim Alateras'},
+        {"call": "SUBSTITUTE('Jim Alateras', undefined, 'ames')", "result": 'Jim Alateras'},
+        {"call": "SUBSTITUTE('', 'im', 'ames')", "result": ''},
+        {"call": "SUBSTITUTE(undefined, 'im', 'ames')", "result": undefined}
       ]}
     ];
 
