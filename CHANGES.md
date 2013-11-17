@@ -1,3 +1,8 @@
+0.0.12
+------
+
+* Added support for the SWITCH function (#60883740)
+
 0.0.11
 ------
 
