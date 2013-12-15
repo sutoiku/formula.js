@@ -1,3 +1,9 @@
+0.0.13
+------
+
+* Problem with computing weekdays with NETWORKDAYS #62319048
+* Fixed issue wih DATEVALUE #62514386
+
 0.0.12
 ------
 
