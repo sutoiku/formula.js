@@ -1113,10 +1113,10 @@
         {"call": "HUMANIZE(1 + 2)", "result": 3}
       ]},
       {"function": "DATEVALUE", "tests": [
-        {"call": "DATEVALUE('8/22/2008')", "result": 39682},
+        {"call": "DATEVALUE('8/22/2008')", "result": 39683},
         {"call": "DATEVALUE('20-DEC-1963')", "result": 23365},
         {"call": "DATEVALUE('2012/03/01')", "result": 40969},
-        {"call": "DATEVALUE('5-JUL-2014')", "result": 41825},
+        {"call": "DATEVALUE('5-JUL-2014')", "result": 41826},
       ]},
       {"function": "ROUND", "tests": [
         {"call": "ROUND(127.120005, 2)", "result": 127.12},
@@ -1138,6 +1138,10 @@
         {"call": "SUBSTITUTE('Jim Alateras', undefined, 'ames')", "result": 'Jim Alateras'},
         {"call": "SUBSTITUTE('', 'im', 'ames')", "result": ''},
         {"call": "SUBSTITUTE(undefined, 'im', 'ames')", "result": undefined}
+      ]},
+      {"function": "MD5", "tests": [
+        {"call": "MD5('jim@sutoiku.com')", "result": '3d508d960d5f63a9d9384baf6b4f67c3'},
+        {"call": "MD5('ismael@sutoiku.com')", "result": 'a33dab7034e1fced4adb648f46eabe5d'}
       ]}
     ];
 

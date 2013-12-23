@@ -1,3 +1,8 @@
+0.0.14
+------
+
+* Added support for MD5 and some test cases
+
 0.0.13
 ------
 
