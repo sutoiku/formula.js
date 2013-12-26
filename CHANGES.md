@@ -1,3 +1,9 @@
+0.0.15
+------
+
+* Improved our bower support
+* Upgraded some of our dependencies
+
 0.0.14
 ------
 
