@@ -1,6 +1,6 @@
 {
   "name": "formulajs",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "authors": [
     "Ismael Ghalimi <ismael@stoic.com>",
     "Jim Alateras <jim@stoic.com>"
@@ -14,6 +14,7 @@
     "node_modules",
     "bower_components",
     "test",
+    "public",
     "tests"
   ],
   "dependencies": {
