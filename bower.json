@@ -19,9 +19,9 @@
   ],
   "dependencies": {
     "underscore.string": "*",
-    "moment": "2.0.0",
-    "lodash": "1.2.1",
-    "numeral": "1.5.0",
+    "moment": "2.5.0",
+    "lodash": "2.4.1",
+    "numeral": "1.5.3",
     "numericjs": "1.2.6",
     "rm-jstat": "*"
   },
