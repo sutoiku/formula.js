@@ -1,3 +1,8 @@
+0.0.16
+------
+
+* Added support for NUMERAL function
+
 0.0.15
 ------
 

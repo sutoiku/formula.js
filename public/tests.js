@@ -1142,6 +1142,13 @@
       {"function": "MD5", "tests": [
         {"call": "MD5('jim@sutoiku.com')", "result": '3d508d960d5f63a9d9384baf6b4f67c3'},
         {"call": "MD5('ismael@sutoiku.com')", "result": 'a33dab7034e1fced4adb648f46eabe5d'}
+      ]},
+      {"function": "NUMERAL", "tests": [
+        {"call": "NUMERAL(10000, '0,0.0000')", "result": '10,000.0000'},
+        {"call": "NUMERAL(10000.23, '0,0')", "result": '10,000'},
+        {"call": "NUMERAL(1000.234, '$0,0.00')", "result": '$1,000.23'},
+        {"call": "NUMERAL(100, '0b')", "result": '100B'},
+        {"call": "NUMERAL(0.974878234, '0.000%')", "result": '97.488%'},
       ]}
     ];
 
