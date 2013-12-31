@@ -23,7 +23,9 @@
     "lodash": "2.4.1",
     "numeral": "1.5.3",
     "numericjs": "1.2.6",
+    "js-md5": "~1.1.0",
     "rm-jstat": "*"
+
   },
   "devDependencies": {
     "mocha": "*",
