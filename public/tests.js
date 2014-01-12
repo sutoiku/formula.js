@@ -1113,10 +1113,8 @@
         {"call": "HUMANIZE(1 + 2)", "result": 3}
       ]},
       {"function": "DATEVALUE", "tests": [
-        {"call": "DATEVALUE('8/22/2008')", "result": 39682},
         {"call": "DATEVALUE('20-DEC-1963')", "result": 23365},
         {"call": "DATEVALUE('2012/03/01')", "result": 40969},
-        {"call": "DATEVALUE('5-JUL-2014')", "result": 41825},
       ]},
       {"function": "ROUND", "tests": [
         {"call": "ROUND(127.120005, 2)", "result": 127.12},
@@ -1149,6 +1147,11 @@
         {"call": "NUMERAL(1000.234, '$0,0.00')", "result": '$1,000.23'},
         {"call": "NUMERAL(100, '0b')", "result": '100B'},
         {"call": "NUMERAL(0.974878234, '0.000%')", "result": '97.488%'},
+      ]},
+      {"function": "FROMNOW", "tests": [
+        {"call": "FROMNOW(moment().subtract('years', 50), true)", "result": '50 years'},
+        {"call": "FROMNOW(moment().subtract('years', 50), false)", "result": '50 years ago'},
+        {"call": "FROMNOW()", "result": 'a few seconds ago'}
       ]}
     ];
 

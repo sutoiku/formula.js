@@ -18,6 +18,7 @@ stream.end();
 
 function generateRequire(stream) {
   stream.write('var should = require("should");\n');
+  stream.write('var moment = require("moment");\n');
   stream.write('var libpath = process.env.IMPORTERJS_COV ? "../../lib-cov" : "../../lib";\n');
   stream.write('var Formulae = require(libpath + "/formula");\n');
   stream.write('\n\n');
