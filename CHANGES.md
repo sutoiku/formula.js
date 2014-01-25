@@ -1,4 +1,4 @@
-0.0.17
+0.0.18
 ------
 
 * Removed CONCAT and INITIALS functions
