@@ -1,6 +1,11 @@
 0.0.17
 ------
 
+* Removed CONCAT and INITIALS functions
+
+0.0.17
+------
+
 * Added support for FROMNOW
 
 0.0.16

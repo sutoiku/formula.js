@@ -1,31 +1,29 @@
 {
-  "author": "Ismael Ghalimi <ismael@stoic.com>",
-  "name": "formulajs",
-  "description": "JavaScript implementation of most Microsoft Excel formula functions",
-  "version": "0.0.17",
-  "repository": {
-    "url": "git@github.com:sutoiku/formulajs.git"
+  "author"               : "Ismael Ghalimi <ismael@stoic.com>",
+  "name"                 : "formulajs",
+  "description"          : "JavaScript implementation of most Microsoft Excel formula functions",
+  "version"              : "0.0.18",
+  "repository"           : {
+    "url"                : "git@github.com:sutoiku/formulajs.git"
   },
-  "main": "lib/formula.js",
-  "dependencies": {
-    "underscore.string": "*",
-    "moment": "2.5.0",
-    "lodash": "2.4.1",
-    "numeral": "1.5.3",
-    "numeric": "1.2.6",
-    "jStat": "0.0.2",
-    "blueimp-md5": "~1.1.0"
+  "engines"              : {
+    "node"               : "0.8.x"
   },
-  "devDependencies": {
-    "mocha": "*",
-    "should": "*",
-    "rewire": "*",
-    "jshint": "*",
-    "istanbul": "*"
+  "main"                 : "lib/formula.js",
+  "dependencies"         : {
+    "blueimp-md5"        : "~1.1.0",
+    "jStat"              : "0.0.2",
+    "lodash"             : "2.4.1",
+    "moment"             : "2.5.0",
+    "numeral"            : "1.5.3",
+    "numeric"            : "1.2.6",
+    "underscore.string"  : "*"
   },
-  "optionalDependencies": {},
-  "engines": {
-    "node": "0.8.x"
-  },
-  "scripts": {}
+  "devDependencies"      : {
+    "istanbul"           : "*",
+    "jshint"             : "*",
+    "mocha"              : "*",
+    "should"             : "*",
+    "rewire"             : "*"
+  }
 }
