@@ -1,3 +1,8 @@
+0.0.19
+------
+
+* Added full match support to REGEXMATCH
+
 0.0.18
 ------
 
