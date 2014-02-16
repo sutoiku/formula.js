@@ -51,6 +51,9 @@ function TestCases($scope) {
     return (actual == expected || arraysIdentical(actual, expected) || bypass) ? 'icon-ok-sign text-success' : 'icon-warning-sign text-error';
   }
 
+  // Database functions
+  $scope.DAVERAGE = Formula.DAVERAGE;
+  
   // Date functions
   $scope.DATE = Formula.DATE;
   $scope.DATEVALUE = Formula.DATEVALUE;

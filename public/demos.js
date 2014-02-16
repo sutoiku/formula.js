@@ -1,4 +1,7 @@
 var FORMULA_DEMOS = [
+  {"type": "database", "tests": [
+    {"function": "DAVERAGE", "call": "DAVERAGE([['Height',18,12,13,14,9,8],['Yield',14,10,9,10,8,6]], 'Yield', [['Height','>13']])", "result": 12}
+  ]},
   {"type": "date", "tests": [
     {"function": "DATE", "call": "DATE(2008, 7, 8)", "result": "Tue Jul 08 2008 00:00:00 GMT-0700 (PDT)"},
     {"function": "DATEVALUE", "call": "DATEVALUE('8/22/2011')", "result": "Mon Aug 22 2011 00:00:00 GMT-0700 (PDT)"},
