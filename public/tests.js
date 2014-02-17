@@ -342,6 +342,9 @@
         {"call": "DAVERAGE([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,8]," +
             "['Age',20,12,14,15,8,9],['Yield',14,10,9,10,8,6]]" +
               ",'Yield', [['Height','>10','>9'],['Age','>14']])", "result": 10.75},
+        {"call": "DAVERAGE([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,8]," +
+            "['Age',20,12,14,15,8,9],['Yield',14,10,9,10,8,6]]" +
+              ",'Yield', [['Height','>20']])", "result": "#DIV/0!"},              
       ]},
       {"function": "DCOUNT", "tests": [
        {"call": "DCOUNT([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,12]," + 
