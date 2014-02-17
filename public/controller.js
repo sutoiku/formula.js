@@ -53,6 +53,11 @@ function TestCases($scope) {
 
   // Database functions
   $scope.DAVERAGE = Formula.DAVERAGE;
+  $scope.DCOUNT = Formula.DCOUNT;
+  $scope.DCOUNTA = Formula.DCOUNTA;
+  $scope.DGET = Formula.DGET;
+  $scope.DMAX = Formula.DMAX;
+  $scope.DMIN = Formula.DMIN;
   
   // Date functions
   $scope.DATE = Formula.DATE;

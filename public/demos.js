@@ -1,6 +1,11 @@
 var FORMULA_DEMOS = [
   {"type": "database", "tests": [
-    {"function": "DAVERAGE", "call": "DAVERAGE([['Height',18,12,13,14,9,8],['Yield',14,10,9,10,8,6]], 'Yield', [['Height','>13']])", "result": 12}
+    {"function": "DAVERAGE", "call": "DAVERAGE([['Height',18,12,13,14,9,8],['Yield',14,10,9,10,8,6]], 'Yield', [['Height','>13']])", "result": 12},
+    {"function": "DCOUNT", "call": "DCOUNT([['Height',18,12,13,14,9,12],['Age',20,12,14,16,8,11],['Yield',14,10,9,10,8,6]], 'Yield', [['Height','>10'],['Age','>14']])", "result": 2},
+    {"function": "DCOUNTA", "call": "DCOUNTA([['Height',18,12,13,14,9,12],['Age',20,12,14,16,8,11],['Yield',null,10,9,10,8,6]], 'Yield', [['Height','>10'],['Age','>14']])", "result": 1},
+    {"function": "DGET", "call": "DGET([['Height',18,12,13,14,9,12],['Age',20,12,14,16,8,11],['Yield',14,10,9,10,8,6]], 'Yield', [['Height','>10'],['Age','>16']])", "result": 14},
+    {"function": "DMAX", "call": "DMAX([['Height',18,12,13,14,9,12],['Age',20,12,14,16,8,11],['Yield',14,10,9,10,8,6]], 'Yield', [['Height','>10'],['Age','>14']])", "result": 14},
+    {"function": "DMIN", "call": "DMIN([['Height',18,12,13,14,9,12],['Age',20,12,14,16,8,11],['Yield',14,10,9,10,8,6]], 'Yield', [['Height','>10'],['Age','>14']])", "result": 10}
   ]},
   {"type": "date", "tests": [
     {"function": "DATE", "call": "DATE(2008, 7, 8)", "result": "Tue Jul 08 2008 00:00:00 GMT-0700 (PDT)"},
