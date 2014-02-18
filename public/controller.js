@@ -58,6 +58,7 @@ function TestCases($scope) {
   $scope.DGET = Formula.DGET;
   $scope.DMAX = Formula.DMAX;
   $scope.DMIN = Formula.DMIN;
+  $scope.DPRODUCT = Formula.DPRODUCT;
   
   // Date functions
   $scope.DATE = Formula.DATE;
