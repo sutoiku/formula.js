@@ -376,7 +376,12 @@
        {"call": "DMIN([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,12]," + 
             "['Age',20,12,14,16,8,11],['Yield',14,10,9,10,8,6]]" +  
              ",'Yield', [['Height','>10'],['Age','>14']])", "result": 10},
-      ]},      
+      ]}, 
+      {"function": "DPRODUCT", "tests": [
+       {"call": "DPRODUCT([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,12]," + 
+            "['Age',20,12,14,16,8,11],['Yield',14,10,9,10,8,6]]" +  
+             ",'Yield', [['Height','>10'],['Age','>14']])", "result": 140},
+      ]},        
       {"function": "DDB", "tests": [
         {"call": "DDB(1000000, 100000, 6, 1)", "result": 333333.3333333333},
         {"call": "DDB(1000000, 100000, 6, 2)", "result": 222222.22222222225},
