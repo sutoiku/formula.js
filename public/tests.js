@@ -381,7 +381,32 @@
        {"call": "DPRODUCT([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,12]," + 
             "['Age',20,12,14,16,8,11],['Yield',14,10,9,10,8,6]]" +  
              ",'Yield', [['Height','>10'],['Age','>14']])", "result": 140},
-      ]},        
+      ]}, 
+      {"function": "DSTDEV", "tests": [
+       {"call": "DSTDEV([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,12]," + 
+            "['Age',20,12,14,16,8,11],['Yield',14,10,9,10,8,6]]" +  
+             ",'Yield', [['Height','>10']])", "result": 2.8635642126552705},
+      ]}, 
+      {"function": "DSTDEVP", "tests": [
+       {"call": "DSTDEVP([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,12]," + 
+            "['Age',20,12,14,16,8,11],['Yield',14,10,9,10,8,6]]" +  
+             ",'Yield', [['Height','>10']])", "result": 2.5612496949731396},
+      ]}, 
+      {"function": "DSUM", "tests": [
+       {"call": "DSUM([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,12]," + 
+            "['Age',20,12,14,16,8,11],['Yield',14,10,9,10,8,6]]" +  
+             ",'Yield', [['Height','>10'],['Age','>14']])", "result": 24},
+      ]}, 
+      {"function": "DVAR", "tests": [
+       {"call": "DVAR([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,12]," + 
+            "['Age',20,12,14,16,8,11],['Yield',14,10,9,10,8,6]]" +  
+             ",'Yield', [['Height','>10'],['Age','>14']])", "result": 8},
+      ]}, 
+      {"function": "DVARP", "tests": [
+       {"call": "DVARP([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,12]," + 
+            "['Age',20,12,14,16,8,11],['Yield',14,10,9,10,8,6]]" +  
+             ",'Yield', [['Height','>10'],['Age','>14']])", "result": 4},
+      ]},
       {"function": "DDB", "tests": [
         {"call": "DDB(1000000, 100000, 6, 1)", "result": 333333.3333333333},
         {"call": "DDB(1000000, 100000, 6, 2)", "result": 222222.22222222225},

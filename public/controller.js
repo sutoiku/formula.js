@@ -59,6 +59,11 @@ function TestCases($scope) {
   $scope.DMAX = Formula.DMAX;
   $scope.DMIN = Formula.DMIN;
   $scope.DPRODUCT = Formula.DPRODUCT;
+  $scope.DSTDEV = Formula.DSTDEV;
+  $scope.DSTDEVP = Formula.DSTDEVP;
+  $scope.DSUM = Formula.DSUM;
+  $scope.DVAR = Formula.DVAR;
+  $scope.DVARP = Formula.DVARP;
   
   // Date functions
   $scope.DATE = Formula.DATE;
