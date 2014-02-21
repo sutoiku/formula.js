@@ -335,6 +335,78 @@
         {"call": "DB(1000000, 1000000, 6, 1, 6)", "result": 0},
         {"call": "DB(100000, 1000000, 6, 1, 6)", "result": 0},
       ]},
+      {"function": "DAVERAGE", "tests": [
+        {"call": "DAVERAGE([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,8]," +
+             "['Age',20,12,14,15,8,9],['Yield',14,10,9,10,8,6]]" +
+              ",'Yield', [['Height','>10'],['Age','>14']])", "result": 12},
+        {"call": "DAVERAGE([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,8]," +
+            "['Age',20,12,14,15,8,9],['Yield',14,10,9,10,8,6]]" +
+              ",'Yield', [['Height','>10','>9'],['Age','>14']])", "result": 10.75},
+        {"call": "DAVERAGE([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,8]," +
+            "['Age',20,12,14,15,8,9],['Yield',14,10,9,10,8,6]]" +
+              ",'Yield', [['Height','>20']])", "result": "#DIV/0!"},              
+      ]},
+      {"function": "DCOUNT", "tests": [
+       {"call": "DCOUNT([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,12]," + 
+            "['Age',20,12,14,16,8,11],['Yield',14,10,9,10,8,6]]" + 
+             ",'Yield', [['Height','>10'],['Age','>14']])", "result": 2},
+      ]},
+      {"function": "DCOUNTA", "tests": [
+       {"call": "DCOUNTA([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,12]," + 
+            "['Age',20,12,14,16,8,11],['Yield',null,10,9,10,8,6]]" +  
+             ",'Yield', [['Height','>10'],['Age','>14']])", "result": 1},
+      ]},  
+      {"function": "DGET", "tests": [
+       {"call": "DGET([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,12]," + 
+            "['Age',20,12,14,16,8,11],['Yield',14,10,9,10,8,6]]" +  
+             ",'Yield', [['Height','>10'],['Age','>16']])", "result": 14},
+       {"call": "DGET([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,12]," + 
+            "['Age',20,12,14,16,8,11],['Yield',14,10,9,10,8,6]]" +  
+             ",'Yield', [['Height','>10'],['Age','>14']])", "result": '#NUM!'},
+       {"call": "DGET([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,12]," + 
+            "['Age',20,12,14,16,8,11],['Yield',14,10,9,10,8,6]]" +  
+             ",'Yield', [['Height','>10'],['Age','>20']])", "result": '#VALUE!'},
+      ]},
+      {"function": "DMAX", "tests": [
+       {"call": "DMAX([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,12]," + 
+            "['Age',20,12,14,16,8,11],['Yield',14,10,9,10,8,6]]" +  
+             ",'Yield', [['Height','>10'],['Age','>14']])", "result": 14},
+      ]},
+      {"function": "DMIN", "tests": [
+       {"call": "DMIN([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,12]," + 
+            "['Age',20,12,14,16,8,11],['Yield',14,10,9,10,8,6]]" +  
+             ",'Yield', [['Height','>10'],['Age','>14']])", "result": 10},
+      ]}, 
+      {"function": "DPRODUCT", "tests": [
+       {"call": "DPRODUCT([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,12]," + 
+            "['Age',20,12,14,16,8,11],['Yield',14,10,9,10,8,6]]" +  
+             ",'Yield', [['Height','>10'],['Age','>14']])", "result": 140},
+      ]}, 
+      {"function": "DSTDEV", "tests": [
+       {"call": "DSTDEV([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,12]," + 
+            "['Age',20,12,14,16,8,11],['Yield',14,10,9,10,8,6]]" +  
+             ",'Yield', [['Height','>10']])", "result": 2.8635642126552705},
+      ]}, 
+      {"function": "DSTDEVP", "tests": [
+       {"call": "DSTDEVP([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,12]," + 
+            "['Age',20,12,14,16,8,11],['Yield',14,10,9,10,8,6]]" +  
+             ",'Yield', [['Height','>10']])", "result": 2.5612496949731396},
+      ]}, 
+      {"function": "DSUM", "tests": [
+       {"call": "DSUM([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,12]," + 
+            "['Age',20,12,14,16,8,11],['Yield',14,10,9,10,8,6]]" +  
+             ",'Yield', [['Height','>10'],['Age','>14']])", "result": 24},
+      ]}, 
+      {"function": "DVAR", "tests": [
+       {"call": "DVAR([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,12]," + 
+            "['Age',20,12,14,16,8,11],['Yield',14,10,9,10,8,6]]" +  
+             ",'Yield', [['Height','>10'],['Age','>14']])", "result": 8},
+      ]}, 
+      {"function": "DVARP", "tests": [
+       {"call": "DVARP([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,12]," + 
+            "['Age',20,12,14,16,8,11],['Yield',14,10,9,10,8,6]]" +  
+             ",'Yield', [['Height','>10'],['Age','>14']])", "result": 4},
+      ]},
       {"function": "DDB", "tests": [
         {"call": "DDB(1000000, 100000, 6, 1)", "result": 333333.3333333333},
         {"call": "DDB(1000000, 100000, 6, 2)", "result": 222222.22222222225},

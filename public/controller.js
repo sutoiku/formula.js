@@ -51,6 +51,20 @@ function TestCases($scope) {
     return (actual == expected || arraysIdentical(actual, expected) || bypass) ? 'icon-ok-sign text-success' : 'icon-warning-sign text-error';
   }
 
+  // Database functions
+  $scope.DAVERAGE = Formula.DAVERAGE;
+  $scope.DCOUNT = Formula.DCOUNT;
+  $scope.DCOUNTA = Formula.DCOUNTA;
+  $scope.DGET = Formula.DGET;
+  $scope.DMAX = Formula.DMAX;
+  $scope.DMIN = Formula.DMIN;
+  $scope.DPRODUCT = Formula.DPRODUCT;
+  $scope.DSTDEV = Formula.DSTDEV;
+  $scope.DSTDEVP = Formula.DSTDEVP;
+  $scope.DSUM = Formula.DSUM;
+  $scope.DVAR = Formula.DVAR;
+  $scope.DVARP = Formula.DVARP;
+  
   // Date functions
   $scope.DATE = Formula.DATE;
   $scope.DATEVALUE = Formula.DATEVALUE;
