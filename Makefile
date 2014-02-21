@@ -1,5 +1,5 @@
 BIN = ./node_modules/.bin
-MOCHA = mocha
+MOCHA = $(BIN)/mocha
 MOCHA_OPTS = --timeout 6000 --recursive
 NODE=node
 REPORTER = spec
