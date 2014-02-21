@@ -1,3 +1,13 @@
+0.0.19
+------
+
+* Added full match support to REGEXMATCH
+
+0.0.18
+------
+
+* Removed CONCAT and INITIALS functions
+
 0.0.17
 ------
 
