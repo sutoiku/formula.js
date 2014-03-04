@@ -1,12 +1,12 @@
-BIN         = ./node_modules/.bin
-MOCHA       = mocha
-MOCHA_OPTS  = --timeout 6000 --recursive
-NODE        = node
-REPORTER    = spec
-S3_STOIC    = s3cmd -c ~/.s3cmd/.stoic
-S3_NPM_REPO = s3://npm-repo
-TEST_FILES  = test
-TEST_FILE?  = you_must_specify_the_test_file
+BIN = ./node_modules/.bin
+MOCHA = $(BIN)/mocha
+MOCHA_OPTS = --timeout 6000 --recursive
+NODE=node
+REPORTER = spec
+S3_STOIC=s3cmd -c ~/.s3cmd/.stoic
+S3_NPM_REPO=s3://npm-repo
+TEST_FILES=test
+TEST_FILE?=you_must_specify_the_test_file
 
 lint:
 	$(BIN)/jshint lib/* test/*
