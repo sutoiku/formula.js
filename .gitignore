@@ -23,3 +23,5 @@ html-report
 npm-debug.log
 reports
 coverage
+
+.DS_Store
