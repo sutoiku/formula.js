@@ -15,7 +15,7 @@
     "blueimp-md5"        : "~1.1.0",
     "jStat"              : "0.0.2",
     "lodash"             : "2.4.1",
-    "moment"             : "*",
+    "moment"             : "2.6.x",
     "numeral"            : "1.5.3",
     "numeric"            : "1.2.6",
     "underscore.string"  : "*"
