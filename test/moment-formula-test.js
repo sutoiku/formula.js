@@ -152,4 +152,18 @@ describe("test formula integration with momentjs", function () {
       Formulae.MOMENTISAFTER([1963, 11, 21], [1963, 11, 20]).should.eql(true);
     });
   });
+
+  describe("test INTERVAL", function () {
+    it("should return PT2M8S if interval is 128 seconds", function () {
+      Formulae.INTERVAL(128).should.eql('PT2M8S');
+    });
+
+    it("should return P4MT28D3H33M20S is interval is 12800000 seconds", function () {
+      Formulae.INTERVAL(12800000).should.eql('P4MT28D3H33M20S');
+    });
+
+    it("should return PT is interval is 0 seconds", function () {
+      Formulae.INTERVAL(0).should.eql('PT');
+    });
+  });
 });
