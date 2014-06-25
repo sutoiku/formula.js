@@ -1232,6 +1232,14 @@
         {"call": "REGEXEXTRACT('(Content) between brackets', '\(([A-Za-z]+)\)')", "result": 'Content'},
         {"call": "REGEXEXTRACT('The price today is $826.25', '[0-9]+\.[0-9]+[0-9]+')", "result": '826.25'},
         {"call": "REGEXEXTRACT('Google Doc 101', '[0-9]+')", "result": '101'}
+      ]},
+      {"function": "FINV", "tests": [
+        {"call": "FINV(0.05, 8, 22)", "result": 2.3965032837657665},
+        {"call": "FINV(0.95, 10, 22)", "result": 0.36309874840416073},
+        {"call": "FINV(0.95, 10, 22)", "result": 0.36309874840416073},
+        {"call": "FINV(1, 10, 22)", "result": 0},
+        {"call": "FINV(-0.1, 10, 22)", "result": "#NUM!"},
+        {"call": "FINV(1.1, 10, 22)", "result": "#NUM!"}
       ]}
     ];
 
