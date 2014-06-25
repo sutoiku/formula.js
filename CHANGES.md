@@ -1,3 +1,9 @@
+0.0.25
+------
+
+* Integrate a really old but useful pull request to add database functions (https://github.com/sutoiku/formula.js/pull/9)
+* Thanks a heap to Sam Dao (grasscrm) for all the database features  
+
 0.0.19
 ------
 
