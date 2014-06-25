@@ -1130,6 +1130,12 @@
         {"call": "LOWER()", "result": undefined},
         {"call": "LOWER(undefined)", "result": undefined},
       ]},
+      {"function": "SUM", "tests": [
+        {"call": "SUM(1, 2, 3)", "result": 6},
+        {"call": "SUM([1, 2, 3])", "result": 6},
+        {"call": "SUM([1, 2, 3], 1, 2)", "result": 9},
+        {"call": "SUM([1, 2, 3], [1, 2])", "result": 9},
+      ]},
       {"function": "SUBSTITUTE", "tests": [
         {"call": "SUBSTITUTE('Jim Alateras', 'im', 'ames')", "result": 'James Alateras'},
         {"call": "SUBSTITUTE('Jim Alateras', '', 'ames')", "result": 'Jim Alateras'},
