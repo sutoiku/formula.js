@@ -7,6 +7,9 @@ module.exports = function (grunt) {
           'build/bundle.js': 'lib/formula.js'
         },
         options: {
+          bundleOptions: {
+            standalone: 'Formula'
+          },
           plugin: [
             ['minifyify', {
               map: 'bundle.map',
@@ -20,6 +23,9 @@ module.exports = function (grunt) {
           'build/bundle.js': 'lib/formula.js'
         },
         options: {
+          bundleOptions: {
+            standalone: 'Formula'
+          },
           plugin: [
             ['minifyify', {
               minify: {
@@ -35,5 +41,5 @@ module.exports = function (grunt) {
   });
 
   grunt.loadNpmTasks('grunt-browserify');
-  grunt.registerTask('default', ['browserify']);
+  grunt.registerTask('default', ['browserify:production']);
 };
