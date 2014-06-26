@@ -1204,6 +1204,7 @@
         {"call": "SUM([1, 2, 3])", "result": 6},
         {"call": "SUM([1, 2, 3], 1, 2)", "result": 9},
         {"call": "SUM([1, 2, 3], [1, 2])", "result": 9},
+        {"call": "SUM([[1,1], [2,2], [3,3]])", "result": 12},
       ]},
       {"function": "SUBSTITUTE", "tests": [
         {"call": "SUBSTITUTE('Jim Alateras', 'im', 'ames')", "result": 'James Alateras'},
