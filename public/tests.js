@@ -1205,6 +1205,9 @@
         {"call": "SUM([1, 2, 3], 1, 2)", "result": 9},
         {"call": "SUM([1, 2, 3], [1, 2])", "result": 9},
         {"call": "SUM([[1,1], [2,2], [3,3]])", "result": 12},
+        {"call": "SUM([[1,1], [2,2], [3,3]], 1, 2)", "result": 15},
+        {"call": "SUM([[1,1], [2,2], [3,3]], 1, 2)", "result": 15},
+        {"call": "SUM([[1,1], [2,2], [3,3]], [[1,1], [2,2], [3,3]])", "result": 24},
       ]},
       {"function": "SUBSTITUTE", "tests": [
         {"call": "SUBSTITUTE('Jim Alateras', 'im', 'ames')", "result": 'James Alateras'},
@@ -1241,6 +1244,10 @@
         {"call": "FINV(1, 10, 22)", "result": 0},
         {"call": "FINV(-0.1, 10, 22)", "result": "#NUM!"},
         {"call": "FINV(1.1, 10, 22)", "result": "#NUM!"}
+      ]},
+      {"function": "POWER", "tests": [
+        {"call": "POWER(1, 2)", "result": 2},
+        {"call": "POWER(-1, 0.5)", "result": "#NUM!"},
       ]}
     ];
 
