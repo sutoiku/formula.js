@@ -5,26 +5,29 @@
   "version"              : "0.0.26",
   "repository"           : {
     "type": "git",
-    "url"                : "git@github.com:sutoiku/formulajs.git"
+    "url": "git@github.com:sutoiku/formulajs.git"
   },
-  "engines"              : {
-    "node"               : "0.8.x - 0.10.x"
+  "engines": {
+    "node": "0.8.x - 0.10.x"
   },
-  "main"                 : "lib/formula.js",
-  "dependencies"         : {
-    "blueimp-md5"        : "~1.1.0",
-    "jStat"              : "0.0.2",
-    "lodash"             : "2.4.1",
-    "moment"             : "2.6.x",
-    "numeral"            : "1.5.3",
-    "numeric"            : "1.2.6",
-    "underscore.string"  : "*"
+  "main": "lib/formula.js",
+  "dependencies": {
+    "blueimp-md5": "~1.1.0",
+    "jStat": "0.0.2",
+    "lodash": "2.4.1",
+    "moment": "2.6.x",
+    "numeral": "1.5.3",
+    "numeric": "1.2.6",
+    "underscore.string": "*"
   },
-  "devDependencies"      : {
-    "istanbul"           : "*",
-    "jshint"             : "*",
-    "mocha"              : "*",
-    "should"             : "*",
-    "rewire"             : "*"
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^2.1.1",
+    "istanbul": "*",
+    "jshint": "*",
+    "minifyify": "^3.0.9",
+    "mocha": "*",
+    "rewire": "*",
+    "should": "*"
   }
 }
