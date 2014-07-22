@@ -8,6 +8,9 @@ S3_NPM_REPO=s3://npm-repo
 TEST_FILES=test
 TEST_FILE?=you_must_specify_the_test_file
 
+all:
+	grunt
+
 lint:
 	$(BIN)/jshint lib/* test/*
 

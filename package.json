@@ -4,7 +4,7 @@
   "description"          : "JavaScript implementation of most Microsoft Excel formula functions",
   "version"              : "0.0.26",
   "repository"           : {
-    "type": "git",
+    "type"               : "git",
     "url"                : "git@github.com:sutoiku/formulajs.git"
   },
   "engines"              : {
@@ -20,9 +20,12 @@
     "numeric"            : "1.2.6",
     "underscore.string"  : "*"
   },
-  "devDependencies"      : {
+  "devDependencies": {
+    "grunt"              : "^0.4.5",
+    "grunt-browserify"   : "^2.1.1",
     "istanbul"           : "*",
     "jshint"             : "*",
+    "minifyify"          : "^3.0.9",
     "mocha"              : "*",
     "should"             : "*",
     "rewire"             : "*"

@@ -1,3 +1,10 @@
+0.0.26
+------
+
+* Add grunt support from João Jerónimo (joaojeronimo)  
+* POWER function with negative base now works from João Jerónimo (joaojeronimo)  
+* SUM supports multi-dimensional arrays from João Jerónimo (joaojeronimo)  
+
 0.0.25
 ------
 
