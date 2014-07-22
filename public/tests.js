@@ -1267,6 +1267,10 @@
         {"call": "IFERROR(1, 'error')", "result": 1},
         {"call": "IFERROR('#REF!', 'error')", "result": 'error'},
         {"call": "IFERROR('#NUM!', 'error')", "result": 'error'}
+      ]},
+      {"function": "POWER", "tests": [
+        {"call": "POWER(1, 4)", "result": 1},
+        {"call": "POWER(-1, 0.5)", "result": "#NUM!"},
       ]}
     ];
 
