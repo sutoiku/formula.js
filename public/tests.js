@@ -1245,8 +1245,31 @@
         {"call": "FINV(-0.1, 10, 22)", "result": "#NUM!"},
         {"call": "FINV(1.1, 10, 22)", "result": "#NUM!"}
       ]},
+      {"function": "ISERR", "tests": [
+        {"call": "ISERR(1)", "result": false},
+        {"call": "ISERR('#REF!')", "result": true},
+        {"call": "ISERR('#NUM!')", "result": true},
+        {"call": "ISERR('#NAME?')", "result": true},
+        {"call": "ISERR('#VALUE!')", "result": true},
+        {"call": "ISERR('#NULL!')", "result": true},
+        {"call": "ISERROR('#N/A')", "result": true}
+      ]},
+      {"function": "ISERROR", "tests": [
+        {"call": "ISERROR(1)", "result": false},
+        {"call": "ISERROR('#REF!')", "result": true},
+        {"call": "ISERROR('#NUM!')", "result": true},
+        {"call": "ISERROR('#NAME?')", "result": true},
+        {"call": "ISERROR('#VALUE!')", "result": true},
+        {"call": "ISERROR('#NULL!')", "result": true},
+        {"call": "ISERROR('#N/A')", "result": true}
+      ]},
+      {"function": "IFERROR", "tests": [
+        {"call": "IFERROR(1, 'error')", "result": 1},
+        {"call": "IFERROR('#REF!', 'error')", "result": 'error'},
+        {"call": "IFERROR('#NUM!', 'error')", "result": 'error'}
+      ]},
       {"function": "POWER", "tests": [
-        {"call": "POWER(1, 2)", "result": 2},
+        {"call": "POWER(1, 4)", "result": 1},
         {"call": "POWER(-1, 0.5)", "result": "#NUM!"},
       ]}
     ];

@@ -1,6 +1,6 @@
 {
   "name": "formulajs",
-  "version": "0.0.16",
+  "version": "0.0.26",
   "authors": [
     "Ismael Ghalimi <ismael@stoic.com>",
     "Jim Alateras <jim@stoic.com>"
@@ -8,14 +8,15 @@
   "description": "JavaScript implementation of most Microsoft Excel formula functions",
   "main": "lib/formula.js",
   "license": "Apache 2.0",
-  "homepage": "http://stoic.com/formula/",
+  "homepage": "http://www.stoic.com/pages/formula",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
     "public",
-    "tests"
+    "tests",
+    "build"
   ],
   "dependencies": {
     "underscore.string": "*",
