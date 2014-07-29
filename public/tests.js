@@ -1218,7 +1218,12 @@
         {"call": "SUMIFS([1, 2, 3], '>1', '<3')", "result": 2},
         {"call": "SUMIFS([[1,1], [2,2], [3,3]], '>1', '<3')", "result": 4},
       ]},
-      {"function": "SUBSTITUTE", "tests": [
+      {"function": "SUMSQ", "tests": [
+        {"call": "SUMSQ(1, 2, 3)", "result": 14},
+        {"call": "SUMSQ([1, 2, 3])", "result": 14},
+        {"call": "SUMSQ([[1,1], [2,2], [3,3]])", "result": 28},
+      ]}
+,      {"function": "SUBSTITUTE", "tests": [
         {"call": "SUBSTITUTE('Jim Alateras', 'im', 'ames')", "result": 'James Alateras'},
         {"call": "SUBSTITUTE('Jim Alateras', '', 'ames')", "result": 'Jim Alateras'},
         {"call": "SUBSTITUTE('Jim Alateras', undefined, 'ames')", "result": 'Jim Alateras'},
