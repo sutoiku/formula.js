@@ -590,6 +590,14 @@
         {"call": "FLOOR(-4.1, -2, 0)", "result": -6},
         {"call": "FLOOR(-4.1, -2, -1)", "result": -4}
       ]},
+      {"function": "FLOORPRECISE", "tests": [
+        {"call": "FLOORPRECISE(2014.6, 0.2)", "result": 2014.6},
+        {"call": "FLOORPRECISE(-3.2,-1)", "result": -4},
+        {"call": "FLOORPRECISE(3.2,1)", "result": 3},
+        {"call": "FLOORPRECISE(-3.2,1)", "result": -4},
+        {"call": "FLOORPRECISE(3.2,-1)", "result": 3},
+        {"call": "FLOORPRECISE(3.2)", "result": 3}
+      ]},
       {"function": "FV", "tests": [
         {"call": "FV('0.1/12', 10, -100, -1000, 0)", "result": 2124.874409194097},
         {"call": "FV('0.1/12', 10, -100, -1000, 1)", "result": 2133.527289264821},
