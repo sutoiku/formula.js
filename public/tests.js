@@ -1227,6 +1227,14 @@
         {"call": "SUMX2MY2([1,2,3], [4,5,6])", "result": -63},
         {"call": "SUMX2MY2([1,2,3,4,5,6],[7,8,9,10,11,12,13,14,15,16])", "result": -468},
       ]},
+      {"func": "SUMX2PY2", "tests": [
+        {"call": "SUMX2PY2([1,2,3], [4,5,6])", "result": 91},
+        {"call": "SUMX2PY2([1,2,3,4,5,6],[7,8,9,10,11,12,13,14,15,16])", "result": 650},
+      ]},
+      {"func": "SUMXMY2", "tests": [
+        {"call": "SUMXMY2([1,2,3], [4,5,6])", "result": 27},
+        {"call": "SUMXMY2([1,2,3,4,5,6],[7,8,9,10,11,12,13,14,15,16])", "result": 216},
+      ]},
       {"function": "SUBSTITUTE", "tests": [
         {"call": "SUBSTITUTE('Jim Alateras', 'im', 'ames')", "result": 'James Alateras'},
         {"call": "SUBSTITUTE('Jim Alateras', '', 'ames')", "result": 'Jim Alateras'},
