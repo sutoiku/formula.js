@@ -77,6 +77,12 @@
         {"call": "AVEDEV([2,4], [8,16])", "result": 4.5},
         {"call": "AVEDEV([[2,4], [8,16]])", "result": 4.5}
       ]},
+      {"function": "AVERAGE", "tests": [
+        {"call": "AVERAGE(2, 4, 8, 16)", "result": 7.5},
+        {"call": "AVERAGE([2,4,8,16])", "result": 7.5},
+        {"call": "AVERAGE([2,4], [8,16])", "result": 7.5},
+        {"call": "AVERAGE([[2,4], [8,16]])", "result": 7.5}
+      ]},
       {"function": "AVERAGEA", "tests": [
         {"call": "AVERAGEA(2, 4, 8, 16)", "result": 7.5},
         {"call": "AVERAGEA([2,4,8,16])", "result": 7.5},
