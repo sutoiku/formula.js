@@ -1210,6 +1210,10 @@
         {"call": "SUM([[1,1], [2,2], [3,3]], 1, 2)", "result": 15},
         {"call": "SUM([[1,1], [2,2], [3,3]], [[1,1], [2,2], [3,3]])", "result": 24},
       ]},
+      {"function": "SUMIF", "tests": [
+        {"call": "SUMIF([1, 2, 3], '>2')", "result": 3},
+        {"call": "SUMIF([[1,1], [2,2], [3,3]], '>2')", "result": 6},
+      ]},
       {"function": "SUBSTITUTE", "tests": [
         {"call": "SUBSTITUTE('Jim Alateras', 'im', 'ames')", "result": 'James Alateras'},
         {"call": "SUBSTITUTE('Jim Alateras', '', 'ames')", "result": 'Jim Alateras'},
