@@ -74,7 +74,8 @@
       {"function": "AVEDEV", "tests": [
         {"call": "AVEDEV(2, 4, 8, 16)", "result": 4.5},
         {"call": "AVEDEV([2,4,8,16])", "result": 4.5},
-        {"call": "AVEDEV([2,4], [8,16])", "result": 4.5}
+        {"call": "AVEDEV([2,4], [8,16])", "result": 4.5},
+        {"call": "AVEDEV([[2,4], [8,16]])", "result": 4.5}
       ]},
       {"function": "AVERAGEA", "tests": [
         {"call": "AVERAGEA(2, 4, 8, 16)", "result": 7.5},
