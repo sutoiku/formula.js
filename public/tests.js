@@ -87,7 +87,8 @@
       {"function": "AVERAGEA", "tests": [
         {"call": "AVERAGEA(2, 4, 8, 16)", "result": 7.5},
         {"call": "AVERAGEA([2,4,8,16])", "result": 7.5},
-        {"call": "AVERAGEA([2,4], [8,16])", "result": 7.5}
+        {"call": "AVERAGEA([2,4], [8,16])", "result": 7.5},
+        {"call": "AVERAGEA([2,4], [6,8], [true,false])", "result": 3.5}
       ]},
       {"function": "AVERAGEIF", "tests": [
         {"call": "AVERAGEIF([2,4,8,16], '>5')", "result": 12},
