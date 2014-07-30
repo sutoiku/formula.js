@@ -287,6 +287,12 @@
         {"call": "COUNTA([1,null,3], ['a','','c'])", "result": 4},
         {"call": "COUNTA([[1,null,3], ['a','','c']])", "result": 4}
       ]},
+      {"function": "COUNTIF", "tests": [
+        {"call": "COUNTIF([1, null, 3, 'a', ''], '>1')", "result": 1},
+        {"call": "COUNTIF([1, null, 'c', 'a', ''], '>1')", "result": 0},
+        {"call": "COUNTIF([[1,null,3], ['a',4,'c']], '>1')", "result": 2},
+        {"call": "COUNTIF([[1,null,'a'], ['a',4,'c']], 'a')", "result": 2},
+      ]},
       {"function": "COUNTBLANK", "tests": [
         {"call": "COUNTBLANK()", "result": 0},
         {"call": "COUNTBLANK(1, null, 3, 'a', '', 'c')", "result": 2},
