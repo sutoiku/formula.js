@@ -92,7 +92,8 @@
       ]},
       {"function": "AVERAGEIF", "tests": [
         {"call": "AVERAGEIF([2,4,8,16], '>5')", "result": 12},
-        {"call": "AVERAGEIF([2,4,8,16], '>5', [1, 2, 3, 4])", "result": 3.5}
+        {"call": "AVERAGEIF([2,4,8,16], '>5', [1,2,3,4])", "result": 3.5},
+        {"call": "AVERAGEIF([[2,4],[8,16]], '>5', [[1,2],[3,4]])", "result": 3.5}
       ]},
       {"function": "BIN2DEC", "tests": [
         {"call": "BIN2DEC(101010)", "result": 42},
