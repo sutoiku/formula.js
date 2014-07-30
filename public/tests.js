@@ -97,7 +97,9 @@
       ]},
       {"function": "AVERAGEIFS", "tests": [
         {"call": "AVERAGEIFS([2,4,8,16], [1,2,3,4], '>2')", "result": 12},
+        {"call": "AVERAGEIFS([2,4,8,16], [1,2,3,4], '>2', [1,2,3,4], '>2')", "result": 12},
         //{"call": "AVERAGEIFS([[2,4],[8,16]], [[1,2],[3,4]], '>2')", "result": 12},
+        // still does not work with multi dimansional ranges
       ]},
       {"function": "BIN2DEC", "tests": [
         {"call": "BIN2DEC(101010)", "result": 42},
