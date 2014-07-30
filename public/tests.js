@@ -278,6 +278,7 @@
         {"call": "COUNT([1,2], [3,4])", "result": 4},
         {"call": "COUNT([[1,2], [3,4]])", "result": 4},
         {"call": "COUNT([[1,2], [3,2], [null, null]])", "result": 4},
+        {"call": "COUNT([[1,2], ['a','b'], [null, null]])", "result": 2},
       ]},
       {"function": "COUNTA", "tests": [
         {"call": "COUNTA()", "result": 0},
