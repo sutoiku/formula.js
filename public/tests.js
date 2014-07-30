@@ -95,6 +95,10 @@
         {"call": "AVERAGEIF([2,4,8,16], '>5', [1,2,3,4])", "result": 3.5},
         {"call": "AVERAGEIF([[2,4],[8,16]], '>5', [[1,2],[3,4]])", "result": 3.5}
       ]},
+      {"function": "AVERAGEIFS", "tests": [
+        {"call": "AVERAGEIFS([2,4,8,16], [1,2,3,4], '>2')", "result": 12},
+        //{"call": "AVERAGEIFS([[2,4],[8,16]], [[1,2],[3,4]], '>2')", "result": 12},
+      ]},
       {"function": "BIN2DEC", "tests": [
         {"call": "BIN2DEC(101010)", "result": 42},
         {"call": "BIN2DEC('101010')", "result": 42},
