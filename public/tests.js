@@ -289,7 +289,8 @@
         {"call": "COUNTBLANK()", "result": 0},
         {"call": "COUNTBLANK(1, null, 3, 'a', '', 'c')", "result": 2},
         {"call": "COUNTBLANK([1,null,3,'a','','c'])", "result": 2},
-        {"call": "COUNTBLANK([1,null,3], ['a','','c'])", "result": 2}
+        {"call": "COUNTBLANK([1,null,3], ['a','','c'])", "result": 2},
+        {"call": "COUNTBLANK([[1,null,3], ['a','','c']])", "result": 2}
       ]},
       {"function": "COUNTUNIQUE", "tests": [
         {"call": "COUNTUNIQUE()", "result": 0},
