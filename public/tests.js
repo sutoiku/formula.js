@@ -284,7 +284,8 @@
         {"call": "COUNTA()", "result": 0},
         {"call": "COUNTA(1, null, 3, 'a', '', 'c')", "result": 4},
         {"call": "COUNTA([1,null,3,'a','','c'])", "result": 4},
-        {"call": "COUNTA([1,null,3], ['a','','c'])", "result": 4}
+        {"call": "COUNTA([1,null,3], ['a','','c'])", "result": 4},
+        {"call": "COUNTA([[1,null,3], ['a','','c']])", "result": 4}
       ]},
       {"function": "COUNTBLANK", "tests": [
         {"call": "COUNTBLANK()", "result": 0},
