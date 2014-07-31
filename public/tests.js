@@ -1199,12 +1199,9 @@
         {"call": "HTML2TEXT('<i>Hello</i>')", "result": 'Hello'},
         {"call": "HTML2TEXT(['<i>Hello</i>', '<b>Jim</b>'])", "result": 'Hello\\nJim'}
       ]},
-      {"function": "TEXT", "tests": [
-        {"call": "TEXT()", "result": ''},
-        {"call": "TEXT('')", "result": ''},
-        {"call": "TEXT('Hello Baby')", "result": 'Hello Baby'},
-        {"call": "TEXT({a: 1, b: 2})", "result": '{\\"a\\":1,\\"b\\":2}'},
-        {"call": "TEXT({a: 'hello', b: 'goodbye'})", "result": '{\\"a\\":\\"hello\\",\\"b\\":\\"goodbye\\"}'}
+      {"function": "TRIMMEAN", "tests": [
+        {"call": "TRIMMEAN([1,2,3,4,10,10], 0.5)", "result": 4.75},
+        {"call": "TRIMMEAN([[1,2],[3,4],[10,10]], 0.5)", "result": 4.75},
       ]},
       {"function": "HUMANIZE", "tests": [
         {"call": "HUMANIZE('')", "result": ''},
