@@ -1274,6 +1274,11 @@
         {"call": "SUBSTITUTE('', 'im', 'ames')", "result": ''},
         {"call": "SUBSTITUTE(undefined, 'im', 'ames')", "result": undefined}
       ]},
+      {"function": "STDEVA", "tests": [
+        {"call": "STDEVA(1,2,3,4,5,6)", "result": 1.8708286933869707},
+        {"call": "STDEVA([1,2],[3,4],[5,6])", "result": 1.8708286933869707},
+        {"call": "STDEVA([[1,2],[3,4],[5,6]])", "result": 1.8708286933869707},
+      ]},
       {"function": "MD5", "tests": [
         {"call": "MD5('jim@sutoiku.com')", "result": '3d508d960d5f63a9d9384baf6b4f67c3'},
         {"call": "MD5('ismael@sutoiku.com')", "result": 'a33dab7034e1fced4adb648f46eabe5d'}
