@@ -74,16 +74,33 @@
       {"function": "AVEDEV", "tests": [
         {"call": "AVEDEV(2, 4, 8, 16)", "result": 4.5},
         {"call": "AVEDEV([2,4,8,16])", "result": 4.5},
-        {"call": "AVEDEV([2,4], [8,16])", "result": 4.5}
+        {"call": "AVEDEV([2,4], [8,16])", "result": 4.5},
+        {"call": "AVEDEV([[2,4], [8,16]])", "result": 4.5}
+      ]},
+      {"function": "AVERAGE", "tests": [
+        {"call": "AVERAGE(2, 4, 8, 16)", "result": 7.5},
+        {"call": "AVERAGE([2,4,8,16])", "result": 7.5},
+        {"call": "AVERAGE([2,4], [8,16])", "result": 7.5},
+        {"call": "AVERAGE([[2,4], [8,16]])", "result": 7.5},
+        {"call": "AVERAGE([[2,4], [8,16], [true,false]])", "result": 7.5}
       ]},
       {"function": "AVERAGEA", "tests": [
         {"call": "AVERAGEA(2, 4, 8, 16)", "result": 7.5},
         {"call": "AVERAGEA([2,4,8,16])", "result": 7.5},
-        {"call": "AVERAGEA([2,4], [8,16])", "result": 7.5}
+        {"call": "AVERAGEA([2,4], [8,16])", "result": 7.5},
+        {"call": "AVERAGEA([2,4], [6,8], [true,false])", "result": 3.5},
+        {"call": "AVERAGEA([2,4], [6,8], [true,false], ['a','b'])", "result": 2.625}
       ]},
       {"function": "AVERAGEIF", "tests": [
         {"call": "AVERAGEIF([2,4,8,16], '>5')", "result": 12},
-        {"call": "AVERAGEIF([2,4,8,16], '>5', [1, 2, 3, 4])", "result": 3.5}
+        {"call": "AVERAGEIF([2,4,8,16], '>5', [1,2,3,4])", "result": 3.5},
+        {"call": "AVERAGEIF([[2,4],[8,16]], '>5', [[1,2],[3,4]])", "result": 3.5}
+      ]},
+      {"function": "AVERAGEIFS", "tests": [
+        {"call": "AVERAGEIFS([2,4,8,16], [1,2,3,4], '>2')", "result": 12},
+        {"call": "AVERAGEIFS([2,4,8,16], [1,2,3,4], '>2', [1,2,3,4], '>2')", "result": 12},
+        //{"call": "AVERAGEIFS([[2,4],[8,16]], [[1,2],[3,4]], '>2')", "result": 12},
+        // still does not work with multi dimansional ranges
       ]},
       {"function": "BIN2DEC", "tests": [
         {"call": "BIN2DEC(101010)", "result": 42},
@@ -259,25 +276,46 @@
         {"call": "COUNT()", "result": 0},
         {"call": "COUNT(1, 2, 3, 4)", "result": 4},
         {"call": "COUNT([1,2,3,4])", "result": 4},
-        {"call": "COUNT([1,2], [3,4])", "result": 4}
+        {"call": "COUNT([1,2], [3,4])", "result": 4},
+        {"call": "COUNT([[1,2], [3,4]])", "result": 4},
+        {"call": "COUNT([[1,2], [3,2], [null, null]])", "result": 4},
+        {"call": "COUNT([[1,2], ['a','b'], [null, null]])", "result": 2},
       ]},
       {"function": "COUNTA", "tests": [
         {"call": "COUNTA()", "result": 0},
         {"call": "COUNTA(1, null, 3, 'a', '', 'c')", "result": 4},
         {"call": "COUNTA([1,null,3,'a','','c'])", "result": 4},
-        {"call": "COUNTA([1,null,3], ['a','','c'])", "result": 4}
+        {"call": "COUNTA([1,null,3], ['a','','c'])", "result": 4},
+        {"call": "COUNTA([[1,null,3], ['a','','c']])", "result": 4}
+      ]},
+      {"function": "COUNTIF", "tests": [
+        {"call": "COUNTIF([1, null, 3, 'a', ''], '>1')", "result": 1},
+        {"call": "COUNTIF([1, null, 'c', 'a', ''], '>1')", "result": 0},
+        {"call": "COUNTIF([[1,null,3], ['a',4,'c']], '>1')", "result": 2},
+        {"call": "COUNTIF([[1,null,'a'], ['a',4,'c']], 'a')", "result": 2},
+      ]},
+      {"function": "COUNTIFS", "tests": [
+        {"call": "COUNTIFS([1, null, 3, 'a', ''], '>1')", "result": 1},
+        {"call": "COUNTIFS([1, null, 'c', 'a', ''], '>1')", "result": 0},
+        {"call": "COUNTIFS([[1,null,3], ['a',4,'c']], '>1')", "result": 2},
+        {"call": "COUNTIFS([[1,null,'a'], ['a',4,'c']], 'a')", "result": 2},
+        {"call": "COUNTIFS([1, null], '1', [2, null], '2')", "result": 1},
+        {"call": "COUNTIFS([1, null], '1', [null, 2], '2')", "result": 0},
+        {"call": "COUNTIFS([[1], [null]], '1', [[2], [1]], '2')", "result": 1},
       ]},
       {"function": "COUNTBLANK", "tests": [
         {"call": "COUNTBLANK()", "result": 0},
         {"call": "COUNTBLANK(1, null, 3, 'a', '', 'c')", "result": 2},
         {"call": "COUNTBLANK([1,null,3,'a','','c'])", "result": 2},
-        {"call": "COUNTBLANK([1,null,3], ['a','','c'])", "result": 2}
+        {"call": "COUNTBLANK([1,null,3], ['a','','c'])", "result": 2},
+        {"call": "COUNTBLANK([[1,null,3], ['a','','c']])", "result": 2}
       ]},
       {"function": "COUNTUNIQUE", "tests": [
         {"call": "COUNTUNIQUE()", "result": 0},
         {"call": "COUNTUNIQUE(1, 1, 2, 2, 3, 3)", "result": 3},
         {"call": "COUNTUNIQUE([1,1,2,2,3,3])", "result": 3},
-        {"call": "COUNTUNIQUE([1,1,2], [2,3,3])", "result": 3}
+        {"call": "COUNTUNIQUE([1,1,2], [2,3,3])", "result": 3},
+        {"call": "COUNTUNIQUE([[1,1],[2,5]], [[2,3],[3,4]])", "result": 5},
       ]},
       {"function": "CUMIPMT", "tests": [
         {"call": "CUMIPMT('0.1/12', '30*12', 100000, 13, 24, 0)", "result": -9916.77251395708},
@@ -926,11 +964,12 @@
       {"function": "MAX", "tests": [
         {"call": "MAX()", "result": 0},
         {"call": "MAX([0.1,0.2], [0.4,0.8], [true, false])", "result": 0.8},
-        {"call": "MAX([0,0.1,0.2], [0.4,0.8,1], [true, false])", "result": 1}
+        {"call": "MAX([[0,0.1,0.2], [0.4,0.8,1], [true, false]])", "result": 1}
       ]},
       {"function": "MAXA", "tests": [
         {"call": "MAXA()", "result": 0},
-        {"call": "MAXA([0.1,0.2], [0.4,0.8], [true, false])", "result": 1}
+        {"call": "MAXA([0.1,0.2], [0.4,0.8], [true, false])", "result": 1},
+        {"call": "MAXA([[0.1,0.2], [0.4,0.8], [true, false]])", "result": 1}
       ]},
       {"function": "MDETERM", "tests": [
         {"call": "MDETERM([[1]])", "result": 1},
@@ -939,16 +978,19 @@
       ]},
       {"function": "MEDIAN", "tests": [
         {"call": "MEDIAN([1,2,3,4,5])", "result": 3},
-        {"call": "MEDIAN([1,2,3,4,5,6])", "result": 3.5}
+        {"call": "MEDIAN([1,2,3,4,5,6])", "result": 3.5},
+        {"call": "MEDIAN([[1,2,3],[4,5,6]])", "result": 3.5}
       ]},
       {"function": "MIN", "tests": [
         {"call": "MIN()", "result": 0},
         {"call": "MIN([0.1,0.2], [0.4,0.8], [true, false])", "result": 0.1},
-        {"call": "MIN([0,0.1,0.2], [0.4,0.8,1], [true, false])", "result": 0}
+        {"call": "MIN([0,0.1,0.2], [0.4,0.8,1], [true, false])", "result": 0},
+        {"call": "MIN([[10,0],[0.1,0.2]], [[10,0.4],[0.8,1]], [[10,10],[true, false]])", "result": 0}
       ]},
       {"function": "MINA", "tests": [
         {"call": "MINA()", "result": 0},
-        {"call": "MINA([0.1,0.2], [0.4,0.8], [true, false])", "result": 0}
+        {"call": "MINA([0.1,0.2], [0.4,0.8], [true, false])", "result": 0},
+        {"call": "MINA([[10,0],[0.1,0.2]], [[10,0.4],[0.8,1]], [[10,10],[true, false]])", "result": 0}
       ]},
       {"function": "MIRR", "tests": [
         {"call": "MIRR([-75000,12000,15000,18000,21000,24000], 0.1, 0.12)", "result": 0.07971710360838036},
@@ -1175,12 +1217,24 @@
         {"call": "HTML2TEXT('<i>Hello</i>')", "result": 'Hello'},
         {"call": "HTML2TEXT(['<i>Hello</i>', '<b>Jim</b>'])", "result": 'Hello\\nJim'}
       ]},
-      {"function": "TEXT", "tests": [
-        {"call": "TEXT()", "result": ''},
-        {"call": "TEXT('')", "result": ''},
-        {"call": "TEXT('Hello Baby')", "result": 'Hello Baby'},
-        {"call": "TEXT({a: 1, b: 2})", "result": '{\\"a\\":1,\\"b\\":2}'},
-        {"call": "TEXT({a: 'hello', b: 'goodbye'})", "result": '{\\"a\\":\\"hello\\",\\"b\\":\\"goodbye\\"}'}
+      {"function": "TRIMMEAN", "tests": [
+        {"call": "TRIMMEAN([1,2,3,4,10,10], 0.5)", "result": 4.75},
+        {"call": "TRIMMEAN([[1,2],[3,4],[10,10]], 0.5)", "result": 4.75},
+      ]},
+      {"function": "VARA", "tests": [
+        {"call": "VARA(1,2,3,4,10,10)", "result": 16},
+        {"call": "VARA(1,2,3,4,false, true)", "result": 2.166666666666667},
+        {"call": "VARA(1,2,3,4,'count as zero',false, true)", "result": 2.285714285714286},
+      ]},
+      {"function": "VARP", "tests": [
+        {"call": "VARP(1,2,3,4,10,10)", "result": 13.333333333333334},
+        {"call": "VARP(1,2,3,4,false, true)", "result": 1.25},
+        {"call": "VARP(1,2,3,4,'count as zero',false, true)", "result": 1.25},
+      ]},
+      {"function": "VARPA", "tests": [
+        {"call": "VARPA(1,2,3,4,10,10)", "result": 13.333333333333334},
+        {"call": "VARPA(1,2,3,4,false, true)", "result": 1.8055555555555556},
+        {"call": "VARPA(1,2,3,4,'count as zero',false, true)", "result": 1.959183673469388},
       ]},
       {"function": "HUMANIZE", "tests": [
         {"call": "HUMANIZE('')", "result": ''},
@@ -1222,12 +1276,49 @@
         {"call": "SUMIF([1, 2, 3], '>2')", "result": 3},
         {"call": "SUMIF([[1,1], [2,2], [3,3]], '>2')", "result": 6},
       ]},
+      {"function": "SUMIFS", "tests": [
+        {"call": "SUMIFS([1, 2, 3], '>1', '<3')", "result": 2},
+        {"call": "SUMIFS([[1,1], [2,2], [3,3]], '>1', '<3')", "result": 4},
+      ]},
+      {"function": "SUMSQ", "tests": [
+        {"call": "SUMSQ(1, 2, 3)", "result": 14},
+        {"call": "SUMSQ([1, 2, 3])", "result": 14},
+        {"call": "SUMSQ([[1,1], [2,2], [3,3]])", "result": 28},
+      ]},
+      {"func": "SUMX2MY2", "tests": [
+        {"call": "SUMX2MY2([1,2,3], [4,5,6])", "result": -63},
+        {"call": "SUMX2MY2([1,2,3,4,5,6],[7,8,9,10,11,12,13,14,15,16])", "result": -468},
+      ]},
+      {"func": "SUMX2PY2", "tests": [
+        {"call": "SUMX2PY2([1,2,3], [4,5,6])", "result": 91},
+        {"call": "SUMX2PY2([1,2,3,4,5,6],[7,8,9,10,11,12,13,14,15,16])", "result": 650},
+      ]},
+      {"func": "SUMXMY2", "tests": [
+        {"call": "SUMXMY2([1,2,3], [4,5,6])", "result": 27},
+        {"call": "SUMXMY2([1,2,3,4,5,6],[7,8,9,10,11,12,13,14,15,16])", "result": 216},
+      ]},
       {"function": "SUBSTITUTE", "tests": [
         {"call": "SUBSTITUTE('Jim Alateras', 'im', 'ames')", "result": 'James Alateras'},
         {"call": "SUBSTITUTE('Jim Alateras', '', 'ames')", "result": 'Jim Alateras'},
         {"call": "SUBSTITUTE('Jim Alateras', undefined, 'ames')", "result": 'Jim Alateras'},
         {"call": "SUBSTITUTE('', 'im', 'ames')", "result": ''},
         {"call": "SUBSTITUTE(undefined, 'im', 'ames')", "result": undefined}
+      ]},
+      {"function": "STDEVA", "tests": [
+        {"call": "STDEVA(1,2,3,4,5,6)", "result": 1.8708286933869707},
+        {"call": "STDEVA([1,2],[3,4],[5,6])", "result": 1.8708286933869707},
+        {"call": "STDEVA([[1,2],[3,4],[5,6]])", "result": 1.8708286933869707},
+      ]},
+      {"function": "STDEVP", "tests": [
+        {"call": "STDEVP(1,2,3,4,true,false)", "result": 1.118033988749895},
+        {"call": "STDEVP([1,2],[3,4],[true,false])", "result": 1.118033988749895},
+        {"call": "STDEVP([[1,2],[3,4],[true,false]])", "result": 1.118033988749895},
+      ]},
+      {"function": "STDEVS", "tests": [
+        {"call": "STDEVS(1,2,3,4,true,false)", "result": 1.2909944487358056},
+        {"call": "STDEVS([1,2],[3,4],[true,false])", "result": 1.2909944487358056},
+        {"call": "STDEVS([[1,2],[3,4],[true,false]])", "result": 1.2909944487358056},
+        {"call": "STDEVS([[1,2],[3,4]])", "result": 1.2909944487358056},
       ]},
       {"function": "MD5", "tests": [
         {"call": "MD5('jim@sutoiku.com')", "result": '3d508d960d5f63a9d9384baf6b4f67c3'},
