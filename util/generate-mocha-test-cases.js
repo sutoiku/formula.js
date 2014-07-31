@@ -25,21 +25,21 @@ function generateRequire(stream) {
 }
 
 function generateStartCategory(stream, category) {
-  stream.write(util.format('describe("test %s", function() {\n', category.function));
+  stream.write(util.format('test("%s", function() {\n', category.function));
 }
 
 function generateTestCase(stream, testCase) {
-  stream.write(util.format('\tit("should correctly calculate %s", function() {\n', testCase.call));
+  //stream.write(util.format('\tit("should correctly calculate %s", function() {\n', testCase.call));
 
   var result = testCase.result;
   if (result === undefined) {
-    stream.write(util.format('\t\tshould.not.exist(Formulae.%s);\n', testCase.call));
+    stream.write(util.format('  should.not.exist(Formulae.%s);\n', testCase.call));
   } else if (_.isString(result)) {
-    stream.write(util.format('\t\tFormulae.%s.should.equal("%s");\n', testCase.call, testCase.result));
+    stream.write(util.format('  Formulae.%s.should.equal("%s");\n', testCase.call, testCase.result));
   } else {
-    stream.write(util.format('\t\tFormulae.%s.should.equal(%s);\n', testCase.call, testCase.result));
+    stream.write(util.format('  Formulae.%s.should.equal(%s);\n', testCase.call, testCase.result));
   }
-  stream.write('\t});\n\n')
+  //stream.write('\t});\n\n');
 }
 
 function generateEndCategory(stream, category) {

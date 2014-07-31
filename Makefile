@@ -1,51 +1,20 @@
-BIN = ./node_modules/.bin
-MOCHA = $(BIN)/mocha
-MOCHA_OPTS = --timeout 6000 --recursive
-NODE=node
-REPORTER = spec
-S3_STOIC=s3cmd -c ~/.s3cmd/.stoic
-S3_NPM_REPO=s3://npm-repo
-TEST_FILES=test
-TEST_FILE?=you_must_specify_the_test_file
+browserify = node_modules/browserify/bin/cmd.js
+uglify = node_modules/uglify-js/bin/uglifyjs
+jshint = node_modules/jshint/bin/jshint
+mocha = node_modules/mocha/bin/mocha
 
-all:
-	grunt
+build:
+	$(browserify) index.js -o build/bundle.js -s Formula
+	$(uglify) build/bundle.js -o build/bundle.min.js
 
-lint:
-	$(BIN)/jshint lib/* test/*
+test:
+	jshint lib/*.js
+	$(mocha) -u tdd -R mocha-spec-cov -r blanket
 
-test: generate-tests lint
-	$(MOCHA) $(MOCHA_OPTS) --reporter $(REPORTER) $(TEST_FILES)
+coverage:
+	$(mocha) -u tdd -R html-cov -r blanket > coverage-report.html
 
-test-one: lint
-	$(MOCHA) $(MOCHA_OPTS) --reporter $(REPORTER) $(TEST_FILE)
+watch:
+	$(mocha) -u tdd -R mocha-spec-cov -r blanket -w
 
-test-reports: clean
-	mkdir reports
-	$(MAKE) -k test MOCHA="istanbul cover _mocha --" REPORTER=xunit TEST_FILES="$(TEST_FILES) > reports/test.not_xml" || true
-	# Remove console.out and console.err from the top and bottom of the text results file
-	sed '/^<testsuite/,$$!d' reports/test.not_xml > reports/test.not_xml2
-	sed '/^==[=]* Coverage summary =[=]*/,$$d' reports/test.not_xml2 > reports/test.xml
-	# Output other report formats for jenkins to pick up
-	istanbul report cobertura --verbose
-	@echo open html-report/index.html file in your browser
-	istanbul report html --verbose
-
-package: clean
-	rm -rf *.tgz || true
-	@npm pack
-
-generate-tests:
-	$(NODE) ./util/generate-mocha-test-cases.js
-
-clean:
-	[ -d "coverage" ] && rm -rf coverage || true
-	[ -d "lib-cov" ] && rm -rf lib-cov || true
-	[ -d "reports" ] && rm -rf reports || true
-	[ -d "build" ] && rm -rf build || true
-	[ -d "html-report" ] && rm -rf html-report || true
-
-deploy: package
-	$(S3_STOIC) put *.tgz  $(S3_NPM_REPO)
-
-.PHONY: test lib-cov
+.PHONY: build test coverage watch
