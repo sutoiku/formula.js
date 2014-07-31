@@ -88,7 +88,8 @@
         {"call": "AVERAGEA(2, 4, 8, 16)", "result": 7.5},
         {"call": "AVERAGEA([2,4,8,16])", "result": 7.5},
         {"call": "AVERAGEA([2,4], [8,16])", "result": 7.5},
-        {"call": "AVERAGEA([2,4], [6,8], [true,false])", "result": 3.5}
+        {"call": "AVERAGEA([2,4], [6,8], [true,false])", "result": 3.5},
+        {"call": "AVERAGEA([2,4], [6,8], [true,false], ['a','b'])", "result": 2.625}
       ]},
       {"function": "AVERAGEIF", "tests": [
         {"call": "AVERAGEIF([2,4,8,16], '>5')", "result": 12},
@@ -1202,6 +1203,11 @@
       {"function": "TRIMMEAN", "tests": [
         {"call": "TRIMMEAN([1,2,3,4,10,10], 0.5)", "result": 4.75},
         {"call": "TRIMMEAN([[1,2],[3,4],[10,10]], 0.5)", "result": 4.75},
+      ]},
+      {"function": "VARA", "tests": [
+        {"call": "VARA(1,2,3,4,10,10)", "result": 16},
+        {"call": "VARA(1,2,3,4,false, true)", "result": 2.166666666666667},
+        {"call": "VARA(1,2,3,4,'count as zero',false, true)", "result": 2.285714285714286},
       ]},
       {"function": "HUMANIZE", "tests": [
         {"call": "HUMANIZE('')", "result": ''},
