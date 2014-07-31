@@ -960,7 +960,8 @@
       ]},
       {"function": "MEDIAN", "tests": [
         {"call": "MEDIAN([1,2,3,4,5])", "result": 3},
-        {"call": "MEDIAN([1,2,3,4,5,6])", "result": 3.5}
+        {"call": "MEDIAN([1,2,3,4,5,6])", "result": 3.5},
+        {"call": "MEDIAN([[1,2,3],[4,5,6]])", "result": 3.5}
       ]},
       {"function": "MIN", "tests": [
         {"call": "MIN()", "result": 0},
