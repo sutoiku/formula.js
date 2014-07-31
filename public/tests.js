@@ -946,11 +946,12 @@
       {"function": "MAX", "tests": [
         {"call": "MAX()", "result": 0},
         {"call": "MAX([0.1,0.2], [0.4,0.8], [true, false])", "result": 0.8},
-        {"call": "MAX([0,0.1,0.2], [0.4,0.8,1], [true, false])", "result": 1}
+        {"call": "MAX([[0,0.1,0.2], [0.4,0.8,1], [true, false]])", "result": 1}
       ]},
       {"function": "MAXA", "tests": [
         {"call": "MAXA()", "result": 0},
-        {"call": "MAXA([0.1,0.2], [0.4,0.8], [true, false])", "result": 1}
+        {"call": "MAXA([0.1,0.2], [0.4,0.8], [true, false])", "result": 1},
+        {"call": "MAXA([[0.1,0.2], [0.4,0.8], [true, false]])", "result": 1}
       ]},
       {"function": "MDETERM", "tests": [
         {"call": "MDETERM([[1]])", "result": 1},
