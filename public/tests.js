@@ -966,7 +966,8 @@
       {"function": "MIN", "tests": [
         {"call": "MIN()", "result": 0},
         {"call": "MIN([0.1,0.2], [0.4,0.8], [true, false])", "result": 0.1},
-        {"call": "MIN([0,0.1,0.2], [0.4,0.8,1], [true, false])", "result": 0}
+        {"call": "MIN([0,0.1,0.2], [0.4,0.8,1], [true, false])", "result": 0},
+        {"call": "MIN([[10,0],[0.1,0.2]], [[10,0.4],[0.8,1]], [[10,10],[true, false]])", "result": 0}
       ]},
       {"function": "MINA", "tests": [
         {"call": "MINA()", "result": 0},
