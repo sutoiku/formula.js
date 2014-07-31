@@ -304,7 +304,8 @@
         {"call": "COUNTUNIQUE()", "result": 0},
         {"call": "COUNTUNIQUE(1, 1, 2, 2, 3, 3)", "result": 3},
         {"call": "COUNTUNIQUE([1,1,2,2,3,3])", "result": 3},
-        {"call": "COUNTUNIQUE([1,1,2], [2,3,3])", "result": 3}
+        {"call": "COUNTUNIQUE([1,1,2], [2,3,3])", "result": 3},
+        {"call": "COUNTUNIQUE([[1,1],[2,5]], [[2,3],[3,4]])", "result": 5},
       ]},
       {"function": "CUMIPMT", "tests": [
         {"call": "CUMIPMT('0.1/12', '30*12', 100000, 13, 24, 0)", "result": -9916.77251395708},
