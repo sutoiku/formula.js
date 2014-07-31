@@ -971,7 +971,8 @@
       ]},
       {"function": "MINA", "tests": [
         {"call": "MINA()", "result": 0},
-        {"call": "MINA([0.1,0.2], [0.4,0.8], [true, false])", "result": 0}
+        {"call": "MINA([0.1,0.2], [0.4,0.8], [true, false])", "result": 0},
+        {"call": "MINA([[10,0],[0.1,0.2]], [[10,0.4],[0.8,1]], [[10,10],[true, false]])", "result": 0}
       ]},
       {"function": "MIRR", "tests": [
         {"call": "MIRR([-75000,12000,15000,18000,21000,24000], 0.1, 0.12)", "result": 0.07971710360838036},
