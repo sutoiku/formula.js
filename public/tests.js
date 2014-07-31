@@ -1218,6 +1218,16 @@
         {"call": "VARA(1,2,3,4,false, true)", "result": 2.166666666666667},
         {"call": "VARA(1,2,3,4,'count as zero',false, true)", "result": 2.285714285714286},
       ]},
+      {"function": "VARP", "tests": [
+        {"call": "VARP(1,2,3,4,10,10)", "result": 13.333333333333334},
+        {"call": "VARP(1,2,3,4,false, true)", "result": 1.25},
+        {"call": "VARP(1,2,3,4,'count as zero',false, true)", "result": 1.25},
+      ]},
+      {"function": "VARPA", "tests": [
+        {"call": "VARPA(1,2,3,4,10,10)", "result": 13.333333333333334},
+        {"call": "VARPA(1,2,3,4,false, true)", "result": 1.8055555555555556},
+        {"call": "VARPA(1,2,3,4,'count as zero',false, true)", "result": 1.959183673469388},
+      ]},
       {"function": "HUMANIZE", "tests": [
         {"call": "HUMANIZE('')", "result": ''},
         {"call": "HUMANIZE(new Date(2012, 11, 20, 7, 7, 7))", "result": 'Thursday, December 20th 2012, 7:07:07'},
