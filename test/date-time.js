@@ -40,4 +40,18 @@ suite('Date & Time', function() {
     dateTime.DAYS('a', 1).should.equal(error.value);
     dateTime.DAYS(1, 'a').should.equal(error.value);
   });
+
+  test('DAYS360', function() {
+    dateTime.DAYS360('1/1/1901', '1/2/1901', true).should.equal(1);
+    dateTime.DAYS360('1/1/1901', '12/31/1901', true).should.equal(359);
+    dateTime.DAYS360('1/1/1901', '1/1/1902', true).should.equal(360);
+    dateTime.DAYS360('1/1/1901', '2/1/1901', true).should.equal(30);
+    dateTime.DAYS360('1/1/1901', '1/2/1901', false).should.equal(1);
+    dateTime.DAYS360('1/1/1901', '12/31/1901', false).should.equal(360);
+    dateTime.DAYS360('1/1/1901', '1/1/1902', false).should.equal(360);
+    dateTime.DAYS360('1/1/1901', '2/1/1901', false).should.equal(30);
+    dateTime.DAYS360('1/30/1901', '12/31/1901', false).should.equal(330);
+    dateTime.DAYS360('1/1/1901', 'a').should.equal(error.value);
+    dateTime.DAYS360('a', '1/2/1901').should.equal(error.value);
+  });
 });
