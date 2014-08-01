@@ -71,4 +71,12 @@ suite('Date & Time', function() {
     dateTime.EOMONTH('a', 0).should.equal(error.value);
     dateTime.EOMONTH('1/1/1900', 'a').should.equal(error.value);
   });
+
+  test('HOUR', function() {
+    dateTime.HOUR('1/1/1900').should.equal(0);
+    dateTime.HOUR('1/1/1900 1:00').should.equal(1);
+    // dateTime.HOUR('1:00').should.equal(1);
+    // dateTime.HOUR('0.75').should.equal(18);
+    dateTime.HOUR('a').should.equal(error.value);
+  });
 });
