@@ -9,8 +9,10 @@ build:
 	$(uglify) build/bundle.js -o build/bundle.min.js
 
 test:
-	jshint lib/*.js
 	$(mocha) -u tdd -R mocha-spec-cov -r blanket
+
+lint:
+	jshint lib/*.js
 
 coveralls:
 	$(mocha) -r blanket -u tdd -R mocha-lcov-reporter | $(coveralls)
