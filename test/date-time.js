@@ -53,5 +53,14 @@ suite('Date & Time', function() {
     dateTime.DAYS360('1/30/1901', '12/31/1901', false).should.equal(330);
     dateTime.DAYS360('1/1/1901', 'a').should.equal(error.value);
     dateTime.DAYS360('a', '1/2/1901').should.equal(error.value);
+    dateTime.DAYS360('1/1/1901', '1/2/1901', 'a').should.equal(error.value);
+  });
+
+  test('EDATE', function() {
+    dateTime.EDATE('1/1/1900', 0).should.equal(1);
+    dateTime.EDATE('1/1/1900', 1).should.equal(32);
+    dateTime.EDATE('1/1/1900', 12).should.equal(367);
+    dateTime.EDATE('a', 0).should.equal(error.value);
+    dateTime.EDATE('1/1/1900', 'a').should.equal(error.value);
   });
 });
