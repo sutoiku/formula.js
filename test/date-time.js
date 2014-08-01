@@ -32,4 +32,12 @@ suite('Date & Time', function() {
     dateTime.DAY(-1).should.equal(error.num);
     dateTime.DAY('a').should.equal(error.value);
   });
+
+  test('DAYS', function() {
+    dateTime.DAYS(2, 1).should.equal(1);
+    dateTime.DAYS('1/2/1900', '1/1/1900').should.equal(1);
+    dateTime.DAYS(new Date(1900, 1, 2), new Date(1900, 1, 1)).should.equal(1);
+    dateTime.DAYS('a', 1).should.equal(error.value);
+    dateTime.DAYS(1, 'a').should.equal(error.value);
+  });
 });
