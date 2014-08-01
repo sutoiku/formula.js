@@ -22,4 +22,14 @@ suite('Date & Time', function() {
     dateTime.DATEVALUE(1).should.equal(error.value);
     dateTime.DATEVALUE('0/0/0').should.equal(error.value);
   });
+
+  test('DAY', function() {
+    dateTime.DAY(1).should.equal(1);
+    dateTime.DAY(2958465).should.equal(31);
+    dateTime.DAY('1').should.equal(1);
+    dateTime.DAY('1/1/1900').should.equal(1);
+    dateTime.DAY(new Date(1900, 0, 1)).should.equal(1);
+    dateTime.DAY(-1).should.equal(error.num);
+    dateTime.DAY('a').should.equal(error.value);
+  });
 });
