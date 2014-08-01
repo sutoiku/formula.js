@@ -12,7 +12,14 @@ suite('Date & Time', function() {
     date = dateTime.DATE(1900, 1, -1);
     date.should.equal(error.num);
 
-    date = dateTime.DATE("invalid");
+    date = dateTime.DATE('invalid');
     date.should.equal(error.value);
+  });
+
+  test('DATEVALUE', function() {
+    dateTime.DATEVALUE('1/1/1900').should.equal(1);
+    dateTime.DATEVALUE('12/31/9999').should.equal(2958465);
+    dateTime.DATEVALUE(1).should.equal(error.value);
+    dateTime.DATEVALUE('0/0/0').should.equal(error.value);
   });
 });
