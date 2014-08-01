@@ -79,4 +79,12 @@ suite('Date & Time', function() {
     // dateTime.HOUR('0.75').should.equal(18);
     dateTime.HOUR('a').should.equal(error.value);
   });
+
+  test('ISOWEEKNUM', function() {
+    dateTime.ISOWEEKNUM('1/1/1901').should.equal(1);
+    dateTime.ISOWEEKNUM('1/8/1901').should.equal(2);
+    dateTime.ISOWEEKNUM('12/29/1901').should.equal(52);
+    dateTime.ISOWEEKNUM('6/6/1902').should.equal(23);
+    dateTime.ISOWEEKNUM('a').should.equal(error.value);
+  });
 });
