@@ -31,6 +31,8 @@
   "smarttabs": true,
   "trailing": false,
   "undef": true,
+  "unused": true,
   "strict": false,
+  "quotmark": false,
   "expr": true
 }

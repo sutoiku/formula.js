@@ -1,11 +1,8 @@
 /**
  * @author       Jim Alateras
  */
-/**
- * @author       Jim Alateras
- */
-var should = require('should');
-var moment = require('moment');
+
+require('should');
 var libpath = process.env.IMPORTERJS_COV ? "../lib-cov" : "../lib";
 var Formulae = require(libpath + "/formula");
 
