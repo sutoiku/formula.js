@@ -23,8 +23,10 @@
   "devDependencies": {
     "blanket": "^1.1.6",
     "browserify": "^5.9.1",
+    "coveralls": "^2.11.1",
     "jshint": "^2.5.2",
     "mocha": "*",
+    "mocha-lcov-reporter": "0.0.1",
     "mocha-spec-cov": "0.0.3",
     "rewire": "*",
     "should": "*",
