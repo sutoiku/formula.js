@@ -87,4 +87,11 @@ suite('Date & Time', function() {
     dateTime.ISOWEEKNUM('6/6/1902').should.equal(23);
     dateTime.ISOWEEKNUM('a').should.equal(error.value);
   });
+
+  test('MINUTE', function() {
+    dateTime.MINUTE('1/1/1901').should.equal(0);
+    dateTime.MINUTE('1/1/1901 1:01').should.equal(1);
+    // dateTime.MINUTE('1:01').should.equal(1);
+    dateTime.MINUTE('a').should.equal(error.value);
+  });
 });
