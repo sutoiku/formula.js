@@ -12,10 +12,10 @@ test:
 	jshint lib/*.js
 	$(mocha) -u tdd -R mocha-spec-cov -r blanket
 
-coverage:
+coveralls:
 	$(mocha) -r blanket -u tdd -R mocha-lcov-reporter | $(coveralls)
 
-coveralls:
+coverage:
 	$(mocha) -u tdd -R html-cov -r blanket > coverage-report.html
 
 watch:
