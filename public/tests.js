@@ -102,6 +102,22 @@
         //{"call": "AVERAGEIFS([[2,4],[8,16]], [[1,2],[3,4]], '>2')", "result": 12},
         // still does not work with multi dimansional ranges
       ]},
+      {"function": "BESSELI", "tests": [
+        {"call": "BESSELI(1.5, 1)", "result": 0.981666428475166},
+        {"call": "BESSELI(1.5, 2)", "result": 0.3378346208744381}
+      ]},
+      {"function": "BESSELJ", "tests": [
+        {"call": "BESSELJ(1.9, 2)", "result": 0.3299258286697852},
+        {"call": "BESSELJ(1.5, 2)", "result": 0.23208767901744795}
+      ]},
+      {"function": "BESSELK", "tests": [
+        {"call": "BESSELK(1.5, 1)", "result": 0.2773878036322587},
+        {"call": "BESSELK(1.5, 2)", "result": 0.5836559741666655}
+      ]},
+      {"function": "BESSELY", "tests": [
+        {"call": "BESSELY(2.5, 1)", "result": 0.14591813750831284},
+        {"call": "BESSELY(1.5, 2)", "result": -0.9321937606262338}
+      ]},
       {"function": "BIN2DEC", "tests": [
         {"call": "BIN2DEC(101010)", "result": 42},
         {"call": "BIN2DEC('101010')", "result": 42},
