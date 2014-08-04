@@ -126,4 +126,10 @@ suite('Date & Time', function() {
     dateTime.SECOND('1/1/1900 1:00:01').should.be.equal(1);
     dateTime.SECOND('a').should.be.equal(error.value);
   });
+
+  test('TIME', function() {
+    dateTime.TIME(0, 0, 0).should.be.equal(0);
+    dateTime.TIME(1, 1, 1).should.be.equal(0.04237268518518519);
+    dateTime.TIME(-1, -1, -1).should.be.equal(error.num);
+  });
 });
