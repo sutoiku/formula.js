@@ -98,5 +98,16 @@ suite('Date & Time', function() {
   test('MONTH', function() {
     dateTime.MONTH('1/1/1900').should.equal(1);
     dateTime.MONTH('12/1/1900').should.equal(12);
+    dateTime.MONTH('a').should.equal(error.value);
+  });
+
+  test('NETWORKDAYS', function() {
+    dateTime.NETWORKDAYS('1/1/1900', '1/2/1900').should.equal(1);
+    dateTime.NETWORKDAYS('1/1/1900', '2/1/1900').should.equal(23);
+    dateTime.NETWORKDAYS('1/1/1900', '2/1/1900', '1/2/1900').should.equal(22);
+    dateTime.NETWORKDAYS('1/1/1900', '2/1/1900', ['1/2/1900', '1/3/1900']).should.equal(21);
+    dateTime.NETWORKDAYS('a', '1/2/1900').should.equal(error.value);
+    dateTime.NETWORKDAYS('1/1/1900', 'a').should.equal(error.value);
+    dateTime.NETWORKDAYS('1/1/1900', '2/1/1900', 'a').should.equal(error.value);
   });
 });
