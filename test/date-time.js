@@ -156,4 +156,20 @@ suite('Date & Time', function() {
     dateTime.WEEKNUM('1/1/1901', 21).should.be.equal(1);
     dateTime.WEEKNUM('a').should.be.equal(error.value);
   });
+
+  test('WORKDAY', function() {
+    dateTime.WORKDAY('1/1/1900', 1).getDate().should.be.equal(2);
+    dateTime.WORKDAY('1/1/1900', 7).getDate().should.be.equal(10);
+    dateTime.WORKDAY('1/1/1900', 2, '1/2/1900').getDate().should.be.equal(4);
+    dateTime.WORKDAY('a', 1, '1/2/1900').should.be.equal(error.value);
+    dateTime.WORKDAY('1/1/1900', 'a').should.be.equal(error.value);
+    dateTime.WORKDAY('1/1/1900', 1, 'a').should.be.equal(error.value);
+    dateTime.WORKDAY('1/1/1900', -1).should.be.equal(error.num);
+  });
+
+  test('WORKDAY.INTL', function() {
+    dateTime.WORKDAY.INTL('1/1/1900', 1).getDate().should.be.equal(2);
+    dateTime.WORKDAY.INTL('1/1/1905', 1, 2).getDate().should.be.equal(3);
+    dateTime.WORKDAY.INTL('1/1/1900', 1, 'a').should.be.equal(error.value);
+  });
 });
