@@ -52,6 +52,7 @@ suite('Math & Trig', function() {
 
   test('ARABIC', function() {
     mathTrig.ARABIC('X').should.equal(10);
+    should.deepEqual(mathTrig.ARABIC('ABC'), error.value);
   });
 
   test('ASIN', function() {
@@ -148,12 +149,20 @@ suite('Math & Trig', function() {
     mathTrig.COSH(0).should.equal(1);
   });
 
+  test('COT', function() {
+    mathTrig.COT(1).should.equal(0.6420926159343306);
+  });
+
+  test('COTH', function() {
+    mathTrig.COTH(1).should.equal(1.3130352854993312);
+  });
+
   test('CSC', function() {
     mathTrig.CSC(0).should.equal(Infinity);
   });
 
   test('CSCH', function() {
-    mathTrig.COSH(0).should.equal(1);
+    mathTrig.CSCH(0).should.equal(Infinity);
   });
 
   test('DECIMAL', function() {
@@ -182,12 +191,15 @@ suite('Math & Trig', function() {
     mathTrig.FLOOR(2.5, -2).should.equal(error.num);
     mathTrig.FLOOR(1.58, 0.1).should.equal(1.5);
     mathTrig.FLOOR(0.234, 0.01).should.equal(0.23);
+    mathTrig.FLOOR(0.234, 0).should.equal(0);
   });
 
   test('FLOOR.MATH', function() {
     mathTrig.FLOOR.MATH(24.3, 5).should.equal(20);
     mathTrig.FLOOR.MATH(6.7).should.equal(6);
     mathTrig.FLOOR.MATH(-8.1, 2).should.equal(-10);
+    mathTrig.FLOOR.MATH(-8.1, 0).should.equal(0);
+    mathTrig.FLOOR.MATH(-5.5, 2, -1).should.equal(-4);
   });
 
   test('FLOOR.PRECISE', function() {
@@ -196,6 +208,7 @@ suite('Math & Trig', function() {
     mathTrig.FLOOR.PRECISE(-3.2, 1).should.equal(-4);
     mathTrig.FLOOR.PRECISE(3.2, -1).should.equal(3);
     mathTrig.FLOOR.PRECISE(3.2).should.equal(3);
+    mathTrig.FLOOR.PRECISE(3.2, 0).should.equal(0);
   });
 
 
@@ -234,7 +247,7 @@ suite('Math & Trig', function() {
   });
 
   test('LOG10', function() {
-    mathTrig.LOG(10).should.equal(1);
+    mathTrig.LOG10(10).should.equal(1);
   });
 
   test('MDETERM', function() {
@@ -309,6 +322,7 @@ suite('Math & Trig', function() {
     mathTrig.POWER(5, 2).should.equal(25);
     mathTrig.POWER(98.6, 3.2).should.equal(2401077.2220695773);
     mathTrig.POWER(4, 5 / 4).should.equal(5.656854249492381);
+    should.deepEqual(mathTrig.POWER(-1, 0.5), error.num);
   });
 
   test('PRODUCT', function() {
