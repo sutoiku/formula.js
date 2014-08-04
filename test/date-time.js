@@ -94,4 +94,9 @@ suite('Date & Time', function() {
     // dateTime.MINUTE('1:01').should.equal(1);
     dateTime.MINUTE('a').should.equal(error.value);
   });
+
+  test('MONTH', function() {
+    dateTime.MONTH('1/1/1900').should.equal(1);
+    dateTime.MONTH('12/1/1900').should.equal(12);
+  });
 });
