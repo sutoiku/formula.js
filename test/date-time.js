@@ -138,4 +138,8 @@ suite('Date & Time', function() {
     dateTime.TIMEVALUE('1/1/1900 12:00:00').should.be.equal(0.5);
     dateTime.TIMEVALUE('a').should.be.equal(error.value);
   });
+
+  test('TODAY', function() {
+    dateTime.TODAY().should.be.instanceof(Date);
+  });
 });
