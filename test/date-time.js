@@ -120,4 +120,10 @@ suite('Date & Time', function() {
   test('NOW', function() {
     dateTime.NOW().should.be.instanceof(Date);
   });
+
+  test('SECOND', function() {
+    dateTime.SECOND('1/1/1900').should.be.equal(0);
+    dateTime.SECOND('1/1/1900 1:00:01').should.be.equal(1);
+    dateTime.SECOND('a').should.be.equal(error.value);
+  });
 });
