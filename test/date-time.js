@@ -172,4 +172,9 @@ suite('Date & Time', function() {
     dateTime.WORKDAY.INTL('1/1/1905', 1, 2).getDate().should.be.equal(3);
     dateTime.WORKDAY.INTL('1/1/1900', 1, 'a').should.be.equal(error.value);
   });
+
+  test('YEAR', function() {
+    dateTime.YEAR('1/1/1900').should.be.equal(1900);
+    dateTime.YEAR('a').should.be.equal(error.value);
+  });
 });
