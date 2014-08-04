@@ -177,4 +177,23 @@ suite('Date & Time', function() {
     dateTime.YEAR('1/1/1900').should.be.equal(1900);
     dateTime.YEAR('a').should.be.equal(error.value);
   });
+
+  test('YEARFRAC', function() {
+    dateTime.YEARFRAC('1/1/1900', '1/2/1900').should.be.equal(0.002777777777777778);
+    dateTime.YEARFRAC('1/31/1900', '3/31/1900', 0).should.be.equal(0.16666666666666666);
+    dateTime.YEARFRAC('1/31/1900', '2/1/1900', 0).should.be.equal(0.002777777777777778);
+    dateTime.YEARFRAC('1/30/1900', '3/31/1900', 0).should.be.equal(0.16666666666666666);
+
+    dateTime.YEARFRAC('1/1/1900', '1/2/1900', 1).should.be.equal(0.0027397260273972603);
+    dateTime.YEARFRAC('1/1/1904', '1/1/1905', 1).should.be.equal(1);
+    dateTime.YEARFRAC('5/1/1903', '5/1/1904', 1).should.be.equal(1);
+    dateTime.YEARFRAC('1/1/1903', '5/1/1904', 1).should.be.equal(1.3295713634290924);
+    dateTime.YEARFRAC('1/1/1904', '1/2/1904', 1).should.be.equal(0.00273224043715847);
+
+    dateTime.YEARFRAC('1/1/1900', '1/2/1900', 2).should.be.equal(0.002777777777777778);
+    dateTime.YEARFRAC('1/1/1900', '1/2/1900', 3).should.be.equal(0.0027397260273972603);
+    dateTime.YEARFRAC('1/1/1900', '1/2/1900', 4).should.be.equal(0.002777777777777778);
+    dateTime.YEARFRAC('a', '1/2/1900').should.be.equal(error.value);
+    dateTime.YEARFRAC('1/1/1900', 'a').should.be.equal(error.value);
+  });
 });
