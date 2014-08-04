@@ -132,4 +132,10 @@ suite('Date & Time', function() {
     dateTime.TIME(1, 1, 1).should.be.equal(0.04237268518518519);
     dateTime.TIME(-1, -1, -1).should.be.equal(error.num);
   });
+
+  test('TIMEVALUE', function() {
+    dateTime.TIMEVALUE('1/1/1900 00:00:00').should.be.equal(0);
+    dateTime.TIMEVALUE('1/1/1900 12:00:00').should.be.equal(0.5);
+    dateTime.TIMEVALUE('a').should.be.equal(error.value);
+  });
 });
