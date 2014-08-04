@@ -116,4 +116,8 @@ suite('Date & Time', function() {
     dateTime.NETWORKDAYS.INTL('1/1/1900', '1/2/1900', 2).should.equal(0);
     dateTime.NETWORKDAYS.INTL('1/1/1900', '1/2/1900', -1).should.equal(error.value);
   });
+
+  test('NOW', function() {
+    dateTime.NOW().should.be.instanceof(Date);
+  });
 });
