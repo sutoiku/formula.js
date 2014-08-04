@@ -110,4 +110,10 @@ suite('Date & Time', function() {
     dateTime.NETWORKDAYS('1/1/1900', 'a').should.equal(error.value);
     dateTime.NETWORKDAYS('1/1/1900', '2/1/1900', 'a').should.equal(error.value);
   });
+
+  test('NETWORKDAYS.INTL', function() {
+    dateTime.NETWORKDAYS.INTL('1/1/1900', '1/2/1900').should.equal(1);
+    dateTime.NETWORKDAYS.INTL('1/1/1900', '1/2/1900', 2).should.equal(0);
+    dateTime.NETWORKDAYS.INTL('1/1/1900', '1/2/1900', -1).should.equal(error.value);
+  });
 });
