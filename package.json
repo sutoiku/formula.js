@@ -5,7 +5,7 @@
   "version"              : "0.0.29",
   "repository"           : {
     "type"               : "git",
-    "url"                : "git@github.com:sutoiku/formulajs.git"
+    "url"                : "git@github.com:sutoiku/formula.js.git"
   },
   "engines"              : {
     "node"               : "0.8.x - 0.10.x"
