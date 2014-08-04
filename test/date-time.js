@@ -148,4 +148,12 @@ suite('Date & Time', function() {
     dateTime.WEEKDAY('1/1/1901', 2).should.be.equal(2);
     dateTime.WEEKDAY('a').should.be.equal(error.value);
   });
+
+  test('WEEKNUM', function() {
+    dateTime.WEEKNUM('1/1/1900').should.be.equal(1);
+    dateTime.WEEKNUM('2/1/1900').should.be.equal(5);
+    dateTime.WEEKNUM('2/1/1909', 2).should.be.equal(6);
+    dateTime.WEEKNUM('1/1/1901', 21).should.be.equal(1);
+    dateTime.WEEKNUM('a').should.be.equal(error.value);
+  });
 });
