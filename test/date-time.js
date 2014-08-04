@@ -142,4 +142,10 @@ suite('Date & Time', function() {
   test('TODAY', function() {
     dateTime.TODAY().should.be.instanceof(Date);
   });
+
+  test('WEEKDAY', function() {
+    dateTime.WEEKDAY('1/1/1901').should.be.equal(3);
+    dateTime.WEEKDAY('1/1/1901', 2).should.be.equal(2);
+    dateTime.WEEKDAY('a').should.be.equal(error.value);
+  });
 });
