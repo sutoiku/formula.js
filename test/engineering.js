@@ -211,4 +211,14 @@ suite('Engineering', function() {
     engineering.HEX2DEC('3DA408B9').should.equal(1034160313);
     engineering.HEX2DEC('z').should.equal(error.num);
   });
+
+  test('HEX2OCT', function() {
+    engineering.HEX2OCT('F', 3).should.equal('017');
+    engineering.HEX2OCT('3B4E').should.equal('35516');
+    engineering.HEX2OCT('FFFFFFFF00').should.equal('7777777400');
+    engineering.HEX2OCT('z').should.equal(error.num);
+    engineering.HEX2OCT('FFDFFFFFFF').should.equal(error.num);
+    engineering.HEX2OCT(1, 'a').should.equal(error.value);
+    engineering.HEX2OCT(1, -1).should.equal(error.num);
+  });
 });
