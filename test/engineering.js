@@ -137,4 +137,15 @@ suite('Engineering', function() {
     engineering.DEC2BIN(1, 'a').should.equal(error.value);
     engineering.DEC2BIN(1, -1).should.equal(error.num);
   });
+
+  test('DEC2HEX', function() {
+    engineering.DEC2HEX(100, 4).should.equal('0064');
+    engineering.DEC2HEX(-54).should.equal('ffffffffca');
+    engineering.DEC2HEX(28).should.equal('1c');
+    engineering.DEC2HEX(549755813888).should.equal(error.num);
+    engineering.DEC2HEX(64, 1).should.equal(error.num);
+    engineering.DEC2HEX('a').should.equal(error.value);
+    engineering.DEC2HEX(1, 'a').should.equal(error.value);
+    engineering.DEC2HEX(1, -1).should.equal(error.num);
+  });
 });
