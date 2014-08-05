@@ -301,6 +301,12 @@ suite('Engineering', function() {
     engineering.IMLOG2('a').should.equal(error.num);
   });
 
+  test('IMPOWER', function() {
+    engineering.IMPOWER('2+3i', 3).should.equal('-45.99999999999999+9.000000000000007i');
+    engineering.IMPOWER('2+3i', 'a').should.equal(error.value);
+    engineering.IMPOWER('a', 1).should.equal(error.num);
+  });
+
   test('IMREAL', function() {
     engineering.IMREAL('6-9i').should.equal(6);
     engineering.IMREAL('i').should.equal(0);
