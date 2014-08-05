@@ -267,6 +267,12 @@ suite('Engineering', function() {
     engineering.IMCOSH(true).should.equal(error.value);
   });
 
+  test('IMCOT', function() {
+    engineering.IMCOT('4+3i').should.equal('-27.034945603074224+3.851153334811777i');
+    engineering.IMCOT('a').should.equal(error.num);
+    engineering.IMCOT(true).should.equal(error.value);
+  });
+
   test('IMREAL', function() {
     engineering.IMREAL('6-9i').should.equal(6);
     engineering.IMREAL('i').should.equal(0);
