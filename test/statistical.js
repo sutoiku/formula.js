@@ -51,6 +51,7 @@ suite('Statistical', function() {
   test("AVERAGEIFS", function() {
     statistical.AVERAGEIFS([2, 4, 8, 16], [1, 2, 3, 4], '>2').should.equal(12);
     statistical.AVERAGEIFS([2, 4, 8, 16], [1, 2, 3, 4], '>2', [1, 2, 3, 4], '>2').should.equal(12);
+    statistical.AVERAGEIFS([2, 4, 8, 16], [1, 2, 3, 4], '>2', [1, 1, 1, 1], '>2').should.equal(0);
   });
 
   test('BETA.DIST', function() {
@@ -290,8 +291,7 @@ suite('Statistical', function() {
     var known_y = [33100, 47300, 69000, 102000, 150000, 220000];
     var known_x = [11, 12, 13, 14, 15, 16];
     var new_x = [11, 12, 13, 14, 15, 16, 17, 18, 19];
-    var new_y = statistical.GROWTH(known_y, known_x, new_x);
-    should.deepEqual(new_y, [
+    should.deepEqual(statistical.GROWTH(known_y, known_x, new_x), [
       32618.203773538437,
       47729.42261474665,
       69841.30085621694,
@@ -301,6 +301,27 @@ suite('Statistical', function() {
       320196.7183634903,
       468536.05418408214,
       685597.3889812973
+    ]);
+
+    should.deepEqual(statistical.GROWTH(known_y), [
+      32618.203773539713,
+      47729.42261474775,
+      69841.30085621744,
+      102197.07337883241,
+      149542.4867400457,
+      218821.8762145953
+    ]);
+
+    should.deepEqual(statistical.GROWTH(known_y, known_x, new_x, false), [
+      9546.01078362295,
+      21959.574129266384,
+      50515.645421859634,
+      116205.8251842928,
+      267319.0393588225,
+      614938.7837519756,
+      1414600.7282884493,
+      3254137.2789414385,
+      7485793.848705778
     ]);
   });
 
@@ -319,6 +340,8 @@ suite('Statistical', function() {
     ], [
       6, 5, 11, 7, 5
     ]).should.equal(0.04838709677419217);
+
+    statistical.INTERCEPT([1, 2, 3], [1, 2, 3, 4]).should.equal(error.na);
   });
 
   test('KURT', function() {
@@ -538,6 +561,7 @@ suite('Statistical', function() {
     var prob = [0.2, 0.3, 0.1, 0.4];
     statistical.PROB(x, prob, 2).should.equal(0.1);
     statistical.PROB(x, prob, 1, 3).should.equal(0.8);
+    statistical.PROB(x, prob).should.equal(0);
   });
 
   test('QUARTILE.EXC', function() {
@@ -604,12 +628,100 @@ suite('Statistical', function() {
   });
 
   test('STDEV.S', function() {
-    var data = [1345, 1301, 1368, 1322, 1310, 1370, 1318, 1350, 1303, 1299];
+    var data = [1345, 1301, 1368, 1322, 1310, 1370, 1318, 1350, 1303, 1299, true, false, 'nope'];
     statistical.STDEV.S(data).should.equal(27.46391571984349);
   });
 
   test('STDEVA', function() {
     var data = [1345, 1301, 1368, 1322, 1310, 1370, 1318, 1350, 1303, 1299];
     statistical.STDEVA(data).should.equal(27.46391571984349);
+    var data2 = [2, 1, true, false, 'nope'];
+    statistical.STDEVA(data2).should.equal(0.8366600265340756);
+  });
+
+  test('STDEVPA', function() {
+    var data = [1345, 1301, 1368, 1322, 1310, 1370, 1318, 1350, 1303, 1299];
+    statistical.STDEVPA(data).should.equal(26.054558142482477);
+    var data2 = [2, 1, true, false, 'nope'];
+    statistical.STDEVPA(data2).should.equal(0.7483314773547883);
+  });
+
+  test('STEYX', function() {
+    var data_y = [2, 3, 9, 1, 8, 7, 5];
+    var data_x = [6, 5, 11, 7, 5, 4, 4];
+    statistical.STEYX(data_y, data_x).should.equal(3.305718950210041);
+  });
+
+  test('T.DIST', function() {
+    statistical.T.DIST(60, 1, true).should.equal(0.9946953263673741);
+    statistical.T.DIST(8, 3, false).should.equal(0.0007369065188787021);
+  });
+
+  // TODO: implement
+  test('T.DIST.2T', function() {
+    should.equal(statistical.T.DIST['2T'](), undefined);
+  });
+
+  // TODO: implement
+  test('T.DIST.RT', function() {
+    should.equal(statistical.T.DIST.RT(), undefined);
+  });
+
+  test('T.INV', function() {
+    statistical.T.INV(0.9, 60).should.equal(1.2958210933417948);
+  });
+
+  // TODO: implement
+  test('T.INV.2T', function() {
+    should.equal(statistical.T.INV['2T'](), undefined);
+  });
+
+  // TODO: implement
+  test('T.TEST', function() {
+    should.equal(statistical.T.TEST(), undefined);
+  });
+
+  // TODO: implement
+  test('TREND', function() {
+    should.equal(statistical.TREND(), undefined);
+  });
+
+  test("TRIMMEAN", function() {
+    statistical.TRIMMEAN([4, 5, 6, 7, 2, 3, 4, 5, 1, 2, 3], 0.2).should.equal(3.7777777777777777);
+  });
+
+  test('VAR.P', function() {
+    statistical.VAR.P(1, 2, 3, 4, 10, 10).should.equal(13.333333333333334);
+    statistical.VAR.P(1, 2, 3, 4, false, true).should.equal(1.25);
+    statistical.VAR.P(1, 2, 3, 4, 'count as zero', false, true).should.equal(1.25);
+  });
+
+  test('VAR.S', function() {
+    statistical.VAR.S(1, 2, 3, 4, 10, 10).should.equal(16);
+    statistical.VAR.S(1, 2, 3, 4, false, true).should.equal(1.6666666666666667);
+    statistical.VAR.S(1, 2, 3, 4, 'count as zero', false, true).should.equal(1.6666666666666667);
+  });
+
+  test('VARA', function() {
+    statistical.VARA(1, 2, 3, 4, 10, 10).should.equal(16);
+    statistical.VARA(1, 2, 3, 4, false, true).should.equal(2.166666666666667);
+    statistical.VARA(1, 2, 3, 4, 'count as zero', false, true).should.equal(2.285714285714286);
+  });
+
+  test('VARPA', function() {
+    statistical.VARPA(1, 2, 3, 4, 10, 10).should.equal(13.333333333333334);
+    statistical.VARPA(1, 2, 3, 4, false, true).should.equal(1.8055555555555556);
+    statistical.VARPA(1, 2, 3, 4, 'count as zero', false, true).should.equal(1.959183673469388);
+  });
+
+  test('WEIBULLDIST', function() {
+    statistical.WEIBULLDIST(105, 20, 100, true).should.equal(0.9295813900692769);
+    statistical.WEIBULLDIST(105, 20, 100, false).should.equal(0.03558886402450435);
+  });
+
+  test('Z.TEST', function() {
+    var data = [3, 6, 7, 8, 6, 5, 4, 2, 1, 9];
+    statistical.Z.TEST(data, 4).should.equal(0.09057419685136381);
+    statistical.Z.TEST(data, 6).should.equal(0.86304338912953);
   });
 });

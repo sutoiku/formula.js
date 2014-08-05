@@ -284,7 +284,6 @@ suite('Math & Trig', function() {
     mathTrig.MOD(3, 2).should.equal(1);
     mathTrig.MOD(-3, 2).should.equal(1);
     mathTrig.MOD(3, -2).should.equal(-1);
-    mathTrig.MOD(3, -2).should.equal(-1);
     should.deepEqual(mathTrig.MOD(3, 0), error.div0);
   });
 
