@@ -184,6 +184,14 @@ suite('Engineering', function() {
 
   // TODO
   test('ERFC.PRECISE', function() {
-    should.equal(engineering.ERF.PRECISE(), undefined);
+    should.equal(engineering.ERFC.PRECISE(), undefined);
+  });
+
+  test('GESTEP', function() {
+    engineering.GESTEP(5, 4).should.equal(1);
+    engineering.GESTEP(5, 5).should.equal(1);
+    engineering.GESTEP(-4, -5).should.equal(1);
+    engineering.GESTEP(-1).should.equal(0);
+    engineering.GESTEP('a').should.equal(error.value);
   });
 });
