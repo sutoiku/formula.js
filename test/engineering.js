@@ -194,4 +194,14 @@ suite('Engineering', function() {
     engineering.GESTEP(-1).should.equal(0);
     engineering.GESTEP('a').should.equal(error.value);
   });
+
+  test('HEX2BIN', function() {
+    engineering.HEX2BIN('F', 8).should.equal('00001111');
+    engineering.HEX2BIN('B7').should.equal('10110111');
+    engineering.HEX2BIN('FFFFFFFFFF').should.equal('1111111111');
+    engineering.HEX2BIN('z').should.equal(error.num);
+    engineering.HEX2BIN('200').should.equal(error.num);
+    engineering.HEX2BIN(1, 'a').should.equal(error.value);
+    engineering.HEX2BIN(1, -1).should.equal(error.num);
+  });
 });
