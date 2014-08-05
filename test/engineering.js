@@ -40,4 +40,13 @@ suite('Engineering', function() {
     engineering.BIN2HEX(1, 'a').should.equal(error.value);
     engineering.BIN2HEX(1, -1).should.equal(error.num);
   });
+
+  test('BIN2OCT', function() {
+    engineering.BIN2OCT(1001, 3).should.equal('011');
+    engineering.BIN2OCT(1100100).should.equal('144');
+    engineering.BIN2OCT(1111111111).should.equal('7777777777');
+    engineering.BIN2OCT('a').should.equal(error.num);
+    engineering.BIN2OCT(1, 'a').should.equal(error.value);
+    engineering.BIN2OCT(1, -1).should.equal(error.num);
+  });
 });
