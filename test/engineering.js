@@ -250,6 +250,11 @@ suite('Engineering', function() {
     engineering.IMARGUMENT('-1-2i').should.equal(-2.0344439357957027);
   });
 
+  test('IMCONJUGATE', function() {
+    engineering.IMCONJUGATE('3+4i').should.equal('3-4i');
+    engineering.IMCONJUGATE('a').should.equal(error.num);
+  });
+
   test('IMREAL', function() {
     engineering.IMREAL('6-9i').should.equal(6);
     engineering.IMREAL('i').should.equal(0);
