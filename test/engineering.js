@@ -221,4 +221,15 @@ suite('Engineering', function() {
     engineering.HEX2OCT(1, 'a').should.equal(error.value);
     engineering.HEX2OCT(1, -1).should.equal(error.num);
   });
+
+  test('IMAGINARY', function() {
+    engineering.IMAGINARY('3+4i').should.equal(4);
+    engineering.IMAGINARY('i').should.equal(1);
+    engineering.IMAGINARY('+i').should.equal('+1');
+    engineering.IMAGINARY('-j').should.equal('-1');
+    engineering.IMAGINARY('0-j').should.equal(-1);
+    engineering.IMAGINARY('4').should.equal(0);
+    engineering.IMAGINARY(0).should.equal(0);
+    engineering.IMAGINARY('1+k').should.equal(error.num);
+  });
 });
