@@ -11,6 +11,9 @@ build:
 test:
 	$(mocha) -u tdd -R mocha-spec-cov -r blanket
 
+test-watch:
+	$(mocha) -u tdd -R min -w
+
 lint:
 	jshint lib/*.js
 
