@@ -255,6 +255,12 @@ suite('Engineering', function() {
     engineering.IMCONJUGATE('a').should.equal(error.num);
   });
 
+  test('IMCOS', function() {
+    engineering.IMCOS('1+i').should.equal('0.8337300251311491-0.9888977057628651i');
+    engineering.IMCOS('a').should.equal(error.num);
+    engineering.IMCOS(true).should.equal(error.value);
+  });
+
   test('IMREAL', function() {
     engineering.IMREAL('6-9i').should.equal(6);
     engineering.IMREAL('i').should.equal(0);
