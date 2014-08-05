@@ -67,4 +67,12 @@ suite('Engineering', function() {
     engineering.BITLSHIFT(281474976710656, 1).should.equal(error.num);
     engineering.BITLSHIFT(1, 54).should.equal(error.num);
   });
+
+  test('BITOR', function() {
+    engineering.BITOR(23, 10).should.equal(31);
+    engineering.BITOR('a', 1).should.equal(error.value);
+    engineering.BITOR(-1, 1).should.equal(error.num);
+    engineering.BITOR(1.1, 1).should.equal(error.num);
+    engineering.BITOR(281474976710656, 1).should.equal(error.num);
+  });
 });
