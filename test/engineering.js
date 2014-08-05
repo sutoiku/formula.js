@@ -84,4 +84,12 @@ suite('Engineering', function() {
     engineering.BITRSHIFT(281474976710656, 1).should.equal(error.num);
     engineering.BITRSHIFT(1, 54).should.equal(error.num);
   });
+
+  test('BITXOR', function() {
+    engineering.BITXOR(5, 3).should.equal(6);
+    engineering.BITXOR('a', 1).should.equal(error.value);
+    engineering.BITXOR(-1, 1).should.equal(error.num);
+    engineering.BITXOR(1.1, 1).should.equal(error.num);
+    engineering.BITXOR(281474976710656, 1).should.equal(error.num);
+  });
 });
