@@ -102,4 +102,29 @@ suite('Engineering', function() {
     engineering.COMPLEX('a', 1).should.equal(error.value);
     engineering.COMPLEX(1, 1, 'k').should.equal(error.value);
   });
+
+  test('CONVERT', function() {
+    engineering.CONVERT(1, 'lbm', 'kg').should.equal(0.45359237);
+    // engineering.CONVERT(68, 'F', 'C').should.equal(20);
+    engineering.CONVERT(2.5, 'ft', 'sec').should.equal(error.na);
+    engineering.CONVERT(engineering.CONVERT(100, 'ft', 'm'), 'ft', 'm').should.equal(9.290304);
+    engineering.CONVERT('a', 1).should.equal(error.value);
+    engineering.CONVERT(1, 'invalid', 'invalid').should.equal(error.na);
+    engineering.CONVERT(1, 'da', 'invalid').should.equal(error.na);
+    engineering.CONVERT(1, 'ki', 'invalid').should.equal(error.na);
+    engineering.CONVERT(1, 'invalid', 'da').should.equal(error.na);
+    engineering.CONVERT(1, 'invalid', 'ki').should.equal(error.na);
+
+    engineering.CONVERT(2, 'mi', 'yd').should.equal(3520);
+    engineering.CONVERT(2, 'nm', 'mm').should.equal(0.000002);
+    engineering.CONVERT(2, 'kg', 'lbm').should.equal(4.409245243697551);
+    engineering.CONVERT(2, 'g', 'lbm').should.equal(0.004409245243697552);
+    engineering.CONVERT(2, 'mg', 'lbm').should.equal(0.000004409245243697551);
+    engineering.CONVERT(3583, 'byte', 'kbyte').should.equal(3.583);
+    engineering.CONVERT(3583, 'byte', 'bit').should.equal(28664);
+    engineering.CONVERT(64, 'kibyte', 'bit').should.equal(524288);
+    engineering.CONVERT('Lots of', 'mi', 'yard').should.equal(error.value);
+    engineering.CONVERT(1, 'mi', 'yard').should.equal(error.na);
+
+  });
 });
