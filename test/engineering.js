@@ -291,6 +291,11 @@ suite('Engineering', function() {
     engineering.IMLN('a').should.equal(error.num);
   });
 
+  test('IMLOG10', function() {
+    engineering.IMLOG10('3+4i').should.equal('0.6989700043360187+0.4027191962733731i');
+    engineering.IMLOG10('a').should.equal(error.num);
+  });
+
   test('IMREAL', function() {
     engineering.IMREAL('6-9i').should.equal(6);
     engineering.IMREAL('i').should.equal(0);
