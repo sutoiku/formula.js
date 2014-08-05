@@ -268,9 +268,17 @@ suite('Engineering', function() {
   });
 
   test('IMCOT', function() {
-    engineering.IMCOT('4+3i').should.equal('-27.034945603074224+3.851153334811777i');
+    engineering.IMCOT('4+3i').should.equal('0.0049011823943044056-0.9992669278059017i');
     engineering.IMCOT('a').should.equal(error.num);
     engineering.IMCOT(true).should.equal(error.value);
+  });
+
+  test('IMDIV', function() {
+    engineering.IMDIV('-238+240i', '10+24i').should.equal('5+12i');
+    engineering.IMDIV('a', 'i').should.equal(error.num);
+    engineering.IMDIV('i', '0').should.equal(error.num);
+    engineering.IMDIV('j', '1').should.equal('j');
+    engineering.IMDIV('1', 'j').should.equal('-1j');
   });
 
   test('IMREAL', function() {
