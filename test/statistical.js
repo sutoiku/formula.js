@@ -2,7 +2,7 @@ var statistical = require('../lib/statistical');
 var error = require('../lib/error');
 var should = require('should');
 
-suite('Math & Trig', function() {
+suite('Statistical', function() {
   test("AVEDEV", function() {
     statistical.AVEDEV(2, 4, 8, 16).should.equal(4.5);
     statistical.AVEDEV([2, 4, 8, 16]).should.equal(4.5);
@@ -437,7 +437,7 @@ suite('Math & Trig', function() {
     statistical.NORM.DIST(0, 0, -1, false).should.equal(error.num);
   });
 
-  test('NORM.INV', function () {
+  test('NORM.INV', function() {
     statistical.NORM.INV(0.908789, 40, 1.5).should.equal(42.00000200956616);
   });
 
@@ -450,9 +450,9 @@ suite('Math & Trig', function() {
     statistical.NORM.S.INV(0.908789).should.equal(1.3333346730441074);
   });
 
-  test('PEARSON', function () {
-    var independentValues = [9,7,5,3,1];
-    var depentendValues = [10,6,1,5,3];
+  test('PEARSON', function() {
+    var independentValues = [9, 7, 5, 3, 1];
+    var depentendValues = [10, 6, 1, 5, 3];
     statistical.PEARSON(independentValues, depentendValues).should.equal(0.6993786061802354);
   });
 
@@ -514,5 +514,102 @@ suite('Math & Trig', function() {
     statistical.PERCENTRANKINC([1, 2, 3, 4], 2, 2).should.equal(0.33);
     statistical.PERCENTRANKINC([1, 2, 3, 4], 3, 2).should.equal(0.66);
     statistical.PERCENTRANKINC([1, 2, 3, 4], 4, 2).should.equal(1);
+  });
+
+  test('PERMUT', function() {
+    statistical.PERMUT(100, 3).should.equal(970200);
+  });
+
+  test('PERMUTATIONA', function() {
+    statistical.PERMUTATIONA(3, 2).should.equal(9);
+  });
+
+  test('PHI', function() {
+    statistical.PHI(0.75).should.equal(0.30113743215480443);
+  });
+
+  test('POISSONDIST', function() {
+    statistical.POISSONDIST(2, 5, true).should.equal(0.12465201948308113);
+    statistical.POISSONDIST(2, 5, false).should.equal(0.08422433748856833);
+  });
+
+  test('PROB', function() {
+    var x = [0, 1, 2, 3];
+    var prob = [0.2, 0.3, 0.1, 0.4];
+    statistical.PROB(x, prob, 2).should.equal(0.1);
+    statistical.PROB(x, prob, 1, 3).should.equal(0.8);
+  });
+
+  test('QUARTILE.EXC', function() {
+    var data = [6, 7, 15, 36, 39, 40, 41, 42, 43, 47, 49];
+    statistical.QUARTILE.EXC(data, 1).should.equal(15);
+    statistical.QUARTILE.EXC(data, 2).should.equal(40);
+    statistical.QUARTILE.EXC(data, 3).should.equal(43);
+    statistical.QUARTILE.EXC(data, 4).should.equal(error.num);
+  });
+
+  test('QUARTILE.INC', function() {
+    var data = [1, 2, 4, 7, 8, 9, 10, 12];
+    statistical.QUARTILE.INC(data, 1).should.equal(3.5);
+    statistical.QUARTILE.INC(data, 2).should.equal(7.5);
+    statistical.QUARTILE.INC(data, 3).should.equal(9.25);
+    statistical.QUARTILE.INC(data, 4).should.equal(error.num);
+  });
+
+  test('RANK.AVG', function() {
+    var data = [89, 88, 92, 101, 94, 97, 95];
+    statistical.RANK.AVG(94, data).should.equal(4);
+    statistical.RANK.AVG(88, data, 1).should.equal(1);
+  });
+
+  test('RANK.EQ', function() {
+    var data = [7, 3.5, 3.5, 1, 2];
+    statistical.RANK.EQ(data[0], data, 1).should.equal(5);
+    statistical.RANK.EQ(data[4], data).should.equal(4);
+    statistical.RANK.EQ(data[1], data, 1).should.equal(3);
+  });
+
+  test('RSQ', function() {
+    var y = [2, 3, 9, 1, 8, 7, 5];
+    var x = [6, 5, 11, 7, 5, 4, 4];
+    statistical.RSQ(y, x).should.equal(0.05795019157088122);
+  });
+
+  test('SKEW', function() {
+    statistical.SKEW([3, 4, 5, 2, 3, 4, 5, 6, 4, 7]).should.equal(0.3595430714067974);
+  });
+
+  test('SKEW.P', function() {
+    statistical.SKEW.P([3, 4, 5, 2, 3, 4, 5, 6, 4, 7]).should.equal(0.303193339354144);
+  });
+
+  test('SLOPE', function() {
+    var data_y = [2, 3, 9, 1, 8, 7, 5];
+    var data_x = [6, 5, 11, 7, 5, 4, 4];
+    statistical.SLOPE(data_y, data_x).should.equal(0.3055555555555556);
+  });
+
+  test('SMALL', function() {
+    statistical.SMALL([3, 4, 5, 2, 3, 4, 6, 4, 7], 4).should.equal(4);
+  });
+
+  test('STANDARDIZE', function() {
+    statistical.STANDARDIZE(42, 40, 1.5).should.equal(1.3333333333333333);
+    statistical.STANDARDIZE(10, 10, 10).should.equal(0);
+  });
+
+  test('STDEV.P', function() {
+    var data = [1345, 1301, 1368, 1322, 1310, 1370, 1318, 1350, 1303, 1299];
+    statistical.STDEV.P(data).should.equal(26.054558142482477);
+  });
+
+  test('STDEV.S', function() {
+    var data = [1345, 1301, 1368, 1322, 1310, 1370, 1318, 1350, 1303, 1299];
+    statistical.STDEV.S(data).should.equal(27.46391571984349);
+  });
+
+  test('STDEVA', function() {
+    var data = [1345, 1301, 1368, 1322, 1310, 1370, 1318, 1350, 1303, 1299];
+    statistical.STDEVA(data).should.equal(27.46391571984349);
   });
 });
