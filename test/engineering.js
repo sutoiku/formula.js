@@ -222,6 +222,11 @@ suite('Engineering', function() {
     engineering.HEX2OCT(1, -1).should.equal(error.num);
   });
 
+  test('IMABS', function() {
+    engineering.IMABS('5+12i').should.equal(13);
+    engineering.IMABS('a').should.equal(error.num);
+  });
+
   test('IMAGINARY', function() {
     engineering.IMAGINARY('3+4i').should.equal(4);
     engineering.IMAGINARY('i').should.equal(1);
