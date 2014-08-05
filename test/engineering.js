@@ -171,4 +171,9 @@ suite('Engineering', function() {
     engineering.ERF(1).should.equal(0.8427007929497149);
     engineering.ERF('a').should.equal(error.value);
   });
+
+  // TODO
+  test('ERF.PRECISE', function() {
+    should.equal(engineering.ERF.PRECISE(), undefined);
+  });
 });
