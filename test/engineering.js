@@ -281,6 +281,11 @@ suite('Engineering', function() {
     engineering.IMDIV('1', 'j').should.equal('-1j');
   });
 
+  test('IMEXP', function() {
+    engineering.IMEXP('1+i').should.equal('1.4686939399158851+2.2873552871788423i');
+    engineering.IMEXP('a').should.equal(error.num);
+  });
+
   test('IMREAL', function() {
     engineering.IMREAL('6-9i').should.equal(6);
     engineering.IMREAL('i').should.equal(0);
