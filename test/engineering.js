@@ -204,4 +204,11 @@ suite('Engineering', function() {
     engineering.HEX2BIN(1, 'a').should.equal(error.value);
     engineering.HEX2BIN(1, -1).should.equal(error.num);
   });
+
+  test('HEX2DEC', function() {
+    engineering.HEX2DEC('A5').should.equal(165);
+    engineering.HEX2DEC('FFFFFFFF5B').should.equal(-165);
+    engineering.HEX2DEC('3DA408B9').should.equal(1034160313);
+    engineering.HEX2DEC('z').should.equal(error.num);
+  });
 });
