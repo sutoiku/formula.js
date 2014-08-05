@@ -75,4 +75,13 @@ suite('Engineering', function() {
     engineering.BITOR(1.1, 1).should.equal(error.num);
     engineering.BITOR(281474976710656, 1).should.equal(error.num);
   });
+
+  test('BITRSHIFT', function() {
+    engineering.BITRSHIFT(13, 2).should.equal(3);
+    engineering.BITRSHIFT('a', 1).should.equal(error.value);
+    engineering.BITRSHIFT(-1, 1).should.equal(error.num);
+    engineering.BITRSHIFT(1.1, 1).should.equal(error.num);
+    engineering.BITRSHIFT(281474976710656, 1).should.equal(error.num);
+    engineering.BITRSHIFT(1, 54).should.equal(error.num);
+  });
 });
