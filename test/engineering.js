@@ -307,6 +307,12 @@ suite('Engineering', function() {
     engineering.IMPOWER('a', 1).should.equal(error.num);
   });
 
+  test('IMPRODUCT', function() {
+    engineering.IMPRODUCT('3+4i', '5-3i').should.equal('27+11i');
+    engineering.IMPRODUCT('1+2i', '30+0i').should.equal('30+60i');
+    engineering.IMPRODUCT('a', '1').should.equal(error.num);
+  });
+
   test('IMREAL', function() {
     engineering.IMREAL('6-9i').should.equal(6);
     engineering.IMREAL('i').should.equal(0);
