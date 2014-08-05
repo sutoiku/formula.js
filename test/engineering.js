@@ -181,4 +181,9 @@ suite('Engineering', function() {
     engineering.ERFC(1).should.equal(0.1572992070502851);
     engineering.ERFC('a').should.equal(error.value);
   });
+
+  // TODO
+  test('ERFC.PRECISE', function() {
+    should.equal(engineering.ERF.PRECISE(), undefined);
+  });
 });
