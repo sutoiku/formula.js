@@ -238,6 +238,18 @@ suite('Engineering', function() {
     engineering.IMAGINARY('1+k').should.equal(error.num);
   });
 
+  test('IMARGUMENT', function() {
+    engineering.IMARGUMENT('3+4i').should.equal(0.9272952180016122);
+    engineering.IMARGUMENT('a').should.equal(error.num);
+    engineering.IMARGUMENT(0).should.equal(error.div0);
+    engineering.IMARGUMENT('2i').should.equal(Math.PI / 2);
+    engineering.IMARGUMENT('-2i').should.equal(-Math.PI / 2);
+    engineering.IMARGUMENT('2').should.equal(0);
+    engineering.IMARGUMENT('-2').should.equal(-Math.PI);
+    engineering.IMARGUMENT('-1+2i').should.equal(2.0344439357957027);
+    engineering.IMARGUMENT('-1-2i').should.equal(-2.0344439357957027);
+  });
+
   test('IMREAL', function() {
     engineering.IMREAL('6-9i').should.equal(6);
     engineering.IMREAL('i').should.equal(0);
