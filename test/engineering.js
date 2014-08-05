@@ -31,4 +31,13 @@ suite('Engineering', function() {
     engineering.BIN2DEC(1111111111).should.equal(-1);
     engineering.BIN2DEC('a').should.equal(error.num);
   });
+
+  test('BIN2HEX', function() {
+    engineering.BIN2HEX(11111011, 4).should.equal('00fb');
+    engineering.BIN2HEX(1110).should.equal('e');
+    engineering.BIN2HEX(1111111111).should.equal('ffffffffff');
+    engineering.BIN2HEX('a').should.equal(error.num);
+    engineering.BIN2HEX(1, 'a').should.equal(error.value);
+    engineering.BIN2HEX(1, -1).should.equal(error.num);
+  });
 });
