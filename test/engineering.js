@@ -49,4 +49,13 @@ suite('Engineering', function() {
     engineering.BIN2OCT(1, 'a').should.equal(error.value);
     engineering.BIN2OCT(1, -1).should.equal(error.num);
   });
+
+  test('BITAND', function() {
+    engineering.BITAND(1, 5).should.equal(1);
+    engineering.BITAND(13,25).should.equal(9);
+    engineering.BITAND('a', 1).should.equal(error.value);
+    engineering.BITAND(-1, 1).should.equal(error.num);
+    engineering.BITAND(1.1, 1).should.equal(error.num);
+    engineering.BITAND(281474976710656, 1).should.equal(error.num);
+  });
 });
