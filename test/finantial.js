@@ -366,7 +366,7 @@ suite('Finantial', function() {
   });
 
   test('TBILLEQ', function() {
-    finantial.TBILLEQ('03/31/2008', '06/01/2008', 4).should.equal(0.0914);
+    finantial.TBILLEQ('03/31/2008', '06/01/2008', 0.0914).should.equal(0.09412721351734614);
   });
 
   test('TBILLPRICE', function() {
@@ -374,7 +374,7 @@ suite('Finantial', function() {
   });
 
   test('TBILLYIELD', function() {
-    // TODO TEST
+    finantial.TBILLYIELD('03/31/2008', '06/01/2008', 98.45127777777778).should.equal(0.09283779963354702);
   });
 
   //TODO: implement
