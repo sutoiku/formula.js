@@ -165,4 +165,10 @@ suite('Engineering', function() {
     engineering.DELTA(0.5, 0).should.equal(0);
     engineering.DELTA('a').should.equal(error.value);
   });
+
+  test('ERF', function() {
+    engineering.ERF(0.745).should.equal(0.7079289200957377);
+    engineering.ERF(1).should.equal(0.8427007929497149);
+    engineering.ERF('a').should.equal(error.value);
+  });
 });
