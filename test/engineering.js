@@ -286,6 +286,11 @@ suite('Engineering', function() {
     engineering.IMEXP('a').should.equal(error.num);
   });
 
+  test('IMLN', function() {
+    engineering.IMLN('3+4i').should.equal('1.6094379124341003+0.9272952180016122i');
+    engineering.IMLN('a').should.equal(error.num);
+  });
+
   test('IMREAL', function() {
     engineering.IMREAL('6-9i').should.equal(6);
     engineering.IMREAL('i').should.equal(0);
