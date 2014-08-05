@@ -148,4 +148,14 @@ suite('Engineering', function() {
     engineering.DEC2HEX(1, 'a').should.equal(error.value);
     engineering.DEC2HEX(1, -1).should.equal(error.num);
   });
+
+  test('DEC2OCT', function() {
+    engineering.DEC2OCT(58).should.equal('72');
+    engineering.DEC2OCT(58, 3).should.equal('072');
+    engineering.DEC2OCT(-100).should.equal('7777777634');
+    engineering.DEC2OCT('a').should.equal(error.value);
+    engineering.DEC2OCT(549755813888).should.equal(error.num);
+    engineering.DEC2OCT(1, 'a').should.equal(error.value);
+    engineering.DEC2OCT(1, -1).should.equal(error.num);
+  });
 });
