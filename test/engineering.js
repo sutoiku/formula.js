@@ -92,4 +92,14 @@ suite('Engineering', function() {
     engineering.BITXOR(1.1, 1).should.equal(error.num);
     engineering.BITXOR(281474976710656, 1).should.equal(error.num);
   });
+
+  test('COMPLEX', function() {
+    engineering.COMPLEX(3, 4).should.equal('3+4i');
+    engineering.COMPLEX(3, 4, 'j').should.equal('3+4j');
+    engineering.COMPLEX(0, 1).should.equal('i');
+    engineering.COMPLEX(1, 0).should.equal('1');
+    engineering.COMPLEX(0, 0).should.equal(0);
+    engineering.COMPLEX('a', 1).should.equal(error.value);
+    engineering.COMPLEX(1, 1, 'k').should.equal(error.value);
+  });
 });
