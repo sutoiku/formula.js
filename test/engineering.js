@@ -58,4 +58,13 @@ suite('Engineering', function() {
     engineering.BITAND(1.1, 1).should.equal(error.num);
     engineering.BITAND(281474976710656, 1).should.equal(error.num);
   });
+
+  test('BITLSHIFT', function() {
+    engineering.BITLSHIFT(4, 2).should.equal(16);
+    engineering.BITLSHIFT('a', 1).should.equal(error.value);
+    engineering.BITLSHIFT(-1, 1).should.equal(error.num);
+    engineering.BITLSHIFT(1.1, 1).should.equal(error.num);
+    engineering.BITLSHIFT(281474976710656, 1).should.equal(error.num);
+    engineering.BITLSHIFT(1, 54).should.equal(error.num);
+  });
 });
