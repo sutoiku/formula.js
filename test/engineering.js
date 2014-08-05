@@ -176,4 +176,9 @@ suite('Engineering', function() {
   test('ERF.PRECISE', function() {
     should.equal(engineering.ERF.PRECISE(), undefined);
   });
+
+  test('ERFC', function() {
+    engineering.ERFC(1).should.equal(0.1572992070502851);
+    engineering.ERFC('a').should.equal(error.value);
+  });
 });
