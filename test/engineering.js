@@ -232,4 +232,18 @@ suite('Engineering', function() {
     engineering.IMAGINARY(0).should.equal(0);
     engineering.IMAGINARY('1+k').should.equal(error.num);
   });
+
+  test('IMREAL', function() {
+    engineering.IMREAL('6-9i').should.equal(6);
+    engineering.IMREAL('i').should.equal(0);
+    engineering.IMREAL('+i').should.equal(0);
+    engineering.IMREAL('-j').should.equal(0);
+    engineering.IMREAL('0-j').should.equal(0);
+    engineering.IMREAL('4').should.equal('4');
+    engineering.IMREAL(0).should.equal(0);
+    engineering.IMREAL('1+k').should.equal(error.num);
+    engineering.IMREAL('+1+j').should.equal(1);
+    engineering.IMREAL('-1+j').should.equal(-1);
+    engineering.IMREAL('4j').should.equal(0);
+  });
 });
