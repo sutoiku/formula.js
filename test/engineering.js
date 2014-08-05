@@ -127,4 +127,14 @@ suite('Engineering', function() {
     engineering.CONVERT(1, 'mi', 'yard').should.equal(error.na);
 
   });
+
+  test('DEC2BIN', function() {
+    engineering.DEC2BIN(9).should.equal('1001');
+    engineering.DEC2BIN(9, 4).should.equal('1001');
+    engineering.DEC2BIN(-100).should.equal('1110011100');
+    engineering.DEC2BIN('a').should.equal(error.value);
+    engineering.DEC2BIN(512).should.equal(error.num);
+    engineering.DEC2BIN(1, 'a').should.equal(error.value);
+    engineering.DEC2BIN(1, -1).should.equal(error.num);
+  });
 });
