@@ -158,4 +158,11 @@ suite('Engineering', function() {
     engineering.DEC2OCT(1, 'a').should.equal(error.value);
     engineering.DEC2OCT(1, -1).should.equal(error.num);
   });
+
+  test('DELTA', function() {
+    engineering.DELTA(5, 4).should.equal(0);
+    engineering.DELTA(5, 5).should.equal(1);
+    engineering.DELTA(0.5, 0).should.equal(0);
+    engineering.DELTA('a').should.equal(error.value);
+  });
 });
