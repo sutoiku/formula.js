@@ -79,4 +79,10 @@ suite('Information', function() {
     information.ISNUMBER('1').should.equal(false);
     information.ISNUMBER(1/0).should.equal(false);
   });
+
+  test('ISODD', function() {
+    information.ISODD(-1).should.equal(true);
+    information.ISODD(5).should.equal(true);
+    information.ISODD(2.5).should.equal(false);
+  });
 });
