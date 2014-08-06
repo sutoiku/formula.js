@@ -352,6 +352,7 @@ suite('Financial', function() {
     financial.RATE(2 * 12, -1000, -10000, 100000, 0, 0.75).should.equal(0.0651789117718154);
     financial.RATE(2 * 12, -1000, -10000, 100000, 0, 0.065).should.equal(0.06517891177181524);
     financial.RATE(2 * 12, -1000, -10000, 100000, 1, 0.1).should.equal(0.0632395800018064);
+    financial.RATE(2 * 12, -1000, -10000, 100000, 1, 1e-11).should.equal(-1.3199999999735999e-20);
   });
 
   //TODO: implement
@@ -361,26 +362,45 @@ suite('Financial', function() {
 
   test('RRI', function() {
     financial.RRI(8, 10000, 11000).should.equal(0.011985024140399592);
+    financial.RRI(NaN, 10000, 11000).should.equal(error.value);
+    financial.RRI(0, 10000, 11000).should.equal(error.num);
   });
 
   test('SLN', function() {
     financial.SLN(30000, 7500, 10).should.equal(2250);
+    financial.SLN(NaN, 7500, 10).should.equal(error.value);
+    financial.SLN(30000, 7500, 0).should.equal(error.num);
   });
 
   test('SYD', function() {
     financial.SYD(30, 7, 10, 1).should.equal(4.181818181818182);
+    financial.SYD(NaN, 7, 10, 1).should.equal(error.value);
+    financial.SYD(30, 7, 0, 1).should.equal(error.num);
+    financial.SYD(30, 7, 10, 11).should.equal(error.num);
   });
 
   test('TBILLEQ', function() {
     financial.TBILLEQ('03/31/2008', '06/01/2008', 0.0914).should.equal(0.09412721351734614);
+    financial.TBILLEQ('invalid date', '06/01/2008', 0.0914).should.equal(error.value);
+    financial.TBILLEQ('03/31/2008', '06/01/2008', 0).should.equal(error.num);
+    financial.TBILLEQ('09/31/2008', '06/01/2008', 0.0914).should.equal(error.num);
+    financial.TBILLEQ('03/31/2008', '06/01/2009', 0.0914).should.equal(error.num);
   });
 
   test('TBILLPRICE', function() {
     financial.TBILLPRICE('03/31/2008', '06/01/2008', 0.0914).should.equal(98.45127777777778);
+    financial.TBILLPRICE('invalid date', '06/01/2008', 0.0914).should.equal(error.value);
+    financial.TBILLPRICE('03/31/2008', '06/01/2008', 0).should.equal(error.num);
+    financial.TBILLPRICE('09/31/2008', '06/01/2008', 0.0914).should.equal(error.num);
+    financial.TBILLPRICE('03/31/2008', '06/01/2009', 0.0914).should.equal(error.num);
   });
 
   test('TBILLYIELD', function() {
     financial.TBILLYIELD('03/31/2008', '06/01/2008', 98.45127777777778).should.equal(0.09283779963354702);
+    financial.TBILLYIELD('invalid date', '06/01/2008', 0.0914).should.equal(error.value);
+    financial.TBILLYIELD('03/31/2008', '06/01/2008', 0).should.equal(error.num);
+    financial.TBILLYIELD('09/31/2008', '06/01/2008', 0.0914).should.equal(error.num);
+    financial.TBILLYIELD('03/31/2008', '06/01/2009', 0.0914).should.equal(error.num);
   });
 
   //TODO: implement
@@ -403,6 +423,10 @@ suite('Financial', function() {
       '01/apr/09'
     ];
     financial.XIRR(values, dates, 0.1).should.equal(0.373374019797564);
+
+    // all positive
+    values[0] = -values[0];
+    financial.XIRR(values, dates, 0.1).should.equal(error.num);
   });
 
   test('XNPV', function() {
