@@ -388,4 +388,14 @@ suite('Engineering', function() {
     engineering.OCT2DEC('7777777533').should.equal(-165);
     engineering.OCT2DEC('a').should.equal(error.num);
   });
+
+  test('OCT2HEX', function() {
+    engineering.OCT2HEX('100').should.equal('40');
+    engineering.OCT2HEX('100', 4).should.equal('0040');
+    engineering.OCT2HEX('7777777533', 3).should.equal('ffffffff5b');
+    engineering.OCT2HEX('a').should.equal(error.num);
+    engineering.OCT2HEX('4000000000').should.equal('ffe0000000');
+    engineering.OCT2HEX('1', 'a').should.equal(error.value);
+    engineering.OCT2HEX('1', -1).should.equal(error.num);
+  });
 });
