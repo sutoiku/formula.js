@@ -7,4 +7,8 @@ suite('Logical', function() {
     logical.AND(true, true).should.equal(true);
     logical.AND(true, false).should.equal(false);
   });
+
+  test('FALSE', function() {
+    logical.FALSE().should.equal(false);
+  });
 });
