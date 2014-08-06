@@ -3,6 +3,7 @@ var information = require('../lib/information');
 var should = require('should');
 
 suite('Information', function() {
+  // TODO
   test('CELL', function() {
     should.equal(information.CELL(), undefined);
   });
@@ -19,7 +20,13 @@ suite('Information', function() {
     information.ERROR.TYPE(1).should.equal(error.na);
   });
 
+  // TODO
   test('INFO', function() {
     should.equal(information.INFO(), undefined);
+  });
+
+  test('ISBLANK', function() {
+    information.ISBLANK(null).should.equal(true);
+    information.ISBLANK(1).should.equal(false);
   });
 });
