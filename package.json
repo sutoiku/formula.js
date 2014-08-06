@@ -12,13 +12,10 @@
   },
   "main": "index.js",
   "dependencies": {
-    "blueimp-md5": "~1.1.0",
     "jStat": "0.0.5",
     "lodash": "2.4.1",
-    "moment": "2.6.x",
     "numeral": "1.5.3",
-    "numeric": "1.2.6",
-    "underscore.string": "*"
+    "numeric": "1.2.6"
   },
   "devDependencies": {
     "blanket": "^1.1.6",
