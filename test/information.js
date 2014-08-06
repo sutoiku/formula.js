@@ -109,4 +109,9 @@ suite('Information', function() {
   test('NA', function() {
     information.NA().should.equal(error.na);
   });
+
+  // TODO
+  test('SHEET', function() {
+    should.equal(information.SHEET(), undefined);
+  });
 });
