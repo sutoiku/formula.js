@@ -355,4 +355,10 @@ suite('Engineering', function() {
     engineering.IMSQRT('1+i').should.equal('1.0986841134678098+0.45508986056222733i');
     engineering.IMSQRT('a').should.equal(error.num);
   });
+
+  test('IMSUB', function() {
+    engineering.IMSUB('13+4j', '5+3j').should.equal('8+j');
+    engineering.IMSUB('13', '5+3j').should.equal('8-3j');
+    engineering.IMSUB('a', '5+3i').should.equal(error.num);
+  });
 });
