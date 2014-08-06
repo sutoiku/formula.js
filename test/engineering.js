@@ -361,4 +361,9 @@ suite('Engineering', function() {
     engineering.IMSUB('13', '5+3j').should.equal('8-3j');
     engineering.IMSUB('a', '5+3i').should.equal(error.num);
   });
+
+  test('IMSUM', function() {
+    engineering.IMSUM('3+4i', '5-3i').should.equal('8+i');
+    engineering.IMSUM('a', '5+3i').should.equal(error.num);
+  });
 });
