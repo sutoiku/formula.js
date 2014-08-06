@@ -18,4 +18,8 @@ suite('Information', function() {
     information.ERROR.TYPE(error.data).should.equal(8);
     information.ERROR.TYPE(1).should.equal(error.na);
   });
+
+  test('INFO', function() {
+    should.equal(information.INFO(), undefined);
+  });
 });
