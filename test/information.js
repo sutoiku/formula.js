@@ -90,4 +90,10 @@ suite('Information', function() {
   test('ISREF', function() {
     should.equal(information.ISREF(), undefined);
   });
+
+  test('ISTEXT', function() {
+    information.ISTEXT('a').should.equal(true);
+    information.ISTEXT(1).should.equal(false);
+    information.ISTEXT(true).should.equal(false);
+  });
 });
