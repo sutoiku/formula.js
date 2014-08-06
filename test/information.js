@@ -85,4 +85,9 @@ suite('Information', function() {
     information.ISODD(5).should.equal(true);
     information.ISODD(2.5).should.equal(false);
   });
+
+  // TODO
+  test('ISREF', function() {
+    should.equal(information.ISREF(), undefined);
+  });
 });
