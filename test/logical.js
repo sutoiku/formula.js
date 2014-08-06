@@ -41,4 +41,11 @@ suite('Logical', function() {
   test('TRUE', function() {
     logical.TRUE().should.equal(true);
   });
+
+  test('XOR', function() {
+    logical.XOR(false, false).should.equal(false);
+    logical.XOR(false, true).should.equal(true);
+    logical.XOR(true, false).should.equal(true);
+    logical.XOR(true, true).should.equal(false);
+  });
 });
