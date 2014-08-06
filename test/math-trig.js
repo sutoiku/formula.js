@@ -518,6 +518,26 @@ suite('Math & Trig', function() {
       [6, 7],
       [5, 3]
     ]).should.equal(156);
+
+    mathTrig.SUMPRODUCT([
+      [1],
+      [4],
+      [10]
+    ], [
+      [0.55],
+      [0.3],
+      [0.1]
+    ]).should.equal(2.75);
+
+    mathTrig.SUMPRODUCT([
+      1,
+      4,
+      10
+    ], [
+      0.55,
+      0.3,
+      0.1
+    ]).should.equal(2.75);
   });
 
   test("SUMSQ", function() {
