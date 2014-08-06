@@ -105,4 +105,8 @@ suite('Information', function() {
     information.N(error.na).should.equal(error.na);
     information.N('a').should.equal(0);
   });
+
+  test('NA', function() {
+    information.NA().should.equal(error.na);
+  });
 });
