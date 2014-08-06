@@ -327,6 +327,12 @@ suite('Engineering', function() {
     engineering.IMREAL('4j').should.equal(0);
   });
 
+  test('IMSEC', function() {
+    engineering.IMSEC('4+3i').should.equal('-0.06529402785794704-0.07522496030277322i');
+    engineering.IMSEC(true).should.equal(error.value);
+    engineering.IMSEC('a').should.equal(error.num);
+  });
+
   test('IMSIN', function() {
     engineering.IMSIN('4+3i').should.equal('-7.61923172032141-6.5481200409110025i');
     engineering.IMSIN('a').should.equal(error.num);
