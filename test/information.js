@@ -29,4 +29,18 @@ suite('Information', function() {
     information.ISBLANK(null).should.equal(true);
     information.ISBLANK(1).should.equal(false);
   });
+
+  test('ISERR', function() {
+    information.ISERR(1).should.equal(false);
+    information.ISERR(error.na).should.equal(false);
+    information.ISERR(error.value).should.equal(true);
+    information.ISERR(NaN).should.equal(true);
+    information.ISERR(1/0).should.equal(true);
+  });
+
+  test('ISERROR', function() {
+    information.ISERROR(1).should.equal(false);
+    information.ISERROR(error.na).should.equal(true);
+    information.ISERROR(error.value).should.equal(true);
+  });
 });
