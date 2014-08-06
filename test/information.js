@@ -114,4 +114,9 @@ suite('Information', function() {
   test('SHEET', function() {
     should.equal(information.SHEET(), undefined);
   });
+
+  // TODO
+  test('SHEETS', function() {
+    should.equal(information.SHEETS(), undefined);
+  });
 });
