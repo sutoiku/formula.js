@@ -7,7 +7,7 @@ var categories = [
   require('./lib/text'),
   require('./lib/cube'),
   require('./lib/date-time'),
-  require('./lib/finantial'),
+  require('./lib/financial'),
   require('./lib/information'),
   require('./lib/lookup-reference'),
   require('./lib/statistical'),
@@ -15,8 +15,8 @@ var categories = [
 ];
 
 for (var c in categories) {
-	var category = categories[c];
-	for (var f in category) {
-		exports[f] = category[f];
-	}
+  var category = categories[c];
+  for (var f in category) {
+    exports[f] = category[f];
+  }
 }
