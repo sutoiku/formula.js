@@ -73,4 +73,10 @@ suite('Information', function() {
     information.ISNONTEXT(true).should.equal(true);
     information.ISNONTEXT('a').should.equal(false);
   });
+
+  test('ISNUMBER', function() {
+    information.ISNUMBER(1).should.equal(true);
+    information.ISNUMBER('1').should.equal(false);
+    information.ISNUMBER(1/0).should.equal(false);
+  });
 });
