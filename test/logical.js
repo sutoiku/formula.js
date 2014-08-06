@@ -21,4 +21,9 @@ suite('Logical', function() {
     logical.IFERROR(1, 2).should.equal(1);
     logical.IFERROR(error.value, 2).should.equal(2);
   });
+
+  test('IFNA', function() {
+    logical.IFNA(1, 2).should.equal(1);
+    logical.IFNA(error.na, 2).should.equal(2);
+  });
 });
