@@ -366,4 +366,10 @@ suite('Engineering', function() {
     engineering.IMSUM('3+4i', '5-3i').should.equal('8+i');
     engineering.IMSUM('a', '5+3i').should.equal(error.num);
   });
+
+  test('IMTAN', function() {
+    engineering.IMTAN('4+3i').should.equal('0.004908258067495992+1.000709536067233i');
+    engineering.IMTAN('a').should.equal(error.num);
+    engineering.IMTAN(true).should.equal(error.value);
+  });
 });
