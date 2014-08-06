@@ -16,4 +16,9 @@ suite('Logical', function() {
     logical.IF(true, 1, 2).should.equal(1);
     logical.IF(false, 1, 2).should.equal(2);
   });
+
+  test('IFERROR', function() {
+    logical.IFERROR(1, 2).should.equal(1);
+    logical.IFERROR(error.value, 2).should.equal(2);
+  });
 });
