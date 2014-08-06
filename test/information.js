@@ -62,4 +62,9 @@ suite('Information', function() {
     information.ISLOGICAL(1).should.equal(false);
     information.ISLOGICAL('true').should.equal(false);
   });
+
+  test('ISNA', function() {
+    information.ISNA(error.na).should.equal(true);
+    information.ISNA(1).should.equal(false);
+  });
 });
