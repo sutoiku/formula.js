@@ -55,4 +55,11 @@ suite('Information', function() {
   test('ISFORMULA', function() {
     should.equal(information.ISFORMULA(), undefined);
   });
+
+  test('ISLOGICAL', function() {
+    information.ISLOGICAL(true).should.equal(true);
+    information.ISLOGICAL(false).should.equal(true);
+    information.ISLOGICAL(1).should.equal(false);
+    information.ISLOGICAL('true').should.equal(false);
+  });
 });
