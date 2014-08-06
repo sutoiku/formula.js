@@ -3,6 +3,10 @@ var information = require('../lib/information');
 var should = require('should');
 
 suite('Information', function() {
+  test('CELL', function() {
+    should.equal(information.CELL(), undefined);
+  });
+
   test('ERROR.TYPE', function() {
     information.ERROR.TYPE(error.nil).should.equal(1);
     information.ERROR.TYPE(error.div0).should.equal(2);
