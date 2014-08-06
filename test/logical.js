@@ -26,4 +26,9 @@ suite('Logical', function() {
     logical.IFNA(1, 2).should.equal(1);
     logical.IFNA(error.na, 2).should.equal(2);
   });
+
+  test('NOT', function() {
+    logical.NOT(true).should.equal(false);
+    logical.NOT(false).should.equal(true);
+  });
 });
