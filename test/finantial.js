@@ -5,25 +5,7 @@ var should = require('should');
 
 suite('Financial', function() {
   test("ACCRINT", function() {
-    financial.ACCRINT(39508, 39691, 39569, 0.1, 1000, 2, 0).should.equal(16.666666666666664);
-    financial.ACCRINT(dateTime.DATE(2008, 3, 5), 39691, 39569, 0.1, 1000, 2, 0, false).should.equal(15.555555555555555);
-    financial.ACCRINT(dateTime.DATE(2008, 4, 5), 39691, 39569, 0.1, 1000, 2, 0, true).should.equal(7.222222222222221);
-
-    // invalid inputs
-    financial.ACCRINT('invalid date', 39691, 39569, 0.1, 1000, 2, 0, true).should.equal(error.value);
-    financial.ACCRINT(39691, 'invalid date', 39569, 0.1, 1000, 2, 0, true).should.equal(error.value);
-    financial.ACCRINT(39691, 39569, 'invalid date', 0.1, 1000, 2, 0, true).should.equal(error.value);
-    financial.ACCRINT(39508, 39691, 39569, 0, 1000, 2, 0).should.equal(error.num);
-    financial.ACCRINT(39508, 39691, 39569, 0.1, 1000, 5, 0).should.equal(error.num);
-    financial.ACCRINT(39508, 39691, 39569, 0.1, 1000, 2, 5).should.equal(error.num);
-    financial.ACCRINT(39691, 39691, 39569, 0.1, 1000, 2, 0).should.equal(error.num);
-
-    // basis
-    financial.ACCRINT(39508, 39691, 39569, 0.1, 1000, 0, 0).should.equal(error.num);
-    financial.ACCRINT(39508, 39691, 39569, 0.1, 1000, 1, 0).should.equal(16.666666666666664);
-    financial.ACCRINT(39508, 39691, 39569, 0.1, 1000, 2, 0).should.equal(16.666666666666664);
-    financial.ACCRINT(39508, 39691, 39569, 0.1, 1000, 3, 0).should.equal(error.num);
-    financial.ACCRINT(39508, 39691, 39569, 0.1, 1000, 4, 0).should.equal(16.944444444444444);
+    should.equal(financial.ACCRINT(), undefined);
   });
 
   // TODO: implement
@@ -72,27 +54,30 @@ suite('Financial', function() {
   });
 
   test("CUMIPMT", function() {
-    financial.CUMIPMT('0.1/12', '30*12', 100000, 13, 24, 0).should.equal(-9916.77251395708);
-    financial.CUMIPMT('0.1/12', '30*12', 100000, 13, 24, 1).should.equal(-9834.815716321069);
-    financial.CUMIPMT('-0.1/12', '30*12', 100000, 13, 24, 0).should.equal(error.num);
-    financial.CUMIPMT('0.1/12', '-30*12', 100000, 13, 24, 0).should.equal(error.num);
-    financial.CUMIPMT('0.1/12', '30*12', -100000, 13, 24, 0).should.equal(error.num);
-    financial.CUMIPMT('0.1/12', '30*12', 100000, 0, 24, 0).should.equal(error.num);
-    financial.CUMIPMT('0.1/12', '30*12', 100000, 13, 0, 0).should.equal(error.num);
-    financial.CUMIPMT('0.1/12', '30*12', 100000, 24, 13, 0).should.equal(error.num);
-    financial.CUMIPMT('0.1/12', '30*12', 100000, 13, 24, 2).should.equal(error.num);
+    financial.CUMIPMT(0.1 / 12, 30 * 12, 100000, 13, 24, 0).should.equal(-9916.77251395708);
+    financial.CUMIPMT(0.1 / 12, 30 * 12, 100000, 13, 24, 1).should.equal(-9834.815716321069);
+    financial.CUMIPMT(-0.1 / 12, 30 * 12, 100000, 13, 24, 0).should.equal(error.num);
+    financial.CUMIPMT(0.1 / 12, -30 * 12, 100000, 13, 24, 0).should.equal(error.num);
+    financial.CUMIPMT(0.1 / 12, 30 * 12, -100000, 13, 24, 0).should.equal(error.num);
+    financial.CUMIPMT(0.1 / 12, 30 * 12, 100000, 0, 24, 0).should.equal(error.num);
+    financial.CUMIPMT(0.1 / 12, 30 * 12, 100000, 13, 0, 0).should.equal(error.num);
+    financial.CUMIPMT(0.1 / 12, 30 * 12, 100000, 24, 13, 0).should.equal(error.num);
+    financial.CUMIPMT(0.1 / 12, 30 * 12, 100000, 13, 24, 2).should.equal(error.num);
+    financial.CUMIPMT(0.1 / 12, 30 * 12, 100000, 1, 24, 0).should.equal(-19891.752778759568);
   });
 
   test("CUMPRINC", function() {
-    financial.CUMPRINC('0.1/12', '30*12', 100000, 13, 24, 0).should.equal(-614.0863271085149);
-    financial.CUMPRINC('0.1/12', '30*12', 100000, 13, 24, 1).should.equal(-609.0112334960476);
-    financial.CUMPRINC('-0.1/12', '30*12', 100000, 13, 24, 0).should.equal(error.num);
-    financial.CUMPRINC('0.1/12', '-30*12', 100000, 13, 24, 0).should.equal(error.num);
-    financial.CUMPRINC('0.1/12', '30*12', -100000, 13, 24, 0).should.equal(error.num);
-    financial.CUMPRINC('0.1/12', '30*12', 100000, 0, 24, 0).should.equal(error.num);
-    financial.CUMPRINC('0.1/12', '30*12', 100000, 13, 0, 0).should.equal(error.num);
-    financial.CUMPRINC('0.1/12', '30*12', 100000, 24, 13, 0).should.equal(error.num);
-    financial.CUMPRINC('0.1/12', '30*12', 100000, 13, 24, 2).should.equal(error.num);
+    financial.CUMPRINC(0.1 / 12, 30 * 12, 100000, 13, 24, 0).should.equal(-614.0863271085149);
+    financial.CUMPRINC(0.1 / 12, 30 * 12, 100000, 13, 24, 1).should.equal(-609.0112334960476);
+    financial.CUMPRINC(-0.1 / 12, 30 * 12, 100000, 13, 24, 0).should.equal(error.num);
+    financial.CUMPRINC(0.1 / 12, -30 * 12, 100000, 13, 24, 0).should.equal(error.num);
+    financial.CUMPRINC(0.1 / 12, 30 * 12, -100000, 13, 24, 0).should.equal(error.num);
+    financial.CUMPRINC(0.1 / 12, 30 * 12, 100000, 0, 24, 0).should.equal(error.num);
+    financial.CUMPRINC(0.1 / 12, 30 * 12, 100000, 13, 0, 0).should.equal(error.num);
+    financial.CUMPRINC(0.1 / 12, 30 * 12, 100000, 24, 13, 0).should.equal(error.num);
+    financial.CUMPRINC(0.1 / 12, 30 * 12, 100000, 13, 24, 2).should.equal(error.num);
+    financial.CUMPRINC(0.1 / 12, 30 * 12, 100000, 1, 24, 0).should.equal(-1169.9649033716187);
+    financial.CUMPRINC(0.1 / 12, 30 * 12, 100000, 1, 24, 1).should.equal(-1986.7420529305305);
   });
 
   test("DB", function() {
@@ -219,11 +204,12 @@ suite('Financial', function() {
   });
 
   test("FV", function() {
-    financial.FV('0.1/12', 10, -100, -1000, 0).should.equal(2124.874409194097);
-    financial.FV('0.1/12', 10, -100, -1000, 1).should.equal(2133.527289264821);
-    financial.FV('0.1/12', 10, -100, -1000).should.equal(2124.874409194097);
-    financial.FV('0.1/12', 10, null, -1000).should.equal(1086.5288007072381);
-    financial.FV('0.1/12', 10, -100, null).should.equal(1038.3456084868587);
+    financial.FV(0.1 / 12, 10, -100, -1000, 0).should.equal(2124.874409194097);
+    financial.FV(0.1 / 12, 10, -100, -1000, 1).should.equal(2133.527289264821);
+    financial.FV(0.1 / 12, 10, -100, -1000).should.equal(2124.874409194097);
+    financial.FV(0.1 / 12, 10, null, -1000).should.equal(1086.5288007072381);
+    financial.FV(0.1 / 12, 10, -100, null).should.equal(1038.3456084868587);
+    financial.FV(0, 10, -100, null).should.equal(1000);
   });
 
   test("FVSCHEDULE", function() {
@@ -237,8 +223,10 @@ suite('Financial', function() {
   });
 
   test("IPMT", function() {
-    financial.IPMT('0.1/12', 6, '2*12', 100000, 1000000, 0).should.equal(928.8235718400465);
-    financial.IPMT('0.1/12', 6, '2*12', 100000, 1000000, 1).should.equal(921.1473439736042);
+    financial.IPMT(0.1 / 12, 6, 2 * 12, 100000, 1000000, 0).should.equal(928.8235718400465);
+    financial.IPMT(0.1 / 12, 6, 2 * 12, 100000, 1000000, 1).should.equal(921.1473439736042);
+    financial.IPMT(0.1 / 12, 1, 2 * 12, 100000, 1000000, 1).should.equal(0);
+    financial.IPMT(0.1 / 12, 1, 2 * 12, 100000, 1000000, 0).should.equal(-833.3333333333334);
   });
 
   test("IRR", function() {
@@ -256,7 +244,7 @@ suite('Financial', function() {
   });
 
   test("ISPMT", function() {
-    financial.ISPMT('0.1/12', 6, '2*12', 100000).should.equal(-625);
+    financial.ISPMT(0.1 / 12, 6, 2 * 12, 100000).should.equal(-625);
   });
 
   //TODO: implement
@@ -278,10 +266,10 @@ suite('Financial', function() {
   });
 
   test("NPER", function() {
-    financial.NPER('0.1/12', -100, -1000, 10000, 0).should.equal(63.39385422740764);
-    financial.NPER('0.1/12', -100, -1000, 10000, 1).should.equal(63.016966422019685);
-    financial.NPER('0.1/12', -100, -1000, 10000).should.equal(63.39385422740764);
-    financial.NPER('0.1/12', -100, -1000).should.equal(-9.645090919837394);
+    financial.NPER(0.1 / 12, -100, -1000, 10000, 0).should.equal(63.39385422740764);
+    financial.NPER(0.1 / 12, -100, -1000, 10000, 1).should.equal(63.016966422019685);
+    financial.NPER(0.1 / 12, -100, -1000, 10000).should.equal(63.39385422740764);
+    financial.NPER(0.1 / 12, -100, -1000).should.equal(-9.645090919837394);
   });
 
   test("NPV", function() {
@@ -321,19 +309,20 @@ suite('Financial', function() {
   });
 
   test("PMT", function() {
-    financial.PMT('0.1/12', '2*12', 100000, 1000000, 0).should.equal(-42426.08563793503);
-    financial.PMT('0.1/12', '2*12', 100000, 1000000, 1).should.equal(-42075.45683100995);
-    financial.PMT('0.1/12', '2*12', 100000, 1000000).should.equal(-42426.08563793503);
-    financial.PMT('0.1/12', '2*12', null, 1000000).should.equal(-37811.59300418336);
-    financial.PMT('0.1/12', '2*12', 100000, null).should.equal(-4614.49263375167);
+    financial.PMT(0.1 / 12, 2 * 12, 100000, 1000000, 0).should.equal(-42426.08563793503);
+    financial.PMT(0.1 / 12, 2 * 12, 100000, 1000000, 1).should.equal(-42075.45683100995);
+    financial.PMT(0.1 / 12, 2 * 12, 100000, 1000000).should.equal(-42426.08563793503);
+    financial.PMT(0.1 / 12, 2 * 12, null, 1000000).should.equal(-37811.59300418336);
+    financial.PMT(0.1 / 12, 2 * 12, 100000, null).should.equal(-4614.49263375167);
+    financial.PMT(0, 2 * 12, 100000, null).should.equal(-4166.666666666667);
   });
 
   test("PPMT", function() {
-    financial.PPMT('0.1/12', 6, '2*12', 100000, 1000000, 0).should.equal(-43354.909209775076);
-    financial.PPMT('0.1/12', 6, '2*12', 100000, 1000000, 1).should.equal(-42996.60417498356);
-    financial.PPMT('0.1/12', 6, '2*12', 100000, 1000000).should.equal(-43354.909209775076);
-    financial.PPMT('0.1/12', 6, '2*12', null, 1000000).should.equal(-39413.55382706825);
-    financial.PPMT('0.1/12', 6, '2*12', 100000, null).should.equal(-3941.355382706826);
+    financial.PPMT(0.1 / 12, 6, 2 * 12, 100000, 1000000, 0).should.equal(-43354.909209775076);
+    financial.PPMT(0.1 / 12, 6, 2 * 12, 100000, 1000000, 1).should.equal(-42996.60417498356);
+    financial.PPMT(0.1 / 12, 6, 2 * 12, 100000, 1000000).should.equal(-43354.909209775076);
+    financial.PPMT(0.1 / 12, 6, 2 * 12, null, 1000000).should.equal(-39413.55382706825);
+    financial.PPMT(0.1 / 12, 6, 2 * 12, 100000, null).should.equal(-3941.355382706826);
   });
 
   //TODO: implement
@@ -352,16 +341,17 @@ suite('Financial', function() {
   });
 
   test("PV", function() {
-    financial.PV('0.1/12', '2*12', 1000, 10000, 0).should.equal(-29864.950264779152);
-    financial.PV('0.1/12', '2*12', 1000, 10000, 1).should.equal(-30045.54072173169);
+    financial.PV(0.1 / 12, 2 * 12, 1000, 10000, 0).should.equal(-29864.950264779152);
+    financial.PV(0.1 / 12, 2 * 12, 1000, 10000, 1).should.equal(-30045.54072173169);
+    financial.PV(0, 2 * 12, 1000, 10000, 1).should.equal(-34000);
   });
 
   test("RATE", function() {
-    financial.RATE('2*12', -1000, -10000, 100000).should.equal(0.06517891177181546);
-    financial.RATE('2*12', -1000, -10000, 100000, 0, 0.1).should.equal(0.06517891177181533);
-    financial.RATE('2*12', -1000, -10000, 100000, 0, 0.75).should.equal(0.0651789117718154);
-    financial.RATE('2*12', -1000, -10000, 100000, 0, 0.065).should.equal(0.06517891177181524);
-    financial.RATE('2*12', -1000, -10000, 100000, 1, 0.1).should.equal(0.0632395800018064);
+    financial.RATE(2 * 12, -1000, -10000, 100000).should.equal(0.06517891177181546);
+    financial.RATE(2 * 12, -1000, -10000, 100000, 0, 0.1).should.equal(0.06517891177181533);
+    financial.RATE(2 * 12, -1000, -10000, 100000, 0, 0.75).should.equal(0.0651789117718154);
+    financial.RATE(2 * 12, -1000, -10000, 100000, 0, 0.065).should.equal(0.06517891177181524);
+    financial.RATE(2 * 12, -1000, -10000, 100000, 1, 0.1).should.equal(0.0632395800018064);
   });
 
   //TODO: implement
