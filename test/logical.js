@@ -37,4 +37,8 @@ suite('Logical', function() {
     logical.OR(false).should.equal(false);
     logical.OR(true, false).should.equal(true);
   });
+
+  test('TRUE', function() {
+    logical.TRUE().should.equal(true);
+  });
 });
