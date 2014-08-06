@@ -96,4 +96,13 @@ suite('Information', function() {
     information.ISTEXT(1).should.equal(false);
     information.ISTEXT(true).should.equal(false);
   });
+
+  test('N', function() {
+    information.N(1).should.equal(1);
+    information.N(new Date(0)).should.equal((new Date(0)).getTime());
+    information.N(true).should.equal(1);
+    information.N(false).should.equal(0);
+    information.N(error.na).should.equal(error.na);
+    information.N('a').should.equal(0);
+  });
 });
