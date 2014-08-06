@@ -333,6 +333,12 @@ suite('Engineering', function() {
     engineering.IMSEC('a').should.equal(error.num);
   });
 
+  test('IMSECH', function() {
+    engineering.IMSECH('4+3i').should.equal('-0.03625349691586887-0.005164344607753179i');
+    engineering.IMSECH(true).should.equal(error.value);
+    engineering.IMSECH('a').should.equal(error.num);
+  });
+
   test('IMSIN', function() {
     engineering.IMSIN('4+3i').should.equal('-7.61923172032141-6.5481200409110025i');
     engineering.IMSIN('a').should.equal(error.num);
