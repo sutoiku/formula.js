@@ -11,4 +11,9 @@ suite('Logical', function() {
   test('FALSE', function() {
     logical.FALSE().should.equal(false);
   });
+
+  test('IF', function() {
+    logical.IF(true, 1, 2).should.equal(1);
+    logical.IF(false, 1, 2).should.equal(2);
+  });
 });
