@@ -378,9 +378,14 @@ suite('Engineering', function() {
     engineering.OCT2BIN('3', 3).should.equal('011');
     engineering.OCT2BIN('7777777000').should.equal('1000000000');
     engineering.OCT2BIN('a').should.equal(error.num);
-    engineering.OCT2BIN('a').should.equal(error.num);
     engineering.OCT2BIN('1000').should.equal(error.num);
     engineering.OCT2BIN('1', 'a').should.equal(error.value);
     engineering.OCT2BIN('1', -1).should.equal(error.num);
+  });
+
+  test('OCT2DEC', function() {
+    engineering.OCT2DEC('54').should.equal(44);
+    engineering.OCT2DEC('7777777533').should.equal(-165);
+    engineering.OCT2DEC('a').should.equal(error.num);
   });
 });
