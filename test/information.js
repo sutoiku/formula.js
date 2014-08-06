@@ -67,4 +67,10 @@ suite('Information', function() {
     information.ISNA(error.na).should.equal(true);
     information.ISNA(1).should.equal(false);
   });
+
+  test('ISNONTEXT', function() {
+    information.ISNONTEXT(1).should.equal(true);
+    information.ISNONTEXT(true).should.equal(true);
+    information.ISNONTEXT('a').should.equal(false);
+  });
 });
