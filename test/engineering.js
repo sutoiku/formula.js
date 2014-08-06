@@ -344,4 +344,10 @@ suite('Engineering', function() {
     engineering.IMSIN('a').should.equal(error.num);
     engineering.IMSIN(true).should.equal(error.value);
   });
+
+  test('IMSINH', function() {
+    engineering.IMSINH('4+3i').should.equal('-27.016813258003932+3.853738037919377i');
+    engineering.IMSINH('a').should.equal(error.num);
+    engineering.IMSINH(true).should.equal(error.value);
+  });
 });
