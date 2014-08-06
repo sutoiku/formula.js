@@ -350,4 +350,9 @@ suite('Engineering', function() {
     engineering.IMSINH('a').should.equal(error.num);
     engineering.IMSINH(true).should.equal(error.value);
   });
+
+  test('IMSQRT', function() {
+    engineering.IMSQRT('1+i').should.equal('1.0986841134678098+0.45508986056222733i');
+    engineering.IMSQRT('a').should.equal(error.num);
+  });
 });
