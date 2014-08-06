@@ -31,4 +31,10 @@ suite('Logical', function() {
     logical.NOT(true).should.equal(false);
     logical.NOT(false).should.equal(true);
   });
+
+  test('OR', function() {
+    logical.OR(true).should.equal(true);
+    logical.OR(false).should.equal(false);
+    logical.OR(true, false).should.equal(true);
+  });
 });
