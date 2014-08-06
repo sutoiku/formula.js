@@ -43,4 +43,16 @@ suite('Information', function() {
     information.ISERROR(error.na).should.equal(true);
     information.ISERROR(error.value).should.equal(true);
   });
+
+  test('ISEVEN', function() {
+    information.ISEVEN(-1).should.equal(false);
+    information.ISEVEN(2.5).should.equal(true);
+    information.ISEVEN(5).should.equal(false);
+    information.ISEVEN(0).should.equal(true);
+  });
+
+  // TODO
+  test('ISFORMULA', function() {
+    should.equal(information.ISFORMULA(), undefined);
+  });
 });
