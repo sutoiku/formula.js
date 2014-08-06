@@ -119,4 +119,12 @@ suite('Information', function() {
   test('SHEETS', function() {
     should.equal(information.SHEETS(), undefined);
   });
+
+  test('TYPE', function() {
+    information.TYPE(1).should.equal(1);
+    information.TYPE('a').should.equal(2);
+    information.TYPE(true).should.equal(4);
+    information.TYPE(error.na).should.equal(16);
+    information.TYPE([1]).should.equal(64);
+  });
 });
