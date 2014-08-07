@@ -256,19 +256,25 @@ suite('Engineering', function() {
   });
 
   test('IMCOS', function() {
-    engineering.IMCOS('1+i').should.equal('0.8337300251311491-0.9888977057628651i');
+    var im = engineering.IMCOS('1+i');
+    engineering.IMREAL(im).should.approximately(0.8337300251311491, 1e-9);
+    engineering.IMAGINARY(im).should.approximately(-0.9888977057628651, 1e-9);
     engineering.IMCOS('a').should.equal(error.num);
     engineering.IMCOS(true).should.equal(error.value);
   });
 
   test('IMCOSH', function() {
-    engineering.IMCOSH('4+3i').should.equal('-27.034945603074224+3.851153334811777i');
+    var im = engineering.IMCOSH('4+3i');
+    engineering.IMREAL(im).should.approximately(-27.034945603074224, 1e-9);
+    engineering.IMAGINARY(im).should.approximately(3.851153334811777, 1e-9);
     engineering.IMCOSH('a').should.equal(error.num);
     engineering.IMCOSH(true).should.equal(error.value);
   });
 
   test('IMCOT', function() {
-    engineering.IMCOT('4+3i').should.equal('0.0049011823943044056-0.9992669278059017i');
+    var im = engineering.IMCOT('4+3i');
+    engineering.IMREAL(im).should.approximately(0.0049011823943044056, 1e-9);
+    engineering.IMAGINARY(im).should.approximately(-0.9992669278059017, 1e-9);
     engineering.IMCOT('a').should.equal(error.num);
     engineering.IMCOT(true).should.equal(error.value);
   });
@@ -282,27 +288,37 @@ suite('Engineering', function() {
   });
 
   test('IMEXP', function() {
-    engineering.IMEXP('1+i').should.equal('1.4686939399158851+2.2873552871788423i');
+    var im = engineering.IMEXP('1+i');
+    engineering.IMREAL(im).should.approximately(1.4686939399158851, 1e-9);
+    engineering.IMAGINARY(im).should.approximately(2.2873552871788423, 1e-9);
     engineering.IMEXP('a').should.equal(error.num);
   });
 
   test('IMLN', function() {
-    engineering.IMLN('3+4i').should.equal('1.6094379124341003+0.9272952180016122i');
+    var im = engineering.IMLN('3+4i');
+    engineering.IMREAL(im).should.approximately(1.6094379124341003, 1e-9);
+    engineering.IMAGINARY(im).should.approximately(0.9272952180016122, 1e-9);
     engineering.IMLN('a').should.equal(error.num);
   });
 
   test('IMLOG10', function() {
-    engineering.IMLOG10('3+4i').should.equal('0.6989700043360187+0.4027191962733731i');
+    var im = engineering.IMLOG10('3+4i');
+    engineering.IMREAL(im).should.approximately(0.6989700043360187, 1e-9);
+    engineering.IMAGINARY(im).should.approximately(0.4027191962733731, 1e-9);
     engineering.IMLOG10('a').should.equal(error.num);
   });
 
   test('IMLOG2', function() {
-    engineering.IMLOG2('3+4i').should.equal('2.321928094887362+1.3378042124509761i');
+    var im = engineering.IMLOG2('3+4i');
+    engineering.IMREAL(im).should.approximately(2.321928094887362, 1e-9);
+    engineering.IMAGINARY(im).should.approximately(1.3378042124509761, 1e-9);
     engineering.IMLOG2('a').should.equal(error.num);
   });
 
   test('IMPOWER', function() {
-    engineering.IMPOWER('2+3i', 3).should.equal('-45.99999999999999+9.000000000000007i');
+    var im = engineering.IMPOWER('2+3i', 3);
+    engineering.IMREAL(im).should.approximately(-45.99999999999999, 1e-9);
+    engineering.IMAGINARY(im).should.approximately(9.000000000000007, 1e-9);
     engineering.IMPOWER('2+3i', 'a').should.equal(error.value);
     engineering.IMPOWER('a', 1).should.equal(error.num);
   });
@@ -328,31 +344,41 @@ suite('Engineering', function() {
   });
 
   test('IMSEC', function() {
-    engineering.IMSEC('4+3i').should.equal('-0.06529402785794704-0.07522496030277322i');
+    var im = engineering.IMSEC('4+3i');
+    engineering.IMREAL(im).should.approximately(-0.06529402785794704, 1e-9);
+    engineering.IMAGINARY(im).should.approximately(-0.07522496030277322, 1e-9);
     engineering.IMSEC(true).should.equal(error.value);
     engineering.IMSEC('a').should.equal(error.num);
   });
 
   test('IMSECH', function() {
-    engineering.IMSECH('4+3i').should.equal('-0.03625349691586887-0.005164344607753179i');
+    var im = engineering.IMSECH('4+3i');
+    engineering.IMREAL(im).should.approximately(-0.03625349691586887, 1e-9);
+    engineering.IMAGINARY(im).should.approximately(-0.005164344607753179, 1e-9);
     engineering.IMSECH(true).should.equal(error.value);
     engineering.IMSECH('a').should.equal(error.num);
   });
 
   test('IMSIN', function() {
-    engineering.IMSIN('4+3i').should.equal('-7.61923172032141-6.5481200409110025i');
+    var im = engineering.IMSIN('4+3i');
+    engineering.IMREAL(im).should.approximately(-7.61923172032141, 1e-9);
+    engineering.IMAGINARY(im).should.approximately(-6.5481200409110025, 1e-9);
     engineering.IMSIN('a').should.equal(error.num);
     engineering.IMSIN(true).should.equal(error.value);
   });
 
   test('IMSINH', function() {
-    engineering.IMSINH('4+3i').should.equal('-27.016813258003932+3.853738037919377i');
+    var im = engineering.IMSINH('4+3i');
+    engineering.IMREAL(im).should.approximately(-27.016813258003932, 1e-9);
+    engineering.IMAGINARY(im).should.approximately(3.853738037919377, 1e-9);
     engineering.IMSINH('a').should.equal(error.num);
     engineering.IMSINH(true).should.equal(error.value);
   });
 
   test('IMSQRT', function() {
-    engineering.IMSQRT('1+i').should.equal('1.0986841134678098+0.45508986056222733i');
+    var im = engineering.IMSQRT('1+i');
+    engineering.IMREAL(im).should.approximately(1.0986841134678098, 1e-9);
+    engineering.IMAGINARY(im).should.approximately(0.45508986056222733, 1e-9);
     engineering.IMSQRT('a').should.equal(error.num);
   });
 
@@ -368,7 +394,9 @@ suite('Engineering', function() {
   });
 
   test('IMTAN', function() {
-    engineering.IMTAN('4+3i').should.equal('0.004908258067495992+1.000709536067233i');
+    var im = engineering.IMTAN('4+3i');
+    engineering.IMREAL(im).should.approximately(0.004908258067495992, 1e-9);
+    engineering.IMAGINARY(im).should.approximately(1.000709536067233, 1e-9);
     engineering.IMTAN('a').should.equal(error.num);
     engineering.IMTAN(true).should.equal(error.value);
   });
