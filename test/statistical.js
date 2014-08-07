@@ -304,7 +304,7 @@ suite('Statistical', function() {
         320196.7183634903,
         468536.05418408214,
         685597.3889812973
-      ]), 1e-9);
+      ]), 1e-6);
 
     mathTrig.SUM(statistical.GROWTH(known_y))
       .should.approximately(mathTrig.SUM([
@@ -314,7 +314,7 @@ suite('Statistical', function() {
         102197.07337883241,
         149542.4867400457,
         218821.8762145953
-      ]), 1e-9);
+      ]), 1e-6);
 
     mathTrig.SUM(statistical.GROWTH(known_y, known_x, new_x, false))
       .should.approximately(mathTrig.SUM([
@@ -327,7 +327,7 @@ suite('Statistical', function() {
         1414600.7282884493,
         3254137.2789414385,
         7485793.848705778
-      ]), 1e-9);
+      ]), 1e-6);
   });
 
   test('HARMEAN', function() {
