@@ -3,27 +3,21 @@ var engineering = require('../lib/engineering');
 var should = require('should');
 
 suite('Engineering', function() {
-  // TODO
+
   test('BESSELI', function() {
-    should.equal(engineering.BESSELI(), undefined);
+    engineering.BESSELI(1.5, 1).should.be.approximately(0.981666, 10e-6);
   });
 
-
-  // TODO
   test('BESSELJ', function() {
-    should.equal(engineering.BESSELJ(), undefined);
+    engineering.BESSELJ(1.9, 2).should.be.approximately(0.329926, 10e-6);
   });
 
-
-  // TODO
   test('BESSELK', function() {
-    should.equal(engineering.BESSELK(), undefined);
+    engineering.BESSELK(1.5, 1).should.be.approximately(0.277388, 10e-6);
   });
 
-
-  // TODO
   test('BESSELY', function() {
-    should.equal(engineering.BESSELY(), undefined);
+    engineering.BESSELY(2.5, 1).should.be.approximately(0.145918, 10e-6);
   });
 
   test('BIN2DEC', function() {
