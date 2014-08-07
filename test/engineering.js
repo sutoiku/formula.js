@@ -394,7 +394,9 @@ suite('Engineering', function() {
   });
 
   test('IMTAN', function() {
-    engineering.IMTAN('4+3i').should.equal('0.004908258067495992+1.000709536067233i');
+    var im = engineering.IMTAN('4+3i');
+    engineering.IMREAL(im).should.approximately(0.004908258067495992, 1e-9);
+    engineering.IMAGINARY(im).should.approximately(1.000709536067233, 1e-9);
     engineering.IMTAN('a').should.equal(error.num);
     engineering.IMTAN(true).should.equal(error.value);
   });
