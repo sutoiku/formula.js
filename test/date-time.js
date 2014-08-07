@@ -118,82 +118,82 @@ suite('Date & Time', function() {
   });
 
   test('NOW', function() {
-    dateTime.NOW().should.be.instanceof(Date);
+    dateTime.NOW().should.instanceof(Date);
   });
 
   test('SECOND', function() {
-    dateTime.SECOND('1/1/1900').should.be.equal(0);
-    dateTime.SECOND('1/1/1900 1:00:01').should.be.equal(1);
-    dateTime.SECOND('a').should.be.equal(error.value);
+    dateTime.SECOND('1/1/1900').should.equal(0);
+    dateTime.SECOND('1/1/1900 1:00:01').should.equal(1);
+    dateTime.SECOND('a').should.equal(error.value);
   });
 
   test('TIME', function() {
-    dateTime.TIME(0, 0, 0).should.be.equal(0);
-    dateTime.TIME(1, 1, 1).should.be.equal(0.04237268518518519);
-    dateTime.TIME(-1, -1, -1).should.be.equal(error.num);
+    dateTime.TIME(0, 0, 0).should.equal(0);
+    dateTime.TIME(1, 1, 1).should.approximately(0.04237268518518519, 1e-9);
+    dateTime.TIME(-1, -1, -1).should.equal(error.num);
   });
 
   test('TIMEVALUE', function() {
-    dateTime.TIMEVALUE('1/1/1900 00:00:00').should.be.equal(0);
-    dateTime.TIMEVALUE('1/1/1900 12:00:00').should.be.equal(0.5);
-    dateTime.TIMEVALUE('a').should.be.equal(error.value);
+    dateTime.TIMEVALUE('1/1/1900 00:00:00').should.equal(0);
+    dateTime.TIMEVALUE('1/1/1900 12:00:00').should.approximately(0.5, 1e-9);
+    dateTime.TIMEVALUE('a').should.equal(error.value);
   });
 
   test('TODAY', function() {
-    dateTime.TODAY().should.be.instanceof(Date);
+    dateTime.TODAY().should.instanceof(Date);
   });
 
   test('WEEKDAY', function() {
-    dateTime.WEEKDAY('1/1/1901').should.be.equal(3);
-    dateTime.WEEKDAY('1/1/1901', 2).should.be.equal(2);
-    dateTime.WEEKDAY('a').should.be.equal(error.value);
+    dateTime.WEEKDAY('1/1/1901').should.equal(3);
+    dateTime.WEEKDAY('1/1/1901', 2).should.equal(2);
+    dateTime.WEEKDAY('a').should.equal(error.value);
   });
 
   test('WEEKNUM', function() {
-    dateTime.WEEKNUM('1/1/1900').should.be.equal(1);
-    dateTime.WEEKNUM('2/1/1900').should.be.equal(5);
-    dateTime.WEEKNUM('2/1/1909', 2).should.be.equal(6);
-    dateTime.WEEKNUM('1/1/1901', 21).should.be.equal(1);
-    dateTime.WEEKNUM('a').should.be.equal(error.value);
+    dateTime.WEEKNUM('1/1/1900').should.equal(1);
+    dateTime.WEEKNUM('2/1/1900').should.equal(5);
+    dateTime.WEEKNUM('2/1/1909', 2).should.equal(6);
+    dateTime.WEEKNUM('1/1/1901', 21).should.equal(1);
+    dateTime.WEEKNUM('a').should.equal(error.value);
   });
 
   test('WORKDAY', function() {
-    dateTime.WORKDAY('1/1/1900', 1).getDate().should.be.equal(2);
-    dateTime.WORKDAY('1/1/1900', 7).getDate().should.be.equal(10);
-    dateTime.WORKDAY('1/1/1900', 2, '1/2/1900').getDate().should.be.equal(4);
-    dateTime.WORKDAY('a', 1, '1/2/1900').should.be.equal(error.value);
-    dateTime.WORKDAY('1/1/1900', 'a').should.be.equal(error.value);
-    dateTime.WORKDAY('1/1/1900', 1, 'a').should.be.equal(error.value);
-    dateTime.WORKDAY('1/1/1900', -1).should.be.equal(error.num);
+    dateTime.WORKDAY('1/1/1900', 1).getDate().should.equal(2);
+    dateTime.WORKDAY('1/1/1900', 7).getDate().should.equal(10);
+    dateTime.WORKDAY('1/1/1900', 2, '1/2/1900').getDate().should.equal(4);
+    dateTime.WORKDAY('a', 1, '1/2/1900').should.equal(error.value);
+    dateTime.WORKDAY('1/1/1900', 'a').should.equal(error.value);
+    dateTime.WORKDAY('1/1/1900', 1, 'a').should.equal(error.value);
+    dateTime.WORKDAY('1/1/1900', -1).should.equal(error.num);
   });
 
   test('WORKDAY.INTL', function() {
-    dateTime.WORKDAY.INTL('1/1/1900', 1).getDate().should.be.equal(2);
-    dateTime.WORKDAY.INTL('1/1/1905', 1, 2).getDate().should.be.equal(3);
-    dateTime.WORKDAY.INTL('1/1/1900', 1, 'a').should.be.equal(error.value);
+    dateTime.WORKDAY.INTL('1/1/1900', 1).getDate().should.equal(2);
+    dateTime.WORKDAY.INTL('1/1/1905', 1, 2).getDate().should.equal(3);
+    dateTime.WORKDAY.INTL('1/1/1900', 1, 'a').should.equal(error.value);
   });
 
   test('YEAR', function() {
-    dateTime.YEAR('1/1/1900').should.be.equal(1900);
-    dateTime.YEAR('a').should.be.equal(error.value);
+    dateTime.YEAR('1/1/1900').should.equal(1900);
+    dateTime.YEAR('a').should.equal(error.value);
   });
 
   test('YEARFRAC', function() {
-    dateTime.YEARFRAC('1/1/1900', '1/2/1900').should.be.equal(0.002777777777777778);
-    dateTime.YEARFRAC('1/31/1900', '3/31/1900', 0).should.be.equal(0.16666666666666666);
-    dateTime.YEARFRAC('1/31/1900', '2/1/1900', 0).should.be.equal(0.002777777777777778);
-    dateTime.YEARFRAC('1/30/1900', '3/31/1900', 0).should.be.equal(0.16666666666666666);
+    dateTime.YEARFRAC('1/1/1900', '1/2/1900').should.approximately(0.002777777777777778, 1e-9);
+    dateTime.YEARFRAC('1/31/1900', '3/31/1900', 0).should.approximately(0.16666666666666666, 1e-9);
+    dateTime.YEARFRAC('1/31/1900', '2/1/1900', 0).should.approximately(0.002777777777777778, 1e-9);
+    dateTime.YEARFRAC('1/30/1900', '3/31/1900', 0).should.approximately(0.16666666666666666, 1e-9);
 
-    dateTime.YEARFRAC('1/1/1900', '1/2/1900', 1).should.be.equal(0.0027397260273972603);
-    dateTime.YEARFRAC('1/1/1904', '1/1/1905', 1).should.be.equal(1);
-    dateTime.YEARFRAC('5/1/1903', '5/1/1904', 1).should.be.equal(1);
-    dateTime.YEARFRAC('1/1/1903', '5/1/1904', 1).should.be.equal(1.3295713634290924);
-    dateTime.YEARFRAC('1/1/1904', '1/2/1904', 1).should.be.equal(0.00273224043715847);
+    dateTime.YEARFRAC('1/1/1900', '1/2/1900', 1).should.approximately(0.0027397260273972603, 1e-9);
+    dateTime.YEARFRAC('1/1/1904', '1/1/1905', 1).should.equal(1);
+    dateTime.YEARFRAC('5/1/1903', '5/1/1904', 1).should.equal(1);
+    dateTime.YEARFRAC('1/1/1903', '5/1/1904', 1).should.approximately(1.3295713634290924, 1e-9);
+    dateTime.YEARFRAC('1/1/1904', '1/2/1904', 1).should.approximately(0.00273224043715847, 1e-9);
 
-    dateTime.YEARFRAC('1/1/1900', '1/2/1900', 2).should.be.equal(0.002777777777777778);
-    dateTime.YEARFRAC('1/1/1900', '1/2/1900', 3).should.be.equal(0.0027397260273972603);
-    dateTime.YEARFRAC('1/1/1900', '1/2/1900', 4).should.be.equal(0.002777777777777778);
-    dateTime.YEARFRAC('a', '1/2/1900').should.be.equal(error.value);
-    dateTime.YEARFRAC('1/1/1900', 'a').should.be.equal(error.value);
+    dateTime.YEARFRAC('1/1/1900', '1/2/1900', 2).should.approximately(0.002777777777777778, 1e-9);
+    dateTime.YEARFRAC('1/1/1900', '1/2/1900', 3).should.approximately(0.0027397260273972603, 1e-9);
+    dateTime.YEARFRAC('1/1/1900', '1/2/1900', 4).should.approximately(0.002777777777777778, 1e-9);
+    dateTime.YEARFRAC('a', '1/2/1900').should.equal(error.value);
+    dateTime.YEARFRAC('1/1/1900', 'a').should.equal(error.value);
   });
 });
