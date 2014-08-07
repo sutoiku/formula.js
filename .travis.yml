@@ -4,3 +4,5 @@ node_js:
   - "0.10"
 install: "npm install"
 script: "make test"
+after_success:
+  "make coveralls"
