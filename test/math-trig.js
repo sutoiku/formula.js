@@ -401,8 +401,8 @@ suite('Math & Trig', function() {
   });
 
   test('SECH', function() {
-    mathTrig.SECH(45).should.equal(5.725037161098787e-20);
-    mathTrig.SECH(30).should.equal(1.8715245937680347e-13);
+    mathTrig.SECH(45).should.approximately(5.725037161098787e-20, 1e-9);
+    mathTrig.SECH(30).should.approximately(1.8715245937680347e-13, 1e-9);
   });
 
   test('SERIESSUM', function() {

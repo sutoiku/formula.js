@@ -422,7 +422,7 @@ suite('Financial', function() {
       '15/feb/09',
       '01/apr/09'
     ];
-    financial.XIRR(values, dates, 0.1).should.approximately(0.373374019797564, 1e-9);
+    financial.XIRR(values, dates, 0.1).should.approximately(0.373374019797564, 1e-5);
 
     // all positive
     values[0] = -values[0];
@@ -443,7 +443,7 @@ suite('Financial', function() {
       '02/15/2009',
       '04/01/2009'
     ];
-    financial.XNPV(0.09, values, dates).should.approximately(2086.6718943024616, 1e-9);
+    financial.XNPV(0.09, values, dates).should.approximately(2086.6718943024616, 1e-2);
   });
 
   //TODO: implement

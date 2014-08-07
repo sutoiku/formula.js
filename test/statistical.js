@@ -1,4 +1,5 @@
 var statistical = require('../lib/statistical');
+var mathTrig = require('../lib/math-trig');
 var error = require('../lib/error');
 var should = require('should');
 
@@ -219,7 +220,7 @@ suite('Statistical', function() {
 
   test('F.INV', function() {
     statistical.F.INV(0.01, 6, 4).should.approximately(0.10930991412457851, 1e-9);
-    should.deepEqual(statistical.F.INV(0.0, 6, 4), error.num);
+    statistical.F.INV(0.0, 6, 4).should.equal(error.num);
   });
 
   // TODO: implement
@@ -256,8 +257,8 @@ suite('Statistical', function() {
   test('GAMMA', function() {
     statistical.GAMMA(2.5).should.approximately(1.3293403919101043, 1e-9);
     statistical.GAMMA(-3.75).should.approximately(0.26786611734776916, 1e-9);
-    should.deepEqual(statistical.GAMMA(0), error.num);
-    should.deepEqual(statistical.GAMMA(-2), error.num);
+    statistical.GAMMA(0).should.equal(error.num);
+    statistical.GAMMA(-2).should.equal(error.num);
   });
 
   // TODO: implement
@@ -291,38 +292,42 @@ suite('Statistical', function() {
     var known_y = [33100, 47300, 69000, 102000, 150000, 220000];
     var known_x = [11, 12, 13, 14, 15, 16];
     var new_x = [11, 12, 13, 14, 15, 16, 17, 18, 19];
-    should.deepEqual(statistical.GROWTH(known_y, known_x, new_x), [
-      32618.203773538437,
-      47729.42261474665,
-      69841.30085621694,
-      102197.07337883314,
-      149542.4867400494,
-      218821.87621460424,
-      320196.7183634903,
-      468536.05418408214,
-      685597.3889812973
-    ]);
 
-    should.deepEqual(statistical.GROWTH(known_y), [
-      32618.203773539713,
-      47729.42261474775,
-      69841.30085621744,
-      102197.07337883241,
-      149542.4867400457,
-      218821.8762145953
-    ]);
+    mathTrig.SUM(statistical.GROWTH(known_y, known_x, new_x))
+      .should.approximately(mathTrig.SUM([
+        32618.203773538437,
+        47729.42261474665,
+        69841.30085621694,
+        102197.07337883314,
+        149542.4867400494,
+        218821.87621460424,
+        320196.7183634903,
+        468536.05418408214,
+        685597.3889812973
+      ]), 1e-9);
 
-    should.deepEqual(statistical.GROWTH(known_y, known_x, new_x, false), [
-      9546.01078362295,
-      21959.574129266384,
-      50515.645421859634,
-      116205.8251842928,
-      267319.0393588225,
-      614938.7837519756,
-      1414600.7282884493,
-      3254137.2789414385,
-      7485793.848705778
-    ]);
+    mathTrig.SUM(statistical.GROWTH(known_y))
+      .should.approximately(mathTrig.SUM([
+        32618.203773539713,
+        47729.42261474775,
+        69841.30085621744,
+        102197.07337883241,
+        149542.4867400457,
+        218821.8762145953
+      ]), 1e-9);
+
+    mathTrig.SUM(statistical.GROWTH(known_y, known_x, new_x, false))
+      .should.approximately(mathTrig.SUM([
+        9546.01078362295,
+        21959.574129266384,
+        50515.645421859634,
+        116205.8251842928,
+        267319.0393588225,
+        614938.7837519756,
+        1414600.7282884493,
+        3254137.2789414385,
+        7485793.848705778
+      ]), 1e-9);
   });
 
   test('HARMEAN', function() {
