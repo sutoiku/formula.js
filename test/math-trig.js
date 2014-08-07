@@ -16,7 +16,7 @@ suite('Math & Trig', function() {
   });
 
   test('ACOT', function() {
-    mathTrig.ACOT(1).should.equal(0.7853981633974483);
+    mathTrig.ACOT(1).should.approximately(0.7853981633974483, 1e-9);
   });
 
   test('ACOTH', function() {
@@ -36,17 +36,17 @@ suite('Math & Trig', function() {
     mathTrig.AGGREGATE(5, 4, [1, 2, 3]).should.equal(1);
     mathTrig.AGGREGATE(6, 4, [1, 2, 3]).should.equal(6);
     mathTrig.AGGREGATE(7, 4, [1, 2, 3]).should.equal(1);
-    mathTrig.AGGREGATE(8, 4, [1, 2, 3]).should.equal(0.816496580927726);
+    mathTrig.AGGREGATE(8, 4, [1, 2, 3]).should.approximately(0.816496580927726, 1e-9);
     mathTrig.AGGREGATE(9, 4, [1, 2, 3]).should.equal(6);
     mathTrig.AGGREGATE(10, 4, [1, 2, 3]).should.equal(1);
-    mathTrig.AGGREGATE(11, 4, [1, 2, 3]).should.equal(0.6666666666666666);
+    mathTrig.AGGREGATE(11, 4, [1, 2, 3]).should.approximately(0.6666666666666666, 1e-9);
     mathTrig.AGGREGATE(12, 4, [1, 2, 3]).should.equal(2);
     mathTrig.AGGREGATE(13, 4, [1, 2, 3]).should.equal(1);
     mathTrig.AGGREGATE(14, 4, [1, 2, 3], 2).should.equal(2);
     mathTrig.AGGREGATE(15, 4, [1, 2, 3], 2).should.equal(2);
-    mathTrig.AGGREGATE(16, 4, [1, 2, 3], 0.4).should.equal(1.8);
+    mathTrig.AGGREGATE(16, 4, [1, 2, 3], 0.4).should.approximately(1.8, 1e-9);
     mathTrig.AGGREGATE(17, 4, [1, 2, 3], 2).should.equal(2);
-    mathTrig.AGGREGATE(18, 4, [1, 2, 3], 0.4).should.equal(1.6);
+    mathTrig.AGGREGATE(18, 4, [1, 2, 3], 0.4).should.approximately(1.6, 1e-9);
     mathTrig.AGGREGATE(19, 4, [1, 2, 3], 2).should.equal(2);
   });
 
@@ -56,19 +56,19 @@ suite('Math & Trig', function() {
   });
 
   test('ASIN', function() {
-    mathTrig.ASIN(0.5).should.equal(0.5235987755982989);
+    mathTrig.ASIN(0.5).should.approximately(0.5235987755982989, 1e-9);
   });
 
   test('ASINH', function() {
-    mathTrig.ASINH(0.5).should.equal(0.48121182505960347);
+    mathTrig.ASINH(0.5).should.approximately(0.48121182505960347, 1e-9);
   });
 
   test('ATAN', function() {
-    mathTrig.ATAN(1).should.equal(0.7853981633974483);
+    mathTrig.ATAN(1).should.approximately(0.7853981633974483, 1e-9);
   });
 
   test('ATAN2', function() {
-    mathTrig.ATAN2(1, 1).should.equal(0.7853981633974483);
+    mathTrig.ATAN2(1, 1).should.approximately(0.7853981633974483, 1e-9);
   });
 
   test('ATANH', function() {
@@ -90,11 +90,11 @@ suite('Math & Trig', function() {
     mathTrig.CEILING(4.1, 2).should.equal(6);
     mathTrig.CEILING(-4.1, 2).should.equal(-4);
     mathTrig.CEILING(-4.1, -2).should.equal(-4);
-    mathTrig.CEILING(1.234, 0.1).should.equal(1.3);
-    mathTrig.CEILING(-1.234, 0.1).should.equal(-1.2);
-    mathTrig.CEILING(-1.234, -0.1).should.equal(-1.2);
-    mathTrig.CEILING(-1.234, -0.01).should.equal(-1.23);
-    mathTrig.CEILING(-1.234, -0.001).should.equal(-1.234);
+    mathTrig.CEILING(1.234, 0.1).should.approximately(1.3, 1e-9);
+    mathTrig.CEILING(-1.234, 0.1).should.approximately(-1.2, 1e-9);
+    mathTrig.CEILING(-1.234, -0.1).should.approximately(-1.2, 1e-9);
+    mathTrig.CEILING(-1.234, -0.01).should.approximately(-1.23, 1e-9);
+    mathTrig.CEILING(-1.234, -0.001).should.approximately(-1.234, 1e-9);
     mathTrig.CEILING(-4.1, 2, 0).should.equal(-4);
     mathTrig.CEILING(-4.1, 2, -1).should.equal(-6);
     mathTrig.CEILING(-4.1, -2, 0).should.equal(-4);
@@ -150,11 +150,11 @@ suite('Math & Trig', function() {
   });
 
   test('COT', function() {
-    mathTrig.COT(1).should.equal(0.6420926159343306);
+    mathTrig.COT(1).should.approximately(0.6420926159343306, 1e-9);
   });
 
   test('COTH', function() {
-    mathTrig.COTH(1).should.equal(1.3130352854993312);
+    mathTrig.COTH(1).should.approximately(1.3130352854993312, 1e-9);
   });
 
   test('CSC', function() {
@@ -189,8 +189,8 @@ suite('Math & Trig', function() {
     mathTrig.FLOOR(3.7, 2).should.equal(2);
     mathTrig.FLOOR(-2.5, -2).should.equal(-2);
     mathTrig.FLOOR(2.5, -2).should.equal(error.num);
-    mathTrig.FLOOR(1.58, 0.1).should.equal(1.5);
-    mathTrig.FLOOR(0.234, 0.01).should.equal(0.23);
+    mathTrig.FLOOR(1.58, 0.1).should.approximately(1.5, 1e-9);
+    mathTrig.FLOOR(0.234, 0.01).should.approximately(0.23, 1e-9);
     mathTrig.FLOOR(0.234, 0).should.equal(0);
   });
 
@@ -290,7 +290,7 @@ suite('Math & Trig', function() {
   test('MROUND', function() {
     mathTrig.MROUND(10, 3).should.equal(9);
     mathTrig.MROUND(-10, -3).should.equal(-9);
-    mathTrig.MROUND(1.3, 0.2).should.equal(1.4000000000000001);
+    mathTrig.MROUND(1.3, 0.2).should.approximately(1.4000000000000001, 1e-9);
     should.deepEqual(mathTrig.MROUND(5, -2), error.num);
   });
 
@@ -319,8 +319,8 @@ suite('Math & Trig', function() {
 
   test('POWER', function() {
     mathTrig.POWER(5, 2).should.equal(25);
-    mathTrig.POWER(98.6, 3.2).should.equal(2401077.2220695773);
-    mathTrig.POWER(4, 5 / 4).should.equal(5.656854249492381);
+    mathTrig.POWER(98.6, 3.2).should.approximately(2401077.2220695773, 1e-9);
+    mathTrig.POWER(4, 5 / 4).should.approximately(5.656854249492381, 1e-9);
     should.deepEqual(mathTrig.POWER(-1, 0.5), error.num);
   });
 
@@ -370,9 +370,9 @@ suite('Math & Trig', function() {
   });
 
   test('ROUND', function() {
-    mathTrig.ROUND(2.15, 1).should.equal(2.2);
-    mathTrig.ROUND(2.149, 1).should.equal(2.1);
-    mathTrig.ROUND(-1.475, 2).should.equal(-1.47); //TODO: check if -1.48 would be the correct result or a precision error
+    mathTrig.ROUND(2.15, 1).should.approximately(2.2, 1e-9);
+    mathTrig.ROUND(2.149, 1).should.approximately(2.1, 1e-9);
+    mathTrig.ROUND(-1.475, 2).should.approximately(-1.47, 1e-9); //TODO: check if -1.48 would be the correct result or a precision error
     mathTrig.ROUND(21.5, -1).should.equal(20);
     mathTrig.ROUND(626.3, -3).should.equal(1000);
     mathTrig.ROUND(1.98, -1).should.equal(0);
@@ -382,22 +382,22 @@ suite('Math & Trig', function() {
   test('ROUNDDOWN', function() {
     mathTrig.ROUNDDOWN(3.2, 0).should.equal(3);
     mathTrig.ROUNDDOWN(76.9, 0).should.equal(76);
-    mathTrig.ROUNDDOWN(3.14159, 3).should.equal(3.141);
-    mathTrig.ROUNDDOWN(-3.14159, 1).should.equal(-3.1);
+    mathTrig.ROUNDDOWN(3.14159, 3).should.approximately(3.141, 1e-9);
+    mathTrig.ROUNDDOWN(-3.14159, 1).should.approximately(-3.1, 1e-9);
     mathTrig.ROUNDDOWN(31415.92654, -2).should.equal(31400);
   });
 
   test('ROUNDUP', function() {
     mathTrig.ROUNDUP(3.2, 0).should.equal(4);
     mathTrig.ROUNDUP(76.9, 0).should.equal(77);
-    mathTrig.ROUNDUP(3.14159, 3).should.equal(3.142);
-    mathTrig.ROUNDUP(-3.14159, 1).should.equal(-3.2);
+    mathTrig.ROUNDUP(3.14159, 3).should.approximately(3.142, 1e-9);
+    mathTrig.ROUNDUP(-3.14159, 1).should.approximately(-3.2, 1e-9);
     mathTrig.ROUNDUP(31415.92654, -2).should.equal(31500);
   });
 
   test('SEC', function() {
-    mathTrig.SEC(45).should.equal(1.9035944074044246);
-    mathTrig.SEC(30).should.equal(6.482921234962678);
+    mathTrig.SEC(45).should.approximately(1.9035944074044246, 1e-9);
+    mathTrig.SEC(30).should.approximately(6.482921234962678, 1e-9);
   });
 
   test('SECH', function() {
@@ -409,7 +409,7 @@ suite('Math & Trig', function() {
     mathTrig.SERIESSUM(mathTrig.PI() / 4, 0, 2, [
       1, -1 / mathTrig.FACT(2),
       1 / mathTrig.FACT(4), -1 / mathTrig.FACT(6)
-    ]).should.equal(0.7071032148228457);
+    ]).should.approximately(0.7071032148228457, 1e-9);
   });
 
   test('SIGN', function() {
@@ -423,7 +423,7 @@ suite('Math & Trig', function() {
   });
 
   test('SINH', function() {
-    mathTrig.SINH(1).should.equal(1.1752011936438014); // the golden ratio: http://mathworld.wolfram.com/HyperbolicSine.html
+    mathTrig.SINH(1).should.approximately(1.1752011936438014, 1e-9); // the golden ratio: http://mathworld.wolfram.com/HyperbolicSine.html
   });
 
   test('SQRT', function() {
@@ -431,7 +431,7 @@ suite('Math & Trig', function() {
   });
 
   test('SQRTPI', function() {
-    mathTrig.SQRTPI(3).should.equal(3.0699801238394655);
+    mathTrig.SQRTPI(3).should.approximately(3.0699801238394655, 1e-9);
   });
 
   test('SUBTOTAL', function() {
@@ -442,10 +442,10 @@ suite('Math & Trig', function() {
     mathTrig.SUBTOTAL(5, [1, 2, 3]).should.equal(1);
     mathTrig.SUBTOTAL(6, [1, 2, 3]).should.equal(6);
     mathTrig.SUBTOTAL(7, [1, 2, 3]).should.equal(1);
-    mathTrig.SUBTOTAL(8, [1, 2, 3]).should.equal(0.816496580927726);
+    mathTrig.SUBTOTAL(8, [1, 2, 3]).should.approximately(0.816496580927726, 1e-9);
     mathTrig.SUBTOTAL(9, [1, 2, 3]).should.equal(6);
     mathTrig.SUBTOTAL(10, [1, 2, 3]).should.equal(1);
-    mathTrig.SUBTOTAL(11, [1, 2, 3]).should.equal(0.6666666666666666);
+    mathTrig.SUBTOTAL(11, [1, 2, 3]).should.approximately(0.6666666666666666, 1e-9);
     mathTrig.SUBTOTAL(101, [1, 2, 3]).should.equal(2);
     mathTrig.SUBTOTAL(102, [1, 2, 3, 'does not count']).should.equal(3);
     mathTrig.SUBTOTAL(103, [1, 2, 3, 'counts']).should.equal(4);
@@ -453,10 +453,10 @@ suite('Math & Trig', function() {
     mathTrig.SUBTOTAL(105, [1, 2, 3]).should.equal(1);
     mathTrig.SUBTOTAL(106, [1, 2, 3]).should.equal(6);
     mathTrig.SUBTOTAL(107, [1, 2, 3]).should.equal(1);
-    mathTrig.SUBTOTAL(108, [1, 2, 3]).should.equal(0.816496580927726);
+    mathTrig.SUBTOTAL(108, [1, 2, 3]).should.approximately(0.816496580927726, 1e-9);
     mathTrig.SUBTOTAL(109, [1, 2, 3]).should.equal(6);
     mathTrig.SUBTOTAL(110, [1, 2, 3]).should.equal(1);
-    mathTrig.SUBTOTAL(111, [1, 2, 3]).should.equal(0.6666666666666666);
+    mathTrig.SUBTOTAL(111, [1, 2, 3]).should.approximately(0.6666666666666666, 1e-9);
   });
 
   test("SUM", function() {
@@ -527,7 +527,7 @@ suite('Math & Trig', function() {
       [0.55],
       [0.3],
       [0.1]
-    ]).should.equal(2.75);
+    ]).should.approximately(2.75, 1e-9);
 
     mathTrig.SUMPRODUCT([
       1,
@@ -537,7 +537,7 @@ suite('Math & Trig', function() {
       0.55,
       0.3,
       0.1
-    ]).should.equal(2.75);
+    ]).should.approximately(2.75, 1e-9);
   });
 
   test("SUMSQ", function() {
@@ -566,11 +566,11 @@ suite('Math & Trig', function() {
   });
 
   test('TAN', function() {
-    mathTrig.TAN(mathTrig.RADIANS(45)).should.equal(0.9999999999999999);
+    mathTrig.TAN(mathTrig.RADIANS(45)).should.approximately(0.9999999999999999, 1e-9);
   });
 
   test('TANH', function() {
-    mathTrig.TANH(0.5).should.equal(0.46211715726000974);
+    mathTrig.TANH(0.5).should.approximately(0.46211715726000974, 1e-9);
   });
 
   test('TRUNC', function() {

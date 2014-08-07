@@ -35,7 +35,7 @@ suite('Information', function() {
     information.ISERR(error.na).should.equal(false);
     information.ISERR(error.value).should.equal(true);
     information.ISERR(NaN).should.equal(true);
-    information.ISERR(1/0).should.equal(true);
+    information.ISERR(1 / 0).should.equal(true);
   });
 
   test('ISERROR', function() {
@@ -77,7 +77,7 @@ suite('Information', function() {
   test('ISNUMBER', function() {
     information.ISNUMBER(1).should.equal(true);
     information.ISNUMBER('1').should.equal(false);
-    information.ISNUMBER(1/0).should.equal(false);
+    information.ISNUMBER(1 / 0).should.equal(false);
   });
 
   test('ISODD', function() {

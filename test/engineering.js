@@ -52,7 +52,7 @@ suite('Engineering', function() {
 
   test('BITAND', function() {
     engineering.BITAND(1, 5).should.equal(1);
-    engineering.BITAND(13,25).should.equal(9);
+    engineering.BITAND(13, 25).should.equal(9);
     engineering.BITAND('a', 1).should.equal(error.value);
     engineering.BITAND(-1, 1).should.equal(error.num);
     engineering.BITAND(1.1, 1).should.equal(error.num);
@@ -104,10 +104,10 @@ suite('Engineering', function() {
   });
 
   test('CONVERT', function() {
-    engineering.CONVERT(1, 'lbm', 'kg').should.equal(0.45359237);
+    engineering.CONVERT(1, 'lbm', 'kg').should.approximately(0.45359237, 1e-9);
     // engineering.CONVERT(68, 'F', 'C').should.equal(20);
     engineering.CONVERT(2.5, 'ft', 'sec').should.equal(error.na);
-    engineering.CONVERT(engineering.CONVERT(100, 'ft', 'm'), 'ft', 'm').should.equal(9.290304);
+    engineering.CONVERT(engineering.CONVERT(100, 'ft', 'm'), 'ft', 'm').should.approximately(9.290304, 1e-9);
     engineering.CONVERT('a', 1).should.equal(error.value);
     engineering.CONVERT(1, 'invalid', 'invalid').should.equal(error.na);
     engineering.CONVERT(1, 'da', 'invalid').should.equal(error.na);
@@ -116,11 +116,11 @@ suite('Engineering', function() {
     engineering.CONVERT(1, 'invalid', 'ki').should.equal(error.na);
 
     engineering.CONVERT(2, 'mi', 'yd').should.equal(3520);
-    engineering.CONVERT(2, 'nm', 'mm').should.equal(0.000002);
-    engineering.CONVERT(2, 'kg', 'lbm').should.equal(4.409245243697551);
-    engineering.CONVERT(2, 'g', 'lbm').should.equal(0.004409245243697552);
-    engineering.CONVERT(2, 'mg', 'lbm').should.equal(0.000004409245243697551);
-    engineering.CONVERT(3583, 'byte', 'kbyte').should.equal(3.583);
+    engineering.CONVERT(2, 'nm', 'mm').should.approximately(0.000002, 1e-9);
+    engineering.CONVERT(2, 'kg', 'lbm').should.approximately(4.409245243697551, 1e-9);
+    engineering.CONVERT(2, 'g', 'lbm').should.approximately(0.004409245243697552, 1e-9);
+    engineering.CONVERT(2, 'mg', 'lbm').should.approximately(0.000004409245243697551, 1e-9);
+    engineering.CONVERT(3583, 'byte', 'kbyte').should.approximately(3.583, 1e-9);
     engineering.CONVERT(3583, 'byte', 'bit').should.equal(28664);
     engineering.CONVERT(64, 'kibyte', 'bit').should.equal(524288);
     engineering.CONVERT('Lots of', 'mi', 'yard').should.equal(error.value);
@@ -167,8 +167,8 @@ suite('Engineering', function() {
   });
 
   test('ERF', function() {
-    engineering.ERF(0.745).should.equal(0.7079289200957377);
-    engineering.ERF(1).should.equal(0.8427007929497149);
+    engineering.ERF(0.745).should.approximately(0.7079289200957377, 1e-9);
+    engineering.ERF(1).should.approximately(0.8427007929497149, 1e-9);
     engineering.ERF('a').should.equal(error.value);
   });
 
@@ -178,7 +178,7 @@ suite('Engineering', function() {
   });
 
   test('ERFC', function() {
-    engineering.ERFC(1).should.equal(0.1572992070502851);
+    engineering.ERFC(1).should.approximately(0.1572992070502851, 1e-9);
     engineering.ERFC('a').should.equal(error.value);
   });
 
@@ -239,15 +239,15 @@ suite('Engineering', function() {
   });
 
   test('IMARGUMENT', function() {
-    engineering.IMARGUMENT('3+4i').should.equal(0.9272952180016122);
+    engineering.IMARGUMENT('3+4i').should.approximately(0.9272952180016122, 1e-9);
     engineering.IMARGUMENT('a').should.equal(error.num);
     engineering.IMARGUMENT(0).should.equal(error.div0);
     engineering.IMARGUMENT('2i').should.equal(Math.PI / 2);
     engineering.IMARGUMENT('-2i').should.equal(-Math.PI / 2);
     engineering.IMARGUMENT('2').should.equal(0);
     engineering.IMARGUMENT('-2').should.equal(-Math.PI);
-    engineering.IMARGUMENT('-1+2i').should.equal(2.0344439357957027);
-    engineering.IMARGUMENT('-1-2i').should.equal(-2.0344439357957027);
+    engineering.IMARGUMENT('-1+2i').should.approximately(2.0344439357957027, 1e-9);
+    engineering.IMARGUMENT('-1-2i').should.approximately(-2.0344439357957027, 1e-9);
   });
 
   test('IMCONJUGATE', function() {
