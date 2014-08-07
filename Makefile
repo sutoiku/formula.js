@@ -5,30 +5,30 @@ mocha = node_modules/mocha/bin/mocha
 coveralls = node_modules/coveralls/bin/coveralls.js
 
 build:
-	mkdir -p build
-	$(browserify) index.js -o build/formula.js -s Formula
-	$(uglify) build/formula.js -o build/formula.min.js
+	@mkdir -p build
+	@$(browserify) index.js -o build/formula.js -s Formula
+	@$(uglify) build/formula.js -o build/formula.min.js
 
 test:
-	$(mocha) -u tdd -R mocha-spec-cov -r blanket
+	@$(mocha) -u tdd -R mocha-spec-cov -r blanket
 
 test-watch:
-	$(mocha) -u tdd -R min -w
+	@$(mocha) -u tdd -R min -w
 
 lint:
-	jshint lib/*.js
+	@jshint lib/*.js
 
 coveralls:
-	$(mocha) -r blanket -u tdd -R mocha-lcov-reporter | $(coveralls)
+	@$(mocha) -r blanket -u tdd -R mocha-lcov-reporter | $(coveralls)
 
 coverage:
-	$(mocha) -u tdd -R html-cov -r blanket > coverage-report.html
+	@$(mocha) -u tdd -R html-cov -r blanket > coverage-report.html
 
 watch:
-	$(mocha) -u tdd -R mocha-spec-cov -r blanket -w
+	@$(mocha) -u tdd -R mocha-spec-cov -r blanket -w
 
 clean:
-	rm -rf build/
-	rm -f coverage-report.html
+	@rm -rf build/
+	@rm -f coverage-report.html
 
 .PHONY: build clean coverage test watch
