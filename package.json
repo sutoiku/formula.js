@@ -9,7 +9,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "jStat": "0.0.5",
+    "jStat": "git+ssh://git@github.com:jstat/jstat.git",
     "lodash": "2.4.1",
     "numeral": "1.5.3",
     "numeric": "1.2.6"
