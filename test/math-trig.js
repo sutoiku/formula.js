@@ -296,6 +296,7 @@ suite('Math & Trig', function() {
 
   test('MULTINOMIAL', function() {
     mathTrig.MULTINOMIAL(2, 3, 4).should.equal(1260);
+    mathTrig.MULTINOMIAL([2, 3, 4]).should.equal(1260);
   });
 
   test('MUNIT', function() {
