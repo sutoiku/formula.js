@@ -485,8 +485,8 @@ suite('Statistical', function() {
   });
 
   test("PERCENTILEEXC", function() {
-    statistical.PERCENTILEEXC([1, 2, 3, 4], 0).should.equal("#NUM!");
-    statistical.PERCENTILEEXC([1, 2, 3, 4], 0.1).should.equal("#NUM!");
+    statistical.PERCENTILEEXC([1, 2, 3, 4], 0).should.equal(error.num);
+    statistical.PERCENTILEEXC([1, 2, 3, 4], 0.1).should.equal(error.num);
     statistical.PERCENTILEEXC([1, 2, 3, 4], 0.2).should.equal(1);
     statistical.PERCENTILEEXC([1, 2, 3, 4], 0.25).should.approximately(1.25, 1e-9);
     statistical.PERCENTILEEXC([1, 2, 3, 4], 0.3).should.approximately(1.5, 1e-9);
@@ -496,8 +496,8 @@ suite('Statistical', function() {
     statistical.PERCENTILEEXC([1, 2, 3, 4], 0.7).should.approximately(3.5, 1e-9);
     statistical.PERCENTILEEXC([1, 2, 3, 4], 0.75).should.approximately(3.75, 1e-9);
     statistical.PERCENTILEEXC([1, 2, 3, 4], 0.8).should.equal(4);
-    statistical.PERCENTILEEXC([1, 2, 3, 4], 0.9).should.equal("#NUM!");
-    statistical.PERCENTILEEXC([1, 2, 3, 4], 1).should.equal("#NUM!");
+    statistical.PERCENTILEEXC([1, 2, 3, 4], 0.9).should.equal(error.num);
+    statistical.PERCENTILEEXC([1, 2, 3, 4], 1).should.equal(error.num);
   });
 
   test("PERCENTILEINC", function() {

@@ -159,6 +159,7 @@ suite('Engineering', function() {
     engineering.DELTA('a').should.equal(error.value);
   });
 
+  // TODO: find cases where upper_bound is used
   test('ERF', function() {
     engineering.ERF(0.745).should.approximately(0.7079289200957377, 1e-9);
     engineering.ERF(1).should.approximately(0.8427007929497149, 1e-9);

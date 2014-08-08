@@ -204,12 +204,10 @@ suite('Financial', function() {
   });
 
   test("FV", function() {
-    financial.FV(0.1 / 12, 10, -100, -1000, 0).should.approximately(2124.874409194097, 1e-9);
-    financial.FV(0.1 / 12, 10, -100, -1000, 1).should.approximately(2133.527289264821, 1e-9);
-    financial.FV(0.1 / 12, 10, -100, -1000).should.approximately(2124.874409194097, 1e-9);
-    financial.FV(0.1 / 12, 10, null, -1000).should.approximately(1086.5288007072381, 1e-9);
-    financial.FV(0.1 / 12, 10, -100, null).should.approximately(1038.3456084868587, 1e-9);
-    financial.FV(0, 10, -100, null).should.equal(1000);
+    financial.FV(0.06 / 12, 10, -200, -500, 1).should.approximately(2581.4033740601185, 1e-9);
+    financial.FV(0.12 / 12, 12, -1000).should.approximately(12682.503013196976, 1e-9);
+    financial.FV(0.11 / 12, 35, -2000, undefined, 1).should.approximately(82846.24637190053, 1e-9);
+    financial.FV(0.06 / 12, 12, -100, -1000, 1).should.approximately(2301.4018303408993, 1e-9);
   });
 
   test("FVSCHEDULE", function() {
@@ -309,20 +307,22 @@ suite('Financial', function() {
   });
 
   test("PMT", function() {
-    financial.PMT(0.1 / 12, 2 * 12, 100000, 1000000, 0).should.approximately(-42426.08563793503, 1e-9);
+    financial.PMT(0.06 / 12, 18 * 12, 0, 50000).should.approximately(-129.0811608679973, 1e-9);
     financial.PMT(0.1 / 12, 2 * 12, 100000, 1000000, 1).should.approximately(-42075.45683100995, 1e-9);
     financial.PMT(0.1 / 12, 2 * 12, 100000, 1000000).should.approximately(-42426.08563793503, 1e-9);
-    financial.PMT(0.1 / 12, 2 * 12, null, 1000000).should.approximately(-37811.59300418336, 1e-9);
-    financial.PMT(0.1 / 12, 2 * 12, 100000, null).should.approximately(-4614.49263375167, 1e-9);
-    financial.PMT(0, 2 * 12, 100000, null).should.approximately(-4166.666666666667, 1e-9);
+    financial.PMT(0.1 / 12, 2 * 12, 0, 1000000).should.approximately(-37811.59300418336, 1e-9);
+    financial.PMT(0.1 / 12, 2 * 12, 100000).should.approximately(-4614.49263375167, 1e-9);
+    financial.PMT(0, 2 * 12, 100000).should.approximately(-4166.666666666667, 1e-9);
   });
 
   test("PPMT", function() {
+    financial.PPMT(0.1 / 12, 1, 2 * 12, 2000).should.approximately(-75.62318600836673, 10e-9);
+    financial.PPMT(0.08, 10, 10, 200000).should.approximately(-27598.05346242135, 10e-9);
     financial.PPMT(0.1 / 12, 6, 2 * 12, 100000, 1000000, 0).should.approximately(-43354.909209775076, 1e-9);
     financial.PPMT(0.1 / 12, 6, 2 * 12, 100000, 1000000, 1).should.approximately(-42996.60417498356, 1e-9);
     financial.PPMT(0.1 / 12, 6, 2 * 12, 100000, 1000000).should.approximately(-43354.909209775076, 1e-9);
-    financial.PPMT(0.1 / 12, 6, 2 * 12, null, 1000000).should.approximately(-39413.55382706825, 1e-9);
-    financial.PPMT(0.1 / 12, 6, 2 * 12, 100000, null).should.approximately(-3941.355382706826, 1e-9);
+    financial.PPMT(0.1 / 12, 6, 2 * 12, 0, 1000000).should.approximately(-39413.55382706825, 1e-9);
+    financial.PPMT(0.1 / 12, 6, 2 * 12, 100000).should.approximately(-3941.355382706826, 1e-9);
   });
 
   //TODO: implement
