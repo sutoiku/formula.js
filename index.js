@@ -17,6 +17,6 @@ var categories = [
 for (var c in categories) {
   var category = categories[c];
   for (var f in category) {
-    exports[f] = category[f];
+    exports[f] = exports[f] || category[f];
   }
 }
