@@ -32,6 +32,14 @@ suite('Utils', function() {
     utils.parseBool(err).should.equal(err);
   });
 
+  test('parseNumberArray', function() {
+    utils.parseNumberArray().should.equal(error.value);
+  });
+
+  test('parseMatrix', function() {
+    utils.parseMatrix().should.equal(error.value);
+  });
+
   test('parseDateArray', function() {
     utils.parseDateArray(['01/jan/2009', 'invalid']).should.equal(error.value);
   });

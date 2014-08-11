@@ -361,6 +361,7 @@ suite('Statistical', function() {
       ]), 1e-6);
 
     statistical.GROWTH(known_y, known_x, 'invalid', false).should.equal(error.value);
+    statistical.GROWTH('invalid', known_x).should.equal(error.value);
   });
 
   test('HARMEAN', function() {

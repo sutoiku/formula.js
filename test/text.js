@@ -7,10 +7,15 @@ suite('Text', function() {
     should.equal(text.ASC(), undefined);
   });
 
+  test('BAHTTEXT', function() {
+    should.equal(text.BAHTTEXT(), undefined);
+  });
+
   test("CHAR", function() {
     text.CHAR(65).should.equal("A");
     text.CHAR(255).should.equal("ÿ");
     text.CHAR(1000).should.equal("Ϩ");
+    text.CHAR('invalid').should.equal(error.value);
   });
 
   test('CLEAN', function() {
@@ -39,6 +44,7 @@ suite('Text', function() {
     text.DOLLAR(-1234.567, -2).should.equal('($1,200)');
     text.DOLLAR(-0.123, 4).should.equal('($0.1230)');
     text.DOLLAR(-99.888).should.equal('($99.89)');
+    text.DOLLAR('invalid').should.equal(error.value);
   });
 
   test('EXACT', function() {
@@ -57,15 +63,18 @@ suite('Text', function() {
     text.FIXED(1234.567, -1).should.equal('1,230');
     text.FIXED(-1234.567, -1, true).should.equal('-1230');
     text.FIXED(44.332).should.equal('44.33');
+    text.FIXED('invalid').should.equal(error.value);
   });
 
   test('LEFT', function() {
     text.LEFT('Sale Price', 4).should.equal('Sale');
     text.LEFT('Sweeden').should.equal('S');
+    text.LEFT(3).should.equal(error.value);
   });
 
   test('LEN', function() {
     text.LEN('four').should.equal(4);
+    text.LEN().should.equal(error.value);
   });
 
   test("LOWER", function() {
@@ -73,8 +82,7 @@ suite('Text', function() {
     text.LOWER('ABcd').should.equal("abcd");
     text.LOWER('ABCD').should.equal("abcd");
     text.LOWER('').should.equal("");
-    should.not.exist(text.LOWER());
-    should.not.exist(text.LOWER(undefined));
+    text.LOWER().should.equal(error.value);
   });
 
   test('MID', function() {
@@ -82,6 +90,7 @@ suite('Text', function() {
     text.MID(data, 1, 5).should.equal('Fluid');
     text.MID(data, 7, 20).should.equal('Flow');
     text.MID(data, 20, 50).should.equal('');
+    text.MID(0).should.equal(error.value);
   });
 
   test('NUMBERVALUE', function() {
@@ -98,21 +107,25 @@ suite('Text', function() {
     text.PROPER(false).should.equal('False');
     text.PROPER(90).should.equal('90');
     text.PROPER(NaN).should.equal(error.value);
+    text.PROPER().should.equal(error.value);
   });
 
   test('REPLACE', function() {
     text.REPLACE('abcdefghijk', 6, 5, '*').should.equal('abcde*k');
     text.REPLACE('2009', 3, 2, '10').should.equal('2010');
     text.REPLACE('123456', 1, 3, '@').should.equal('@456');
+    text.REPLACE().should.equal(error.value);
   });
 
   test('REPT', function() {
     text.REPT('multiple ', 3).should.equal('multiple multiple multiple ');
+    text.REPT('m').should.equal(error.value);
   });
 
   test('RIGHT', function() {
     text.RIGHT('Sale Price', 5).should.equal('Price');
     text.RIGHT('Stock Number').should.equal('r');
+    text.RIGHT('something', 'invalid').should.equal(error.value);
   });
 
   test('SEARCH', function() {
