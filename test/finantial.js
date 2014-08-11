@@ -64,6 +64,7 @@ suite('Financial', function() {
     financial.CUMIPMT(0.1 / 12, 30 * 12, 100000, 24, 13, 0).should.equal(error.num);
     financial.CUMIPMT(0.1 / 12, 30 * 12, 100000, 13, 24, 2).should.equal(error.num);
     financial.CUMIPMT(0.1 / 12, 30 * 12, 100000, 1, 24, 0).should.approximately(-19891.752778759568, 1e-9);
+    financial.CUMIPMT('invalid', 30 * 12, 100000, 13, 24, 0).should.equal(error.value);
   });
 
   test("CUMPRINC", function() {
@@ -78,6 +79,7 @@ suite('Financial', function() {
     financial.CUMPRINC(0.1 / 12, 30 * 12, 100000, 13, 24, 2).should.equal(error.num);
     financial.CUMPRINC(0.1 / 12, 30 * 12, 100000, 1, 24, 0).should.approximately(-1169.9649033716187, 1e-9);
     financial.CUMPRINC(0.1 / 12, 30 * 12, 100000, 1, 24, 1).should.approximately(-1986.7420529305305, 1e-9);
+    financial.CUMPRINC('invalid', 30 * 12, 100000, 1, 24, 1).should.equal(error.value);
   });
 
   test("DB", function() {
@@ -208,6 +210,8 @@ suite('Financial', function() {
     financial.FV(0.12 / 12, 12, -1000).should.approximately(12682.503013196976, 1e-9);
     financial.FV(0.11 / 12, 35, -2000, undefined, 1).should.approximately(82846.24637190053, 1e-9);
     financial.FV(0.06 / 12, 12, -100, -1000, 1).should.approximately(2301.4018303408993, 1e-9);
+    financial.FV(0, 12, -100, -1000, 1).should.equal(2200);
+    financial.FV('invalid', 12, -100, -1000, 1).should.equal(error.value);
   });
 
   test("FVSCHEDULE", function() {
@@ -225,6 +229,7 @@ suite('Financial', function() {
     financial.IPMT(0.1 / 12, 6, 2 * 12, 100000, 1000000, 1).should.approximately(921.1473439736042, 1e-9);
     financial.IPMT(0.1 / 12, 1, 2 * 12, 100000, 1000000, 1).should.equal(0);
     financial.IPMT(0.1 / 12, 1, 2 * 12, 100000, 1000000, 0).should.approximately(-833.3333333333334, 1e-9);
+    financial.IPMT('invalid', 1, 2 * 12, 100000, 1000000, 1).should.equal(error.value);
   });
 
   test("IRR", function() {
@@ -239,10 +244,12 @@ suite('Financial', function() {
     financial.IRR([-75000, 12000, 15000, 18000, 21000, 24000], 0.05).should.approximately(0.05715142887178453, 1e-9);
     financial.IRR([12000, 15000, 18000, 21000, 24000]).should.equal(error.num);
     financial.IRR([-12000, -15000, -18000, -21000, -24000]).should.equal(error.num);
+    financial.IRR([-12000, -15000, -18000, -21000, -24000], 'invalid').should.equal(error.value);
   });
 
   test("ISPMT", function() {
     financial.ISPMT(0.1 / 12, 6, 2 * 12, 100000).should.equal(-625);
+    financial.ISPMT('invalid', 6, 2 * 12, 100000).should.equal(error.value);
   });
 
   //TODO: implement
@@ -252,6 +259,7 @@ suite('Financial', function() {
 
   test("MIRR", function() {
     financial.MIRR([-75000, 12000, 15000, 18000, 21000, 24000], 0.1, 0.12).should.approximately(0.07971710360838036, 1e-9);
+    financial.MIRR([-75000, 12000, 15000, 18000, 21000, 24000], 'invalid', 0.12).should.equal(error.value);
   });
 
   test("NOMINAL", function() {
@@ -268,6 +276,7 @@ suite('Financial', function() {
     financial.NPER(0.1 / 12, -100, -1000, 10000, 1).should.approximately(63.016966422019685, 1e-9);
     financial.NPER(0.1 / 12, -100, -1000, 10000).should.approximately(63.39385422740764, 1e-9);
     financial.NPER(0.1 / 12, -100, -1000).should.approximately(-9.645090919837394, 1e-9);
+    financial.NPER('invalid', -100, -1000).should.equal(error.value);
   });
 
   test("NPV", function() {
@@ -275,6 +284,7 @@ suite('Financial', function() {
     financial.NPV(0.1, [-10000, 2000, 4000, 8000]).should.approximately(1031.3503176012546, 1e-9);
     financial.NPV(0.1, [-75000]).should.approximately(-68181.81818181818, 1e-9);
     financial.NPV(0.12, [12000, 15000, 18000, 21000, 24000]).should.approximately(62448.362521940246, 1e-9);
+    financial.NPV('invalid', [12000, 15000, 18000, 21000, 24000]).should.equal(error.value);
   });
 
   //TODO: implement
@@ -313,6 +323,7 @@ suite('Financial', function() {
     financial.PMT(0.1 / 12, 2 * 12, 0, 1000000).should.approximately(-37811.59300418336, 1e-9);
     financial.PMT(0.1 / 12, 2 * 12, 100000).should.approximately(-4614.49263375167, 1e-9);
     financial.PMT(0, 2 * 12, 100000).should.approximately(-4166.666666666667, 1e-9);
+    financial.PMT('invalid', 2 * 12, 100000).should.equal(error.value);
   });
 
   test("PPMT", function() {
@@ -323,6 +334,7 @@ suite('Financial', function() {
     financial.PPMT(0.1 / 12, 6, 2 * 12, 100000, 1000000).should.approximately(-43354.909209775076, 1e-9);
     financial.PPMT(0.1 / 12, 6, 2 * 12, 0, 1000000).should.approximately(-39413.55382706825, 1e-9);
     financial.PPMT(0.1 / 12, 6, 2 * 12, 100000).should.approximately(-3941.355382706826, 1e-9);
+    financial.PPMT('invalid', 6, 2 * 12, 100000).should.equal(error.value);
   });
 
   //TODO: implement
@@ -344,6 +356,7 @@ suite('Financial', function() {
     financial.PV(0.1 / 12, 2 * 12, 1000, 10000, 0).should.approximately(-29864.950264779152, 1e-9);
     financial.PV(0.1 / 12, 2 * 12, 1000, 10000, 1).should.approximately(-30045.54072173169, 1e-9);
     financial.PV(0, 2 * 12, 1000, 10000, 1).should.equal(-34000);
+    financial.PV('invalid', 2 * 12, 1000, 10000, 1).should.equal(error.value);
   });
 
   test("RATE", function() {
@@ -352,7 +365,8 @@ suite('Financial', function() {
     financial.RATE(2 * 12, -1000, -10000, 100000, 0, 0.75).should.approximately(0.0651789117718154, 1e-9);
     financial.RATE(2 * 12, -1000, -10000, 100000, 0, 0.065).should.approximately(0.06517891177181524, 1e-9);
     financial.RATE(2 * 12, -1000, -10000, 100000, 1, 0.1).should.approximately(0.0632395800018064, 1e-9);
-    financial.RATE(2 * 12, -1000, -10000, 100000, 1, 1e-11).should.equal(-1.3199999999735999e-20);
+    financial.RATE(2 * 12, -1000, -10000, 100000, 1, 1e-11).should.approximately(-1.3199999999735999e-20, 1e-9);
+    financial.RATE('invalid', -1000, -10000, 100000, 1, 1e-11).should.equal(error.value);
   });
 
   //TODO: implement
@@ -427,6 +441,7 @@ suite('Financial', function() {
     // all positive
     values[0] = -values[0];
     financial.XIRR(values, dates, 0.1).should.equal(error.num);
+    financial.XIRR(values, dates, 'invalid').should.equal(error.value);
   });
 
   test('XNPV', function() {
@@ -444,6 +459,7 @@ suite('Financial', function() {
       '04/01/2009'
     ];
     financial.XNPV(0.09, values, dates).should.approximately(2086.6718943024616, 1e-1);
+    financial.XNPV('invalid', values, dates).should.equal(error.value);
   });
 
   //TODO: implement

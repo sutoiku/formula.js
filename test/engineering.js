@@ -5,18 +5,22 @@ var should = require('should');
 suite('Engineering', function() {
   test('BESSELI', function() {
     engineering.BESSELI(1.5, 1).should.approximately(0.981666, 10e-6);
+    engineering.BESSELI('invalid').should.equal(error.value);
   });
 
   test('BESSELJ', function() {
     engineering.BESSELJ(1.9, 2).should.approximately(0.329926, 10e-6);
+    engineering.BESSELJ('invalid').should.equal(error.value);
   });
 
   test('BESSELK', function() {
     engineering.BESSELK(1.5, 1).should.approximately(0.277388, 10e-6);
+    engineering.BESSELK('invalid').should.equal(error.value);
   });
 
   test('BESSELY', function() {
     engineering.BESSELY(2.5, 1).should.approximately(0.145918, 10e-6);
+    engineering.BESSELY('invalid').should.equal(error.value);
   });
 
   test('BIN2DEC', function() {

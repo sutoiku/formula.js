@@ -9,11 +9,8 @@ suite('Date & Time', function() {
     date.getMonth().should.equal(1 - 1);
     date.getDay().should.equal(1);
 
-    date = dateTime.DATE(1900, 1, -1);
-    date.should.equal(error.num);
-
-    date = dateTime.DATE('invalid');
-    date.should.equal(error.value);
+    dateTime.DATE(1900, 1, -1).should.equal(error.num);
+    dateTime.DATE('invalid').should.equal(error.value);
   });
 
   test('DATEVALUE', function() {
@@ -131,6 +128,7 @@ suite('Date & Time', function() {
     dateTime.TIME(0, 0, 0).should.equal(0);
     dateTime.TIME(1, 1, 1).should.approximately(0.04237268518518519, 1e-9);
     dateTime.TIME(-1, -1, -1).should.equal(error.num);
+    dateTime.TIME('invalid').should.equal(error.value);
   });
 
   test('TIMEVALUE', function() {

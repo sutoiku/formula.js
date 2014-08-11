@@ -1,5 +1,6 @@
 var utils = require('../lib/utils');
 var should = require('should');
+var error = require('../lib/error');
 
 suite('Utils', function() {
   test('flatten', function() {
@@ -29,5 +30,14 @@ suite('Utils', function() {
     utils.parseBool(NaN).should.equal(true);
     var err = new Error();
     utils.parseBool(err).should.equal(err);
+  });
+
+  test('parseDateArray', function() {
+    utils.parseDateArray(['01/jan/2009', 'invalid']).should.equal(error.value);
+  });
+
+  test('arrayValuesToNumbers', function() {
+    should.deepEqual(utils.arrayValuesToNumbers(['1.4']), [1.4]);
+    should.deepEqual(utils.arrayValuesToNumbers(['not convertible']), [0]);
   });
 });
