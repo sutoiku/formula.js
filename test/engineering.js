@@ -222,7 +222,7 @@ suite('Engineering', function() {
 
   test('IMABS', function() {
     engineering.IMABS('5+12i').should.equal(13);
-    engineering.IMABS('a').should.equal(error.num);
+    engineering.IMABS('a').should.equal(error.value);
   });
 
   test('IMAGINARY', function() {
@@ -238,7 +238,7 @@ suite('Engineering', function() {
 
   test('IMARGUMENT', function() {
     engineering.IMARGUMENT('3+4i').should.approximately(0.9272952180016122, 1e-9);
-    engineering.IMARGUMENT('a').should.equal(error.num);
+    engineering.IMARGUMENT('a').should.equal(error.value);
     engineering.IMARGUMENT(0).should.equal(error.div0);
     engineering.IMARGUMENT('2i').should.equal(Math.PI / 2);
     engineering.IMARGUMENT('-2i').should.equal(-Math.PI / 2);
@@ -250,14 +250,14 @@ suite('Engineering', function() {
 
   test('IMCONJUGATE', function() {
     engineering.IMCONJUGATE('3+4i').should.equal('3-4i');
-    engineering.IMCONJUGATE('a').should.equal(error.num);
+    engineering.IMCONJUGATE('a').should.equal(error.value);
   });
 
   test('IMCOS', function() {
     var im = engineering.IMCOS('1+i');
     engineering.IMREAL(im).should.approximately(0.8337300251311491, 1e-9);
     engineering.IMAGINARY(im).should.approximately(-0.9888977057628651, 1e-9);
-    engineering.IMCOS('a').should.equal(error.num);
+    engineering.IMCOS('a').should.equal(error.value);
     engineering.IMCOS(true).should.equal(error.value);
   });
 
@@ -265,7 +265,7 @@ suite('Engineering', function() {
     var im = engineering.IMCOSH('4+3i');
     engineering.IMREAL(im).should.approximately(-27.034945603074224, 1e-9);
     engineering.IMAGINARY(im).should.approximately(3.851153334811777, 1e-9);
-    engineering.IMCOSH('a').should.equal(error.num);
+    engineering.IMCOSH('a').should.equal(error.value);
     engineering.IMCOSH(true).should.equal(error.value);
   });
 
@@ -273,13 +273,13 @@ suite('Engineering', function() {
     var im = engineering.IMCOT('4+3i');
     engineering.IMREAL(im).should.approximately(0.0049011823943044056, 1e-9);
     engineering.IMAGINARY(im).should.approximately(-0.9992669278059017, 1e-9);
-    engineering.IMCOT('a').should.equal(error.num);
+    engineering.IMCOT('a').should.equal(error.value);
     engineering.IMCOT(true).should.equal(error.value);
   });
 
   test('IMDIV', function() {
     engineering.IMDIV('-238+240i', '10+24i').should.equal('5+12i');
-    engineering.IMDIV('a', 'i').should.equal(error.num);
+    engineering.IMDIV('a', 'i').should.equal(error.value);
     engineering.IMDIV('i', '0').should.equal(error.num);
     engineering.IMDIV('j', '1').should.equal('j');
     engineering.IMDIV('1', 'j').should.equal('-1j');
@@ -289,28 +289,28 @@ suite('Engineering', function() {
     var im = engineering.IMEXP('1+i');
     engineering.IMREAL(im).should.approximately(1.4686939399158851, 1e-9);
     engineering.IMAGINARY(im).should.approximately(2.2873552871788423, 1e-9);
-    engineering.IMEXP('a').should.equal(error.num);
+    engineering.IMEXP('a').should.equal(error.value);
   });
 
   test('IMLN', function() {
     var im = engineering.IMLN('3+4i');
     engineering.IMREAL(im).should.approximately(1.6094379124341003, 1e-9);
     engineering.IMAGINARY(im).should.approximately(0.9272952180016122, 1e-9);
-    engineering.IMLN('a').should.equal(error.num);
+    engineering.IMLN('a').should.equal(error.value);
   });
 
   test('IMLOG10', function() {
     var im = engineering.IMLOG10('3+4i');
     engineering.IMREAL(im).should.approximately(0.6989700043360187, 1e-9);
     engineering.IMAGINARY(im).should.approximately(0.4027191962733731, 1e-9);
-    engineering.IMLOG10('a').should.equal(error.num);
+    engineering.IMLOG10('a').should.equal(error.value);
   });
 
   test('IMLOG2', function() {
     var im = engineering.IMLOG2('3+4i');
     engineering.IMREAL(im).should.approximately(2.321928094887362, 1e-9);
     engineering.IMAGINARY(im).should.approximately(1.3378042124509761, 1e-9);
-    engineering.IMLOG2('a').should.equal(error.num);
+    engineering.IMLOG2('a').should.equal(error.value);
   });
 
   test('IMPOWER', function() {
@@ -318,13 +318,13 @@ suite('Engineering', function() {
     engineering.IMREAL(im).should.approximately(-45.99999999999999, 1e-9);
     engineering.IMAGINARY(im).should.approximately(9.000000000000007, 1e-9);
     engineering.IMPOWER('2+3i', 'a').should.equal(error.value);
-    engineering.IMPOWER('a', 1).should.equal(error.num);
+    engineering.IMPOWER('a', 1).should.equal(error.value);
   });
 
   test('IMPRODUCT', function() {
     engineering.IMPRODUCT('3+4i', '5-3i').should.equal('27+11i');
     engineering.IMPRODUCT('1+2i', '30+0i').should.equal('30+60i');
-    engineering.IMPRODUCT('a', '1').should.equal(error.num);
+    engineering.IMPRODUCT('a', '1').should.equal(error.value);
   });
 
   test('IMREAL', function() {
@@ -346,7 +346,7 @@ suite('Engineering', function() {
     engineering.IMREAL(im).should.approximately(-0.06529402785794704, 1e-9);
     engineering.IMAGINARY(im).should.approximately(-0.07522496030277322, 1e-9);
     engineering.IMSEC(true).should.equal(error.value);
-    engineering.IMSEC('a').should.equal(error.num);
+    engineering.IMSEC('a').should.equal(error.value);
   });
 
   test('IMSECH', function() {
@@ -354,14 +354,14 @@ suite('Engineering', function() {
     engineering.IMREAL(im).should.approximately(-0.03625349691586887, 1e-9);
     engineering.IMAGINARY(im).should.approximately(-0.005164344607753179, 1e-9);
     engineering.IMSECH(true).should.equal(error.value);
-    engineering.IMSECH('a').should.equal(error.num);
+    engineering.IMSECH('a').should.equal(error.value);
   });
 
   test('IMSIN', function() {
     var im = engineering.IMSIN('4+3i');
     engineering.IMREAL(im).should.approximately(-7.61923172032141, 1e-9);
     engineering.IMAGINARY(im).should.approximately(-6.5481200409110025, 1e-9);
-    engineering.IMSIN('a').should.equal(error.num);
+    engineering.IMSIN('a').should.equal(error.value);
     engineering.IMSIN(true).should.equal(error.value);
   });
 
@@ -369,7 +369,7 @@ suite('Engineering', function() {
     var im = engineering.IMSINH('4+3i');
     engineering.IMREAL(im).should.approximately(-27.016813258003932, 1e-9);
     engineering.IMAGINARY(im).should.approximately(3.853738037919377, 1e-9);
-    engineering.IMSINH('a').should.equal(error.num);
+    engineering.IMSINH('a').should.equal(error.value);
     engineering.IMSINH(true).should.equal(error.value);
   });
 
@@ -377,25 +377,25 @@ suite('Engineering', function() {
     var im = engineering.IMSQRT('1+i');
     engineering.IMREAL(im).should.approximately(1.0986841134678098, 1e-9);
     engineering.IMAGINARY(im).should.approximately(0.45508986056222733, 1e-9);
-    engineering.IMSQRT('a').should.equal(error.num);
+    engineering.IMSQRT('a').should.equal(error.value);
   });
 
   test('IMSUB', function() {
     engineering.IMSUB('13+4j', '5+3j').should.equal('8+j');
     engineering.IMSUB('13', '5+3j').should.equal('8-3j');
-    engineering.IMSUB('a', '5+3i').should.equal(error.num);
+    engineering.IMSUB('a', '5+3i').should.equal(error.value);
   });
 
   test('IMSUM', function() {
     engineering.IMSUM('3+4i', '5-3i').should.equal('8+i');
-    engineering.IMSUM('a', '5+3i').should.equal(error.num);
+    engineering.IMSUM('a', '5+3i').should.equal(error.value);
   });
 
   test('IMTAN', function() {
     var im = engineering.IMTAN('4+3i');
     engineering.IMREAL(im).should.approximately(0.004908258067495992, 1e-9);
     engineering.IMAGINARY(im).should.approximately(1.000709536067233, 1e-9);
-    engineering.IMTAN('a').should.equal(error.num);
+    engineering.IMTAN('a').should.equal(error.value);
     engineering.IMTAN(true).should.equal(error.value);
   });
 
