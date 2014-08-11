@@ -496,10 +496,10 @@ suite('Statistical', function() {
     statistical.MODE.SNGL([1, 2, 'invalid']).should.equal(error.value);
   });
 
-  test('NEGBINOMDIST', function() {
-    statistical.NEGBINOMDIST(10, 5, 0.25, false).should.approximately(0.05504866037517786, 1e-9);
-    statistical.NEGBINOMDIST(10, 5, 0.25, true).should.approximately(0.3135140584781766, 1e-9);
-    statistical.NEGBINOMDIST(10, 'invalid', 0.25, true).should.equal(error.value);
+  test('NEGBINOM.DIST', function() {
+    statistical.NEGBINOM.DIST(10, 5, 0.25, false).should.approximately(0.05504866037517786, 1e-9);
+    statistical.NEGBINOM.DIST(10, 5, 0.25, true).should.approximately(0.3135140584781766, 1e-9);
+    statistical.NEGBINOM.DIST(10, 'invalid', 0.25, true).should.equal(error.value);
   });
 
   test("NORM.DIST", function() {
@@ -535,68 +535,68 @@ suite('Statistical', function() {
     statistical.PEARSON(independentValues, depentendValues).should.equal(error.value);
   });
 
-  test("PERCENTILEEXC", function() {
-    statistical.PERCENTILEEXC([1, 2, 3, 4], 0).should.equal(error.num);
-    statistical.PERCENTILEEXC([1, 2, 3, 4], 0.1).should.equal(error.num);
-    statistical.PERCENTILEEXC([1, 2, 3, 4], 0.2).should.equal(1);
-    statistical.PERCENTILEEXC([1, 2, 3, 4], 0.25).should.approximately(1.25, 1e-9);
-    statistical.PERCENTILEEXC([1, 2, 3, 4], 0.3).should.approximately(1.5, 1e-9);
-    statistical.PERCENTILEEXC([1, 2, 3, 4], 0.4).should.equal(2);
-    statistical.PERCENTILEEXC([1, 2, 3, 4], 0.5).should.approximately(2.5, 1e-9);
-    statistical.PERCENTILEEXC([1, 2, 3, 4], 0.6).should.equal(3);
-    statistical.PERCENTILEEXC([1, 2, 3, 4], 0.7).should.approximately(3.5, 1e-9);
-    statistical.PERCENTILEEXC([1, 2, 3, 4], 0.75).should.approximately(3.75, 1e-9);
-    statistical.PERCENTILEEXC([1, 2, 3, 4], 0.8).should.equal(4);
-    statistical.PERCENTILEEXC([1, 2, 3, 4], 0.9).should.equal(error.num);
-    statistical.PERCENTILEEXC([1, 2, 3, 4], 1).should.equal(error.num);
-    statistical.PERCENTILEEXC([1, 'invalid', 3, 4], 1).should.equal(error.value);
+  test("PERCENTILE.EXC", function() {
+    statistical.PERCENTILE.EXC([1, 2, 3, 4], 0).should.equal(error.num);
+    statistical.PERCENTILE.EXC([1, 2, 3, 4], 0.1).should.equal(error.num);
+    statistical.PERCENTILE.EXC([1, 2, 3, 4], 0.2).should.equal(1);
+    statistical.PERCENTILE.EXC([1, 2, 3, 4], 0.25).should.approximately(1.25, 1e-9);
+    statistical.PERCENTILE.EXC([1, 2, 3, 4], 0.3).should.approximately(1.5, 1e-9);
+    statistical.PERCENTILE.EXC([1, 2, 3, 4], 0.4).should.equal(2);
+    statistical.PERCENTILE.EXC([1, 2, 3, 4], 0.5).should.approximately(2.5, 1e-9);
+    statistical.PERCENTILE.EXC([1, 2, 3, 4], 0.6).should.equal(3);
+    statistical.PERCENTILE.EXC([1, 2, 3, 4], 0.7).should.approximately(3.5, 1e-9);
+    statistical.PERCENTILE.EXC([1, 2, 3, 4], 0.75).should.approximately(3.75, 1e-9);
+    statistical.PERCENTILE.EXC([1, 2, 3, 4], 0.8).should.equal(4);
+    statistical.PERCENTILE.EXC([1, 2, 3, 4], 0.9).should.equal(error.num);
+    statistical.PERCENTILE.EXC([1, 2, 3, 4], 1).should.equal(error.num);
+    statistical.PERCENTILE.EXC([1, 'invalid', 3, 4], 1).should.equal(error.value);
   });
 
-  test("PERCENTILEINC", function() {
-    statistical.PERCENTILEINC([1, 2, 3, 4], 0).should.equal(1);
-    statistical.PERCENTILEINC([1, 2, 3, 4], 0.1).should.approximately(1.3, 1e-9);
-    statistical.PERCENTILEINC([1, 2, 3, 4], 0.2).should.approximately(1.6, 1e-9);
-    statistical.PERCENTILEINC([1, 2, 3, 4], 0.25).should.approximately(1.75, 1e-9);
-    statistical.PERCENTILEINC([1, 2, 3, 4], 0.3).should.approximately(1.9, 1e-9);
-    statistical.PERCENTILEINC([1, 2, 3, 4], 0.4).should.approximately(2.2, 1e-9);
-    statistical.PERCENTILEINC([1, 2, 3, 4], 0.5).should.approximately(2.5, 1e-9);
-    statistical.PERCENTILEINC([1, 2, 3, 4], 0.6).should.approximately(2.8, 1e-9);
-    statistical.PERCENTILEINC([1, 2, 3, 4], 0.7).should.approximately(3.1, 1e-9);
-    statistical.PERCENTILEINC([1, 2, 3, 4], 0.75).should.approximately(3.25, 1e-9);
-    statistical.PERCENTILEINC([1, 2, 3, 4], 0.8).should.approximately(3.4, 1e-9);
-    statistical.PERCENTILEINC([1, 2, 3, 4], 0.9).should.approximately(3.7, 1e-9);
-    statistical.PERCENTILEINC([1, 2, 3, 4], 1).should.equal(4);
-    statistical.PERCENTILEINC([1, 2, 'invalid', 4], 1).should.equal(error.value);
+  test("PERCENTILE.INC", function() {
+    statistical.PERCENTILE.INC([1, 2, 3, 4], 0).should.equal(1);
+    statistical.PERCENTILE.INC([1, 2, 3, 4], 0.1).should.approximately(1.3, 1e-9);
+    statistical.PERCENTILE.INC([1, 2, 3, 4], 0.2).should.approximately(1.6, 1e-9);
+    statistical.PERCENTILE.INC([1, 2, 3, 4], 0.25).should.approximately(1.75, 1e-9);
+    statistical.PERCENTILE.INC([1, 2, 3, 4], 0.3).should.approximately(1.9, 1e-9);
+    statistical.PERCENTILE.INC([1, 2, 3, 4], 0.4).should.approximately(2.2, 1e-9);
+    statistical.PERCENTILE.INC([1, 2, 3, 4], 0.5).should.approximately(2.5, 1e-9);
+    statistical.PERCENTILE.INC([1, 2, 3, 4], 0.6).should.approximately(2.8, 1e-9);
+    statistical.PERCENTILE.INC([1, 2, 3, 4], 0.7).should.approximately(3.1, 1e-9);
+    statistical.PERCENTILE.INC([1, 2, 3, 4], 0.75).should.approximately(3.25, 1e-9);
+    statistical.PERCENTILE.INC([1, 2, 3, 4], 0.8).should.approximately(3.4, 1e-9);
+    statistical.PERCENTILE.INC([1, 2, 3, 4], 0.9).should.approximately(3.7, 1e-9);
+    statistical.PERCENTILE.INC([1, 2, 3, 4], 1).should.equal(4);
+    statistical.PERCENTILE.INC([1, 2, 'invalid', 4], 1).should.equal(error.value);
   });
 
-  test("PERCENTRANKEXC", function() {
-    statistical.PERCENTRANKEXC([1, 2, 3, 4], 1).should.approximately(0.2, 1e-9);
-    statistical.PERCENTRANKEXC([1, 2, 3, 4], 2).should.approximately(0.4, 1e-9);
-    statistical.PERCENTRANKEXC([1, 2, 3, 4], 3).should.approximately(0.6, 1e-9);
-    statistical.PERCENTRANKEXC([1, 2, 3, 4], 4).should.approximately(0.8, 1e-9);
-    statistical.PERCENTRANKEXC([1, 2, 3, 4], 1.25).should.approximately(0.25, 1e-9);
-    statistical.PERCENTRANKEXC([1, 2, 3, 4], 2.5).should.approximately(0.5, 1e-9);
-    statistical.PERCENTRANKEXC([1, 2, 3, 4], 3.75).should.approximately(0.75, 1e-9);
-    statistical.PERCENTRANKEXC([1, 2, 3, 4], 1, 2).should.approximately(0.2, 1e-9);
-    statistical.PERCENTRANKEXC([1, 2, 3, 4], 2, 2).should.approximately(0.4, 1e-9);
-    statistical.PERCENTRANKEXC([1, 2, 3, 4], 3, 2).should.approximately(0.6, 1e-9);
-    statistical.PERCENTRANKEXC([1, 2, 3, 4], 4, 2).should.approximately(0.8, 1e-9);
-    statistical.PERCENTRANKEXC([1, 2, 'invalid', 4], 4, 2).should.equal(error.value);
+  test("PERCENTRANK.EXC", function() {
+    statistical.PERCENTRANK.EXC([1, 2, 3, 4], 1).should.approximately(0.2, 1e-9);
+    statistical.PERCENTRANK.EXC([1, 2, 3, 4], 2).should.approximately(0.4, 1e-9);
+    statistical.PERCENTRANK.EXC([1, 2, 3, 4], 3).should.approximately(0.6, 1e-9);
+    statistical.PERCENTRANK.EXC([1, 2, 3, 4], 4).should.approximately(0.8, 1e-9);
+    statistical.PERCENTRANK.EXC([1, 2, 3, 4], 1.25).should.approximately(0.25, 1e-9);
+    statistical.PERCENTRANK.EXC([1, 2, 3, 4], 2.5).should.approximately(0.5, 1e-9);
+    statistical.PERCENTRANK.EXC([1, 2, 3, 4], 3.75).should.approximately(0.75, 1e-9);
+    statistical.PERCENTRANK.EXC([1, 2, 3, 4], 1, 2).should.approximately(0.2, 1e-9);
+    statistical.PERCENTRANK.EXC([1, 2, 3, 4], 2, 2).should.approximately(0.4, 1e-9);
+    statistical.PERCENTRANK.EXC([1, 2, 3, 4], 3, 2).should.approximately(0.6, 1e-9);
+    statistical.PERCENTRANK.EXC([1, 2, 3, 4], 4, 2).should.approximately(0.8, 1e-9);
+    statistical.PERCENTRANK.EXC([1, 2, 'invalid', 4], 4, 2).should.equal(error.value);
   });
 
-  test("PERCENTRANKINC", function() {
-    statistical.PERCENTRANKINC([1, 2, 3, 4], 1).should.equal(0);
-    statistical.PERCENTRANKINC([1, 2, 3, 4], 2).should.approximately(0.333, 1e-9);
-    statistical.PERCENTRANKINC([1, 2, 3, 4], 3).should.approximately(0.666, 1e-9);
-    statistical.PERCENTRANKINC([1, 2, 3, 4], 4).should.equal(1);
-    statistical.PERCENTRANKINC([1, 2, 3, 4], 1.25).should.approximately(0.083, 1e-9);
-    statistical.PERCENTRANKINC([1, 2, 3, 4], 2.5).should.approximately(0.5, 1e-9);
-    statistical.PERCENTRANKINC([1, 2, 3, 4], 3.75).should.approximately(0.916, 1e-9);
-    statistical.PERCENTRANKINC([1, 2, 3, 4], 1, 2).should.equal(0);
-    statistical.PERCENTRANKINC([1, 2, 3, 4], 2, 2).should.approximately(0.33, 1e-9);
-    statistical.PERCENTRANKINC([1, 2, 3, 4], 3, 2).should.approximately(0.66, 1e-9);
-    statistical.PERCENTRANKINC([1, 2, 3, 4], 4, 2).should.equal(1);
-    statistical.PERCENTRANKINC([1, 2, 3, 4], 'invalid', 2).should.equal(error.value);
+  test("PERCENTRANK.INC", function() {
+    statistical.PERCENTRANK.INC([1, 2, 3, 4], 1).should.equal(0);
+    statistical.PERCENTRANK.INC([1, 2, 3, 4], 2).should.approximately(0.333, 1e-9);
+    statistical.PERCENTRANK.INC([1, 2, 3, 4], 3).should.approximately(0.666, 1e-9);
+    statistical.PERCENTRANK.INC([1, 2, 3, 4], 4).should.equal(1);
+    statistical.PERCENTRANK.INC([1, 2, 3, 4], 1.25).should.approximately(0.083, 1e-9);
+    statistical.PERCENTRANK.INC([1, 2, 3, 4], 2.5).should.approximately(0.5, 1e-9);
+    statistical.PERCENTRANK.INC([1, 2, 3, 4], 3.75).should.approximately(0.916, 1e-9);
+    statistical.PERCENTRANK.INC([1, 2, 3, 4], 1, 2).should.equal(0);
+    statistical.PERCENTRANK.INC([1, 2, 3, 4], 2, 2).should.approximately(0.33, 1e-9);
+    statistical.PERCENTRANK.INC([1, 2, 3, 4], 3, 2).should.approximately(0.66, 1e-9);
+    statistical.PERCENTRANK.INC([1, 2, 3, 4], 4, 2).should.equal(1);
+    statistical.PERCENTRANK.INC([1, 2, 3, 4], 'invalid', 2).should.equal(error.value);
   });
 
   test('PERMUT', function() {
@@ -614,10 +614,10 @@ suite('Statistical', function() {
     statistical.PHI('invalid').should.equal(error.value);
   });
 
-  test('POISSONDIST', function() {
-    statistical.POISSONDIST(2, 5, true).should.approximately(0.12465201948308113, 1e-9);
-    statistical.POISSONDIST(2, 5, false).should.approximately(0.08422433748856833, 1e-9);
-    statistical.POISSONDIST(2, 'invalid', false).should.equal(error.value);
+  test('POISSON.DIST', function() {
+    statistical.POISSON.DIST(2, 5, true).should.approximately(0.12465201948308113, 1e-9);
+    statistical.POISSON.DIST(2, 5, false).should.approximately(0.08422433748856833, 1e-9);
+    statistical.POISSON.DIST(2, 'invalid', false).should.equal(error.value);
   });
 
   test('PROB', function() {
@@ -797,11 +797,12 @@ suite('Statistical', function() {
     statistical.VARPA(1, 2, 3, 4, 'count as zero', false, true).should.approximately(1.959183673469388, 1e-9);
   });
 
-  test('WEIBULLDIST', function() {
-    statistical.WEIBULLDIST(105, 20, 100, true).should.approximately(0.9295813900692769, 1e-9);
-    statistical.WEIBULLDIST(105, 20, 100, false).should.approximately(0.03558886402450435, 1e-9);
-    statistical.WEIBULLDIST(105, 20, 'invalid', false).should.equal(error.value);
+  test('WEIBULL.DIST', function() {
+    statistical.WEIBULL.DIST(105, 20, 100, true).should.approximately(0.9295813900692769, 1e-9);
+    statistical.WEIBULL.DIST(105, 20, 100, false).should.approximately(0.03558886402450435, 1e-9);
+    statistical.WEIBULL.DIST(105, 20, 'invalid', false).should.equal(error.value);
   });
+
 
   test('Z.TEST', function() {
     var data = [3, 6, 7, 8, 6, 5, 4, 2, 1, 9];
