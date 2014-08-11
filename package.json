@@ -2,7 +2,7 @@
   "author"               : "Ismael Ghalimi <ismael@stoic.com>",
   "name"                 : "formulajs",
   "description"          : "JavaScript implementation of most Microsoft Excel formula functions",
-  "version"              : "0.0.29",
+  "version"              : "0.0.30",
   "repository"           : {
     "type"               : "git",
     "url"                : "git@github.com:sutoiku/formula.js.git"
