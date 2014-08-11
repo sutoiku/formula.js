@@ -226,18 +226,15 @@ suite('Math & Trig', function() {
     mathTrig.FLOOR.MATH(-8.1, 0).should.equal(0);
     mathTrig.FLOOR.MATH(-5.5, 2, -1).should.equal(-4);
     mathTrig.FLOOR.MATH('invalid', 0).should.equal(error.value);
-  });
 
-  test('FLOOR.PRECISE', function() {
-    mathTrig.FLOOR.PRECISE(-3.2, -1).should.equal(-4);
-    mathTrig.FLOOR.PRECISE(3.2, 1).should.equal(3);
-    mathTrig.FLOOR.PRECISE(-3.2, 1).should.equal(-4);
-    mathTrig.FLOOR.PRECISE(3.2, -1).should.equal(3);
-    mathTrig.FLOOR.PRECISE(3.2).should.equal(3);
-    mathTrig.FLOOR.PRECISE(3.2, 0).should.equal(0);
-    mathTrig.FLOOR.PRECISE(3.2, 'invalid').should.equal(error.value);
+    mathTrig.FLOOR.MATH(-3.2, -1).should.equal(-4);
+    mathTrig.FLOOR.MATH(3.2, 1).should.equal(3);
+    mathTrig.FLOOR.MATH(-3.2, 1).should.equal(-4);
+    mathTrig.FLOOR.MATH(3.2, -1).should.equal(3);
+    mathTrig.FLOOR.MATH(3.2).should.equal(3);
+    mathTrig.FLOOR.MATH(3.2, 0).should.equal(0);
+    mathTrig.FLOOR.MATH(3.2, 'invalid').should.equal(error.value);
   });
-
 
   test('GCD', function() {
     mathTrig.GCD(5, 2).should.equal(1);
