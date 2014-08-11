@@ -1,3 +1,5 @@
+var Table = require('cli-table');
+
 var categories = [
   //'compatibility',
   //'database',
@@ -13,6 +15,13 @@ var categories = [
   'statistical',
   //'web'
 ];
+
+var table = new Table({
+  head: ['Category', 'Total', 'Not Implemented'],
+});
+
+var aggregateTotal = 0;
+var aggregateNotImplemented = 0;
 
 for (var c in categories) {
   var categoryName = categories[c];
@@ -35,5 +44,12 @@ for (var c in categories) {
       }
     }
   }
-  console.log(categoryName, '\t\t\t total:', total, '\t\t\t not implemented:', notImplemented);
+  aggregateTotal += total;
+  aggregateNotImplemented += notImplemented;
+
+  table.push([categoryName, total, notImplemented]);
 }
+
+table.push(['Totals', aggregateTotal, aggregateNotImplemented]);
+
+console.log(table.toString());
