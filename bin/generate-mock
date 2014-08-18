@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+var formulae = require('../');
+var fs = require('fs');
+var path = require('path');
+
+var mock = fs.createWriteStream(path.resolve('build/mock.js'));
+
+for (var f in formulae) {
+	try {
+		if (formulae[f]() === undefined) {
+			mock.write('function ' + f + ' () { throw "' + f + ' is not implemented"; }\n');
+		} else {
+			mock.write('function ' + f + ' () { }\n');
+		}
+	} catch (e) {
+		mock.write('function ' + f + ' () { }\n');
+	}
+}
+
+mock.end();

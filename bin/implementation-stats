@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var Table = require('cli-table');
 
 var categories = [
@@ -25,7 +27,7 @@ var aggregateNotImplemented = 0;
 
 for (var c in categories) {
   var categoryName = categories[c];
-  var category = require('./lib/' + categoryName);
+  var category = require('../lib/' + categoryName);
   var total = 0;
   var notImplemented = 0;
   for (var f in category) {

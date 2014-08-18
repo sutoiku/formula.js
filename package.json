@@ -8,6 +8,10 @@
     "url": "git@github.com:CrowdProcess/formulajs.git"
   },
   "main": "index.js",
+  "bin": {
+    "implementation-stats": "./bin/implementation-stats",
+    "generate-mock": "./bin/generate-mock"
+  },
   "dependencies": {
     "jStat": "0.0.6",
     "lodash": "2.4.1",
