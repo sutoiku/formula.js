@@ -9,8 +9,7 @@
   },
   "main": "index.js",
   "bin": {
-    "implementation-stats": "./bin/implementation-stats",
-    "generate-mock": "./bin/generate-mock"
+    "implementation-stats": "./bin/implementation-stats"
   },
   "dependencies": {
     "jStat": "0.0.6",
