@@ -33,14 +33,18 @@ for (var c in categories) {
   for (var f in category) {
     if (typeof category[f] === 'function') {
       total++;
-      if (category[f]() === undefined) {
+      try {
+        category[f]()
+      } catch (err) {
         notImplemented++;
       }
     }
     if (typeof category[f] === 'object') {
       for (var s in category[f]) {
         total++;
-        if (category[f][s] === undefined) {
+        try {
+          category[f]()
+        } catch (err) {
           notImplemented++;
         }
       }
