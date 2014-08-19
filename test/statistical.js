@@ -90,7 +90,7 @@ suite('Statistical', function() {
 
   // TODO: implement
   test('CHISQ.DIST.RT', function() {
-    should.equal(statistical.CHISQ.DIST.RT(), undefined);
+    statistical.CHISQ.DIST.RT.should.throw('CHISQ.DIST.RT is not implemented');
   });
 
   test('CHISQ.INV', function() {
@@ -101,12 +101,12 @@ suite('Statistical', function() {
 
   // TODO: implement
   test('CHISQ.INV.RT', function() {
-    should.equal(statistical.CHISQ.INV.RT(), undefined);
+    statistical.CHISQ.INV.RT.should.throw('CHISQ.INV.RT is not implemented');
   });
 
   // TODO: implement
   test('CHISQ.TEST', function() {
-    should.equal(statistical.CHISQ.TEST(), undefined);
+    statistical.CHISQ.TEST.should.throw('CHISQ.TEST is not implemented');
   });
 
   test('CONFIDENCE.NORM', function() {
@@ -232,7 +232,7 @@ suite('Statistical', function() {
 
   // TODO: implement
   test('F.DIST.RT', function() {
-    should.equal(statistical.F.DIST.RT(), undefined);
+    statistical.F.DIST.RT.should.throw('F.DIST.RT is not implemented');
   });
 
   test('F.INV', function() {
@@ -243,12 +243,12 @@ suite('Statistical', function() {
 
   // TODO: implement
   test('F.INV.RT', function() {
-    should.equal(statistical.F.INV.RT(), undefined);
+    statistical.F.INV.RT.should.throw('F.INV.RT is not implemented');
   });
 
   // TODO: implement
   test('F.TEST', function() {
-    should.equal(statistical.F.TEST(), undefined);
+    statistical.F.TEST.should.throw('F.TEST is not implemented');
   });
 
   test('FISHER', function() {
@@ -291,12 +291,12 @@ suite('Statistical', function() {
 
   // TODO: implement
   test('GAMMA.DIST', function() {
-    should.equal(statistical.GAMMA.DIST(), undefined);
+    statistical.GAMMA.DIST.should.throw('GAMMA.DIST is not implemented');
   });
 
   // TODO: implement
   test('GAMMA.INV', function() {
-    should.equal(statistical.GAMMA.INV(), undefined);
+    statistical.GAMMA.INV.should.throw('GAMMA.INV is not implemented');
   });
 
   test('GAMMALN', function() {
@@ -306,7 +306,7 @@ suite('Statistical', function() {
 
   // TODO: implement
   test('GAMMALN.PRECISE', function() {
-    should.equal(statistical.GAMMALN.PRECISE(), undefined);
+    statistical.GAMMALN.PRECISE.should.throw('GAMMALN.PRECISE is not implemented');
   });
 
   test('GAUSS', function() {
@@ -411,7 +411,7 @@ suite('Statistical', function() {
 
   // TODO: implement
   test('LOGEST', function() {
-    should.equal(statistical.LOGEST(), undefined);
+    statistical.LOGEST.should.throw('LOGEST is not implemented');
   });
 
   test('LOGNORM.DIST', function() {
@@ -741,12 +741,12 @@ suite('Statistical', function() {
 
   // TODO: implement
   test('T.DIST.2T', function() {
-    should.equal(statistical.T.DIST['2T'](), undefined);
+    statistical.T.DIST['2T'].should.throw('T.DIST.2T is not implemented');
   });
 
   // TODO: implement
   test('T.DIST.RT', function() {
-    should.equal(statistical.T.DIST.RT(), undefined);
+    statistical.T.DIST.RT.should.throw('T.DIST.RT is not implemented');
   });
 
   test('T.INV', function() {
@@ -756,17 +756,17 @@ suite('Statistical', function() {
 
   // TODO: implement
   test('T.INV.2T', function() {
-    should.equal(statistical.T.INV['2T'](), undefined);
+    statistical.T.INV['2T'].should.throw('T.INV.2T is not implemented');
   });
 
   // TODO: implement
   test('T.TEST', function() {
-    should.equal(statistical.T.TEST(), undefined);
+    statistical.T.TEST.should.throw('T.TEST is not implemented');
   });
 
   // TODO: implement
   test('TREND', function() {
-    should.equal(statistical.TREND(), undefined);
+    statistical.TREND.should.throw('TREND is not implemented');
   });
 
   test("TRIMMEAN", function() {

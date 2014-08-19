@@ -172,7 +172,7 @@ suite('Engineering', function() {
 
   // TODO
   test('ERF.PRECISE', function() {
-    should.equal(engineering.ERF.PRECISE(), undefined);
+    engineering.ERF.PRECISE.should.throw('ERF.PRECISE is not implemented');
   });
 
   test('ERFC', function() {
@@ -182,7 +182,7 @@ suite('Engineering', function() {
 
   // TODO
   test('ERFC.PRECISE', function() {
-    should.equal(engineering.ERFC.PRECISE(), undefined);
+    engineering.ERFC.PRECISE.should.throw('ERFC.PRECISE is not implemented');
   });
 
   test('GESTEP', function() {

@@ -5,7 +5,7 @@ var should = require('should');
 suite('Information', function() {
   // TODO
   test('CELL', function() {
-    should.equal(information.CELL(), undefined);
+    information.CELL.should.throw('CELL is not implemented');
   });
 
   test('ERROR.TYPE', function() {
@@ -22,7 +22,7 @@ suite('Information', function() {
 
   // TODO
   test('INFO', function() {
-    should.equal(information.INFO(), undefined);
+    information.INFO.should.throw('INFO is not implemented');
   });
 
   test('ISBLANK', function() {
@@ -53,7 +53,7 @@ suite('Information', function() {
 
   // TODO
   test('ISFORMULA', function() {
-    should.equal(information.ISFORMULA(), undefined);
+    information.ISFORMULA.should.throw('ISFORMULA is not implemented');
   });
 
   test('ISLOGICAL', function() {
@@ -88,7 +88,7 @@ suite('Information', function() {
 
   // TODO
   test('ISREF', function() {
-    should.equal(information.ISREF(), undefined);
+    information.ISREF.should.throw('ISREF is not implemented');
   });
 
   test('ISTEXT', function() {
@@ -112,12 +112,12 @@ suite('Information', function() {
 
   // TODO
   test('SHEET', function() {
-    should.equal(information.SHEET(), undefined);
+    information.SHEET.should.throw('SHEET is not implemented');
   });
 
   // TODO
   test('SHEETS', function() {
-    should.equal(information.SHEETS(), undefined);
+    information.SHEETS.should.throw('SHEETS is not implemented');
   });
 
   test('TYPE', function() {

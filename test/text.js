@@ -4,11 +4,11 @@ var text = require('../lib/text');
 
 suite('Text', function() {
   test('ASC', function() {
-    should.equal(text.ASC(), undefined);
+    text.ASC.should.throw('ASC is not implemented');
   });
 
   test('BAHTTEXT', function() {
-    should.equal(text.BAHTTEXT(), undefined);
+    text.BAHTTEXT.should.throw('BAHTTEXT is not implemented');
   });
 
   test("CHAR", function() {
@@ -35,7 +35,7 @@ suite('Text', function() {
   });
 
   test('DBCS', function() {
-    should.equal(text.DBCS(), undefined);
+    text.DBCS.should.throw('DBCS is not implemented');
   });
 
   test('DOLLAR', function() {
@@ -94,11 +94,11 @@ suite('Text', function() {
   });
 
   test('NUMBERVALUE', function() {
-    should.equal(text.NUMBERVALUE(), undefined);
+    text.NUMBERVALUE.should.throw('NUMBERVALUE is not implemented');
   });
 
   test('PRONETIC', function() {
-    should.equal(text.PRONETIC(), undefined);
+    text.PRONETIC.should.throw('PRONETIC is not implemented');
   });
 
   test('PROPER', function() {
@@ -150,7 +150,7 @@ suite('Text', function() {
   });
 
   test('TEXT', function() {
-    should.equal(text.TEXT(), undefined);
+    text.TEXT.should.throw('TEXT is not implemented');
   });
 
   test('TRIM', function() {

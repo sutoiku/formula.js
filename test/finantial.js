@@ -5,52 +5,52 @@ var should = require('should');
 
 suite('Financial', function() {
   test("ACCRINT", function() {
-    should.equal(financial.ACCRINT(), undefined);
+    financial.ACCRINT.should.throw('ACCRINT is not implemented');
   });
 
   // TODO: implement
   test('ACCRINTM', function() {
-    should.equal(financial.ACCRINTM(), undefined);
+    financial.ACCRINTM.should.throw('ACCRINTM is not implemented');
   });
 
   // TODO: implement
   test('AMORDEGRC', function() {
-    should.equal(financial.AMORDEGRC(), undefined);
+    financial.AMORDEGRC.should.throw('AMORDEGRC is not implemented');
   });
 
   // TODO: implement
   test('AMORLINC', function() {
-    should.equal(financial.AMORLINC(), undefined);
+    financial.AMORLINC.should.throw('AMORLINC is not implemented');
   });
 
   // TODO: implement
   test('COUPDAYBS', function() {
-    should.equal(financial.COUPDAYBS(), undefined);
+    financial.COUPDAYBS.should.throw('COUPDAYBS is not implemented');
   });
 
   // TODO: implement
   test('COUPDAYS', function() {
-    should.equal(financial.COUPDAYS(), undefined);
+    financial.COUPDAYS.should.throw('COUPDAYS is not implemented');
   });
 
   // TODO: implement
   test('COUPDAYSNC', function() {
-    should.equal(financial.COUPDAYSNC(), undefined);
+    financial.COUPDAYSNC.should.throw('COUPDAYSNC is not implemented');
   });
 
   // TODO: implement
   test('COUPNCD', function() {
-    should.equal(financial.COUPNCD(), undefined);
+    financial.COUPNCD.should.throw('COUPNCD is not implemented');
   });
 
   // TODO: implement
   test('COUPNUM', function() {
-    should.equal(financial.COUPNUM(), undefined);
+    financial.COUPNUM.should.throw('COUPNUM is not implemented');
   });
 
   // TODO: implement
   test('COUPPCD', function() {
-    should.equal(financial.COUPPCD(), undefined);
+    financial.COUPPCD.should.throw('COUPPCD is not implemented');
   });
 
   test("CUMIPMT", function() {
@@ -148,7 +148,7 @@ suite('Financial', function() {
 
   //TODO: implement
   test('DISC', function() {
-    should.equal(financial.DISC(), undefined);
+    financial.DISC.should.throw('DISC is not implemented');
   });
 
   test("DOLLARDE", function() {
@@ -193,7 +193,7 @@ suite('Financial', function() {
 
   //TODO: implement
   test('DURATION', function() {
-    should.equal(financial.DURATION(), undefined);
+    financial.DURATION.should.throw('DURATION is not implemented');
   });
 
   test("EFFECT", function() {
@@ -221,7 +221,7 @@ suite('Financial', function() {
 
   //TODO: implement
   test('INTRATE', function() {
-    should.equal(financial.INTRATE(), undefined);
+    financial.INTRATE.should.throw('INTRATE is not implemented');
   });
 
   test("IPMT", function() {
@@ -254,7 +254,7 @@ suite('Financial', function() {
 
   //TODO: implement
   test('MDURATION', function() {
-    should.equal(financial.MDURATION(), undefined);
+    financial.MDURATION.should.throw('MDURATION is not implemented');
   });
 
   test("MIRR", function() {
@@ -289,22 +289,22 @@ suite('Financial', function() {
 
   //TODO: implement
   test('ODDFPRICE', function() {
-    should.equal(financial.ODDFPRICE(), undefined);
+    financial.ODDFPRICE.should.throw('ODDFPRICE is not implemented');
   });
 
   //TODO: implement
   test('ODDFYIELD', function() {
-    should.equal(financial.ODDFYIELD(), undefined);
+    financial.ODDFYIELD.should.throw('ODDFYIELD is not implemented');
   });
 
   //TODO: implement
   test('ODDLPRICE', function() {
-    should.equal(financial.ODDLPRICE(), undefined);
+    financial.ODDLPRICE.should.throw('ODDLPRICE is not implemented');
   });
 
   //TODO: implement
   test('ODDLYIELD', function() {
-    should.equal(financial.ODDLYIELD(), undefined);
+    financial.ODDLYIELD.should.throw('ODDLYIELD is not implemented');
   });
 
   test("PDURATION", function() {
@@ -339,17 +339,17 @@ suite('Financial', function() {
 
   //TODO: implement
   test('PRICE', function() {
-    should.equal(financial.PRICE(), undefined);
+    financial.PRICE.should.throw('PRICE is not implemented');
   });
 
   //TODO: implement
   test('PRICEDISC', function() {
-    should.equal(financial.PRICEDISC(), undefined);
+    financial.PRICEDISC.should.throw('PRICEDISC is not implemented');
   });
 
   //TODO: implement
   test('PRICEMAT', function() {
-    should.equal(financial.PRICEMAT(), undefined);
+    financial.PRICEMAT.should.throw('PRICEMAT is not implemented');
   });
 
   test("PV", function() {
@@ -371,7 +371,7 @@ suite('Financial', function() {
 
   //TODO: implement
   test('RECEIVED', function() {
-    should.equal(financial.RECEIVED(), undefined);
+    financial.RECEIVED.should.throw('RECEIVED is not implemented');
   });
 
   test('RRI', function() {
@@ -419,7 +419,7 @@ suite('Financial', function() {
 
   //TODO: implement
   test('VDB', function() {
-    should.equal(financial.VDB(), undefined);
+    financial.VDB.should.throw('VDB is not implemented');
   });
 
   test('XIRR', function() {
@@ -464,16 +464,16 @@ suite('Financial', function() {
 
   //TODO: implement
   test('YIELD', function() {
-    should.equal(financial.YIELD(), undefined);
+    financial.YIELD.should.throw('YIELD is not implemented');
   });
 
   //TODO: implement
   test('YIELDDISC', function() {
-    should.equal(financial.YIELDDISC(), undefined);
+    financial.YIELDDISC.should.throw('YIELDDISC is not implemented');
   });
 
   //TODO: implement
   test('YIELDMAT', function() {
-    should.equal(financial.YIELDMAT(), undefined);
+    financial.YIELDMAT.should.throw('YIELDMAT is not implemented');
   });
 });
