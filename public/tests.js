@@ -1390,8 +1390,101 @@
       ]},
       {"function": "POWER", "tests": [
         {"call": "POWER(1, 4)", "result": 1},
-        {"call": "POWER(-1, 0.5)", "result": "#NUM!"},
-      ]}
+        {"call": "POWER(-1, 0.5)", "result": "#NUM!"}
+      ]},
+      {"function": "POW", "tests": [
+        {"call": "POW(1, 4)", "result": 1},
+        {"call": "POW(-1, 0.5)", "result": "#NUM!"},
+        {"call": "POW()", "result": "#N/A"},
+        {"call": "POW(-1)", "result": "#N/A"}
+      ]},
+      {"function": "ADD", "tests": [
+        {"call": "ADD(10, 4)", "result": 14},
+        {"call": "ADD(1.2, 4)", "result": 5.2},
+        {"call": "ADD()", "result": '#N/A'},
+        {"call": "ADD(1)", "result": '#N/A'},
+        {"call": "ADD(1, 'string')", "result": '#VALUE!'}
+      ]},
+      {"function": "MINUS", "tests": [
+        {"call": "MINUS(10, 4)", "result": 6},
+        {"call": "MINUS(1.2, 4)", "result": -2.8},
+        {"call": "MINUS()", "result": '#N/A'},
+        {"call": "MINUS(1)", "result": '#N/A'},
+        {"call": "MINUS(1, 'string')", "result": '#VALUE!'}
+      ]},
+      {"function": "DIVIDE", "tests": [
+        {"call": "DIVIDE(10, 4)", "result": 2.5},
+        {"call": "DIVIDE(12, -6)", "result": -2},
+        {"call": "DIVIDE(0, 0)", "result": '#DIV/0!'},
+        {"call": "DIVIDE(1, 0)", "result": '#DIV/0!'},
+        {"call": "DIVIDE(0, 1)", "result": 0},
+        {"call": "DIVIDE()", "result": '#N/A'},
+        {"call": "DIVIDE(1)", "result": '#N/A'},
+        {"call": "DIVIDE(1, 'string')", "result": '#VALUE!'}
+      ]},
+      {"function": "MULTIPLY", "tests": [
+        {"call": "MULTIPLY(10, 4)", "result": 40},
+        {"call": "MULTIPLY(12, -6)", "result": -72},
+        {"call": "MULTIPLY(0, 0)", "result": 0},
+        {"call": "MULTIPLY(1, 0)", "result": 0},
+        {"call": "MULTIPLY(0, 1)", "result": 0},
+        {"call": "MULTIPLY()", "result": '#N/A'},
+        {"call": "MULTIPLY(1)", "result": '#N/A'},
+        {"call": "MULTIPLY(1, 'string')", "result": '#VALUE!'}
+      ]},
+      {"function": "EQ", "tests": [
+        {"call": "EQ(10, 10)", "result": true},
+        {"call": "EQ(1.2, 1.2)", "result": true},
+        {"call": "EQ('hello', 'jim')", "result": false},
+        {"call": "EQ('hello', 'hello')", "result": true},
+        {"call": "EQ(123, 'hello')", "result": false},
+        {"call": "EQ(true, true)", "result": true},
+        {"call": "EQ(false, false)", "result": true},
+        {"call": "EQ(false, 0)", "result": false},
+        {"call": "EQ()", "result": '#N/A'},
+        {"call": "EQ(1)", "result": '#N/A'},
+        {"call": "EQ(1, 'string')", "result": false}
+      ]},
+      {"function": "NE", "tests": [
+        {"call": "NE(10, 10)", "result": false},
+        {"call": "NE(1.2, 1.2)", "result": false},
+        {"call": "NE('hello', 'jim')", "result": true},
+        {"call": "NE('hello', 'hello')", "result": false},
+        {"call": "NE(123, 'hello')", "result": true},
+        {"call": "NE(true, true)", "result": false},
+        {"call": "NE(false, false)", "result": false},
+        {"call": "NE(false, 0)", "result": true},
+        {"call": "NE()", "result": '#N/A'},
+        {"call": "NE(1)", "result": '#N/A'},
+        {"call": "NE(1, 'string')", "result": true}
+      ]},
+      {"function": "GTE", "tests": [
+        {"call": "GTE(10, 4)", "result": true},
+        {"call": "GTE(10, 10)", "result": true},
+        {"call": "GTE(10, 12)", "result": false},
+        {"call": "GTE()", "result": '#N/A'},
+        {"call": "GTE(1)", "result": '#N/A'},
+        {"call": "GTE(1, 'string')", "result": '#ERROR!'},
+        {"call": "GTE('string', 2)", "result": '#ERROR!'}
+      ]},
+      {"function": "LT", "tests": [
+        {"call": "LT(10, 4)", "result": false},
+        {"call": "LT(10, 10)", "result": false},
+        {"call": "LT(10, 12)", "result": true},
+        {"call": "LT()", "result": '#N/A'},
+        {"call": "LT(1)", "result": '#N/A'},
+        {"call": "LT(1, 'string')", "result": '#ERROR!'},
+        {"call": "LT('string', 2)", "result": '#ERROR!'}
+      ]},
+      {"function": "LTE", "tests": [
+        {"call": "LTE(10, 4)", "result": false},
+        {"call": "LTE(10, 10)", "result": true},
+        {"call": "LTE(10, 12)", "result": true},
+        {"call": "LTE()", "result": '#N/A'},
+        {"call": "LTE(1)", "result": '#N/A'},
+        {"call": "LTE(1, 'string')", "result": '#ERROR!'},
+        {"call": "LTE('string', 2)", "result": '#ERROR!'}
+      ]},
     ];
 
     scope.FORMULA_TESTS = FORMULA_TESTS;

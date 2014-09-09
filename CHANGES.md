@@ -1,3 +1,9 @@
+0.0.32
+------
+
+* Added the following google spreadsheet functions ADD, DIVIDE, EQ, GTE, LT, LTE, MINUS, MULTIPLY, NE and POW
+* Added associated test cases
+
 0.0.26
 ------
 
