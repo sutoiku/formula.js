@@ -155,7 +155,7 @@ suite('Text', function() {
     text.TEXT('1234.59', '####.#').should.equal('1234.6');
     text.TEXT('1234.52', '####.#').should.equal('1234.5');
     text.TEXT('1234.56', '####.##').should.equal('1234.56');
-    text.TEXT().should.equal('#N/A');
+    text.TEXT().should.equal(error.na);
   });
 
   test('TRIM', function() {
