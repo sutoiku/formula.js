@@ -14,5 +14,3 @@ LICENSE
 
 formula.js is freely distributable under the terms of the MIT license.
 Copyright (c) 2014 Sutoiku, Inc.
-
-besseli, besselj, besselk, bessely are sourced from [SheetJS/bessel](https://github.com/SheetJS/bessel) freely distributable under the terms of the MIT license, Copyright (C) 2013 SheetJS.
