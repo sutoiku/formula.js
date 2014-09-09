@@ -1,33 +1,47 @@
 {
-  "author"               : "Ismael Ghalimi <ismael@stoic.com>",
-  "name"                 : "formulajs",
-  "description"          : "JavaScript implementation of most Microsoft Excel formula functions",
-  "version"              : "0.0.32",
-  "repository"           : {
-    "type"               : "git",
-    "url"                : "git@github.com:sutoiku/formula.js.git"
+  "author": "Ismael Ghalimi <ismael@stoic.com>",
+  "name": "formulajs",
+  "description": "JavaScript implementation of most Microsoft Excel formula functions",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sutoiku/formula.js.git"
   },
-  "engines"              : {
-    "node"               : "0.8.x - 0.10.x"
+  "main": "index.js",
+  "bin": {
+    "implementation-stats": "./bin/implementation-stats"
   },
-  "main"                 : "lib/formula.js",
-  "dependencies"         : {
-    "blueimp-md5"        : "~1.1.0",
-    "jStat"              : "1.0.6",
-    "lodash"             : "2.4.1",
-    "moment"             : "2.8.x",
-    "numeral"            : "1.5.3",
-    "numeric"            : "1.2.6",
-    "underscore.string"  : "*"
+  "dependencies": {
+    "blueimp-md5": "~1.1.0",
+    "jStat": "1.0.6",
+    "lodash": "2.4.1",
+    "moment": "2.8.x",
+    "numeral": "1.5.3",
+    "numeric": "1.2.6",
+    "underscore.string": "*",
+    "bessel": "0.2.0"
   },
   "devDependencies": {
-    "grunt"              : "^0.4.5",
-    "grunt-browserify"   : "*",
-    "istanbul"           : "*",
-    "jshint"             : "*",
-    "minifyify"          : "*",
-    "mocha"              : "*",
-    "should"             : "*",
-    "rewire"             : "*"
+    "grunt": "^0.4.5",
+    "grunt-browserify": "*",
+    "istanbul": "*",
+    "minifyify": "*",
+    "mocha": "*",
+    "should": "*",
+    "rewire": "*",
+    "blanket": "^1.1.6",
+    "browserify": "^5.9.1",
+    "cli-table": "^0.3.0",
+    "coveralls": "^2.11.1",
+    "jshint": "^2.5.2",
+    "mocha-lcov-reporter": "0.0.1",
+    "mocha-spec-cov": "0.0.3",
+    "uglify-js": "^2.4.15"
+  },
+  "config": {
+    "blanket": {
+      "pattern": "lib",
+      "data-cover-never": "node_modules"
+    }
   }
 }
