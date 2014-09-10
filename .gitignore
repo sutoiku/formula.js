@@ -4,3 +4,4 @@ coverage-report.html
 *.tgz
 test/generated
 .idea
+tmp

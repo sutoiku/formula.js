@@ -48,4 +48,15 @@ suite('Logical', function() {
     logical.XOR(true, false).should.equal(true);
     logical.XOR(true, true).should.equal(false);
   });
+  
+  test('SWITCH', function() {
+    should.not.exist(logical.SWITCH());
+    should.not.exist(logical.SWITCH(7));
+    logical.SWITCH(7, "Default Expression").should.equal("Default Expression");
+    should.not.exist(logical.SWITCH(7, 9, "Nine"));
+    logical.SWITCH(7, 9, "Nine", 7, "Seven").should.equal("Seven");
+    logical.SWITCH(7, 9, "Nine", 7, "Seven").should.equal("Seven");
+    logical.SWITCH(8, 9, "Nine", 7, "Seven", "Eight").should.equal("Eight");
+    should.not.exist(logical.SWITCH(10, 9, "Nine", 7, "Seven", 8, "Eight"));
+  });
 });

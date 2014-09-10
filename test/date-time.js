@@ -201,4 +201,76 @@ suite('Date & Time', function() {
     dateTime.YEARFRAC('a', '1/2/1900').should.equal(error.value);
     dateTime.YEARFRAC('1/1/1900', 'a').should.equal(error.value);
   });
+
+  test('MOMENT', function() {
+    dateTime.MOMENT([1963, 11, 20]).should.eql(moment([1963, 11, 20]).format());
+    dateTime.MOMENT('1963-12-20', 'YYYY-MM-DD').should.eql(moment([1963, 11, 20]).format('YYYY-MM-DD'));
+  });
+
+  test('MOMENTADD', function() {
+    dateTime.MOMENTADD(new Date(1963, 11, 20), 1, 'days').toDate().should.eql(moment([1963, 11, 21]).toDate());
+    dateTime.MOMENTADD(new Date(1963, 11, 20), 1, 'weeks').toDate().should.eql(moment([1963, 11, 27]).toDate());
+    dateTime.MOMENTADD(new Date(1963, 11, 20), 1, 'month').toDate().should.eql(moment([1964, 0, 20]).toDate());
+  });
+
+  test('MOMENTDIFF', function() {
+    dateTime.MOMENTDIFF(new Date(1963, 11, 20), new Date(1963, 11, 27), 'days').should.equal(7);
+    dateTime.MOMENTDIFF(new Date(1963, 11, 20), new Date(1963, 11, 27), 'weeks').should.equal(1);
+  });
+
+  test('MOMENTSUB', function() {
+    dateTime.MOMENTSUB(new Date(1963, 11, 20), 1, 'days').toDate().should.eql(moment([1963, 11, 19]).toDate());
+    dateTime.MOMENTSUB(new Date(1963, 11, 20), 1, 'weeks').toDate().should.eql(moment([1963, 11, 13]).toDate());
+    dateTime.MOMENTSUB(new Date(1963, 11, 20), 1, 'month').toDate().should.eql(moment([1963, 10, 20]).toDate());
+  });
+
+  test('MOMENTUTC', function() {
+    dateTime.MOMENTUTC([1963, 11, 20]).should.eql("1963-12-20T00:00:00+00:00");
+  });
+
+  test('MOMENTUNIX', function() {
+    dateTime.MOMENTUNIX(1318781876406).should.eql(moment.unix(1318781876406).toDate());
+    dateTime.MOMENTUNIX(0).should.eql(moment.unix(0).toDate());
+  });
+
+  test('MOMENTFORMAT', function() {
+    dateTime.MOMENTFORMAT([2013, 11, 20], 'DD-MM-YYYY').should.eql('20-12-2013');
+    dateTime.MOMENTFORMAT([2013, 11, 20], 'YYYY-DD-MM').should.eql('2013-20-12');
+  });
+
+  test('MOMENTISLEAPYEAR', function() {
+    dateTime.MOMENTISLEAPYEAR([1964, 11, 20]).should.equal(true);
+    dateTime.MOMENTISLEAPYEAR([1963, 11, 20]).should.equal(false);
+  });
+
+  test('MOMENTSTARTOF', function() {
+    dateTime.MOMENTSTARTOF([1963, 11, 20], 'month').should.eql(new Date(1963, 11, 1));
+    dateTime.MOMENTSTARTOF([1963, 11, 20], 'day').should.eql(new Date(1963, 11, 20));
+    dateTime.MOMENTSTARTOF([1963, 11, 20], 'week').should.eql(new Date(1963, 11, 15));
+    dateTime.MOMENTSTARTOF([1963, 11, 20], 'year').should.eql(new Date(1963, 0, 1));
+  });
+
+  test('MOMENTENDOF', function() {
+    dateTime.MOMENTENDOF([1963, 11, 20], 'month').should.eql(new Date(1963, 11, 31, 23, 59, 59, 999));
+    dateTime.MOMENTENDOF([1963, 11, 20], 'day').should.eql(new Date(1963, 11, 20, 23, 59, 59, 999));
+    dateTime.MOMENTENDOF([1963, 11, 20], 'week').should.eql(new Date(1963, 11, 21, 23, 59, 59, 999));
+    dateTime.MOMENTENDOF([1963, 11, 20], 'year').should.eql(new Date(1963, 11, 31, 23, 59, 59, 999));
+  });
+
+  test('MOMENTISBEFORE', function() {
+    dateTime.MOMENTISBEFORE([1963, 11, 1], [1963, 11, 20]).should.eql(true);
+    dateTime.MOMENTISBEFORE([1963, 11, 21], [1963, 11, 20]).should.eql(false);
+  });
+
+  test('MOMENTISAFTER', function() {
+    dateTime.MOMENTISAFTER([1963, 11, 1], [1963, 11, 20]).should.eql(false);
+    dateTime.MOMENTISAFTER([1963, 11, 21], [1963, 11, 20]).should.eql(true);
+  });
+
+  test('NETWORKDAYS', function() {
+    dateTime.NETWORKDAYS('2013-12-04', '2013-12-04').should.equal(0);
+    dateTime.NETWORKDAYS('2013-12-04', '2013-12-07').should.equal(3);
+    dateTime.NETWORKDAYS('2013-12-04', '2013-12-07').should.equal(3);
+    dateTime.NETWORKDAYS('2013-12-04', '2013-12-09').should.equal(3);
+  });
 });
