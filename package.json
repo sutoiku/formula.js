@@ -27,7 +27,6 @@
     "minifyify": "*",
     "mocha": "*",
     "should": "*",
-    "rewire": "*",
     "blanket": "^1.1.6",
     "browserify": "^5.9.1",
     "cli-table": "^0.3.0",
