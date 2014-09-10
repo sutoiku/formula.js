@@ -90,7 +90,8 @@ suite('Text', function() {
 
   test('LEN', function() {
     text.LEN('four').should.equal(4);
-    text.LEN().should.equal(error.value);
+    text.LEN([1, 2, 3, 4, 5]).should.equal(5);
+    text.LEN().should.equal(error.error);
   });
 
   test("LOWER", function() {
