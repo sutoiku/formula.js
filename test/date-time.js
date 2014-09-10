@@ -1,3 +1,4 @@
+var moment = require('moment');
 var error = require('../lib/error');
 var dateTime = require('../lib/date-time');
 var should = require('should');
@@ -67,6 +68,12 @@ suite('Date & Time', function() {
     dateTime.EOMONTH('1/1/1900', 12).should.equal(397);
     dateTime.EOMONTH('a', 0).should.equal(error.value);
     dateTime.EOMONTH('1/1/1900', 'a').should.equal(error.value);
+  });
+
+  test('FROMNOW', function() {
+    dateTime.FROMNOW(moment().subtract('years', 50), true).should.equal("50 years");
+    dateTime.FROMNOW(moment().subtract('years', 50), false).should.equal("50 years ago");
+    dateTime.FROMNOW().should.equal("a few seconds ago");
   });
 
   test('HOUR', function() {

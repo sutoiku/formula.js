@@ -5,6 +5,7 @@ var should = require('should');
 suite('Engineering', function() {
   test('BESSELI', function() {
     engineering.BESSELI(1.5, 1).should.approximately(0.981666, 10e-6);
+    engineering.BESSELI(1.5, 2).should.approximately(0.337835, 10e-6);
     engineering.BESSELI('invalid').should.equal(error.value);
   });
 
@@ -26,6 +27,9 @@ suite('Engineering', function() {
   test('BIN2DEC', function() {
     engineering.BIN2DEC(1100100).should.equal(100);
     engineering.BIN2DEC(1111111111).should.equal(-1);
+    engineering.BIN2DEC('101010').should.equal(42);
+    engineering.BIN2DEC(1000000000).should.equal(-512);
+    engineering.BIN2DEC(1234567890).should.equal(error.num);
     engineering.BIN2DEC('a').should.equal(error.num);
   });
 
@@ -36,6 +40,15 @@ suite('Engineering', function() {
     engineering.BIN2HEX('a').should.equal(error.num);
     engineering.BIN2HEX(1, 'a').should.equal(error.value);
     engineering.BIN2HEX(1, -1).should.equal(error.num);
+    engineering.BIN2HEX('101010').should.equal("2a");
+    engineering.BIN2HEX(111111111).should.equal("1ff");
+    engineering.BIN2HEX(1000000000).should.equal("fffffffe00");
+    engineering.BIN2HEX('Hello World!').should.equal(error.num);
+    engineering.BIN2HEX(1234567890).should.equal(error.num);
+    engineering.BIN2HEX(101010101010).should.equal(error.num);
+    engineering.BIN2HEX(101010, 1).should.equal(error.num);
+    engineering.BIN2HEX(101010, -4).should.equal(error.num);
+    engineering.BIN2HEX(101010, 'Hello World!').should.equal(error.value);
   });
 
   test('BIN2OCT', function() {
@@ -45,6 +58,14 @@ suite('Engineering', function() {
     engineering.BIN2OCT('a').should.equal(error.num);
     engineering.BIN2OCT(1, 'a').should.equal(error.value);
     engineering.BIN2OCT(1, -1).should.equal(error.num);
+    engineering.BIN2OCT('101010').should.equal("52");
+    engineering.BIN2OCT(101010, 4.5).should.equal("0052");
+    engineering.BIN2OCT('Hello World!').should.equal(error.num);
+    engineering.BIN2OCT(1234567890).should.equal(error.num);
+    engineering.BIN2OCT(101010101010).should.equal(error.num);
+    engineering.BIN2OCT(101010, 1).should.equal(error.num);
+    engineering.BIN2OCT(101010, -4).should.equal(error.num);
+    engineering.BIN2OCT(101010, 'Hello World!').should.equal(error.value);
   });
 
   test('BITAND', function() {
@@ -54,6 +75,7 @@ suite('Engineering', function() {
     engineering.BITAND(-1, 1).should.equal(error.num);
     engineering.BITAND(1.1, 1).should.equal(error.num);
     engineering.BITAND(281474976710656, 1).should.equal(error.num);
+    engineering.BITAND('Hello World!', 1).should.equal(error.value);
   });
 
   test('BITLSHIFT', function() {
@@ -63,6 +85,7 @@ suite('Engineering', function() {
     engineering.BITLSHIFT(1.1, 1).should.equal(error.num);
     engineering.BITLSHIFT(281474976710656, 1).should.equal(error.num);
     engineering.BITLSHIFT(1, 54).should.equal(error.num);
+    engineering.BITLSHIFT('Hello World!', 1).should.equal(error.value);
   });
 
   test('BITOR', function() {
@@ -71,6 +94,7 @@ suite('Engineering', function() {
     engineering.BITOR(-1, 1).should.equal(error.num);
     engineering.BITOR(1.1, 1).should.equal(error.num);
     engineering.BITOR(281474976710656, 1).should.equal(error.num);
+    engineering.BITOR('Hello World!', 1).should.equal(error.value);
   });
 
   test('BITRSHIFT', function() {
@@ -80,6 +104,9 @@ suite('Engineering', function() {
     engineering.BITRSHIFT(1.1, 1).should.equal(error.num);
     engineering.BITRSHIFT(281474976710656, 1).should.equal(error.num);
     engineering.BITRSHIFT(1, 54).should.equal(error.num);
+    engineering.BITLSHIFT(0, 0).should.equal(0);
+    engineering.BITLSHIFT(1.5, 1).should.equal(error.num);
+    engineering.BITLSHIFT('Hello World!', 1).should.equal(error.value);
   });
 
   test('BITXOR', function() {
@@ -88,6 +115,7 @@ suite('Engineering', function() {
     engineering.BITXOR(-1, 1).should.equal(error.num);
     engineering.BITXOR(1.1, 1).should.equal(error.num);
     engineering.BITXOR(281474976710656, 1).should.equal(error.num);
+    engineering.BITXOR('Hello World!', 1).should.equal(error.value);
   });
 
   test('COMPLEX', function() {
@@ -275,6 +303,20 @@ suite('Engineering', function() {
     engineering.IMAGINARY(im).should.approximately(-0.9992669278059017, 1e-9);
     engineering.IMCOT('a').should.equal(error.value);
     engineering.IMCOT(true).should.equal(error.value);
+  });
+
+  test('IMCSC', function() {
+    engineering.IMCSC('1+i').should.equal("0.6215180171704283-0.3039310016284264i");
+    engineering.IMCSC(true).should.equal(error.value);
+    engineering.IMCSC(false).should.equal(error.value);
+    engineering.IMCSC('Hello World!').should.equal(error.num);
+  });
+
+  test('IMCSC', function() {
+    engineering.IMCSCH('1+i').should.equal("0.3039310016284264-0.6215180171704283i");
+    engineering.IMCSCH(true).should.equal(error.value);
+    engineering.IMCSCH(false).should.equal(error.value);
+    engineering.IMCSCH('Hello World!').should.equal(error.num);
   });
 
   test('IMDIV', function() {

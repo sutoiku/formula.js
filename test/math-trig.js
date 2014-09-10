@@ -28,6 +28,15 @@ suite('Math & Trig', function() {
     mathTrig.ACOTH('invalid').should.equal(error.value);
   });
 
+  test('ADD', function() {
+    mathTrig.ADD(10, 4).should.equal(14);
+    mathTrig.ADD(1.2, 4).should.equal(5.2);
+    mathTrig.ADD().should.equal(error.na);
+    mathTrig.ADD(1).should.equal(error.na);
+    mathTrig.ADD(1, 'string').should.equal(error.value);
+  });
+
+
   //TODO: more edge cases, explore the second argument (options)
   test('AGGREGATE', function() {
     mathTrig.AGGREGATE(1, 4, [1, 2, 3]).should.equal(2);
@@ -186,7 +195,13 @@ suite('Math & Trig', function() {
 
   test('DECIMAL', function() {
     mathTrig.DECIMAL(10.5).should.equal(10);
-    mathTrig.DECIMAL('invalid').should.equal(error.value);
+    mathTrig.DECIMAL('0', 2).should.equal(0);
+    mathTrig.DECIMAL('1', 2).should.equal(1);
+    mathTrig.DECIMAL('10', 2).should.equal(2);
+    mathTrig.DECIMAL('10', 10).should.equal(10);
+    mathTrig.DECIMAL('FF', 16).should.equal(255);
+    mathTrig.DECIMAL('ZZ', 36).should.equal(1295);
+    mathTrig.DECIMAL('invalid').should.equal.NaN;
   });
 
   test('DEGREES', function() {
@@ -194,9 +209,34 @@ suite('Math & Trig', function() {
     mathTrig.DEGREES('invalid').should.equal(error.value);
   });
 
+  test('DIVIDE', function() {
+    mathTrig.DIVIDE(10, 4).should.equal(2.5);
+    mathTrig.DIVIDE(12, -6).should.equal(-2);
+    mathTrig.DIVIDE(0, 0).should.equal(error.div0);
+    mathTrig.DIVIDE(1, 0).should.equal(error.div0);
+    mathTrig.DIVIDE(0, 1).should.equal(0);
+    mathTrig.DIVIDE().should.equal(error.na);
+    mathTrig.DIVIDE(1).should.equal(error.na);
+    mathTrig.DIVIDE(1, 'string').should.equal(error.value);
+  });
+
   test('EVEN', function() {
     mathTrig.EVEN(3).should.equal(4);
     mathTrig.EVEN('invalid').should.equal(error.value);
+  });
+
+  test('EQ', function() {
+    mathTrig.EQ(10, 10).should.equal(true);
+    mathTrig.EQ(1.2, 1.2).should.equal(true);
+    mathTrig.EQ('hello', 'jim').should.equal(false);
+    mathTrig.EQ('hello', 'hello').should.equal(true);
+    mathTrig.EQ(123, 'hello').should.equal(false);
+    mathTrig.EQ(true, true).should.equal(true);
+    mathTrig.EQ(false, false).should.equal(true);
+    mathTrig.EQ(false, 0).should.equal(false);
+    mathTrig.EQ().should.equal(error.na);
+    mathTrig.EQ(1).should.equal(error.na);
+    mathTrig.EQ(1, 'string').should.equal(false);
   });
 
   test('FACT', function() {
@@ -217,6 +257,15 @@ suite('Math & Trig', function() {
     mathTrig.FLOOR(0.234, 0.01).should.approximately(0.23, 1e-9);
     mathTrig.FLOOR(0.234, 0).should.equal(0);
     mathTrig.FLOOR('invalid', 0).should.equal(error.value);
+  });
+
+  test('FLOOR.PRECISE', function() {
+    mathTrig.FLOOR.PRECISE(2014.6, 0.2).should.equal(2014.4);
+    mathTrig.FLOOR.PRECISE(-3.2,-1).should.equal(-4);
+    mathTrig.FLOOR.PRECISE(3.2,1).should.equal(3);
+    mathTrig.FLOOR.PRECISE(-3.2,1).should.equal(-4);
+    mathTrig.FLOOR.PRECISE(3.2,-1).should.equal(3);
+    mathTrig.FLOOR.PRECISE(3.2).should.equal(3);
   });
 
   test('FLOOR.MATH', function() {
@@ -242,6 +291,16 @@ suite('Math & Trig', function() {
     mathTrig.GCD(7, 1).should.equal(1);
     mathTrig.GCD(5, 0).should.equal(5);
     mathTrig.GCD(5, 'invalid').should.equal(error.value);
+  });
+
+  test('GTE', function() {
+    mathTrig.GTE(10, 4).should.equal(true);
+    mathTrig.GTE(10, 10).should.equal(true);
+    mathTrig.GTE(10, 12).should.equal(false);
+    mathTrig.GTE().should.equal(error.na);
+    mathTrig.GTE(1).should.equal(error.na);
+    mathTrig.GTE(1, 'string').should.equal(error.error);
+    mathTrig.GTE('string', 2).should.equal(error.error);
   });
 
   test('INT', function() {
@@ -281,6 +340,26 @@ suite('Math & Trig', function() {
     mathTrig.LOG10('invalid').should.equal(error.value);
   });
 
+  test('LT', function() {
+    mathTrig.LT(10, 4).should.equal(false);
+    mathTrig.LT(10, 10).should.equal(false);
+    mathTrig.LT(10, 12).should.equal(true);
+    mathTrig.LT().should.equal(error.na);
+    mathTrig.LT(1).should.equal(error.na);
+    mathTrig.LT(1, 'string').should.equal(error.error);
+    mathTrig.LT('string', 2).should.equal(error.error);
+  });
+
+  test('LTE', function() {
+    mathTrig.LTE(10, 4).should.equal(false);
+    mathTrig.LTE(10, 10).should.equal(true);
+    mathTrig.LTE(10, 12).should.equal(true);
+    mathTrig.LTE().should.equal(error.na);
+    mathTrig.LTE(1).should.equal(error.na);
+    mathTrig.LTE(1, 'string').should.equal(error.error);
+    mathTrig.LTE('string', 2).should.equal(error.error);
+  });
+
   test('MDETERM', function() {
     mathTrig.MDETERM([
       [1, 2],
@@ -290,6 +369,14 @@ suite('Math & Trig', function() {
       [1, 'invalid'],
       [3, 4]
     ]).should.equal(error.value);
+  });
+
+  test('MINUS', function() {
+    mathTrig.MINUS(10, 4).should.equal(6);
+    mathTrig.MINUS(1.2, 4).should.equal(-2.8);
+    mathTrig.MINUS().should.equal(error.na);
+    mathTrig.MINUS(1).should.equal(error.na);
+    mathTrig.MINUS(1, 'string').should.equal(error.value);
   });
 
   test('MINVERSE', function() {
@@ -348,6 +435,17 @@ suite('Math & Trig', function() {
     mathTrig.MULTINOMIAL([2, 'invalid', 4]).should.equal(error.value);
   });
 
+  test('MULTIPLY', function() {
+    mathTrig.MULTIPLY(10, 4).should.equal(40);
+    mathTrig.MULTIPLY(12, -6).should.equal(-72);
+    mathTrig.MULTIPLY(0, 0).should.equal(0);
+    mathTrig.MULTIPLY(1, 0).should.equal(0);
+    mathTrig.MULTIPLY(0, 1).should.equal(0);
+    mathTrig.MULTIPLY().should.equal(error.na);
+    mathTrig.MULTIPLY(1).should.equal(error.na);
+    mathTrig.MULTIPLY(1, 'string').should.equal(error.value);
+  });
+
   test('MUNIT', function() {
     should.deepEqual(mathTrig.MUNIT(3), [
       [1, 0, 0],
@@ -355,6 +453,20 @@ suite('Math & Trig', function() {
       [0, 0, 1]
     ]);
     mathTrig.MUNIT('invalid').should.equal(error.value);
+  });
+
+  test('NE', function() {
+    mathTrig.NE(10, 10).should.equal(false);
+    mathTrig.NE(1.2, 1.2).should.equal(false);
+    mathTrig.NE('hello', 'jim').should.equal(true);
+    mathTrig.NE('hello', 'hello').should.equal(false);
+    mathTrig.NE(123, 'hello').should.equal(true);
+    mathTrig.NE(true, true).should.equal(false);
+    mathTrig.NE(false, false).should.equal(false);
+    mathTrig.NE(false, 0).should.equal(true);
+    mathTrig.NE().should.equal(error.na);
+    mathTrig.NE(1).should.equal(error.na);
+    mathTrig.NE(1, 'string').should.equal(true);
   });
 
   test('ODD', function() {
@@ -370,6 +482,14 @@ suite('Math & Trig', function() {
   });
 
   test('POWER', function() {
+    mathTrig.POWER(5, 2).should.equal(25);
+    mathTrig.POWER(98.6, 3.2).should.approximately(2401077.2220695773, 1e-9);
+    mathTrig.POWER(4, 5 / 4).should.approximately(5.656854249492381, 1e-9);
+    mathTrig.POWER(-1, 0.5).should.equal(error.num);
+    mathTrig.POWER(-1, 'invalid').should.equal(error.value);
+  });
+
+  test('POW', function() {
     mathTrig.POWER(5, 2).should.equal(25);
     mathTrig.POWER(98.6, 3.2).should.approximately(2401077.2220695773, 1e-9);
     mathTrig.POWER(4, 5 / 4).should.approximately(5.656854249492381, 1e-9);

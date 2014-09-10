@@ -202,6 +202,15 @@ suite('Statistical', function() {
     ], '2').should.equal(1);
   });
 
+  test('COUNTUNIQUE', function() {
+    statistical.COUNTUNIQUE().should.equal(0);
+    statistical.COUNTUNIQUE(1, 1, 2, 2, 3, 3).should.equal(3);
+    statistical.COUNTUNIQUE([1,1,2,2,3,3]).should.equal(3);
+    statistical.COUNTUNIQUE([1,1,2], [2,3,3]).should.equal(3);
+    statistical.COUNTUNIQUE([[1,1],[2,5]], [[2,3],[3,4]]).should.equal(5);
+    statistical.COUNTUNIQUE().should.equal(0);
+  });
+
   test('COVARIANCE.P', function() {
     statistical.COVARIANCE.P([3, 2, 4, 5, 6], [9, 7, 12, 15, 17]).should.approximately(5.2, 1e-9);
     statistical.COVARIANCE.P([3, 2, 4, 5, 6], [9, 'invalid', 12, 15, 17]).should.equal(error.value);

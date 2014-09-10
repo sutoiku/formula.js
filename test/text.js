@@ -66,6 +66,22 @@ suite('Text', function() {
     text.FIXED('invalid').should.equal(error.value);
   });
 
+  test('HTML2TEXT', function() {
+    text.HTML2TEXT().should.equal("");
+    text.HTML2TEXT('').should.equal("");
+    text.HTML2TEXT('<i>Hello</i>').should.equal("Hello");
+    text.HTML2TEXT(['<i>Hello</i>', '<b>Jim</b>']).should.equal("Hello\nJim");
+  });
+
+  test('HUMANIZE', function() {
+    text.HUMANIZE('').should.equal("");
+    text.HUMANIZE(new Date(2012, 11, 20, 7, 7, 7)).should.equal("Thursday, December 20th 2012, 7:07:07");
+    text.HUMANIZE(new Date(2012, 11, 20, 7, 7)).should.equal("Thursday, December 20th 2012, 7:07:00");
+    text.HUMANIZE(new Date(2012, 11, 20)).should.equal("Thursday, December 20th 2012");
+    text.HUMANIZE('A RANDOM STRING').should.equal("A RANDOM STRING");
+    text.HUMANIZE(1 + 2).should.equal(3);
+  });
+
   test('LEFT', function() {
     text.LEFT('Sale Price', 4).should.equal('Sale');
     text.LEFT('Sweeden').should.equal('S');
@@ -110,6 +126,12 @@ suite('Text', function() {
     text.PROPER(90).should.equal('90');
     text.PROPER(NaN).should.equal(error.value);
     text.PROPER().should.equal(error.value);
+  });
+
+  test('REGEXEXTRACT', function() {
+    text.REGEXEXTRACT('(Content) between brackets', '(([A-Za-z]+))').should.equal("Content");
+    text.REGEXEXTRACT('The price today is $826.25', '[0-9]+.[0-9]+[0-9]+').should.equal("826.25");
+    text.REGEXEXTRACT('Google Doc 101', '[0-9]+').should.equal("101");
   });
 
   test('REPLACE', function() {
