@@ -5,14 +5,12 @@ var categories = [
   require('./lib/logical'),
   require('./lib/math-trig'),
   require('./lib/text'),
-  require('./lib/cube'),
   require('./lib/date-time'),
   require('./lib/financial'),
   require('./lib/information'),
   require('./lib/lookup-reference'),
   require('./lib/statistical'),
-  require('./lib/miscellaneous'),
-  require('./lib/web')
+  require('./lib/miscellaneous')
 ];
 
 for (var c in categories) {
