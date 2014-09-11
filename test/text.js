@@ -74,15 +74,6 @@ suite('Text', function() {
     text.HTML2TEXT(['<i>Hello</i>', '<b>Jim</b>']).should.equal("Hello\nJim");
   });
 
-  test('HUMANIZE', function() {
-    text.HUMANIZE('').should.equal("");
-    text.HUMANIZE(new Date(2012, 11, 20, 7, 7, 7)).should.equal("Thursday, December 20th 2012, 7:07:07");
-    text.HUMANIZE(new Date(2012, 11, 20, 7, 7)).should.equal("Thursday, December 20th 2012, 7:07:00");
-    text.HUMANIZE(new Date(2012, 11, 20)).should.equal("Thursday, December 20th 2012");
-    text.HUMANIZE('A RANDOM STRING').should.equal("A RANDOM STRING");
-    text.HUMANIZE(1 + 2).should.equal(3);
-  });
-
   test('LEFT', function() {
     text.LEFT('Sale Price', 4).should.equal('Sale');
     text.LEFT('Sweeden').should.equal('S');
