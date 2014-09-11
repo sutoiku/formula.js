@@ -14,11 +14,13 @@
   "dependencies": {
     "blueimp-md5": "~1.1.0",
     "jStat": "1.0.6",
-    "moment": "2.8.x",
     "numeral": "1.5.3",
     "numeric": "1.2.6",
     "bessel": "0.2.0"
   },
+  "optionalDependencies": {
+    "moment": "2.8.x"
+  }, 
   "devDependencies": {
     "istanbul": "*",
     "mocha": "*",
