@@ -1,3 +1,4 @@
+/* global suite, test */
 var misc = require('../lib/miscellaneous');
 var should = require('should');
 
@@ -16,8 +17,8 @@ suite('Miscellaneous', function() {
   });
 
   test('UNIQUE', function() {
-    misc.UNIQUE(1, 2, 3, 4, 5, 6, 6, 3).should.containDeep([1, 2, 3, 4, 5, 6])
-    misc.UNIQUE('jima', 'jimb', 'jima', 'jimc').should.containDeep(['jima', 'jimb', 'jimc'])
+    misc.UNIQUE(1, 2, 3, 4, 5, 6, 6, 3).should.containDeep([1, 2, 3, 4, 5, 6]);
+    misc.UNIQUE('jima', 'jimb', 'jima', 'jimc').should.containDeep(['jima', 'jimb', 'jimc']);
   });
 
   test('ARGS2ARRAY', function() {
