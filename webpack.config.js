@@ -33,7 +33,7 @@ module.exports = {
   output: {
     path: __dirname,
     filename: filename,
-    library: 'Formula',
+    library: 'formulajs',
     libraryTarget: 'umd'
   },
   externals: externals,
