@@ -13,8 +13,7 @@ if (isProd) {
 filename += '.js';
 
 var externals = isStandalone ? {} : {
-  moment: 'moment',
-  lodash: 'lodash'
+  moment: 'moment'
 };
 var plugins = [
   new webpack.optimize.DedupePlugin(),
