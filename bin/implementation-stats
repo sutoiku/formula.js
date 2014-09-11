@@ -4,7 +4,7 @@ var Table = require('cli-table');
 
 var categories = [
   //'compatibility',
-  //'database',
+  'database',
   'engineering',
   'logical',
   'math-trig',
@@ -13,6 +13,7 @@ var categories = [
   'date-time',
   'financial',
   'information',
+  'miscellaneous',
   //'lookup-reference',
   'statistical',
   //'web'
