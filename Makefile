@@ -1,13 +1,13 @@
-browserify = node_modules/browserify/bin/cmd.js
-uglify = node_modules/uglify-js/bin/uglifyjs
+webpack = node_modules/webpack/bin/webpack.js
 jshint = node_modules/jshint/bin/jshint
 mocha = node_modules/mocha/bin/mocha
 coveralls = node_modules/coveralls/bin/coveralls.js
 
 build:
-	@mkdir -p build
-	@$(browserify) index.js -o build/formula.js -s Formula
-	@$(uglify) build/formula.js -o build/formula.min.js
+	@$(webpack)
+	@$(webpack) --standalone
+	@$(webpack) --prod
+	@$(webpack) --prod --standalone
 
 test:
 	@$(mocha) -u tdd -R mocha-spec-cov -r blanket
