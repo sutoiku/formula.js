@@ -21,20 +21,16 @@
     "bessel": "0.2.0"
   },
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-browserify": "*",
     "istanbul": "*",
-    "minifyify": "*",
     "mocha": "*",
     "should": "*",
-    "blanket": "^1.1.6",
-    "browserify": "^5.9.1",
-    "cli-table": "^0.3.0",
     "coveralls": "^2.11.1",
     "jshint": "^2.5.2",
     "mocha-lcov-reporter": "0.0.1",
+    "blanket": "^1.1.6",
+    "cli-table": "^0.3.0",
     "mocha-spec-cov": "0.0.3",
-    "uglify-js": "^2.4.15"
+    "webpack": "^1.4.0"
   },
   "config": {
     "blanket": {
