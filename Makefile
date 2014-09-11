@@ -24,6 +24,10 @@ coveralls:
 coverage:
 	@$(mocha) -u tdd -R html-cov -r blanket > coverage-report.html
 
+package: clean build
+	rm -rf *.tgz || true
+	@npm pack
+
 watch:
 	@$(mocha) -u tdd -R mocha-spec-cov -r blanket -w
 
