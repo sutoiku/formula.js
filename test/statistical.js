@@ -1,3 +1,4 @@
+/* global suite, test */
 var statistical = require('../lib/statistical');
 var mathTrig = require('../lib/math-trig');
 var error = require('../lib/error');
@@ -208,7 +209,6 @@ suite('Statistical', function() {
     statistical.COUNTUNIQUE([1,1,2,2,3,3]).should.equal(3);
     statistical.COUNTUNIQUE([1,1,2], [2,3,3]).should.equal(3);
     statistical.COUNTUNIQUE([[1,1],[2,5]], [[2,3],[3,4]]).should.equal(5);
-    statistical.COUNTUNIQUE().should.equal(0);
   });
 
   test('COVARIANCE.P', function() {

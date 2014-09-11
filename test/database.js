@@ -1,6 +1,7 @@
-var error = require('../lib/error');
-var should = require('should');
+/* global suite, test */
+var error    = require('../lib/error');
 var database = require('../lib/database');
+require('should');
 
 suite('Database', function() {
   test('DAVERAGE', function() {

@@ -1,7 +1,7 @@
-var moment = require('moment');
+/* global suite, test */
 var error = require('../lib/error');
 var dateTime = require('../lib/date-time');
-var should = require('should');
+require('should');
 
 suite('Date & Time', function() {
   test('DATE', function() {

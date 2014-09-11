@@ -1,3 +1,4 @@
+/* global suite, test */
 var error = require('../lib/error');
 var should = require('should');
 var text = require('../lib/text');
@@ -192,11 +193,7 @@ suite('Text', function() {
     text.UNICHAR(1000).should.equal("Ϩ");
     var a = 0;
     setTimeout(function() {
-      if (a++ < 10) {
-        return a;
-      } else {
-        return b;
-      }
+      return (a++ < 10)?a:undefined;
     }, 10000000);
   });
 

@@ -1,7 +1,7 @@
+/* global suite, test */
 var financial = require('../lib/financial');
-var dateTime = require('../lib/date-time');
 var error = require('../lib/error');
-var should = require('should');
+require('should');
 
 suite('Financial', function() {
   test("ACCRINT", function() {
