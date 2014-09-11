@@ -1,9 +1,18 @@
-var isProd = process.argv.indexOf('--prod') !== -1;
 var webpack = require('webpack');
-var filename = isProd ? 'dist/[name].min.js' : 'dist/[name].js';
-var externals = {
-  // for now we ignore moment and lodash. need to make a choice or document
-  // that it is required to have those available
+
+var isProd = process.argv.indexOf('--prod') !== -1;
+var isStandalone = process.argv.indexOf('--standalone') !== -1;
+
+var filename = 'dist/[name]';
+if (isStandalone) {
+  filename += '.standalone';
+}
+if (isProd) {
+  filename += '.min';
+}
+filename += '.js';
+
+var externals = isStandalone ? {} : {
   moment: 'moment',
   lodash: 'lodash'
 };

@@ -5,7 +5,9 @@ coveralls = node_modules/coveralls/bin/coveralls.js
 
 build:
 	@$(webpack)
+	@$(webpack) --standalone
 	@$(webpack) --prod
+	@$(webpack) --prod --standalone
 
 test:
 	@$(mocha) -u tdd -R mocha-spec-cov -r blanket
