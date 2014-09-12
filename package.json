@@ -17,9 +17,6 @@
     "numeric": "1.2.6",
     "bessel": "0.2.0"
   },
-  "optionalDependencies": {
-    "moment": "2.8.x"
-  }, 
   "devDependencies": {
     "istanbul": "*",
     "mocha": "*",
