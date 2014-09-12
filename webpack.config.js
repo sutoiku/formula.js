@@ -12,9 +12,6 @@ if (isProd) {
 }
 filename += '.js';
 
-var externals = isStandalone ? {} : {
-  moment: 'moment'
-};
 var plugins = [
   new webpack.optimize.DedupePlugin(),
 
@@ -35,6 +32,5 @@ module.exports = {
     library: 'formulajs',
     libraryTarget: 'umd'
   },
-  externals: externals,
   plugins: plugins
 };

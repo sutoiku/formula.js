@@ -6,7 +6,6 @@ var categories = [
   require('./lib/math-trig'),
   require('./lib/text'),
   require('./lib/date-time'),
-  require('./lib/moment'),
   require('./lib/financial'),
   require('./lib/information'),
   require('./lib/lookup-reference'),
