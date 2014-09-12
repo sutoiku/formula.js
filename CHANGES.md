@@ -1,3 +1,8 @@
+1.0.3
+-----
+
+* Removed the dependency on moment and md5
+
 0.0.32
 ------
 
