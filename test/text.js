@@ -30,6 +30,7 @@ suite('Text', function() {
 
   test('CONCATENATE', function() {
     text.CONCATENATE('hello', ' ', 'world').should.equal('hello world');
+    text.CONCATENATE(['hello', ' my ', 'world']).should.equal('hello my world');
     text.CONCATENATE(1, 'one').should.equal('1one');
     text.CONCATENATE(true, 'yes').should.equal('TRUEyes');
     text.CONCATENATE(false, 'no').should.equal('FALSEno');
