@@ -100,6 +100,14 @@ suite('Date & Time', function() {
   });
 
   test('NETWORKDAYS', function() {
+    dateTime.NETWORKDAYS('2013-12-04', '2013-12-04').should.equal(1);
+    dateTime.NETWORKDAYS('2013-12-04', '2013-12-05').should.equal(2);
+    dateTime.NETWORKDAYS('2013-12-04', '2013-12-06').should.equal(3);
+    dateTime.NETWORKDAYS('2013-12-04', '2013-12-07').should.equal(3);
+    dateTime.NETWORKDAYS('2013-12-04', '2013-12-08').should.equal(3);
+    dateTime.NETWORKDAYS('2013-12-04', '2013-12-09').should.equal(4);
+    dateTime.NETWORKDAYS('2013-12-07', '2013-12-07').should.equal(0);
+    dateTime.NETWORKDAYS('2013-12-07', '2013-12-08').should.equal(0);
     dateTime.NETWORKDAYS('12/4/2013', '12/4/2013').should.equal(1);
     dateTime.NETWORKDAYS('12/4/2013', '1/4/2014', '1/1/2014').should.equal(22);
     dateTime.NETWORKDAYS('12/4/2013', '1/4/2014', ['1/1/2014', '1/2/2014', '1/3/2014']).should.equal(20);
@@ -192,16 +200,5 @@ suite('Date & Time', function() {
     dateTime.YEARFRAC('1/1/1900', '1/2/1900', 4).should.approximately(0.002777777777777778, 1e-3);
     dateTime.YEARFRAC('a', '1/2/1900').should.equal(error.value);
     dateTime.YEARFRAC('1/1/1900', 'a').should.equal(error.value);
-  });
-
-  test('NETWORKDAYS', function() {
-    dateTime.NETWORKDAYS('2013-12-04', '2013-12-04').should.equal(1);
-    dateTime.NETWORKDAYS('2013-12-04', '2013-12-05').should.equal(2);
-    dateTime.NETWORKDAYS('2013-12-04', '2013-12-06').should.equal(3);
-    dateTime.NETWORKDAYS('2013-12-04', '2013-12-07').should.equal(3);
-    dateTime.NETWORKDAYS('2013-12-04', '2013-12-08').should.equal(3);
-    dateTime.NETWORKDAYS('2013-12-04', '2013-12-09').should.equal(4);
-    dateTime.NETWORKDAYS('2013-12-07', '2013-12-07').should.equal(0);
-    dateTime.NETWORKDAYS('2013-12-07', '2013-12-08').should.equal(0);
   });
 });
