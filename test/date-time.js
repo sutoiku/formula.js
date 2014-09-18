@@ -197,7 +197,7 @@ suite('Date & Time', function() {
 
   test('NETWORKDAYS', function() {
     dateTime.NETWORKDAYS('2013-12-04', '2013-12-04').should.equal(0);
-    dateTime.NETWORKDAYS('2013-12-04', '2013-12-07').should.equal(3);
+    dateTime.NETWORKDAYS('2013-12-04', '2013-12-05').should.equal(1);
     dateTime.NETWORKDAYS('2013-12-04', '2013-12-07').should.equal(3);
     dateTime.NETWORKDAYS('2013-12-04', '2013-12-09').should.equal(3);
   });
