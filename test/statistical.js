@@ -304,7 +304,6 @@ suite('Statistical', function() {
     statistical.GAMMA('invalid').should.equal(error.value);
   });
 
-  // TODO: implement
   test('GAMMA.DIST', function() {
     statistical.GAMMA.DIST(1).should.equal(error.na);
     statistical.GAMMA.DIST(1, 9, 2).should.equal(error.na);
@@ -315,9 +314,14 @@ suite('Statistical', function() {
     statistical.GAMMA.DIST(10.00001131, 9, 2, false).should.approximately(0.03263913, 1e-9);
   });
 
-  // TODO: implement
   test('GAMMA.INV', function() {
-    statistical.GAMMA.INV.should.throw('GAMMA.INV is not implemented');
+    statistical.GAMMA.INV(1).should.equal(error.na);
+    statistical.GAMMA.INV(1, 9).should.equal(error.na);
+    statistical.GAMMA.INV(-1, 9, 2).should.equal(error.num);
+    statistical.GAMMA.INV(1, -9, 2).should.equal(error.num);
+    statistical.GAMMA.INV(1, 9, -2).should.equal(error.num);
+    statistical.GAMMA.INV('hello', 9, 2).should.equal(error.value);
+    statistical.GAMMA.INV(0.068094, 9, 2).should.approximately(10.000011, 1e-6);
   });
 
   test('GAMMALN', function() {
@@ -325,9 +329,12 @@ suite('Statistical', function() {
     statistical.GAMMALN('invalid').should.equal(error.value);
   });
 
-  // TODO: implement
   test('GAMMALN.PRECISE', function() {
-    statistical.GAMMALN.PRECISE.should.throw('GAMMALN.PRECISE is not implemented');
+    statistical.GAMMALN.PRECISE().should.equal(error.na);
+    statistical.GAMMALN.PRECISE(0).should.equal(error.num);
+    statistical.GAMMALN.PRECISE(-1).should.equal(error.num);
+    statistical.GAMMALN.PRECISE('string').should.equal(error.value);
+    statistical.GAMMALN.PRECISE(4.5).should.approximately(2.453736571, 1e-6);
   });
 
   test('GAUSS', function() {
