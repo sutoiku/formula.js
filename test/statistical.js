@@ -255,9 +255,15 @@ suite('Statistical', function() {
     statistical.F.INV.RT.should.throw('F.INV.RT is not implemented');
   });
 
-  // TODO: implement
   test('F.TEST', function() {
-    statistical.F.TEST.should.throw('F.TEST is not implemented');
+    statistical.F.TEST().should.equal(error.na);
+    statistical.F.TEST([1, 3, 5, 7, 9]).should.equal(error.na);
+    statistical.F.TEST([1, 3, 5, 7, 9], []).should.equal(error.div0);
+    statistical.F.TEST([1, 3, 5, 7, 9], [1]).should.equal(error.div0);
+    statistical.F.TEST([1], [1, 3, 5, 7, 9]).should.equal(error.div0);
+    statistical.F.TEST([1], [1]).should.equal(error.div0);
+    statistical.F.TEST([1, 3, 5, 7, 9], [5, 9, 3, 8, 3]).should.approximately(1.282, 1e-3);
+    statistical.F.TEST([4, 2, 5, 1, 3], [8, 3, 9, 0, 1]).should.approximately(0.1497, 1e-4);
   });
 
   test('FISHER', function() {
@@ -300,7 +306,13 @@ suite('Statistical', function() {
 
   // TODO: implement
   test('GAMMA.DIST', function() {
-    statistical.GAMMA.DIST.should.throw('GAMMA.DIST is not implemented');
+    statistical.GAMMA.DIST(1).should.equal(error.na);
+    statistical.GAMMA.DIST(1, 9, 2).should.equal(error.na);
+    statistical.GAMMA.DIST(-1, 9, 2, true).should.equal(error.value);
+    statistical.GAMMA.DIST(1, -9, 2, true).should.equal(error.value);
+    statistical.GAMMA.DIST(1, 9, -2, true).should.equal(error.value);
+    statistical.GAMMA.DIST(10.00001131, 9, 2, true).should.approximately(0.068094, 1e-6);
+    statistical.GAMMA.DIST(10.00001131, 9, 2, false).should.approximately(0.03263913, 1e-9);
   });
 
   // TODO: implement

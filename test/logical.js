@@ -8,6 +8,15 @@ suite('Logical', function() {
     logical.AND(true, false).should.equal(false);
   });
 
+  test('CHOOSE', function() {
+    logical.CHOOSE().should.equal(error.na);
+    logical.CHOOSE(1).should.equal(error.na);
+    logical.CHOOSE(1, 'jima').should.equal('jima');
+    logical.CHOOSE(3, 'jima', 'jimb', 'jimc').should.equal('jimc');
+    logical.CHOOSE(2, 'jima').should.equal(error.value);
+    logical.CHOOSE(255, 'jima').should.equal(error.value);
+  });
+
   test('FALSE', function() {
     logical.FALSE().should.equal(false);
   });
