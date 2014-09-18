@@ -89,9 +89,13 @@ suite('Statistical', function() {
     statistical.CHISQ.DIST(0.5, 'invalid', true).should.equal(error.value);
   });
 
-  // TODO: implement
   test('CHISQ.DIST.RT', function() {
-    statistical.CHISQ.DIST.RT.should.throw('CHISQ.DIST.RT is not implemented');
+    statistical.CHISQ.DIST.RT().should.equal(error.na);
+    statistical.CHISQ.DIST.RT(1).should.equal(error.na);
+    statistical.CHISQ.DIST.RT(-3, 4).should.equal(error.num);
+    statistical.CHISQ.DIST.RT(4, 1.01 * Math.pow(10, 10)).should.equal(error.num);
+    statistical.CHISQ.DIST.RT('hello', 4).should.equal(error.value);
+    statistical.CHISQ.DIST.RT(3, 4).should.approximately(0.5578254, 1e-06);
   });
 
   test('CHISQ.INV', function() {
