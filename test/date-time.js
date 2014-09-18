@@ -109,9 +109,9 @@ suite('Date & Time', function() {
   });
 
   test('NETWORKDAYS.INTL', function() {
-    dateTime.NETWORKDAYS.INTL('1/1/1900', '1/2/1900').should.equal(2);
-    dateTime.NETWORKDAYS.INTL('1/1/1900', '1/2/1900', 2).should.equal(1);
-    dateTime.NETWORKDAYS.INTL('1/1/1900', '1/2/1900', -1).should.equal(error.value);
+    dateTime.NETWORKDAYS.INTL('12/4/2013', '12/5/2013').should.equal(2);
+    dateTime.NETWORKDAYS.INTL('12/8/2013', '12/9/2013', 2).should.equal(0);
+    dateTime.NETWORKDAYS.INTL('12/4/2013', '12/4/2013', -1).should.equal(error.value);
   });
 
   test('NOW', function() {
