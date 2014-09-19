@@ -104,9 +104,13 @@ suite('Statistical', function() {
     statistical.CHISQ.INV(0.6, 'invalid').should.equal(error.value);
   });
 
-  // TODO: implement
   test('CHISQ.INV.RT', function() {
-    statistical.CHISQ.INV.RT.should.throw('CHISQ.INV.RT is not implemented');
+    statistical.CHISQ.INV.RT().should.equal(error.na);
+    statistical.CHISQ.INV.RT(0.5).should.equal(error.na);
+    statistical.CHISQ.INV.RT(-1, 2).should.equal(error.num);
+    statistical.CHISQ.INV.RT(0.4, 0.5).should.equal(error.num);
+    statistical.CHISQ.INV.RT(.5, 'hello').should.equal(error.value);
+    statistical.CHISQ.INV.RT(0.4, 6).should.approximately(6.210757195, 1e-9);
   });
 
   // TODO: implement
@@ -236,16 +240,19 @@ suite('Statistical', function() {
     statistical.EXPON.DIST(0.2, 'invalid', false).should.equal(error.value);
   });
 
-  // TODO: verify if this is not the other way around
   test('F.DIST', function() {
-    statistical.F.DIST(15.20686486, 6, 4, true).should.approximately(0.0012237995987608916, 1e-9);
-    statistical.F.DIST(15.20686486, 6, 4, false).should.approximately(0.9899999999985833, 1e-9);
+    statistical.F.DIST(15.20686486, 6, 4, false).should.approximately(0.0012237995987608916, 1e-9);
+    statistical.F.DIST(15.20686486, 6, 4, true).should.approximately(0.9899999999985833, 1e-9);
     statistical.F.DIST(15.20686486, 6, 'invalid', false).should.equal(error.value);
   });
 
-  // TODO: implement
   test('F.DIST.RT', function() {
-    statistical.F.DIST.RT.should.throw('F.DIST.RT is not implemented');
+    statistical.F.DIST.RT().should.equal(error.na);
+    statistical.F.DIST.RT(1).should.equal(error.na);
+    statistical.F.DIST.RT(-3, 6, 4).should.equal(error.num);
+    statistical.F.DIST.RT(4, -5, 4).should.equal(error.num);
+    statistical.F.DIST.RT('hello', 6, 4).should.equal(error.value);
+    statistical.F.DIST.RT(15.20686486, 6, 4).should.approximately(0.0100, 1e-3);
   });
 
   test('F.INV', function() {
@@ -254,9 +261,13 @@ suite('Statistical', function() {
     statistical.F.INV(0.0, 'invalid', 4).should.equal(error.value);
   });
 
-  // TODO: implement
   test('F.INV.RT', function() {
-    statistical.F.INV.RT.should.throw('F.INV.RT is not implemented');
+    statistical.F.INV.RT().should.equal(error.na);
+    statistical.F.INV.RT(1, 2).should.equal(error.na);
+    statistical.F.INV.RT(-1, 6, 4).should.equal(error.num);
+    statistical.F.INV.RT(1.2, -5, 4).should.equal(error.num);
+    statistical.F.INV.RT(.5, 'hello', 4).should.equal(error.value);
+    statistical.F.INV.RT(0.01, 6, 4).should.approximately(15.20686486, 1e-8);
   });
 
   test('F.TEST', function() {
@@ -771,14 +782,25 @@ suite('Statistical', function() {
     statistical.T.DIST(8, 'invalid', false).should.equal(error.value);
   });
 
-  // TODO: implement
   test('T.DIST.2T', function() {
-    statistical.T.DIST['2T'].should.throw('T.DIST.2T is not implemented');
+    statistical.T.DIST['2T']().should.equal(error.na);
+    statistical.T.DIST['2T'](1).should.equal(error.na);
+    statistical.T.DIST['2T'](-1, 1).should.equal(error.num);
+    statistical.T.DIST['2T'](1.1, 0).should.equal(error.num);
+    statistical.T.DIST['2T']('hello', 1).should.equal(error.value);
+    statistical.T.DIST['2T'](2, 6).should.approximately(0.092426312, 1e-9);
+    statistical.T.DIST['2T'](20, 2).should.approximately(0.002490664, 1e-9);
   });
 
   // TODO: implement
   test('T.DIST.RT', function() {
-    statistical.T.DIST.RT.should.throw('T.DIST.RT is not implemented');
+    statistical.T.DIST.RT().should.equal(error.na);
+    statistical.T.DIST.RT(1).should.equal(error.na);
+    statistical.T.DIST.RT(-1, 1).should.equal(error.num);
+    statistical.T.DIST.RT(1.1, 0).should.equal(error.num);
+    statistical.T.DIST.RT('hello', 1).should.equal(error.value);
+    statistical.T.DIST.RT(2, 60).should.approximately(0.025016522, 1e-9);
+    statistical.T.DIST.RT(2, 6).should.approximately(0.046213156, 1e-9);
   });
 
   test('T.INV', function() {
