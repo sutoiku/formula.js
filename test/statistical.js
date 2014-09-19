@@ -118,6 +118,24 @@ suite('Statistical', function() {
     statistical.CHISQ.TEST.should.throw('CHISQ.TEST is not implemented');
   });
 
+  test('COLUMN', function() {
+    statistical.COLUMN().should.equal(error.na);
+    statistical.COLUMN([[1,2],[2,3],[2,4]]).should.equal(error.na);
+    statistical.COLUMN([[1,2],[2,3],[2,4]], -1).should.equal(error.num);
+    statistical.COLUMN('hello', 1).should.equal(error.value);
+    statistical.COLUMN([[1,2],[2,3],[2,4]], 0).should.eql([[1],[2],[2]]);
+    statistical.COLUMN([[1,2],[2,3],[2,4]], 1).should.eql([[2],[3],[4]]);
+  });
+
+  test('COLUMNS', function() {
+    statistical.COLUMNS().should.equal(error.na);
+    statistical.COLUMNS(1).should.equal(error.value);
+    statistical.COLUMNS([]).should.eql(0);
+    statistical.COLUMNS([[1,2],[2,3],[2,4]]).should.equal(2);
+    statistical.COLUMNS([[1,2]]).should.equal(2);
+    statistical.COLUMNS([1,2]).should.equal(1);
+  });
+
   test('CONFIDENCE.NORM', function() {
     statistical.CONFIDENCE.NORM(0.05, 2.5, 50).should.approximately(0.6929519121748391, 1e-9);
     statistical.CONFIDENCE.NORM(0.05, 'invalid', 50).should.equal(error.value);
@@ -707,6 +725,26 @@ suite('Statistical', function() {
     statistical.RANK.EQ('invalid', data, true).should.equal(error.value);
   });
 
+  test('ROW', function() {
+    statistical.ROW().should.equal(error.na);
+    statistical.ROW([[1,2],[2,3],[2,4]]).should.equal(error.na);
+    statistical.ROW([[1,2],[2,3],[2,4]], -1).should.equal(error.num);
+    statistical.ROW('hello', 1).should.equal(error.value);
+    statistical.ROW([[1,2],[2,3],[2,4]], 0).should.eql([1,2]);
+    statistical.ROW([[1,2],[2,3],[2,4]], 2).should.eql([2,4]);
+    should.not.exist(statistical.ROW([[1,2],[2,3],[2,4]], 3));
+    should.not.exist(statistical.ROW([], 3));
+  });
+
+  test('ROWS', function() {
+    statistical.ROWS().should.equal(error.na);
+    statistical.ROWS(1).should.equal(error.value);
+    statistical.ROWS([]).should.eql(0);
+    statistical.ROWS([[1,2],[2,3],[2,4]]).should.equal(3);
+    statistical.ROWS([[1,2]]).should.equal(1);
+    statistical.ROWS([1,2]).should.equal(2);
+  });
+
   test('RSQ', function() {
     var y = [2, 3, 9, 1, 8, 7, 5];
     var x = [6, 5, 11, 7, 5, 4, 4];
@@ -774,6 +812,14 @@ suite('Statistical', function() {
     statistical.STEYX(data_y, data_x).should.approximately(3.305718950210041, 1e-9);
     data_x.push('invalid');
     statistical.STEYX(data_y, data_x).should.equal(error.value);
+  });
+
+  test('TRANSPOSE', function() {
+    statistical.TRANSPOSE().should.equal(error.na);
+    statistical.TRANSPOSE([]).should.eql([]);
+    statistical.TRANSPOSE([1,2,3]).should.eql([[1],[2],[3]]);
+    statistical.TRANSPOSE([[1,2],[3,4],[5,6]]).should.eql([[1,3,5], [2,4,6]]);
+    statistical.TRANSPOSE([[1,2,3],[4,5,6]]).should.eql([[1,4],[2,5],[3,6]]);
   });
 
   test('T.DIST', function() {
