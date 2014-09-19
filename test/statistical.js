@@ -864,7 +864,13 @@ suite('Statistical', function() {
 
   // TODO: implement
   test('T.INV.2T', function() {
-    statistical.T.INV['2T'].should.throw('T.INV.2T is not implemented');
+    statistical.T.INV['2T'](0.9, 60).should.approximately(0.126194364, 1e-9);
+    statistical.T.INV['2T'](0.9, 'invalid').should.equal(error.value);
+    statistical.T.INV['2T']('invalid', 60).should.equal(error.value);
+    statistical.T.INV['2T'](-1, 60).should.equal(error.num);
+    statistical.T.INV['2T'](0, 60).should.equal(error.num);
+    statistical.T.INV['2T'](1.1, 60).should.equal(error.num);
+    statistical.T.INV['2T'](0.9, 0.5).should.equal(error.num);
   });
 
   // TODO: implement
