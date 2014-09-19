@@ -113,7 +113,6 @@ suite('Statistical', function() {
     statistical.CHISQ.INV.RT(0.4, 6).should.approximately(6.210757195, 1e-9);
   });
 
-  // TODO: implement
   test('CHISQ.TEST', function() {
     statistical.CHISQ.TEST().should.equal(error.na);
     statistical.CHISQ.TEST([58, 11, 10, 35, 25, 23]).should.equal(error.na);
@@ -475,9 +474,13 @@ suite('Statistical', function() {
     statistical.LINEST(known_y, 'invalid').should.equal(error.value);
   });
 
-  // TODO: implement
   test('LOGEST', function() {
-    statistical.LOGEST.should.throw('LOGEST is not implemented');
+    var known_y = [1, 9, 5, 7];
+    var known_x = [0, 4, 2, 3];
+    should.deepEqual(statistical.LOGEST(known_y, known_x), [
+      1.751116, 1.194316
+    ]);
+    statistical.LINEST(known_y, 'invalid').should.equal(error.value);
   });
 
   test('LOGNORM.DIST', function() {
