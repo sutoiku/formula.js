@@ -872,9 +872,14 @@ suite('Statistical', function() {
     statistical.T.TEST.should.throw('T.TEST is not implemented');
   });
 
-  // TODO: implement
   test('TREND', function() {
-    statistical.TREND.should.throw('TREND is not implemented');
+    var known_y = [1, 9, 5, 7];
+    var known_x = [0, 4, 2, 3];
+    var new_know_x = [5, 8];
+    should.deepEqual(statistical.TREND(known_y, known_x, new_know_x), [
+      11, 17
+    ]);
+    statistical.TREND(known_y, known_x, 'invalid').should.equal(error.value);
   });
 
   test("TRIMMEAN", function() {
