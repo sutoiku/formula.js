@@ -115,7 +115,12 @@ suite('Statistical', function() {
 
   // TODO: implement
   test('CHISQ.TEST', function() {
-    statistical.CHISQ.TEST.should.throw('CHISQ.TEST is not implemented');
+    statistical.CHISQ.TEST().should.equal(error.na);
+    statistical.CHISQ.TEST([58, 11, 10, 35, 25, 23]).should.equal(error.na);
+    statistical.CHISQ.TEST([58, 11, 10, 35, 25, 23], 'a').should.equal(error.value);
+    statistical.CHISQ.TEST([58, 11, 10, 35, 25, 23], [45.35, 17.56, 16.09, 47.65, 18.44]).should.equal(error.value);
+    statistical.CHISQ.TEST([58, 11, 10, 35, 25, 23], [45.35, 17.56, 16.09, 47.65, 18.44, 16.91]).should.equal(0.006376);
+    statistical.CHISQ.TEST([[58,35],[11,25],[10,23]], [[45.35,47.65],[17.56,18.44],[16.09,16.91]]).should.equal(0.000308);
   });
 
   test('COLUMN', function() {
