@@ -875,6 +875,12 @@ suite('Statistical', function() {
     var known_x = [5, 7, 5, 3, 5, 3, 3, 9];
     var known_y = [8, 1, 4, 6, 6, 4, 1, 2];
     statistical.T.TEST(known_x, known_y).should.approximately(0.41106918968115536, 1e-9);
+    known_x = [3, 4, 5, 8, 9, 1, 2, 4, 5];
+    known_y = [6, 9, 3, 5, 4, 4, 5, 3, 1];
+    statistical.T.TEST(known_x, known_y).should.approximately(0.923919926765508, 1e-9);
+    known_x = [3, 4, 5, 8, 9, 1, 2, 4, 5];
+    known_y = [6, 9, 3, 5, 4, 4, 5];
+    statistical.T.TEST(known_x, known_y).should.approximately(0.6141571469712601, 1e-9);
     statistical.T.TEST('invalid', known_y).should.equal(error.value);
   });
 
