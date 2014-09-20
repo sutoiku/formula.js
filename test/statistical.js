@@ -846,7 +846,6 @@ suite('Statistical', function() {
     statistical.T.DIST['2T'](20, 2).should.approximately(0.002490664, 1e-9);
   });
 
-  // TODO: implement
   test('T.DIST.RT', function() {
     statistical.T.DIST.RT().should.equal(error.na);
     statistical.T.DIST.RT(1).should.equal(error.na);
@@ -862,7 +861,6 @@ suite('Statistical', function() {
     statistical.T.INV(0.9, 'invalid').should.equal(error.value);
   });
 
-  // TODO: implement
   test('T.INV.2T', function() {
     statistical.T.INV['2T'](0.9, 60).should.approximately(0.126194364, 1e-9);
     statistical.T.INV['2T'](0.9, 'invalid').should.equal(error.value);
@@ -873,9 +871,11 @@ suite('Statistical', function() {
     statistical.T.INV['2T'](0.9, 0.5).should.equal(error.num);
   });
 
-  // TODO: implement
   test('T.TEST', function() {
-    statistical.T.TEST.should.throw('T.TEST is not implemented');
+    var known_x = [5, 7, 5, 3, 5, 3, 3, 9];
+    var known_y = [8, 1, 4, 6, 6, 4, 1, 2];
+    statistical.T.TEST(known_x, known_y).should.approximately(0.41106918968115536, 1e-9);
+    statistical.T.TEST('invalid', known_y).should.equal(error.value);
   });
 
   test('TREND', function() {
