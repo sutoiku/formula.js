@@ -1,3 +1,8 @@
+1.0.4
+-----
+
+* Added the missing 22 EXCEL functions and associated test cases.
+
 1.0.3
 -----
 
