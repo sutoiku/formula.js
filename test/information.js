@@ -25,6 +25,16 @@ suite('Information', function() {
     information.INFO.should.throw('INFO is not implemented');
   });
 
+  test('ISBINARY', function() {
+    information.ISBINARY(1).should.equal(true);
+    information.ISBINARY(0).should.equal(true);
+    information.ISBINARY(1000).should.equal(true);
+    information.ISBINARY('1').should.equal(true);
+    information.ISBINARY('0').should.equal(true);
+    information.ISBINARY('1000').should.equal(true);
+    information.ISBINARY('invalid').should.equal(false);
+  });
+
   test('ISBLANK', function() {
     information.ISBLANK(null).should.equal(true);
     information.ISBLANK(1).should.equal(false);
