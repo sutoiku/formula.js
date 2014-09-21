@@ -497,7 +497,7 @@ suite('Math & Trig', function() {
     mathTrig.POW(98.6, 3.2).should.approximately(2401077.2220695773, 1e-9);
     mathTrig.POW(4, 5 / 4).should.approximately(5.656854249492381, 1e-9);
     mathTrig.POW(-1, 0.5).should.equal(error.num);
-    mathTrig.POW(-1, 'invalid').should.equal(error.value);
+    mathTrig.POW(-1, 'invalid').should.equal(error.error);
   });
 
   test('PRODUCT', function() {
