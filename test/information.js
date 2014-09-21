@@ -1,6 +1,6 @@
+/* global suite, test */
 var error = require('../lib/error');
 var information = require('../lib/information');
-var should = require('should');
 
 suite('Information', function() {
   // TODO

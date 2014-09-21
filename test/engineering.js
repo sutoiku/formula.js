@@ -1,6 +1,6 @@
+/* global suite, test */
 var error = require('../lib/error');
 var engineering = require('../lib/engineering');
-var should = require('should');
 
 suite('Engineering', function() {
   test('BESSELI', function() {
