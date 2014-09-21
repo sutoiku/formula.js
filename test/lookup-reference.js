@@ -12,7 +12,7 @@ suite('Lookup Reference', function() {
     lookup.MATCH(4, [0, 1, 2, 3, 4, 100, 7], -1).should.equal(5);
     lookup.MATCH(5, [0, 1, 2, 3, 4, 100, 7], 1).should.equal(5);
     lookup.MATCH(5, [0, 1, 2, 3, 4, 100, 7], 0).should.equal(error.na);
-    lookup.MATCH(4, [0, 1, 2, 3, 4, 100, 7], -1).should.equal(5);
+    lookup.MATCH(5, [0, 1, 2, 3, 4, 100, 7], -1).should.equal(7);
     lookup.MATCH(4, [0, 1, 2, 3, 4, 100, 7], 2).should.equal(error.na);
     lookup.MATCH(4, [0, 1, 2, 3, 4, 100, 7], -2).should.equal(error.na);
     lookup.MATCH('jima', ['jima', 'jimb', 'jimc', 'bernie'], 0).should.equal(1);
