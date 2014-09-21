@@ -1,3 +1,4 @@
+/* global suite, test */
 var mathTrig = require('../lib/math-trig');
 var error = require('../lib/error');
 var should = require('should');
@@ -194,6 +195,7 @@ suite('Math & Trig', function() {
   });
 
   test('DECIMAL', function() {
+    mathTrig.DECIMAL().should.equal(error.value);
     mathTrig.DECIMAL(10.5).should.equal(10);
     mathTrig.DECIMAL('0', 2).should.equal(0);
     mathTrig.DECIMAL('1', 2).should.equal(1);
@@ -490,11 +492,12 @@ suite('Math & Trig', function() {
   });
 
   test('POW', function() {
-    mathTrig.POWER(5, 2).should.equal(25);
-    mathTrig.POWER(98.6, 3.2).should.approximately(2401077.2220695773, 1e-9);
-    mathTrig.POWER(4, 5 / 4).should.approximately(5.656854249492381, 1e-9);
-    mathTrig.POWER(-1, 0.5).should.equal(error.num);
-    mathTrig.POWER(-1, 'invalid').should.equal(error.value);
+    mathTrig.POW(5).should.equal(error.na);
+    mathTrig.POW(5, 2).should.equal(25);
+    mathTrig.POW(98.6, 3.2).should.approximately(2401077.2220695773, 1e-9);
+    mathTrig.POW(4, 5 / 4).should.approximately(5.656854249492381, 1e-9);
+    mathTrig.POW(-1, 0.5).should.equal(error.num);
+    mathTrig.POW(-1, 'invalid').should.equal(error.value);
   });
 
   test('PRODUCT', function() {
