@@ -28,6 +28,11 @@ suite('Miscellaneous', function() {
     misc.FLATTEN([]).should.eql([]);
   });
 
+  test('GETJSON', function() {
+    // var type = typeof misc.GETJSON('https://api.github.com/');
+    // type.should.equal('object');
+  });
+
   test('JOIN', function() {
     misc.JOIN([1, [2, 3, [4, 5]]]).should.eql('1,2,3,4,5');
     misc.JOIN(['jim', 'alateras'], ' ').should.equal('jim alateras');
@@ -60,6 +65,7 @@ suite('Miscellaneous', function() {
     misc.REFERENCE(ctx, 'name.firstName').should.equal('Jim');
     misc.REFERENCE(ctx, 'name.address').should.have.property('number', '5');
     misc.REFERENCE(ctx, 'name.address.mobile').should.equal('0422344861');
+    misc.REFERENCE(ctx, 'name.nickNames[0]').should.equal('jforce');
     should.not.exist(misc.REFERENCE(ctx, 'name.address2'));
   });
 });
