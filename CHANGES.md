@@ -1,3 +1,8 @@
+1.0.5
+-----
+
+* Remove console.log statements.
+
 1.0.4
 -----
 
