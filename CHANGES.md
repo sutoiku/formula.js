@@ -2,6 +2,7 @@
 -----
 
 * Remove console.log statements.
+* index.js was accidentally truncated by jima.
 
 1.0.4
 -----
