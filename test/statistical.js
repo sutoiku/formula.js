@@ -491,9 +491,9 @@ suite('Statistical', function() {
     should.deepEqual(statistical.LOGEST(known_y, known_x), [
       1.751116, 1.194316
     ]);
-    statistical.LINEST(known_y, 'invalid').should.equal(error.value);
-    statistical.LINEST(known_y, 1).should.equal(error.value);
-    statistical.LINEST(known_y, true).should.equal(error.value);
+    statistical.LOGEST(known_y, 'invalid').should.equal(error.value);
+    statistical.LOGEST(known_y, 1).should.equal(error.value);
+    statistical.LOGEST(known_y, true).should.equal(error.value);
   });
 
   test('LOGNORM.DIST', function() {
