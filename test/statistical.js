@@ -493,7 +493,6 @@ suite('Statistical', function() {
     ]);
     statistical.LINEST(known_y, 'invalid').should.equal(error.value);
     statistical.LINEST(known_y, 1).should.equal(error.value);
-    statistical.LINEST(known_y).should.equal(error.value);
     statistical.LINEST(known_y, true).should.equal(error.value);
   });
 
