@@ -1,3 +1,4 @@
+/* global suite, test */
 var error = require('../lib/error');
 var logical = require('../lib/logical');
 var should = require('should');

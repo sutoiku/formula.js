@@ -1,6 +1,6 @@
+/* global suite, test */
 var error = require('../lib/error');
 var information = require('../lib/information');
-var should = require('should');
 
 suite('Information', function() {
   // TODO
@@ -23,6 +23,16 @@ suite('Information', function() {
   // TODO
   test('INFO', function() {
     information.INFO.should.throw('INFO is not implemented');
+  });
+
+  test('ISBINARY', function() {
+    information.ISBINARY(1).should.equal(true);
+    information.ISBINARY(0).should.equal(true);
+    information.ISBINARY(1000).should.equal(true);
+    information.ISBINARY('1').should.equal(true);
+    information.ISBINARY('0').should.equal(true);
+    information.ISBINARY('1000').should.equal(true);
+    information.ISBINARY('invalid').should.equal(false);
   });
 
   test('ISBLANK', function() {

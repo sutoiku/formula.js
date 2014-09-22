@@ -82,6 +82,7 @@ suite('Text', function() {
   });
 
   test('LEN', function() {
+    text.LEN(true).should.equal(error.value);
     text.LEN('four').should.equal(4);
     text.LEN([1, 2, 3, 4, 5]).should.equal(5);
     text.LEN().should.equal(error.error);
@@ -128,6 +129,15 @@ suite('Text', function() {
     text.REGEXEXTRACT('Google Doc 101', '[0-9]+').should.equal("101");
   });
 
+  test('REGEXREPLACE', function() {
+    text.REGEXREPLACE('(Content) between brackets', '(([A-Za-z]+))', 'Me').should.equal("(Me) between brackets");
+  });
+
+  test('REGEXMATCH', function() {
+    (typeof text.REGEXMATCH('(Content) between brackets', '(([A-Za-z]+))', true)).should.equal("object");
+    text.REGEXMATCH('(Content) between brackets', '(([A-Za-z]+))', false).should.equal(true);
+  });
+
   test('REPLACE', function() {
     text.REPLACE('abcdefghijk', 6, 5, '*').should.equal('abcde*k');
     text.REPLACE('2009', 3, 2, '10').should.equal('2010');
@@ -150,6 +160,11 @@ suite('Text', function() {
     text.SEARCH('e', 'Statements', 6).should.equal(7);
     text.SEARCH('margin', 'Profit Margin').should.equal(8);
     text.SEARCH(true, 'bool').should.equal(error.value);
+  });
+
+  test('SPLIT', function() {
+    (typeof text.SPLIT('123242', '2')).should.equal('object');
+    (text.SPLIT('123242', '2') instanceof Array).should.equal(true);
   });
 
   test("SUBSTITUTE", function() {

@@ -120,6 +120,7 @@ suite('Statistical', function() {
     statistical.CHISQ.TEST([58, 11, 10, 35, 25, 23], [45.35, 17.56, 16.09, 47.65, 18.44]).should.equal(error.value);
     statistical.CHISQ.TEST([58, 11, 10, 35, 25, 23], [45.35, 17.56, 16.09, 47.65, 18.44, 16.91]).should.equal(0.006376);
     statistical.CHISQ.TEST([[58,35],[11,25],[10,23]], [[45.35,47.65],[17.56,18.44],[16.09,16.91]]).should.equal(0.000308);
+    statistical.CHISQ.TEST([[58,35],[11,25],[10,23]], [[45.35],[17.56,18.44],[16.09,16.91]]).should.equal(error.value);
   });
 
   test('COLUMN', function() {
@@ -129,6 +130,7 @@ suite('Statistical', function() {
     statistical.COLUMN('hello', 1).should.equal(error.value);
     statistical.COLUMN([[1,2],[2,3],[2,4]], 0).should.eql([[1],[2],[2]]);
     statistical.COLUMN([[1,2],[2,3],[2,4]], 1).should.eql([[2],[3],[4]]);
+    (typeof statistical.COLUMN([], 0)).should.equal('undefined');
   });
 
   test('COLUMNS', function() {
@@ -233,6 +235,11 @@ suite('Statistical', function() {
     ], '2').should.equal(1);
   });
 
+  test('COUNTIN', function() {
+    statistical.COUNTIN([1, 1, 2, 2, 2], 1).should.equal(2);
+    statistical.COUNTIN([1, 1, 2, 2, 2], 2).should.equal(3);
+  });
+
   test('COUNTUNIQUE', function() {
     statistical.COUNTUNIQUE().should.equal(0);
     statistical.COUNTUNIQUE(1, 1, 2, 2, 3, 3).should.equal(3);
@@ -288,12 +295,13 @@ suite('Statistical', function() {
     statistical.F.INV.RT(1, 2).should.equal(error.na);
     statistical.F.INV.RT(-1, 6, 4).should.equal(error.num);
     statistical.F.INV.RT(1.2, -5, 4).should.equal(error.num);
-    statistical.F.INV.RT(.5, 'hello', 4).should.equal(error.value);
+    statistical.F.INV.RT(0.5, 'hello', 4).should.equal(error.value);
     statistical.F.INV.RT(0.01, 6, 4).should.approximately(15.20686486, 1e-8);
   });
 
   test('F.TEST', function() {
     statistical.F.TEST().should.equal(error.na);
+    statistical.F.TEST('invalid', 100).should.equal(error.na);
     statistical.F.TEST([1, 3, 5, 7, 9]).should.equal(error.na);
     statistical.F.TEST([1, 3, 5, 7, 9], []).should.equal(error.div0);
     statistical.F.TEST([1, 3, 5, 7, 9], [1]).should.equal(error.div0);
@@ -347,6 +355,9 @@ suite('Statistical', function() {
     statistical.GAMMA.DIST(-1, 9, 2, true).should.equal(error.value);
     statistical.GAMMA.DIST(1, -9, 2, true).should.equal(error.value);
     statistical.GAMMA.DIST(1, 9, -2, true).should.equal(error.value);
+    statistical.GAMMA.DIST('invalid', 9, -2, true).should.equal(error.value);
+    statistical.GAMMA.DIST(1, 'invalid', -2, true).should.equal(error.value);
+    statistical.GAMMA.DIST(1, 9, 'invalid', true).should.equal(error.value);
     statistical.GAMMA.DIST(10.00001131, 9, 2, true).should.approximately(0.068094, 1e-6);
     statistical.GAMMA.DIST(10.00001131, 9, 2, false).should.approximately(0.03263913, 1e-9);
   });
@@ -480,7 +491,9 @@ suite('Statistical', function() {
     should.deepEqual(statistical.LOGEST(known_y, known_x), [
       1.751116, 1.194316
     ]);
-    statistical.LINEST(known_y, 'invalid').should.equal(error.value);
+    statistical.LOGEST(known_y, 'invalid').should.equal(error.value);
+    statistical.LOGEST(known_y, 1).should.equal(error.value);
+    statistical.LOGEST(known_y, true).should.equal(error.value);
   });
 
   test('LOGNORM.DIST', function() {

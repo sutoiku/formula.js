@@ -78,6 +78,12 @@ suite('Date & Time', function() {
     dateTime.HOUR('a').should.equal(error.value);
   });
 
+  test('INTERVAL', function() {
+    dateTime.INTERVAL(undefined).should.equal(error.value);
+    dateTime.INTERVAL(10000000).should.equal('P3M25DT17H46M40S');
+    dateTime.INTERVAL('10000000').should.equal('P3M25DT17H46M40S');
+  });
+
   test('ISOWEEKNUM', function() {
     dateTime.ISOWEEKNUM('1/1/1901').should.equal(1);
     dateTime.ISOWEEKNUM('1/8/1901').should.equal(2);

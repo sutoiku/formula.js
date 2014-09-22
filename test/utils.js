@@ -55,4 +55,16 @@ suite('Utils', function() {
     should.deepEqual(utils.arrayValuesToNumbers(['1.4']), [1.4]);
     should.deepEqual(utils.arrayValuesToNumbers(['not convertible']), [0]);
   });
+
+  test('rest', function() {
+    utils.rest([1,2,3], 2).length.should.equal(1);
+    utils.rest('abc', 2).length.should.equal(1);
+    utils.rest(true, 2).should.equal(true);
+  });
+
+  test('initial', function() {
+    utils.initial([1,2,3], 1).length.should.equal(2);
+    utils.initial('abc', 2).length.should.equal(1);
+    utils.initial(true, 1).should.equal(true);
+  });
 });
