@@ -129,6 +129,10 @@ suite('Text', function() {
     text.REGEXEXTRACT('Google Doc 101', '[0-9]+').should.equal("101");
   });
 
+  test('REGEXREPLACE', function() {
+    text.REGEXREPLACE('(Content) between brackets', '(([A-Za-z]+))', 'Me').should.equal("(Me) between brackets");
+  });
+
   test('REGEXMATCH', function() {
     (typeof text.REGEXMATCH('(Content) between brackets', '(([A-Za-z]+))', true)).should.equal("object");
     text.REGEXMATCH('(Content) between brackets', '(([A-Za-z]+))', false).should.equal(true);
