@@ -160,6 +160,8 @@ suite('Text', function() {
     text.SEARCH('e', 'Statements', 6).should.equal(7);
     text.SEARCH('margin', 'Profit Margin').should.equal(8);
     text.SEARCH(true, 'bool').should.equal(error.value);
+    text.SEARCH("foo", "bar").should.equal(error.value);
+    text.SEARCH("ba", "bar").should.equal(1);
   });
 
   test('SPLIT', function() {
