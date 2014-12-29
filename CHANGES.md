@@ -1,3 +1,9 @@
+1.0.6
+-----
+
+* Updated some maths trig functions
+* Merged [pull request 33](https://github.com/sutoiku/formula.js/pull/33)
+
 1.0.5
 -----
 
