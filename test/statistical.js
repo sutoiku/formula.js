@@ -59,7 +59,10 @@ suite('Statistical', function() {
   });
 
   test('BETA.DIST', function() {
-    statistical.BETA.DIST(2, 8, 10, 1, 3).should.approximately(0.6854705810117458, 1e-9);
+    statistical.BETA.DIST(2, 8, 10, true, 1, 3).should.approximately(0.6854705810117458, 1e-9);
+    statistical.BETA.DIST(1/52, 0.4, 9.6, false).should.approximately(9.966606842186748, 1e-9);
+    statistical.BETA.DIST(1/52, 0.4, 9.6, true).should.approximately(0.5406016379941343, 1e-9);
+    statistical.BETA.DIST(2, 8, 10).should.equal(error.value);
     statistical.BETA.DIST(2, 8, 'invalid', 1, 3).should.equal(error.value);
   });
 
