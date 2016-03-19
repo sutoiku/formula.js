@@ -12,10 +12,10 @@
     "implementation-stats": "./bin/implementation-stats"
   },
   "dependencies": {
+    "bessel": "0.2.0",
     "jStat": "1.0.6",
     "numeral": "1.5.3",
-    "numeric": "1.2.6",
-    "bessel": "0.2.0"
+    "numeric": "1.2.6"
   },
   "devDependencies": {
     "istanbul": "*",

@@ -11,7 +11,7 @@
   "jquery": true,
   "latedef": false,
   "laxcomma": true,
-  "newcap": true,
+  "newcap": false,
   "node": true,
   "noempty": false,
   "nonew": true,

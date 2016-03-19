@@ -1,7 +1,7 @@
-webpack = node_modules/webpack/bin/webpack.js
-jshint = node_modules/jshint/bin/jshint
-mocha = node_modules/mocha/bin/mocha
-coveralls = node_modules/coveralls/bin/coveralls.js
+webpack = node_modules/.bin/webpack.js
+jshint = node_modules/.bin/jshint
+mocha = node_modules/.bin/mocha
+coveralls = node_modules/.bin/coveralls.js
 
 build:
 	@$(webpack)
@@ -16,7 +16,7 @@ test-watch:
 	@$(mocha) -u tdd -R min -w
 
 lint:
-	@jshint lib/*.js
+	@$(jshint) lib/*.js
 
 coveralls:
 	@$(mocha) -r blanket -u tdd -R mocha-lcov-reporter | $(coveralls)
