@@ -1,3 +1,11 @@
+1.0.7
+-----
+
+* Merged [pull request 41](https://github.com/sutoiku/formula.js/pull/41)
+* Merged [pull request 45](https://github.com/sutoiku/formula.js/pull/45)
+* Fixed the Makefile to correctly reference `jshint`
+* Fixed lint errors. Please note that we still use `eval` in some cases.
+
 1.0.6
 -----
 
