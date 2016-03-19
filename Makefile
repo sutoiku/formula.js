@@ -1,7 +1,7 @@
-webpack = node_modules/.bin/webpack.js
+webpack = node_modules/.bin/webpack
 jshint = node_modules/.bin/jshint
 mocha = node_modules/.bin/mocha
-coveralls = node_modules/.bin/coveralls.js
+coveralls = node_modules/.bin/coveralls
 
 build:
 	@$(webpack)
