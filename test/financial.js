@@ -435,7 +435,7 @@ suite('Financial', function() {
     financial.RATE(2 * 12, -1000, -10000, 100000, 0, 0.75).should.approximately(0.0651789117718154, 1e-9);
     financial.RATE(2 * 12, -1000, -10000, 100000, 0, 0.065).should.approximately(0.06517891177181524, 1e-9);
     financial.RATE(2 * 12, -1000, -10000, 100000, 1, 0.1).should.approximately(0.0632395800018064, 1e-9);
-    financial.RATE(2 * 12, -1000, -10000, 100000, 1, 1e-11).should.approximately(-1.3199999999735999e-20, 1e-9);
+    financial.RATE(2 * 12, -1000, -10000, 100000, 1, 1e-14).should.approximately(-2.2949415145819036e-14, 1e-9);
     financial.RATE('invalid', -1000, -10000, 100000, 1, 1e-11).should.equal(error.value);
   });
 
