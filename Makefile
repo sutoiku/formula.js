@@ -10,7 +10,7 @@ build:
 	@$(webpack) --prod --standalone
 
 test:
-	@$(mocha) -u tdd -R mocha-spec-cov -r blanket
+	@$(mocha) -u tdd -r blanket
 
 test-watch:
 	@$(mocha) -u tdd -R min -w
