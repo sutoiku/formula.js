@@ -1,5 +1,5 @@
 build
-dist
+dist/*.standalone.*
 node_modules
 coverage-report.html
 *.tgz

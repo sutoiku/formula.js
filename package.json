@@ -7,7 +7,7 @@
     "type": "git",
     "url": "git@github.com:sutoiku/formula.js.git"
   },
-  "main": "index.js",
+  "main": "dist/formula.js",
   "bin": {
     "implementation-stats": "./bin/implementation-stats"
   },

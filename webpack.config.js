@@ -32,5 +32,10 @@ module.exports = {
     library: 'formulajs',
     libraryTarget: 'umd'
   },
+  externals: {
+    'numeral': 'numeral',
+    'numeric': 'numeric',
+    'jStat': 'jStat'
+  },
   plugins: plugins
 };
