@@ -24,7 +24,7 @@ if (isProd) {
 
 module.exports = {
   entry: {
-    'formula': './core'
+    'formula': './index'
   },
   output: {
     path: __dirname,
