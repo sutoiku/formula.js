@@ -7358,40 +7358,30 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 
 	  // Set maximum epsilon for end of iteration
-	  var epsMax = 1e-10;
+	  var epsMax = 1e-6;
 
 	  // Set maximum number of iterations
-	  var iterMax = 50;
-
-	  // Implement Newton's method
-	  var y, y0, y1, x0, x1 = 0,
-	    f = 0,
-	    i = 0;
+	  var iterMax = 100;
+	  var iter = 0;
+	  var close = false;
 	  var rate = guess;
-	  if (Math.abs(rate) < epsMax) {
-	    y = present * (1 + periods * rate) + payment * (1 + rate * type) * periods + future;
-	  } else {
-	    f = Math.exp(periods * Math.log(1 + rate));
-	    y = present * f + payment * (1 / rate + type) * (f - 1) + future;
+
+	  while (iter < iterMax && !close) {
+	    var t1 = Math.pow(rate + 1, periods);
+	    var t2 = Math.pow(rate + 1, periods - 1);
+
+	    var f1 = future + t1 * present + payment * (t1 - 1) * (rate * type + 1) / rate;
+	    var f2 = periods * t2 * present - payment * (t1 - 1) *(rate * type + 1) / Math.pow(rate,2);
+	    var f3 = periods * payment * t2 * (rate * type + 1) / rate + payment * (t1 - 1) * type / rate;
+
+	    var newRate = rate - f1 / (f2 + f3);
+
+	    if (Math.abs(newRate - rate) < epsMax) close = true;
+	    iter++
+	    rate = newRate;
 	  }
-	  y0 = present + payment * periods + future;
-	  y1 = present * f + payment * (1 / rate + type) * (f - 1) + future;
-	  i = x0 = 0;
-	  x1 = rate;
-	  while ((Math.abs(y0 - y1) > epsMax) && (i < iterMax)) {
-	    rate = (y1 * x0 - y0 * x1) / (y1 - y0);
-	    x0 = x1;
-	    x1 = rate;
-	    if (Math.abs(rate) < epsMax) {
-	      y = present * (1 + periods * rate) + payment * (1 + rate * type) * periods + future;
-	    } else {
-	      f = Math.exp(periods * Math.log(1 + rate));
-	      y = present * f + payment * (1 / rate + type) * (f - 1) + future;
-	    }
-	    y0 = y1;
-	    y1 = y;
-	    ++i;
-	  }
+
+	  if (!close) return Number.NaN + rate;
 	  return rate;
 	};
 

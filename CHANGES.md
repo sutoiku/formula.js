@@ -1,6 +1,7 @@
 1.0.8
 -----
 
+* Merged [PR 47](https://github.com/sutoiku/formula.js/pull/47)
 * Merged [PR 49](https://github.com/sutoiku/formula.js/pull/49)
 
 1.0.7
