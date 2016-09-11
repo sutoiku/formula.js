@@ -8,6 +8,18 @@ JavaScript implementation of most Microsoft Excel formula functions
 USAGE
 -----
 
+## Node context
+
+Install the library:
+
+    npm install formulajs
+
+And import it the usual way into your application:
+
+    formulajs = require('formulajs');
+
+## Browser usage
+
 Formulas depends on the following Open source Javascript libraries: Numeric, NumeralJs and jStats.
 
 Include them as follow to use formula.js in your browser:
@@ -18,9 +30,15 @@ Include them as follow to use formula.js in your browser:
     <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
     <!-- jStat -->
     <script src="https://cdn.jsdelivr.net/jstat/latest/jstat.min.js"></script>
-    
+    <!-- Mandatory jStat compatibility trick -->
+    <script>
+        jStat = jStat.jStat
+    </script>
     <!-- Finally add formula.js -->
     <script src="local-formula-path/formula.js"></script>
+
+
+Formulajs is as well available on CDNJS. Grad the last version here: [https://cdnjs.com/libraries/formulajs](https://cdnjs.com/libraries/formulajs)
 
 LICENSE
 -------
