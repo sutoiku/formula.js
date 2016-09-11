@@ -32,7 +32,7 @@ Include them as follow to use formula.js in your browser:
     <script src="https://cdn.jsdelivr.net/jstat/latest/jstat.min.js"></script>
     <!-- Mandatory jStat compatibility trick -->
     <script>
-        jStat = jStat.jStat
+        jStat.jStat = jStat;
     </script>
     <!-- Finally add formula.js -->
     <script src="local-formula-path/formula.js"></script>
