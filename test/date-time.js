@@ -4,14 +4,40 @@ var dateTime = require('../lib/date-time');
 require('should');
 
 suite('Date & Time', function() {
-  test('DATE', function() {
-    var date = dateTime.DATE(1900, 1, 1);
-    date.getFullYear().should.equal(1900);
-    date.getMonth().should.equal(1 - 1);
-    date.getDay().should.equal(1);
-
-    dateTime.DATE(1900, 1, -1).should.equal(error.num);
-    dateTime.DATE('invalid').should.equal(error.value);
+  suite('DATE', function (){
+      test('returns Date for year, month, day', function(){
+        var date = dateTime.DATE(1900, 1, 1);
+        date.getFullYear().should.equal(1900);
+        date.getMonth().should.equal(1 - 1);
+        date.getDay().should.equal(1);          
+      });
+      test('uses year as is for 1900 to 9999', function() {
+        dateTime.DATE(1900, 2, 2).getFullYear().should.equal(1900);
+        dateTime.DATE(9999, 2, 2).getFullYear().should.equal(9999);
+      });
+      test('adds 1900 to year for 0 to 1899', function() {
+        dateTime.DATE(0, 2, 2).getFullYear().should.equal(1900);
+        dateTime.DATE(1899, 2, 2).getFullYear().should.equal(3799);
+      });
+      test('returns num error for year <0 or >9999', function() {
+        dateTime.DATE(-1, 2, 2).should.equal(error.num);
+        dateTime.DATE(10000, 2, 2).should.equal(error.num);
+      });
+      test('adds months >12', function() {
+        dateTime.DATE(2008, 14, 2).should.eql(new Date(2009, 1, 2));
+      });
+      test('subtracts months <0', function() {
+        dateTime.DATE(2008, -3, 2).should.eql(new Date(2007, 8, 2));
+      });
+      test('adds days > month has', function() {
+        dateTime.DATE(2008, 1, 35).should.eql(new Date(2008, 1, 4));
+      });
+      test('subtracts days <0', function() {
+        dateTime.DATE(2008, 1, -15).should.eql(new Date(2007, 11, 16));
+      });
+      test('returns value error for string', function(){
+        dateTime.DATE('invalid').should.equal(error.value);
+      });
   });
 
   test('DATEVALUE', function() {
