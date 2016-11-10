@@ -683,6 +683,7 @@ suite('Math & Trig', function() {
       [3, 3]
     ]).should.equal(24);
     mathTrig.SUM(1, 'invalid').should.equal(1);
+    mathTrig.SUM(0.1, 0.2).should.equal(0.3);
   });
 
   test("SUMIF", function() {
