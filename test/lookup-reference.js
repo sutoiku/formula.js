@@ -42,4 +42,23 @@ suite('Lookup Reference', function () {
     lookup.VLOOKUP('ji', [['jim', 2],['jam', 4]], 3, true).should.equal(error.ref);
     lookup.VLOOKUP('ji', [['jim', 2],['jam', 4]], 3, false).should.equal(error.na);
   });
+
+  test('HLOOKUP', function() {
+    lookup.HLOOKUP().should.equal(error.na);
+    lookup.HLOOKUP(1).should.equal(error.na);
+    lookup.HLOOKUP(1, [[1, 2]]).should.equal(error.na);
+    lookup.HLOOKUP(1, [[1],[2]], 2).should.equal(2);
+    lookup.HLOOKUP(1, [[1],[2]], 3).should.equal(error.ref);
+    lookup.HLOOKUP(1, [[1,2],[3,4]], 2).should.equal(3);
+    lookup.HLOOKUP(2, [[1,2],[3,4]], 2).should.equal(4);
+    lookup.HLOOKUP(1, [[1],[2]], 2, true).should.equal(2);
+    lookup.HLOOKUP(1, [[1],[2]], 3, true).should.equal(error.ref);
+    lookup.HLOOKUP(1, [[1,2],[3,4]], 2, true).should.equal(3);
+    lookup.HLOOKUP(2, [[1,2],[3,4]], 2, true).should.equal(4);
+    lookup.HLOOKUP('ji', [['jim', 'jam'],[1, 4]], 2, false).should.equal(error.na);
+    lookup.HLOOKUP('ji', [['jim', 'jam'],[1, 4]], 2, true).should.equal(1);
+    lookup.HLOOKUP('li', [['jim', 'jam'],[1, 4]], 2, true).should.equal(error.na);
+    lookup.HLOOKUP('ji', [['jim', 'jam'],[1, 4]], 3, true).should.equal(error.ref);
+    lookup.HLOOKUP('ji', [['jim', 'jam'],[1, 4]], 3, false).should.equal(error.na);
+  });
 });
