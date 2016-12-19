@@ -2,8 +2,8 @@
 var error = require('../lib/error');
 var lookup = require('../lib/lookup-reference');
 
-suite('Lookup Reference', function() {
-  test('MATCH', function() {
+suite('Lookup Reference', function () {
+  test('MATCH', function () {
     lookup.MATCH().should.equal(error.na);
     lookup.MATCH(1).should.equal(error.na);
     lookup.MATCH(1, [0, 1, 2, 3, 4, 100, 7]).should.equal(2);
@@ -24,5 +24,22 @@ suite('Lookup Reference', function() {
     lookup.MATCH('jimc', ['jima', 'jimb', 'jimc', 'bernie'], 0).should.equal(3);
     lookup.MATCH('jimc', ['jima', 'jimb', 'jimd', 'bernie'], -1).should.equal(3);
     lookup.MATCH('jimc', ['jima', 'jimb', 'jimd', 'bernie'], 1).should.equal(2);
+  });
+
+  test('VLOOKUP', function () {
+    lookup.VLOOKUP().should.equal(error.na);
+    lookup.VLOOKUP(1).should.equal(error.na);
+    lookup.VLOOKUP(1, [[1, 2]]).should.equal(error.na);
+    lookup.VLOOKUP(1, [[1, 2]], 2).should.equal(2);
+    lookup.VLOOKUP(1, [[1, 2]], 2, false).should.equal(2);
+    lookup.VLOOKUP(1, [[1, 2]], 2, true).should.equal(2);
+    lookup.VLOOKUP(3, [[1, 2],[3, 4]], 2, true).should.equal(4);
+    lookup.VLOOKUP(5, [[1, 2],[3, 4]], 2, false).should.equal(error.na);
+    lookup.VLOOKUP(5, [[1, 2],[3, 4]], 2, true).should.equal(error.na);
+    lookup.VLOOKUP('ji', [['jim', 2],['jam', 4]], 2, false).should.equal(error.na);
+    lookup.VLOOKUP('ji', [['jim', 2],['jam', 4]], 2, true).should.equal(2);
+    lookup.VLOOKUP('li', [['jim', 2],['jam', 4]], 2, true).should.equal(error.na);
+    lookup.VLOOKUP('ji', [['jim', 2],['jam', 4]], 3, true).should.equal(error.ref);
+    lookup.VLOOKUP('ji', [['jim', 2],['jam', 4]], 3, false).should.equal(error.na);
   });
 });
