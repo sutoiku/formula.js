@@ -333,6 +333,7 @@ suite('Math & Trig', function() {
   });
 
   test('LOG', function() {
+    mathTrig.LOG(10).should.equal(1);
     mathTrig.LOG(10, 10).should.equal(1);
     mathTrig.LOG(10, 'invalid').should.equal(error.value);
   });
