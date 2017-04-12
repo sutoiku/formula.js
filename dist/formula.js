@@ -1109,10 +1109,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  for (var i = 0; i < argsKeys.length; ++i) {
 	    var elt = arguments[argsKeys[i]];
 	    if (typeof elt === 'number') {
-	      result += elt;
+	      result = utils.sumWithDecimal(elt, result);
 	    } else if (typeof elt === 'string') {
 	      var parsed = parseFloat(elt);
-	      !isNaN(parsed) && (result += parsed);
+	      !isNaN(parsed) && (result = utils.sumWithDecimal(elt, parsed));
 	    } else if (Array.isArray(elt)) {
 	      result += exports.SUM.apply(null, elt);
 	    }
@@ -1281,6 +1281,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var sign = (number > 0) ? 1 : -1;
 	  return sign * (Math.floor(Math.abs(number) * Math.pow(10, digits))) / Math.pow(10, digits);
 	};
+
 
 /***/ },
 /* 3 */
@@ -1510,6 +1511,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	  return array.slice(0, array.length - idx);
 	};
+
+	exports.sumWithDecimal = function(a, b) {
+	  var decimalLen, matchA, matchB, result;
+
+	  matchA = String(a);
+	  matchB = String(b);
+	  matchA = matchA.match(/\.(\d+)/);
+	  matchB = matchB.match(/\.(\d+)/);
+	  decimalLen = Math.max(matchA ? matchA[1].length : 0,
+	    matchB ? matchB[1].length : 0);
+	  if(decimalLen) {
+	    result = (a * decimalLen * 10 + b * decimalLen * 10)/ (decimalLen * 10);
+	  } else {
+	    result = a + b;
+	  }
+	  return result;
+	};
+
 
 /***/ },
 /* 5 */
