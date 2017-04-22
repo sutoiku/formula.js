@@ -1,3 +1,8 @@
+1.0.9
+-----
+
+* Merged [PR 58](https://github.com/sutoiku/formula.js/pull/58)
+
 1.0.8
 -----
 
@@ -43,16 +48,16 @@
 0.0.26
 ------
 
-* Add grunt support from João Jerónimo (joaojeronimo)  
-* POWER function with negative base now works from João Jerónimo (joaojeronimo)  
-* SUM supports multi-dimensional arrays from João Jerónimo (joaojeronimo)  
+* Add grunt support from João Jerónimo (joaojeronimo)
+* POWER function with negative base now works from João Jerónimo (joaojeronimo)
+* SUM supports multi-dimensional arrays from João Jerónimo (joaojeronimo)
 
 0.0.25
 ------
 
 * Integrate a really old but useful pull request to add database functions (https://github.com/sutoiku/formula.js/pull/9)
 * Thanks a heap to Sam Dao (grasscrm) for all the database features
-* Cleared all but 1 outstanding issue on github 
+* Cleared all but 1 outstanding issue on github
 
 0.0.19
 ------
