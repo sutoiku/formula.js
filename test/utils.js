@@ -67,4 +67,11 @@ suite('Utils', function() {
     utils.initial('abc', 2).length.should.equal(1);
     utils.initial(true, 1).should.equal(true);
   });
+
+  test('transpose', function(){
+    utils.transpose().should.equal(error.value);
+    utils.transpose([[1],[2]]).should.deepEqual([[1,2]]);
+    utils.transpose([[1,2,3,4],[5,6,7,8], [9,10,11,12]])
+      .should.deepEqual([[1,5,9],[2,6,10], [3,7,11], [4,8,12]]);
+  });
 });
