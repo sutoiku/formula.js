@@ -256,39 +256,47 @@ suite('Math & Trig', function() {
   });
 
   test('FLOOR', function() {
-    mathTrig.FLOOR(3.7, 2).should.equal(2);
-    mathTrig.FLOOR(-2.5, -2).should.equal(-2);
-    mathTrig.FLOOR(2.5, -2).should.equal(error.num);
-    mathTrig.FLOOR(1.58, 0.1).should.approximately(1.5, 1e-9);
-    mathTrig.FLOOR(0.234, 0.01).should.approximately(0.23, 1e-9);
-    mathTrig.FLOOR(0.234, 0).should.equal(0);
-    mathTrig.FLOOR('invalid', 0).should.equal(error.value);
-  });
-
-  test('FLOOR.PRECISE', function() {
-    mathTrig.FLOOR.PRECISE(2014.6, 0.2).should.equal(2014.4);
-    mathTrig.FLOOR.PRECISE(-3.2,-1).should.equal(-4);
-    mathTrig.FLOOR.PRECISE(3.2,1).should.equal(3);
-    mathTrig.FLOOR.PRECISE(-3.2,1).should.equal(-4);
-    mathTrig.FLOOR.PRECISE(3.2,-1).should.equal(3);
-    mathTrig.FLOOR.PRECISE(3.2).should.equal(3);
+    mathTrig.FLOOR(4.1).should.equal(4);
+    mathTrig.FLOOR(4.9).should.equal(4);
+    mathTrig.FLOOR(-4.1).should.equal(-5);
+    mathTrig.FLOOR(-4.9).should.equal(-5);
+    mathTrig.FLOOR(4.1, 0).should.equal(0);
+    mathTrig.FLOOR(4.1, 1).should.equal(4);
+    mathTrig.FLOOR(4.1, 2).should.equal(4);
+    mathTrig.FLOOR(-4.1, 2).should.equal(-6);
+    mathTrig.FLOOR(-4.1, -2).should.equal(-6);
+    mathTrig.FLOOR(1.234, 0.1).should.approximately(1.2, 1e-9);
+    mathTrig.FLOOR(-1.234, 0.1).should.approximately(-1.3, 1e-9);
+    mathTrig.FLOOR(-1.234, -0.1).should.approximately(-1.3, 1e-9);
+    mathTrig.FLOOR(-1.234, -0.01).should.approximately(-1.24, 1e-9);
+    mathTrig.FLOOR(-1.234, -0.001).should.approximately(-1.234, 1e-9);
+    mathTrig.FLOOR(-4.1, 2, 0).should.equal(-6);
+    mathTrig.FLOOR(-4.1, 2, -1).should.equal(-4);
+    mathTrig.FLOOR(-4.1, -2, 0).should.equal(-6);
+    mathTrig.FLOOR(-4.1, -2, -1).should.equal(-4);
+    mathTrig.FLOOR(0.19, 0.25, 0).should.equal(0);
+    mathTrig.FLOOR(0.39, 0.25, 0).should.equal(0.25);
+    mathTrig.FLOOR(0.69, 0.25, 0).should.equal(0.5);
+    mathTrig.FLOOR(0.89, 0.25, 0).should.equal(0.75);
+    mathTrig.FLOOR(-4.1, -2, 'invalid').should.equal(error.value);
   });
 
   test('FLOOR.MATH', function() {
     mathTrig.FLOOR.MATH(24.3, 5).should.equal(20);
     mathTrig.FLOOR.MATH(6.7).should.equal(6);
     mathTrig.FLOOR.MATH(-8.1, 2).should.equal(-10);
-    mathTrig.FLOOR.MATH(-8.1, 0).should.equal(0);
     mathTrig.FLOOR.MATH(-5.5, 2, -1).should.equal(-4);
-    mathTrig.FLOOR.MATH('invalid', 0).should.equal(error.value);
+    mathTrig.FLOOR.MATH(-5.5, 2, 'invalid').should.equal(error.value);
+  });
 
-    mathTrig.FLOOR.MATH(-3.2, -1).should.equal(-4);
-    mathTrig.FLOOR.MATH(3.2, 1).should.equal(3);
-    mathTrig.FLOOR.MATH(-3.2, 1).should.equal(-4);
-    mathTrig.FLOOR.MATH(3.2, -1).should.equal(3);
-    mathTrig.FLOOR.MATH(3.2).should.equal(3);
-    mathTrig.FLOOR.MATH(3.2, 0).should.equal(0);
-    mathTrig.FLOOR.MATH(3.2, 'invalid').should.equal(error.value);
+  test('FLOOR.PRECISE', function() {
+    mathTrig.FLOOR.PRECISE(4.3).should.equal(4);
+    mathTrig.FLOOR.PRECISE(-4.3).should.equal(-5);
+    mathTrig.FLOOR.PRECISE(4.3, 2).should.equal(4);
+    mathTrig.FLOOR.PRECISE(4.3, -2).should.equal(4);
+    mathTrig.FLOOR.PRECISE(-4.3, 2).should.equal(-6);
+    mathTrig.FLOOR.PRECISE(-4.3, -2).should.equal(-6);
+    mathTrig.FLOOR.PRECISE(-4.3, 'invalid').should.equal(error.value);
   });
 
   test('GCD', function() {
