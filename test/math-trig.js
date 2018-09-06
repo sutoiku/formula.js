@@ -117,6 +117,10 @@ suite('Math & Trig', function() {
     mathTrig.CEILING(-4.1, 2, -1).should.equal(-6);
     mathTrig.CEILING(-4.1, -2, 0).should.equal(-4);
     mathTrig.CEILING(-4.1, -2, -1).should.equal(-6);
+    mathTrig.CEILING(0.19, 0.25, 0).should.equal(0.25);
+    mathTrig.CEILING(0.39, 0.25, 0).should.equal(0.5);
+    mathTrig.CEILING(0.69, 0.25, 0).should.equal(0.75);
+    mathTrig.CEILING(0.89, 0.25, 0).should.equal(1);
     mathTrig.CEILING(-4.1, -2, 'invalid').should.equal(error.value);
   });
 
