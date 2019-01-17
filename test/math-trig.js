@@ -700,6 +700,7 @@ suite('Math & Trig', function() {
 
   test("SUMIF", function() {
     mathTrig.SUMIF([1, 2, 3], '>2').should.equal(3);
+    mathTrig.SUMIF([1, 2, 3], '>2', [4, 5, 6]).should.equal(6);
     mathTrig.SUMIF([
       [1, 1],
       [2, 2],
