@@ -1115,8 +1115,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (/=[^=]/.test(criteria)) {
 	    criteria = '=' + criteria;
 	  }
+	  if (/==(.*)/.test(criteria)) {
+	    var elt = criteria.match(/==(.*)/)[1];
+	    if (utils.parseNumber(elt) == error.value && !/"(.*)"/.test(criteria)) {
+	      criteria = '=="' + elt + '"';
+	    }
+	  }
 	  var result = 0;
 	  for (var i = 0; i < range.length; i++) {
+	    if (typeof range[i] === 'string' &&! /^\".*\"$/.test(range[i])) {
+	      range[i] = '"' + range[i] + '"';
+	    }
 	    result += (eval(range[i] + criteria)) ? sum_range[i] : 0; // jshint ignore:line
 	  }
 	  return result;

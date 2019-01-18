@@ -703,6 +703,7 @@ suite('Math & Trig', function() {
     mathTrig.SUMIF([1, 2, 3], '=2').should.equal(2);
     mathTrig.SUMIF([1, 2, 3], '>2', [4, 5, 6]).should.equal(6);
     mathTrig.SUMIF(['"A"', '"B"', '"B"'], '"B"', [1, 2, 3]).should.equal(5);
+    mathTrig.SUMIF(['A', 'B', 'B'], '=B', [1, 2, 3]).should.equal(5);
     mathTrig.SUMIF([
       [1, 1],
       [2, 2],
