@@ -2602,6 +2602,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.NORM.S = {};
 
 	exports.NORM.S.DIST = function(z, cumulative) {
+	  if (cumulative === undefined) {
+	    cumulative = true;
+	  }
 	  z = utils.parseNumber(z);
 	  if (z instanceof Error) {
 	    return error.value;
