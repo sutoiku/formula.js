@@ -6443,6 +6443,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return stats.VAR.P(targetValues);
 	};
 
+	exports.VLOOKUP = function(value, table, col_index, range_lookup) {
+	  if (range_lookup !== undefined) {
+	    return error.value; // not implemented
+	  }
+	  for (row = 0; row < table[0].length; row++) {
+	    if (table[0][row] === value) {
+	      return table[col_index - 1][row];
+	    }
+	  }
+	  return false;
+	};
+
 
 /***/ }),
 /* 16 */

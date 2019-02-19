@@ -85,4 +85,8 @@ suite('Database', function() {
     database.DVARP([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,12],['Age',20,12,14,16,8,11],['Yield',14,10,9,10,8,6]], undefined, [['Height','>10'],['Age','>14']]).should.equal(error.value);
     database.DVARP([['Tree','Apple','Pear','Cherry','Apple','Pear','Apple'],['Height',18,12,13,14,9,12],['Age',20,12,14,16,8,11],['Yield',14,10,9,10,8,6]], 3, [['Height','>10'],['Age','>14']]).should.equal(4);
   });
+
+  test('VLOOKUP', function() {
+    database.VLOOKUP("B", [["A","B","C"],[5,7,3]], 2);
+  });
 });
