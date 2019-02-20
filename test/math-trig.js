@@ -763,6 +763,11 @@ suite('Math & Trig', function() {
       [5, 3]
     ]).should.equal(error.value);
 
+    mathTrig.SUMPRODUCT(
+      [1, 2, false],
+      [4, 5, false]
+    ).should.equal(14);
+
     mathTrig.SUMPRODUCT([8, 'invalid'], [5, 3]).should.equal(error.value);
     mathTrig.SUMPRODUCT().should.equal(error.value);
   });
