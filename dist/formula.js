@@ -1173,7 +1173,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (!(arguments[0][i] instanceof Array)) {
 	      product = 1;
 	      for (k = 1; k < arrays; k++) {
-	        _i = utils.parseNumber(arguments[k - 1][i]);
+	        if (arguments[k - 1][i] === false) {
+	          _i = false;
+	        }
+	        else {
+	          _i = utils.parseNumber(arguments[k - 1][i]);
+	        }
 	        if (_i instanceof Error) {
 	          return _i;
 	        }
