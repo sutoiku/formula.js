@@ -1520,7 +1520,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	  if (/=+(.*)/.test(criteria)) {
 	    var elt = criteria.match(/=+(.*)/)[1];
-	    if (utils.parseNumber(elt) == error.value && !/"(.*)"/.test(criteria)) {
+	    if (this.parseNumber(elt) == error.value && !/"(.*)"/.test(criteria)) {
 	      criteria = '=="' + elt + '"';
 	    }
 	  }
