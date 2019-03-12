@@ -1109,24 +1109,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (sum_range instanceof Error) {
 	    return sum_range;
 	  }
-	  if (!/[<>=!]/.test(criteria)) {
-	    criteria = '==' + criteria;
-	  }
-	  if (/=[^=]/.test(criteria)) {
-	    criteria = '=' + criteria;
-	  }
-	  if (/==(.*)/.test(criteria)) {
-	    var elt = criteria.match(/==(.*)/)[1];
-	    if (utils.parseNumber(elt) == error.value && !/"(.*)"/.test(criteria)) {
-	      criteria = '=="' + elt + '"';
-	    }
-	  }
+
+	  criteria = utils.parseCriteria(criteria)
+
 	  var result = 0;
 	  for (var i = 0; i < range.length; i++) {
 	    if (typeof range[i] === 'string' &&! /^\".*\"$/.test(range[i])) {
 	      range[i] = '"' + range[i] + '"';
 	    }
-	    result += (eval(range[i] + criteria)) ? sum_range[i] : 0; // jshint ignore:line
+			result += (eval(range[i] + criteria)) ? sum_range[i] : 0; // jshint ignore:line
 	  }
 	  return result;
 	};
@@ -1147,11 +1138,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var el = range[i];
 	    var condition = '';
 	    for (var c = 0; c < n_criterias; c++) {
-	      condition += el + criteria[c];
+	      let currentCriteria = criteria[c]
+				currentCriteria = utils.parseCriteria(currentCriteria)
+				condition += el + currentCriteria;
+
 	      if (c !== n_criterias - 1) {
 	        condition += '&&';
 	      }
-	    }
+			}
 	    if (eval(condition)) { // jshint ignore:line
 	      result += el;
 	    }
@@ -1515,6 +1509,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	  return array.slice(0, array.length - idx);
 	};
+
+	exports.parseCriteria = function (criteria) {
+
+	  if (!/[<>=!]/.test(criteria)) {
+	    criteria = '==' + criteria;
+	  }
+	  if (/=[^=]/.test(criteria)) {
+	    criteria = '=' + criteria;
+	  }
+	  if (/=+(.*)/.test(criteria)) {
+	    var elt = criteria.match(/=+(.*)/)[1];
+	    if (utils.parseNumber(elt) == error.value && !/"(.*)"/.test(criteria)) {
+	      criteria = '=="' + elt + '"';
+	    }
+	  }
+
+	  return criteria
+	}
+
 
 /***/ }),
 /* 5 */
