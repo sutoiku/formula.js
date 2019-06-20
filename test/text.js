@@ -176,6 +176,7 @@ suite('Text', function() {
     text.SUBSTITUTE('', 'im', 'ames').should.equal("");
     should.not.exist(text.SUBSTITUTE(undefined, 'im', 'ames'));
     text.SUBSTITUTE('Quarter 1, 2008', '1', '2', 1).should.equal('Quarter 2, 2008');
+    text.SUBSTITUTE('t:07792 526879', 't:', '').should.equal('07792 526879');
   });
 
   test('T', function() {
