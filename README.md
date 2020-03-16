@@ -1,7 +1,7 @@
 formula.js
 ==========
 
-[![Build Status](https://drone.io/github.com/sutoiku/formula.js/status.png)](https://drone.io/github.com/sutoiku/formula.js/latest)
+**DEPRECATED: this repository has been deprecated. The project continues at [formulajs/formulajs](https://github.com/formulajs/formulajs). Documentation can be found [here](https://formulajs.info/)**
 
 JavaScript implementation of most Microsoft Excel formula functions
 
