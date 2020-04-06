@@ -8,7 +8,7 @@ JavaScript implementation of most Microsoft Excel formula functions
 USAGE
 -----
 
-Formulas depends on the following Open source Javascript libraries: Numeric, NumeralJs and jStats.
+Formulas depends on the following Open source Javascript libraries: [Numeric](https://github.com/sloisel/numeric), [Numeral.js](https://github.com/adamwdraper/Numeral-js) and [jStat](https://github.com/jstat/jstat/).
 
 Include them as follow to use formula.js in your browser:
 ```html
