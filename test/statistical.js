@@ -604,6 +604,7 @@ suite('Statistical', function() {
 
   test('NORM.S.DIST', function() {
     statistical.NORM.S.DIST(1, true).should.approximately(0.8413447460685429, 1e-9);
+    statistical.NORM.S.DIST(1).should.approximately(0.8413447460685429, 1e-9);
     statistical.NORM.S.DIST(1, false).should.approximately(0.24197072451914337, 1e-9);
     statistical.NORM.S.DIST('invalid', false).should.equal(error.value);
   });
